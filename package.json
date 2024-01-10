@@ -1,0 +1,15 @@
+{
+  "name": "leetcode-practice",
+  "version": "1.0.0",
+  "description": "A leetcode practice project",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "leet-check": "node common/check.js",
+    "leet-create": "node common/create.js"
+  },
+  "author": "EternalHeart",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
