@@ -3,6 +3,9 @@
 力扣练习库!
 在编辑器中编写你的代码,简单有效的执行和计时!
 
+## How to use for yourself ?
+拉取分支`template`的内容,其非内容部分会与主分支保持同步,意思是只是去除了题目代码,使用指令创建你自己的题解即可!
+
 ## Preparation
 
 只需要一个node环境即可.([如何安装node?点我了解](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs))
