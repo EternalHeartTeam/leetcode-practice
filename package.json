@@ -6,10 +6,14 @@
   "type": "commonjs",
   "scripts": {
     "leet-check": "node common/scripts/check.js",
-    "leet-create": "node common/scripts/create.js"
+    "leet-create": "node common/scripts/create.js",
+    "preget-question": "rm -rf index.html",
+    "get-question": "VITE_CJS_IGNORE_WARNING=true node common/question/getQuestion.js"
   },
   "author": "EternalHeart",
   "license": "ISC",
   "dependencies": {
+    "jsdom": "^23.2.0",
+    "vite": "^5.0.11"
   }
 }
