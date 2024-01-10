@@ -2,7 +2,7 @@
  * 工作区为 根目录
  */
 const fs = require("fs");
-const {temExe} = require("./utils/temExe");
+const {temExe} = require("../utils/temExe");
 
 const args = process.argv.slice(2);
 const path = args[0];

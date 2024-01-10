@@ -1,3 +1,4 @@
+const {withTimeLog} = require("../utils/withTimeLog");
 /**
  * @题目
  *
@@ -5,9 +6,10 @@
  *
  */
 const test = () => {
+    // your code
+}
 
-};
 /**
  * Test case
  */
-console.log(test());
+withTimeLog(()=>test());

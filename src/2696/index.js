@@ -1,3 +1,4 @@
+const {withTimeLog} = require("../../common/utils/withTimeLog");
 /**
  * 删除子串后的字符串最小长度
  * 给你一个仅由 大写 英文字符组成的字符串 s 。
@@ -43,5 +44,5 @@ var minLength = function(s) {
 /**
  * Test case
  */
-console.log(minLength("ABFCACDB"))
-console.log(minLength("ACBBD"))
+withTimeLog(()=>minLength("ACBBD"))
+withTimeLog(()=>minLength("ABFCACDB"));
