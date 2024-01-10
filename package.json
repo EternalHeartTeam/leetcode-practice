@@ -7,13 +7,17 @@
   "scripts": {
     "leet-check": "node common/scripts/check.js",
     "leet-create": "node common/scripts/create.js",
-    "preget-question": "rm -rf index.html",
-    "get-question": "VITE_CJS_IGNORE_WARNING=true node common/question/getQuestion.js"
+    "preget-question": "rimraf index.html",
+    "get-question": "node common/question/getQuestion.js",
+    "today": "node common/scripts/today.js"
   },
   "author": "EternalHeart",
   "license": "ISC",
   "dependencies": {
     "jsdom": "^23.2.0",
     "vite": "^5.0.11"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5"
   }
 }
