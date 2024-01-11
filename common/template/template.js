@@ -1,4 +1,4 @@
-const {withTimeLog} = require("../utils/withTimeLog");
+const {withTimeLog} = require("../../common/utils/withTimeLog");
 /**
  * @题目
  *
