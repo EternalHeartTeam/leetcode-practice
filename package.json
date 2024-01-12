@@ -9,7 +9,8 @@
     "leet-create": "node common/scripts/create.js",
     "preget-question": "rimraf index.html",
     "get-question": "node common/question/getQuestion.js",
-    "today": "node common/scripts/today.js"
+    "create-today": "node common/scripts/createToday.js",
+    "check-today": "node common/scripts/checkToday.js"
   },
   "author": "EternalHeart",
   "license": "ISC",
