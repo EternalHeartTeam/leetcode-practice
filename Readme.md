@@ -70,10 +70,13 @@ $ node common/scripts/check.js 2696
 
 ## Scripts API Document
 
-| script      | 参数         | 说明       |
-|-------------|------------|----------|
-| leet-create | 题目编号或者题目名称 | 创建一个模板文件 |
-| leet-check  | 题目编号或者题目名称 | 执行某个项目   |
+| script       | 参数         | 说明       |
+|--------------|------------|----------|
+| leet-create  | 题目编号或者题目名称 | 创建一个模板文件 |
+| leet-check   | 题目编号或者题目名称 | 执行某个项目   |
+| get-question | 无          | 获取今日题目对象 |
+| create-today | 无          | 创建今日题目   |
+| check-today  | 无          | 检查今日题目   |
 
 > note:
 > 名词解释: 题目编号或者题目名称(题目创建的时候的唯一标识,可以是题目的LeetCode编号也可以是自己起得别名)
