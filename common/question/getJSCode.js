@@ -28,8 +28,9 @@ const document = window.document
 const code = document.querySelector('#code')
 
 fetch("https://leetcode.cn/graphql/", getCodeDetailJson(todayQuestionEnName)).then((res => res.json())).then(res => {
-  questionCodeDetail = res.data.question.envInfo;
-  code.innerHTML = JSON.stringify(questionCodeDetail, null, 2)
+  const questionCodeDetail = res.data.question.codeSnippets.filter(item => item.lang === "JavaScript");
+  const jsCode = questionCodeDetail[0].code
+  code.innerHTML = JSON.stringify(jsCode, null, 2)
   fs.writeFileSync('./index.html', root.serialize())
   open('./index.html')
 })
