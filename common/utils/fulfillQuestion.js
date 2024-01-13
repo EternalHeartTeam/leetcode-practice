@@ -6,6 +6,7 @@ const { removeDomTags } = require("./removeDomTags");
  * @param question
  */
 const fulfillQuestion = (questionPath, question) => {
+    console.log(questionPath)
     // 开始填充内容
     fs.readFile(questionPath, 'utf8', function (err, data) {
         if (err) throw err;
@@ -13,6 +14,7 @@ const fulfillQuestion = (questionPath, question) => {
         // todo 替换函数体 和 测试用例
         data = data.replace('@题目', question.title)
             .replace("@描述", removeDomTags(question.detail)
+            .replace("@Function", question.function)
                 .replace(/\n+/g, "\n")
                 .replaceAll("\n", "\n * "));
         fs.writeFile(questionPath, data, function (err) {
