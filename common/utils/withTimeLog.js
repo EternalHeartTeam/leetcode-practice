@@ -1,5 +1,5 @@
-const {getHeapStatistics} = require("v8");
-const {getFileSize} = require("./sizeUtil");
+const { getHeapStatistics } = require("v8");
+const { getFileSize } = require("./sizeUtil");
 
 function withTimeLog(callback) {
     const startHeapStats = getHeapStatistics();
@@ -11,4 +11,4 @@ function withTimeLog(callback) {
     console.log(`内存占用：${getFileSize(memoryUsed)}`)
 }
 
-module.exports = {withTimeLog};
+module.exports = { withTimeLog };

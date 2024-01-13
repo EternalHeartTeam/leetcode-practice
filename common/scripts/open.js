@@ -3,6 +3,10 @@ const { exec } = require('child_process');
 
 const platform = os.platform();
 
+/**
+ * 打开浏览器
+ * @param {string} url 
+ */
 const open = (url) => {
   switch (platform) {
     case 'darwin':

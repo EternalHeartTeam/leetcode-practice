@@ -1,4 +1,4 @@
-const {createQuestion} = require("../utils/createQuestion");
+const { createQuestion } = require("../utils/createQuestion");
 
 /**
  * 工作区为 根目录

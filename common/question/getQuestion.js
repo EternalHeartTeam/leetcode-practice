@@ -26,7 +26,7 @@ let questionInfo = {}
 
 fetch("https://leetcode.cn/graphql/", questionFetchConfig).then((res => res.json())).then(res => {
   questionInfo = res.data.todayRecord[0].question;
-  console.log("问题对象",questionInfo)
+  console.log("问题对象", questionInfo)
   // code.innerHTML = JSON.stringify(questionInfo, null, 2)
   // fs.writeFileSync('./index.html', root.serialize())
   // open('./index.html')

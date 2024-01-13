@@ -1,4 +1,4 @@
-const {withTimeLog} = require("../../common/utils/withTimeLog");
+const { withTimeLog } = require("../../common/utils/withTimeLog");
 /**
  * @题目
  * @描述
@@ -12,7 +12,7 @@ const test = () => {
  * Test case
  */
 //@TestCase
-withTimeLog(()=>test());
+withTimeLog(() => test());
 
 console.log("点击跳转到题目提交:@url")
 
