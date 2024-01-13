@@ -18,9 +18,9 @@ fork分支`template`的内容,其非内容部分会与主分支保持同步,意�
 
 只需要一个node环境即可.([如何安装node?点我了解](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs))
 
-|-|-|
-|依赖包|版本|
-|nodejs|lts|
+|依赖包 |版本  |
+|------|-----|
+|nodejs|`lts`|
 
 ## Usage
 
