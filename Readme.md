@@ -2,12 +2,16 @@
 
 力扣练习库!开始你的每日一题!
 在编辑器中编写你的代码,简单有效的执行和计时!
+
 ## TO-DO List
+
 - [ ] 1.模板:获取js的函数体并替换生成文件中的@function
 - [ ] 2.模板:从detail中获取输入用例的数据填充@Testcase
 - [ ] 3.模板:获取跳转每日一题的链接替换@url
 - [ ] 4.函数:优化时间和资源统计函数
+
 ## How to use for yourself ?
+
 fork分支`template`的内容,其非内容部分会与主分支保持同步,意思是只是去除了题目代码,使用指令创建你自己的题解即可!
 
 ## Preparation
@@ -17,7 +21,9 @@ fork分支`template`的内容,其非内容部分会与主分支保持同步,意�
 `node`:`lts`
 
 ## Usage
+
 ### 0. 安装依赖
+
 ```shell
 yarn install # 或者任意你喜欢的包管理工具，如
 pnpm install
