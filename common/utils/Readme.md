@@ -15,3 +15,6 @@
 | removeDomTags   | input                 | 从传入的html字符串中剥离html标签                |
 | readStore       | key                   | 从缓存中读取对应的键值                         |
 | writeStore      | key,value             | 从缓存中存入值（明文存储，文件为store.json）         |
+| getJsCode       | enName                | 获取JS代码                              |
+| getTestCase     | question              | 根据获取到的question信息组装测试用例              |
+| getQuestionUrl  | enName                | 简单组装问题的URL                          |

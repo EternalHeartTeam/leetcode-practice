@@ -18,11 +18,10 @@ function createQuestion(newPath) {
                         // 复制文件
                         fs.copyFile(sourceFilePath, newFilePath, 0, () => {
                             resolve(newFilePath);
-                            console.log(`File '${sourceFilePath}' copied to '${newFilePath}'`);
                         });
                     });
                 } catch (error) {
-                    reject('Error:', error.message);
+                    reject('[createQuestion]Error:', error.message);
                 }
             }
         })
