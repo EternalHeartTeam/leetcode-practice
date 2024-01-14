@@ -37,39 +37,34 @@ const { withTimeLog } = require("../../common/utils/withTimeLog");
  * @return {string}
  */
 var repeatLimitedString = function(s, repeatLimit) {
-    const chars = s.split("").sort((a,b)=>b.charCodeAt(0)-a.charCodeAt(0));
-    let counter = new Map();
-    for (const char of chars) {
-        counter.set(char,(counter.get(char)??0)+1);
-    }
-    const keys = counter.keys()
-    let res="";
-    let remain =[];
-    for (const key of keys) {
-        const count = counter.get(key);
-        const rep = Math.min(count,repeatLimit);
-        const rem = count - rep;
-        res+=key.repeat(rep);
-        counter.set(key,rem);
-        if (remain.length) {
-            const count = counter.get(key);
-            const rep = Math.min(count,repeatLimit);
-            const rem = count - rep;
-            res+=key.repeat(rep);
-            counter.set(key,rem);
-            if(rem>0)remain.push(key);
-        }
-        if(rem>0)remain.push(key);
+    const charCount = new Map();
 
+    // 统计字符出现次数
+    for (const char of s) {
+        charCount.set(char, (charCount.get(char) || 0) + 1);
     }
-    return res;
+
+    // 构造新字符串
+    const result = [];
+    const sortedChars = Array.from(charCount.keys()).sort((a, b) => b.localeCompare(a));
+
+    for (const char of sortedChars) {
+        let count = Math.min(repeatLimit, charCount.get(char) || 0);
+        while (count > 0) {
+            result.push(char);
+            count--;
+        }
+    }
+
+
+    return result.join('');
 };
 
 /**
  * Test case
  */
 withTimeLog(() => repeatLimitedString(s = "cczazcc", repeatLimit = 3),"zzcccac");
-withTimeLog(() => repeatLimitedString(s = "aababab", repeatLimit = 2),"bbabaa");//bbabaa
+withTimeLog(() => repeatLimitedString(s = "aababab", repeatLimit = 2),"bbabaa");
 
 console.log("点击跳转到题目提交:https://leetcode.cn/problems/construct-string-with-repeat-limit/")
 

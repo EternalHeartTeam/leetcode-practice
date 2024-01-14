@@ -1,4 +1,5 @@
 const { withTimeLog } = require("../../common/utils/withTimeLog");
+const {convertListNode, parseListNode} = require("../../common/structures/ListNode");
 /**
  * 83.删除排序链表中的重复元素 [2024-01-14]
  * 给定一个已排序的链表的头 head ， 删除所有重复的元素，使每个元素只出现一次 。返回 已排序的链表 。
@@ -28,14 +29,22 @@ const { withTimeLog } = require("../../common/utils/withTimeLog");
  * @return {ListNode}
  */
 var deleteDuplicates = function(head) {
-
+    let dummy = head;
+    while(dummy&&dummy.next){
+        if(dummy.val===dummy.next.val){
+            dummy.next=dummy.next.next;
+        }else{
+            dummy=dummy.next
+        }
+    }
+    return head;
 };
 
 /**
  * Test case
  */
-withTimeLog(() => deleteDuplicates(head = [1,1,2]),[1,2]);
-withTimeLog(() => deleteDuplicates(head = [1,1,2,3,3]),[1,2,3]);
+withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,1,2]))),[1,2]);
+withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,1,2,3,3]))),[1,2,3]);
 
 console.log("点击跳转到题目提交:https://leetcode.cn/problems/remove-duplicates-from-sorted-list/")
 

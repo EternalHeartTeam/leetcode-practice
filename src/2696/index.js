@@ -44,5 +44,6 @@ var minLength = function(s) {
 /**
  * Test case
  */
-withTimeLog(()=>minLength("ACBBD"))
-withTimeLog(()=>minLength("ABFCACDB"));
+withTimeLog(()=>minLength("ABFCACDB"),2);
+withTimeLog(()=>minLength("ACBBD"),5)
+

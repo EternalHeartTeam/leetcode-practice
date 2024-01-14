@@ -77,11 +77,11 @@ const test1 = (word) => {
 /**
  * Test case
  */
-withTimeLog(() => test('b'));
-withTimeLog(() => test('aaa'));
-withTimeLog(() => test('abc'));
+withTimeLog(() => test('b'),2);
+withTimeLog(() => test('aaa'),6);
+withTimeLog(() => test('abc'),0);
 
-withTimeLog(() => test1('b'));
-withTimeLog(() => test1('aaa'));
-withTimeLog(() => test1('abc'));
+withTimeLog(() => test1('b'),2);
+withTimeLog(() => test1('aaa'),6);
+withTimeLog(() => test1('abc'),0);
 
