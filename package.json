@@ -12,7 +12,8 @@
     "create-today": "node common/scripts/createToday.js",
     "check-today": "node common/scripts/checkToday.js",
     "preget-question-code": "npm run create-today",
-    "get-question-code": "node common/question/getJSCode.js"
+    "get-question-code": "node common/question/getJSCode.js",
+    "sync-master": "git merge master"
   },
   "author": "EternalHeart",
   "license": "ISC",
