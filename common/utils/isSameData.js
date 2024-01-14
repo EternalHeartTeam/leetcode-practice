@@ -19,6 +19,9 @@ function isSameData(a,b){
         case "function":
             return a.toString()===b.toString();
         case "object":
+            if(a===null||a===undefined){
+                return a===b;
+            }
             const keysA = Object.keys(a);
             const keysB = Object.keys(b);
             if(keysA.length!==keysB.length)return false;
