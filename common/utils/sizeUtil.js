@@ -39,4 +39,4 @@ function getFileSizeUnit(size) {
     }
 }
 
-module.exports = {getFileSize,getFileSizeUnit}
+module.exports = { getFileSize, getFileSizeUnit }

@@ -6,10 +6,21 @@
   "type": "commonjs",
   "scripts": {
     "leet-check": "node common/scripts/check.js",
-    "leet-create": "node common/scripts/create.js"
+    "leet-create": "node common/scripts/create.js",
+    "preget-question": "rimraf index.html",
+    "get-question": "node common/question/getQuestion.js",
+    "create-today": "node common/scripts/createToday.js",
+    "check-today": "node common/scripts/checkToday.js",
+    "preget-question-code": "npm run create-today",
+    "get-question-code": "node common/question/getJSCode.js"
   },
   "author": "EternalHeart",
   "license": "ISC",
   "dependencies": {
+    "jsdom": "^23.2.0",
+    "vite": "^5.0.11"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5"
   }
 }

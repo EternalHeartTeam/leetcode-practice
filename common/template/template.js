@@ -1,15 +1,13 @@
-const {withTimeLog} = require("../utils/withTimeLog");
+const { withTimeLog } = require("../../common/utils/withTimeLog");
 /**
  * @题目
- *
- * @描述:
- *
+ * @描述
  */
-const test = () => {
-    // your code
-}
+//@Function
 
 /**
  * Test case
  */
-withTimeLog(()=>test());
+//@TestCase
+console.log("点击跳转到题目提交:@url")
+

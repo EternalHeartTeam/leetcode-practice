@@ -1,4 +1,4 @@
-const {exec} = require('child_process');
+const { exec } = require('child_process');
 
 /**
  * 执行模板指令 接受外部变量
@@ -26,4 +26,4 @@ function temExe(temCommand, ...args) {
     })
 }
 
-module.exports = {temExe}
+module.exports = { temExe }
