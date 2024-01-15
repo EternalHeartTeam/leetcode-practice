@@ -6,14 +6,12 @@
 const { getQuestion } = require("../utils/getQuestion");
 const { createQuestion } = require("../utils/createQuestion");
 const { fulfillQuestion } = require("../utils/fulfillQuestion");
-const { writeStore} = require("../utils/store");
-const args = process.argv.slice(2);
+const { writeStore, readStore} = require("../utils/store");
 // 获取问题的全部信息
 getQuestion().then(question => {
-    const projectName = args[0] ?? question.id;// 传入 或者没传入 默认值为信息的编号
     // 缓存今日tag
-    writeStore("today-tag",projectName)
-    createQuestion(projectName).then((filePath) => {
+    const today = `${question.id}.${question.title}`;
+    createQuestion(today).then((filePath) => {
         fulfillQuestion(filePath, question);
     })
 })
