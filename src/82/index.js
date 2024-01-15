@@ -62,16 +62,8 @@ var deleteDuplicates = function(head) {
 /**
  * Test case
  */
-// 获取函数执行前的内存使用情况
-const startMemUsage = process.memoryUsage().heapUsed
 withTimeLog(() => deleteDuplicates(head = [1,2,3,3,4,4,5]),[1,2,5]);
-// 获取函数执行后的内存使用情况
-const endMemUsage = process.memoryUsage().heapUsed;
-// 计算内存使用率（以字节为单位）
-const memoryUsageInBytes = endMemUsage - startMemUsage;
-
-console.log(memoryUsageInBytes)
-// withTimeLog(() => deleteDuplicates(head = [1,1,1,2,3]),[2,3]);
+withTimeLog(() => deleteDuplicates(head = [1,1,1,2,3]),[2,3]);
 
 console.log("点击跳转到题目提交:https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/")
 
