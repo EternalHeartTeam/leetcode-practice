@@ -30,7 +30,7 @@ const { withTimeLog } = require("../../common/utils/withTimeLog");
 // 定义一个函数，用于删除链表中的重复节点
 var deleteDuplicates = function(head) {
     // 创建一个虚拟节点，指向head
-    let dummy = new ListNode(-1, head);
+    let dummy = { next: head };
     // 定义一个变量，用于记录前一个节点
     let prev = dummy;
     // 定义一个变量，用于记录当前节点
@@ -62,8 +62,16 @@ var deleteDuplicates = function(head) {
 /**
  * Test case
  */
+// 获取函数执行前的内存使用情况
+const startMemUsage = process.memoryUsage().heapUsed
 withTimeLog(() => deleteDuplicates(head = [1,2,3,3,4,4,5]),[1,2,5]);
-withTimeLog(() => deleteDuplicates(head = [1,1,1,2,3]),[2,3]);
+// 获取函数执行后的内存使用情况
+const endMemUsage = process.memoryUsage().heapUsed;
+// 计算内存使用率（以字节为单位）
+const memoryUsageInBytes = endMemUsage - startMemUsage;
+
+console.log(memoryUsageInBytes)
+// withTimeLog(() => deleteDuplicates(head = [1,1,1,2,3]),[2,3]);
 
 console.log("点击跳转到题目提交:https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/")
 
