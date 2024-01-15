@@ -9,6 +9,6 @@ function getTestCase(question){
     const cases = question.detail.match(/<strong>输入：<\/strong>.+\n/g).map(str=>str.replaceAll("<strong>输入：","").replaceAll("</strong>","").replace("\n",""))
     const expires = question.detail.match(/<strong>输出：<\/strong>.+\n/g).map(str=>str.replaceAll("<strong>输出：</strong>","").replace("\n",""))
     const functionName = question.jsCode.match(/var.+=/g)[0].replace("var ","").replace(" =","");
-    return cases.map((c,i)=>`withTimeLog(() => ${functionName}(${c}),${expires[i]});\n`).join("");
+    return `showLogs(${functionName}, [${cases}], [${expires}])`
 }
 module.exports = {getTestCase}
