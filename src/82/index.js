@@ -67,11 +67,14 @@ withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,2,3,3
 withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,1,1,2,2,2,2,3,3,3,3,3,4,4,5,6,6,6,7]))),[5,7]);
 withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,1,1,2,3]))),[2,3]);
 withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,2,3,3,4,4,5]))),[1,2,5]);
-withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,1,1,2,2,2,2,3,3,3,3,3,4,4,5,6,6,6,7]))),[5,7]);
-withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,1,1,2,3]))),[2,3]);
 withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,2,3,3,4,4,5]))),[1,2,5]);
 withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,1,1,2,2,2,2,3,3,3,3,3,4,4,5,6,6,6,7]))),[5,7]);
 withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,1,1,2,3]))),[2,3]);
+withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,2,3,3,4,4,5]))),[1,2,5]);
+withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,2,3,3,4,4,5]))),[1,2,5]);
+withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,1,1,2,2,2,2,3,3,3,3,3,4,4,5,6,6,6,7]))),[5,7]);
+withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,1,1,2,3]))),[2,3]);
+withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,2,3,3,4,4,5]))),[1,2,5]);
 
 console.log("点击跳转到题目提交:https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/")
 
