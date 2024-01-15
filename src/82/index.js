@@ -1,4 +1,5 @@
 const { withTimeLog } = require("../../common/utils/withTimeLog");
+const {convertListNode, parseListNode} = require("../../common/structures/ListNode");
 /**
  * 82.删除排序链表中的重复元素 II [2024-01-15]
  * 给定一个已排序的链表的头 head ， 删除原始链表中所有重复数字的节点，只留下不同的数字 。返回 已排序的链表 。
@@ -62,8 +63,8 @@ var deleteDuplicates = function(head) {
 /**
  * Test case
  */
-withTimeLog(() => deleteDuplicates(head = [1,2,3,3,4,4,5]),[1,2,5]);
-withTimeLog(() => deleteDuplicates(head = [1,1,1,2,3]),[2,3]);
+withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,2,3,3,4,4,5]))),[1,2,5]);
+withTimeLog(() => parseListNode(deleteDuplicates(convertListNode(head = [1,1,1,2,3]))),[2,3]);
 
 console.log("点击跳转到题目提交:https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/")
 
