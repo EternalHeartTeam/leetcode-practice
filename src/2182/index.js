@@ -65,6 +65,13 @@ var repeatLimitedString = function(s, repeatLimit) {
  */
 withTimeLog(() => repeatLimitedString(s = "cczazcc", repeatLimit = 3),"zzcccac");
 withTimeLog(() => repeatLimitedString(s = "aababab", repeatLimit = 2),"bbabaa");
+withTimeLog(() => repeatLimitedString(s = "cczazcc", repeatLimit = 3),"zzcccac");
+withTimeLog(() => repeatLimitedString(s = "aababab", repeatLimit = 2),"bbabaa");
+withTimeLog(() => repeatLimitedString(s = "cczazcc", repeatLimit = 3),"zzcccac");
+withTimeLog(() => repeatLimitedString(s = "aababab", repeatLimit = 2),"bbabaa");
+withTimeLog(() => repeatLimitedString(s = "cczazcc", repeatLimit = 3),"zzcccac");
+withTimeLog(() => repeatLimitedString(s = "aababab", repeatLimit = 2),"bbabaa");
+withTimeLog(() => repeatLimitedString(s = "cczazcc", repeatLimit = 3),"zzcccac");
 
 console.log("点击跳转到题目提交:https://leetcode.cn/problems/construct-string-with-repeat-limit/")
 
