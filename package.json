@@ -6,11 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "leet-check": "node common/scripts/check.js",
-    "leet-create": "node common/scripts/create.js",
-    "preget-question": "rimraf index.html",
-    "get-question": "node common/question/getQuestion.js",
-    "create-today": "node common/scripts/createToday.js",
-    "check-today": "node common/scripts/checkToday.js"
+    "leet-create": "node common/scripts/create.js"
   },
   "author": "EternalHeart",
   "license": "ISC",

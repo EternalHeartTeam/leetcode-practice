@@ -2,12 +2,19 @@ const v8 = require("v8");
 const { getFileSize } = require("./sizeUtil");
 const { isSameData } = require("./isSameData");
 
+/**
+ * 执行并输出时间和内存
+ * @param fnName
+ * @param param 传入数组 全部通过解构来做
+ * @param compare
+ * @returns {{预期结果: string, 执行结果: string, 内存占用: string, 测试结果: (string), 执行用时: string}}
+ */
 function withTimeLog(fnName, param, compare) {
     // 记录开始时间
     const startTime = performance.now();
     // 获取函数执行前的内存使用情况
     const startHeapStatsArray = v8.getHeapSpaceStatistics()
-    const callVal = fnName(param)
+    const callVal = fnName(...param)
     // 获取函数执行后的内存使用情况
     const endHeapStatsArray = v8.getHeapSpaceStatistics()
     // 记录结束时间

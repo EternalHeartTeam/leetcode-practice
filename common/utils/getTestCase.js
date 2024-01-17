@@ -6,9 +6,10 @@
  * @returns {string}
  */
 function getTestCase(question){
-    const cases = question.detail.match(/<strong>输入：<\/strong>.+\n/g).map(str=>str.replaceAll("<strong>输入：","").replaceAll("</strong>","").replace("\n",""))
-    const expires = question.detail.match(/<strong>输出：<\/strong>.+\n/g).map(str=>str.replaceAll("<strong>输出：</strong>","").replace("\n",""))
-    const functionName = question.jsCode.match(/var.+=/g)[0].replace("var ","").replace(" =","");
+    console.log(question)
+    const cases = question.detail.match(/(<[a-zA-Z]+>输入：<\/[a-zA-Z]+>).+\n/g)?.map(str=>`[${str?.replace(/<[a-zA-Z]+>输入：/gm,"")?.replace(/<\/[a-zA-Z]+>/,"")?.replace("\n","")}]`)
+    const expires = question.detail.match(/(<[a-zA-Z]+>输出：<\/[a-zA-Z]+>).+\n/g)?.map(str=>str?.replace(/<[a-zA-Z]+>输出：<\/[a-zA-Z]+>/gm,"")?.replace("\n",""))
+    const functionName = question.jsCode?.match(/var.+=/g)?.[0]?.replace("var ","")?.replace(" =","");
     return `showLogs(
     ${functionName},
     [${cases}],

@@ -11,8 +11,8 @@
 - [x] 4.函数:优化时间和资源统计函数
 - [ ] 5.优化创建时的体验，添加重复时候的确认覆盖或者添加额外符号
 - [ ] 6.特殊数据结构的处理(ListNode,Stack等)的处理
-- [ ] 7.创建某一特定编号的题目脚本
-- [ ] 8.题目中图片的预览功能
+- [ ] 7.创建某一特定编号的题目脚本,以及实现随机题目
+- [ ] 8.实现在编辑器中预览图片
 
 ## How to use for yourself ?
 
@@ -38,33 +38,46 @@ pnpm install
 ### 1. 获取今天的题目
 
 ```shell
-yarn create-today [your-specified-name:default is question's id]
+yarn leet-create
 ```
-
 会通过接口获取今日题目，并会在`src`目录下根据`你提供的指定名称(默认不填值为题目的id)`创建一个目录，并将今日题目和基础示例代码填充到`index.js`中。
 
-```shell
-//todo 填充代码创建结果和截图
-```
+![创建目录](./resources/leet-create-0.png)
+![填充文件](resources/leet-create-1.png)
 
 ### 2. 检验今天的题目
 
 ```shell
-yarn check-today
+yarn leet-check
 ```
 
 此指令会根据今天你的题目创建时填写的名称去执行对应的题目文件，输出结果。
 > NOTE:缓存的实现是在`commom/resouces/store.json`,如果只想让内容在本地存在,不上传到个人项目中的话,执行`git update-index --aussume-unchanged common/resources/store.json`来忽略本地的文件变更即可。
+> 
 
 ```shell
-// todo 填充代码创建结果和截图
-```
+yarn leet-check 
 
+[leet-check]检测题目:2744.find-maximum-number-of-string-pairs
+执行结果:
+┌─────────┬──────────┬──────────┬──────────┬────────────┬───────────┐
+│ (index) │ 测试结果 │ 预期结果 │ 执行结果 │  执行用时  │ 内存占用  │
+├─────────┼──────────┼──────────┼──────────┼────────────┼───────────┤
+│    0    │  '通过'  │   '2'    │   '2'    │ '0.2113ms' │ '1.68 KB' │
+│    1    │  '通过'  │   '1'    │   '1'    │ '0.0195ms' │ '1.73 KB' │
+│    2    │  '通过'  │   '0'    │   '0'    │ '0.0091ms' │ '1.80 KB' │
+└─────────┴──────────┴──────────┴──────────┴────────────┴───────────┘
+点击跳转到题目提交:https://leetcode.cn/problems/find-maximum-number-of-string-pairs/
+
+Done in 0.18s.
+
+```
+![检测题目](resources/leet-check.png)
 ### 3. 创建自己想要练习的题目
 
 ```shell
 # 可以使用你喜欢的任意包管理工具,例如 `pnpm`/`npm`
-yarn leet-create [题目编号或者名称]
+yarn leet-create -i [题目编号或者名称]
 
 e.g.
 yarn leet-create 1314
@@ -78,11 +91,13 @@ yarn leet-create 1314
   └── index.js # 模板js文件 可以替换题目
 ```
 
+//todo 待填充
+
 ### 4. 检验自己想要练习的结果
 
 ```shell
 # 可以使用你喜欢的任意包管理工具,例如 `pnpm`/`npm`
-yarn leet-check [题目编号或者名称]
+yarn leet-check -i [题目编号或者名称]
 
 e.g.
 yarn leet-check 1314
@@ -91,31 +106,37 @@ yarn leet-check 1314
 会出现其用时以及内存占用:
 
 ```shell
-yarn run v1.22.19
-$ node common/scripts/check.js 2696
-执行结果:
-5
-函数执行用时: 2.509ms
-内存占用：262144
-2
-函数执行用时: 0.063ms
-内存占用：0
+//todo 待填充
+```
+### 5. 获取随机题目
 
-✨  Done in 0.13s.
+```shell
+yarn leet-create -r
+```
+会获取一个当前src目录中未出现过的题目
+//todo 待填充
+
+### 6. 检验随机题目
+
+```shell
+# 可以使用你喜欢的任意包管理工具,例如 `pnpm`/`npm`
+yarn leet-check -r
+```
+会检验上次随机出的题目编号:
+
+```shell
+//todo 待填充
 ```
 
 ## Scripts API Document
 
-| script       | 参数         | 说明       |
-|--------------|------------|----------|
-| leet-create  | 题目编号或者题目名称 | 创建一个模板文件 |
-| leet-check   | 题目编号或者题目名称 | 执行某个项目   |
-| get-question | 无          | 获取今日题目对象 |
-| create-today | 无          | 创建今日题目   |
-| check-today  | 无          | 检查今日题目   |
+| script      | 参数               | 说明                                                  |
+|-------------|------------------|-----------------------------------------------------|
+| leet-create | [-i [题目编号]][-r]  | 创建一个题目,不带参数获取今日题目,`-i` 参数指定题号去获取，`-r` 随机题目          |
+| leet-check  | [-i [题目编号]][-r]       | 执行检测一个题目,不带参数检测今日题目,`-i` 参数指定题号去检测，`-r` 检测上一个随机出的题目 |
 
 > note:
-> 名词解释: 题目编号或者题目名称(题目创建的时候的唯一标识,可以是题目的LeetCode编号也可以是自己起得别名)
+> 名词解释: 题目编号是leet-code为其分配的唯一id,如`1314`对应题目`矩阵区域和`
 
 ## Contributor
 
