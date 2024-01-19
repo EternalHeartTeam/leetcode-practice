@@ -1,0 +1,12 @@
+const {getQuestionSearchJson} = require("../resources/questionSearchJson");
+const {getQuestionDetail} = require("./getQuestionDetail");
+
+
+async function getQuestionById(id){
+    const base =await fetch("https://leetcode.cn/graphql/", getQuestionSearchJson(id.toString())).then(res => res.json());
+    const slug = base.data.problemsetQuestionList.questions.find(o=>o.frontendQuestionId===id.toString()).titleSlug;
+    const question = await getQuestionDetail(slug,{id})
+    return question;
+}
+
+module.exports = {getQuestionById}

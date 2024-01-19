@@ -20,3 +20,4 @@
 | getJsCode       | enName                | 获取JS代码                              |
 | getTestCase     | question              | 根据获取到的question信息组装测试用例              |
 | getQuestionUrl  | enName                | 简单组装问题的URL                          |
+| getRandomId     |                       | 获取随机当前src目录下不存在的问题id                |

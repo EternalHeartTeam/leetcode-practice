@@ -1,7 +1,8 @@
 const { createQuestion } = require("../utils/createQuestion");
-const {getQuestion} = require("../utils/getQuestion");
+const {getQuestion} = require("../utils/getTodayQuestion");
 const {fulfillQuestion} = require("../utils/fulfillQuestion");
 const {readStore, writeStore} = require("../utils/store");
+const {getQuestionById} = require("../utils/getQuestionById");
 /**
  * leet-create [-t|-r|-i [id]]
  * 默认参数 -t
@@ -24,7 +25,14 @@ switch (args[0]) {
             console.warn("请指定对应的编号!")
             return;
         }
-        console.log(`获取指定编号[${args[1]}]的题目...`)
+        console.log(`获取指定编号[${id}]的题目...`)
+        getQuestionById(id).then(question => {
+            // 缓存今日tag
+            const today = `${question.id}.${question.enName}`;
+            createQuestion(today).then((filePath) => {
+                fulfillQuestion(filePath, question);
+            })
+        })
         // const newPath = args[0];
         // createQuestion(newPath)
         break;
