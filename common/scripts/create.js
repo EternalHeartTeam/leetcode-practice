@@ -1,8 +1,9 @@
 const { createQuestion } = require("../utils/createQuestion");
-const {getQuestion} = require("../utils/getTodayQuestion");
+const {getQuestion} = require("../utils/getQuestionToday");
 const {fulfillQuestion} = require("../utils/fulfillQuestion");
-const {readStore, writeStore} = require("../utils/store");
+const { writeStore} = require("../utils/store");
 const {getQuestionById} = require("../utils/getQuestionById");
+const {getRandomId} = require("../utils/getRandomId");
 /**
  * leet-create [-t|-r|-i [id]]
  * 默认参数 -t
@@ -14,10 +15,15 @@ const {getQuestionById} = require("../utils/getQuestionById");
 const args = process.argv.slice(2);
 switch (args[0]) {
     case "-r":
-        console.log("开始随机题目...");
-
-        // todo 随机题目 写入缓存 题号
-        writeStore("random-id",1314)
+        getRandomId().then(id=>{
+            getQuestionById(id).then(question => {
+                const random = `${question.id}.${question.enName}`;
+                writeStore("random-question-info",question);
+                createQuestion(random).then((filePath) => {
+                    fulfillQuestion(filePath, question);
+                })
+            })
+        })
         break;
     case "-i":
         const id = args[1];
@@ -27,21 +33,18 @@ switch (args[0]) {
         }
         console.log(`获取指定编号[${id}]的题目...`)
         getQuestionById(id).then(question => {
-            // 缓存今日tag
-            const today = `${question.id}.${question.enName}`;
-            createQuestion(today).then((filePath) => {
+            const specified = `${question.id}.${question.enName}`;
+            writeStore("specified-question-info",question);
+            createQuestion(specified).then((filePath) => {
                 fulfillQuestion(filePath, question);
             })
         })
-        // const newPath = args[0];
-        // createQuestion(newPath)
         break;
     case "-t":
     default:
         console.log("开始获取今日题目")
         // 获取问题的全部信息
         getQuestion().then(question => {
-            // 缓存今日tag
             const today = `${question.id}.${question.enName}`;
             createQuestion(today).then((filePath) => {
                 fulfillQuestion(filePath, question);

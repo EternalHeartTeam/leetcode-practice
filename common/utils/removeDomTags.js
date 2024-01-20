@@ -4,7 +4,7 @@
  * @returns {string|string}
  */
 function removeDomTags(input) {
-    return input.replace(/<[^>]*>/g, '').replaceAll("&nbsp;", " ").replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+    return input.replace(/<[^>]*>/g, '').replaceAll(" "," ").replaceAll("&nbsp;", " ").replaceAll("&lt;", "<").replaceAll("&gt;", ">");
 }
 
 module.exports = { removeDomTags }

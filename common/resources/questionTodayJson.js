@@ -1,4 +1,4 @@
-function getQuestionToday(){
+function getQuestionTodayJson(){
   return {
     "headers": {
       "accept": "*/*",
@@ -25,4 +25,4 @@ function getQuestionToday(){
 
 }
 
-module.exports = {getQuestionToday}
+module.exports = {getQuestionTodayJson}

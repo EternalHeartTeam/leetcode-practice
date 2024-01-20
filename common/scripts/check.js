@@ -7,15 +7,19 @@ const args = process.argv.slice(2);
 let name;
 switch (args[0]) {
     case "-r":
-        console.log("读取上一个随机题目...");
-        name = readStore("random-id")
+        const random = readStore("random-question-info")
+        name = `${random.id}.${random.enName}`;
+        console.log(`[leet-check]检测当前随机题目:${name}`)
         break;
     case "-i":
-        name = args[1];
-        if(name===undefined) {
+        id = args[1];
+        const specified = readStore("specified-question-info")
+        name = `${specified.id}.${specified.enName}`;
+        if(id===undefined&&name.startsWith("undefined")) {
             console.warn("请指定对应的编号进行检查!")
             return;
         }
+        console.log(`[leet-check]检测题目:${name}`)
         break;
     case "-t":
     default:

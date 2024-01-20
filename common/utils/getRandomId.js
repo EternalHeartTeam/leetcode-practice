@@ -9,11 +9,9 @@ const {getQuestionSearchJson} = require("../resources/questionSearchJson");
  */
 async function getAllIds() {
     const total = await getCount();
-    const randomSkip = getCount()
-    const list =await fetch("https://leetcode.cn/graphql/", getQuestionListJson(0)).then((res => res.json())).then((res)=>res?.data?.problemsetQuestionList?.questions?.map(q=>q.frontendQuestionId));
-    return list;
-    // 模拟获取
-    // return [100,11,82,11.11].map(o=>o.toString());
+    const randomSkip = total;
+    const res =await fetch("https://leetcode.cn/graphql/", getQuestionListJson(0)).then((res => res.json()));
+    return res?.data?.problemsetQuestionList?.questions?.map(q=>q.frontendQuestionId);
 }
 /**
  * 获取总数

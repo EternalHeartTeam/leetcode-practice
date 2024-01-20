@@ -23,7 +23,7 @@ const fulfillQuestion = (questionPath, question) => {
         ;
         fs.writeFile(questionPath, data, function (err) {
             if (err) throw err;
-            console.log(`[fulfillQuestion]今日题目[${question.id}][${question.title}]已完成填充.`);
+            console.log(`[fulfillQuestion]题目[${question.id}][${question.title}]已完成填充.`);
         });
     });
 }
