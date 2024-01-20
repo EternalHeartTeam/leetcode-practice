@@ -12,7 +12,7 @@ const fulfillQuestion = (questionPath, question) => {
     fs.readFile(questionPath, 'utf8', function (err, data) {
         if (err) throw err;
         // 修改文件内容
-        data = data.replace('@题目', `${question.id}.${question.title} [${question.date}]`)
+        data = data.replace('@题目', `${question.id}.${question.title} ${question.date?"["+question.date+"]":""}`)
             .replace("@描述", removeDomTags(question.detail)
             .replace("@url",question.url)
             .replace(/\n+/g, "\n")
