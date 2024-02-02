@@ -2,6 +2,7 @@
 const { removeDomTags } = require("./removeDomTags");
 const {getTestCase} = require("./getTestCase");
 const {getQuestionUrl} = require("./getQuestionUrl");
+// import {getQuestion} from "./getQuestion";
 /**
  * 填充模板文件
  * @param questionPath
