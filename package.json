@@ -6,7 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "leet-check": "node common/scripts/check.js",
-    "leet-create": "node common/scripts/create.js"
+    "leet-create": "node common/scripts/create.js",
+    "test": "node common/scripts/test.js"
   },
   "author": "EternalHeart",
   "license": "ISC",
