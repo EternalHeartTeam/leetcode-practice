@@ -1,5 +1,5 @@
 const { createQuestion } = require("../utils/createQuestion");
-const {getQuestion} = require("../utils/getQuestionToday");
+const {getQuestionToday} = require("../utils/getQuestionToday");
 const {fulfillQuestion} = require("../utils/fulfillQuestion");
 const { writeStore} = require("../utils/store");
 const {getQuestionById} = require("../utils/getQuestionById");
@@ -44,7 +44,7 @@ switch (args[0]) {
     default:
         console.log("开始获取今日题目")
         // 获取问题的全部信息
-        getQuestion().then(question => {
+        getQuestionToday().then(question => {
             const today = `${question.id}.${question.enName}`;
             createQuestion(today).then((filePath) => {
                 fulfillQuestion(filePath, question);

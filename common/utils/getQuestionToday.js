@@ -11,4 +11,4 @@ async function getQuestionToday() {
     return questionInfo;
 }
 
-module.exports = { getQuestion: getQuestionToday };
+module.exports = { getQuestionToday };
