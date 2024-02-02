@@ -8,7 +8,7 @@ function ListNode(val, next) {
     this.val = (val===undefined ? 0 : val)
     this.next = (next===undefined ? null : next)
 }
-function convertListNode(arr) {
+function parse(arr) {
     if (arr.length === 0) {
         return null; // Return null for an empty array
     }
@@ -21,7 +21,7 @@ function convertListNode(arr) {
     return head;
 }
 
-function parseListNode(listNodes) {
+function toArray(listNodes) {
     const arr = [];
     while (listNodes) {
         arr.push(listNodes.val);
@@ -30,4 +30,4 @@ function parseListNode(listNodes) {
     return arr;
 }
 
-module.exports = {ListNode,convertListNode,parseListNode}
+module.exports = {ListNode,parse,toArray}
