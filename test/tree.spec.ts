@@ -1,5 +1,5 @@
 import {test, expect, describe} from 'vitest';
-const {TreeNode} = require('../common/structures/TreeNode');
+const TreeNode = require('../common/structures/TreeNode');
 const mockTree = [1, 2, 3];
 const mockTree2 = [1,null, 2]
 test('测试树', ()=>{

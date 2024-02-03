@@ -51,4 +51,4 @@ class TreeNode {
     return result;
   }
 }
-module.exports = {TreeNode}
+module.exports = TreeNode

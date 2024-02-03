@@ -1,6 +1,6 @@
 
 const {parse, toArray} = require('../structures/ListNode')
-const {TreeNode} = require('../structures/TreeNode')
+const TreeNode = require('../structures/TreeNode')
 const Node = require('../structures/Node')
 /**
  * 
