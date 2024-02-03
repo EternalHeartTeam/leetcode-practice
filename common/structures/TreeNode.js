@@ -1,31 +1,30 @@
 class TreeNode {
   constructor(val, left, right) {
     this.left = null;
-    this.val = (val===undefined ? 0 : val)
-    this.left = (left===undefined ? null : left)
-    this.right = (right===undefined ? null : right)
+    this.val = (val === undefined ? 0 : val);
+    this.left = (left === undefined ? null : left);
+    this.right = (right === undefined ? null : right);
   }
-  parse(arr) {
-    if(arr.length === 0) return null
-    let root = new TreeNode(arr[0])
-    let queue = [root]
-    for(let i = 1; i < arr.length; i += 2)
-    {
-      let node = queue.shift()
-      if(arr[i] !== null)
-      {
-        node.left = new TreeNode(arr[i])
-        queue.push(node.left)
+
+  static parse(arr) {
+    if (arr.length === 0) return null;
+    const root = new TreeNode(arr[0]);
+    const queue = [root];
+    for (let i = 1; i < arr.length; i += 2) {
+      const node = queue.shift();
+      if (arr[i] !== null) {
+        node.left = new TreeNode(arr[i]);
+        queue.push(node.left);
       }
-      if(arr[i+1] !== null)
-      {
-        node.right = new TreeNode(arr[i+1])
-        queue.push(node.right)
+      if (arr[i + 1] !== null) {
+        node.right = new TreeNode(arr[i + 1]);
+        queue.push(node.right);
       }
     }
-    return root
+    return root;
   }
-  toArray(treeNode) {
+
+  static toArray(treeNode) {
     const result = [];
     if (!treeNode) {
       return result;
@@ -51,4 +50,4 @@ class TreeNode {
     return result;
   }
 }
-module.exports = TreeNode
+module.exports = TreeNode;

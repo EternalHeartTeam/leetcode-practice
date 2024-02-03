@@ -7,14 +7,8 @@ const paramMap = {
   cases: {
     ListNode: (_param) => parse(_param),
     'ListNode[]': (param) => param.map((res) => parse(res)),
-    TreeNode: (param) => {
-      const node = new TreeNode(param);
-      return node.parse(param);
-    },
-    Node: (param) => {
-      const node = new Node(param);
-      return node.parse(param);
-    },
+    TreeNode: (param) => TreeNode.parse(param),
+    Node: (param) => Node.parse(param),
     default: (param) => param,
 
   },
@@ -22,14 +16,8 @@ const paramMap = {
   return: {
     ListNode: (param) => toArray(param),
     'ListNode[]': (param) => param.map((res) => toArray(res)),
-    TreeNode: (param) => {
-      const node = new TreeNode(param);
-      return node.toArray(param);
-    },
-    Node: (param) => {
-      const node = new Node(param);
-      return node.toArray(param);
-    },
+    TreeNode: (param) => TreeNode.toArray(param),
+    Node: (param) => Node.toArray(param),
     default: (param) => param,
 
   },
