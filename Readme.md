@@ -5,6 +5,30 @@
 
 ## TO-DO List
 
+### 功能
+
+#### 优先级高
+
+- [ ] 私人项目部署的实现方案
+
+#### 优先级中
+
+- [ ] 创建一个单独指令lc,用于项目的单独指令,忽略npm/yarn/pnpm的执行差异/歧义
+
+#### 优先级低
+
+- [ ] 实现在编辑器中预览图片(感觉可以不做)
+
+
+#### 代码优化及基础建设
+
+- [ ] 优化随机题目的随机方式，减少请求
+- [ ] commonJS -> ES6 Module
+- [ ] 优化src下代码结构
+- [ ] 封装npm包，方便后续做成编辑器插件
+
+### 已完归档
+
 - [x] 1.模板:获取js的函数体并替换生成文件中的@function
 - [x] 2.模板:从detail中获取输入用例的数据填充@Testcase
 - [x] 3.模板:获取跳转每日一题的链接替换@url
@@ -12,10 +36,6 @@
 - [x] 5.优化创建时的体验，添加重复时候的确认覆盖或者添加额外符号
 - [x] 6.特殊数据结构的处理(链表ListNode,树TreeNode,无向连通图Node)的处理
 - [x] 7.创建某一特定编号的题目脚本,以及实现随机题目【随机题目汇集本地题目，然后排除自己本地存在的题目进行随机】
-- [ ] 8.实现在编辑器中预览图片(感觉可以不做)
-- [ ] 9.优化随机题目的随机方式，减少请求
-- [ ] 10.私人项目部署的实现方案
-- [ ] 11.创建一个单独指令lc,用于项目的单独指令,忽略npm/yarn/pnpm的执行差异/歧义
 
 ## How to use for yourself ?
 
@@ -43,6 +63,7 @@ pnpm install
 ```shell
 yarn leet-create
 ```
+
 会通过接口获取今日题目，并会在`src`目录下根据`题目的id`+`题目的英文翻译`创建一个目录，并将今日题目和基础示例代码填充到`index.js`中。
 
 ![创建目录](./resources/leet-create-0.png)
@@ -56,7 +77,7 @@ yarn leet-check
 
 此指令会根据今天的题目信息去执行对应的题目文件，输出结果。
 > NOTE:缓存的实现是在`commom/resouces/store.json`,如果只想让内容在本地存在,不上传到个人项目中的话,执行`git update-index --aussume-unchanged common/resources/store.json`来忽略本地的文件变更即可。
-> 
+>
 
 ```shell
 yarn leet-check 
@@ -75,7 +96,9 @@ yarn leet-check
 Done in 0.18s.
 
 ```
+
 ![检测题目](resources/leet-check.png)
+
 ### 3. 创建自己想要练习的题目
 
 ```shell
@@ -96,9 +119,11 @@ yarn leet-create -i "LCP 29"
 └── 1314
   └── index.js # 模板js文件 可以替换题目
 ```
+
 ![1314cmd.png](resources/1314-cmd.png)
 ![1314.png](resources/1314.png)
 ![1314详情.png](resources/1314-detail.png)
+
 ### 4. 检验自己想要练习的结果
 
 ```shell
@@ -128,7 +153,9 @@ $ node common/scripts/check.js -i 1314
 Done in 0.18s.
 
 ```
+
 当然如果你之前执行了`leet-create -i`指令创建的题目，也可以不指定号码，系统会自动读取上一个指定创建的题目进行监测。
+
 ```shell
 D:\GitHub\leetcode-practice> yarn leet-check -i     
 yarn run v1.22.19
@@ -146,13 +173,17 @@ $ node common/scripts/check.js -i
 Done in 0.19s.
 
 ```
+
 ![1314-check.png](resources/1314-check.png)
+
 ### 5. 获取随机题目
 
 ```shell
 yarn leet-create -r
 ```
+
 会获取一个当前src目录中未出现过的题目并创建:
+
 ```shell
  D:\GitHub\leetcode-practice> yarn leet-create -r     
 yarn run v1.22.19
@@ -168,6 +199,7 @@ Done in 1.78s.
 # 可以使用你喜欢的任意包管理工具,例如 `pnpm`/`npm`
 yarn leet-check -r
 ```
+
 会检验刚刚创建出的随机题目:
 
 ```shell
@@ -202,4 +234,3 @@ Done in 0.19s.
 
 [EternalHeart](https://github.com/wh131462)
 [SmallTeddy](https://github.com/SmallTeddy)
-
