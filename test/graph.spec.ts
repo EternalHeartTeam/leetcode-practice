@@ -15,10 +15,9 @@ const max = 9;
 test('测试无向连通图', () => {
   
   for(let i = 1;i< max;i++) {
-    const node = new Node();
     const currentArray = 'graphArray' + [i];
-    const graph = node.parse(eval(currentArray));
-    expect(eval(currentArray)).toEqual(node.toArray(graph))
+    const graph = Node.parse(eval(currentArray));
+    expect(eval(currentArray)).toEqual(Node.toArray(graph))
 
   }
 
