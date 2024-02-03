@@ -1,5 +1,5 @@
 import {test, expect} from 'vitest';
-import {getDataStructure} from '../common/utils/getTestCase';
+const {getDataStructure} = require( '../common/utils/parseStructure');
 const mockJSDOC_multiple = `/**
 * Definition for singly-linked list.
 * function ListNode(val, next) {
