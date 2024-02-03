@@ -26,6 +26,7 @@
 - [ ] commonJS -> ES6 Module
 - [ ] 优化src下代码结构
 - [ ] 封装npm包，方便后续做成编辑器插件
+- [ ] eslint
 
 ### 已完归档
 
