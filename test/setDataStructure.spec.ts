@@ -2,7 +2,7 @@
 import {test, expect, describe} from 'vitest';
 const { showLogs } = require("../common/utils/withTimeLog");
 const { ListNode, convertListNode } = require("../common/structures/ListNode");
-import {getDataStructure} from '../common/utils/getTestCase';
+import { getDataStructure } from "../common/utils/parseStructure";
 
 
 

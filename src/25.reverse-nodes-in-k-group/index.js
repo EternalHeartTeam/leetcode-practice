@@ -32,6 +32,11 @@ const { showLogs } = require("../../common/utils/withTimeLog");
  * @param {number} k
  * @return {ListNode}
  */
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode}
+ */
 var reverseKGroup = function(head, k) {
     let stack = [];
     let dummy = { next: head };
@@ -57,8 +62,6 @@ var reverseKGroup = function(head, k) {
     }
     return dummy.next;
 };
-
-
 
 /**
  * Test case

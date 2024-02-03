@@ -1,22 +1,4 @@
-﻿/**
- * 获取test case 入参的数据类型
- * @param {string} jsCode leetcode的实例函数体
- * @param {string} type 类型，param入参，returns返回值
- * @returns {string[]}
- */
-const getDataStructure = (jsCode, type = 'param') => {
-  const regexMap = {
-    param: /@param\s+{\s*([^}\s]+)\s*}/g,
-    return: /@return\s+{\s*([^}\s]+)\s*}/g,
-  };
-  const regex = regexMap[type];
-  const paramTypes = [];
-  let match;
-  while ((match = regex.exec(jsCode)) !== null) {
-    paramTypes.push(match[1]);
-  }
-  return paramTypes;
-};
+﻿const { getDataStructure } = require('./parseStructure');
 
 /**
  * test case 需要从两个地方拿到内容
@@ -44,4 +26,4 @@ function getTestCase(question) {
     }
 )`;
 }
-module.exports = { getTestCase, getDataStructure };
+module.exports = { getTestCase };
