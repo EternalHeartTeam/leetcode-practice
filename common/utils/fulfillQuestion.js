@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+const fs = require('fs');
 const { removeDomTags } = require('./removeDomTags');
 const { getTestCase } = require('./getTestCase');
 const { getQuestionUrl } = require('./getQuestionUrl');
@@ -18,8 +18,8 @@ const fulfillQuestion = (questionPath, question) => {
         .replace('@url', question.url)
         .replace(/\n+/g, '\n')
         .replaceAll('\n', '\n * '))
-      .replace('//@Function', question.jsCode)
-      .replace('//@TestCase', getTestCase(question))
+      .replace('// @Function', question.jsCode)
+      .replace('// @TestCase', getTestCase(question))
       .replace('@url', getQuestionUrl(question.enName));
     fs.writeFile(questionPath, newData, (err) => {
       if (err) throw err;
