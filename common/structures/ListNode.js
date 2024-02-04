@@ -4,30 +4,34 @@
  * @param next
  * @constructor
  */
-function ListNode(val, next) {
-    this.val = (val===undefined ? 0 : val)
-    this.next = (next===undefined ? null : next)
-}
-function parse(arr) {
+
+class ListNode {
+  constructor(val, next) {
+    this.val = (val === undefined ? 0 : val);
+    this.next = (next === undefined ? null : next);
+  }
+
+  static parse(arr) {
     if (arr.length === 0) {
-        return null; // Return null for an empty array
+      return null; // Return null for an empty array
     }
-    let head = new ListNode(arr.shift(), null);
+    const head = new ListNode(arr.shift(), null);
     let current = head;
     while (arr.length > 0) {
-        current.next = new ListNode(arr.shift(), null);
-        current = current.next;
+      current.next = new ListNode(arr.shift(), null);
+      current = current.next;
     }
     return head;
-}
+  }
 
-function toArray(listNodes) {
-    const arr = [];
-    while (listNodes) {
-        arr.push(listNodes.val);
-        listNodes = listNodes.next;
+  static toArray(listNodes, arr = []) {
+    if (listNodes === undefined || listNodes === null) {
+      return arr;
     }
-    return arr;
+
+    arr.push(listNodes.val);
+    return ListNode.toArray(listNodes.next, arr);
+  }
 }
 
-module.exports = {ListNode,parse,toArray}
+module.exports = ListNode;
