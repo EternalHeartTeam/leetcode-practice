@@ -13,5 +13,6 @@ function getJSCode(enName) {
     });
   });
 }
+   
 
 module.exports = { getJSCode };
