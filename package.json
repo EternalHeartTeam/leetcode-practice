@@ -10,6 +10,7 @@
     "leet-check": "node common/scripts/check.js",
     "commit": "cz",
     "test": "vitest --run",
+    "coverage": "vitest run --coverage",
     "lint": "eslint --fix --ext .js,jsx,cjs,mjs ./common"
   },
   "author": "EternalHeart",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
+    "@vitest/coverage-v8": "^1.2.2",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
