@@ -5,7 +5,7 @@ const platform = os.platform();
 
 /**
  * 打开浏览器
- * @param {string} url 
+ * @param {string} url
  */
 const open = (url) => {
   switch (platform) {
@@ -21,6 +21,6 @@ const open = (url) => {
       console.log(`Unsupported platform: ${platform}`);
       break;
   }
-}
+};
 
-module.exports = { open }
+module.exports = { open };

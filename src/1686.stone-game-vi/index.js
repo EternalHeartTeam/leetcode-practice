@@ -1,4 +1,4 @@
-const { showLogs } = require("../../common/utils/withTimeLog");
+const { showLogs } = require('../../common/utils/withTimeLog');
 /**
  * 1686.石子游戏 VI [2024-02-02]
  * Alice 和 Bob 轮流玩一个游戏，Alice 先手。
@@ -9,7 +9,7 @@ const { showLogs } = require("../../common/utils/withTimeLog");
  * 	如果 Alice 赢，返回 1 。
  * 	如果 Bob 赢，返回 -1 。
  * 	如果游戏平局，返回 0 。
- *  
+ *
  * 示例 1：
  * 输入：aliceValues = [1,3], bobValues = [2,1]
  * 输出：1
@@ -30,19 +30,19 @@ const { showLogs } = require("../../common/utils/withTimeLog");
  * 不管 Alice 怎么操作，Bob 都可以得到比 Alice 更高的得分。
  * 比方说，Alice 拿石子 1 ，Bob 拿石子 2 ， Alice 拿石子 0 ，Alice 会得到 6 分而 Bob 得分为 7 分。
  * Bob 会获胜。
- *  
+ *
  * 提示：
  * 	n == aliceValues.length == bobValues.length
  * 	1 5
- * 	1 
- * 
+ * 	1
+ *
  */
 /**
  * @param {number[]} aliceValues
  * @param {number[]} bobValues
  * @return {number}
  */
-var stoneGameVI = function(aliceValues, bobValues) {
+const stoneGameVI = function (aliceValues, bobValues) {
 
 };
 
@@ -50,9 +50,8 @@ var stoneGameVI = function(aliceValues, bobValues) {
  * Test case
  */
 showLogs(
-    stoneGameVI,
-    [[aliceValues = [1,3], bobValues = [2,1]],[aliceValues = [1,2], bobValues = [3,1]],[aliceValues = [2,4,3], bobValues = [1,6,7]]],
-    [1,0,-1]
-)
-console.log("点击跳转到题目提交:https://leetcode.cn/problems/stone-game-vi/")
-
+  stoneGameVI,
+  [[aliceValues = [1, 3], bobValues = [2, 1]], [aliceValues = [1, 2], bobValues = [3, 1]], [aliceValues = [2, 4, 3], bobValues = [1, 6, 7]]],
+  [1, 0, -1],
+);
+console.log('点击跳转到题目提交:https://leetcode.cn/problems/stone-game-vi/');

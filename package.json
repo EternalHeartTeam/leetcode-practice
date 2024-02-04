@@ -5,10 +5,11 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "leet-check": "node common/scripts/check.js",
     "leet-create": "node common/scripts/create.js",
     "leet-create:i": "node common/scripts/create.js -i",
-    "test": "vitest --run"
+    "leet-check": "node common/scripts/check.js",
+    "test": "vitest --run",
+    "lint": "eslint --fix --ext .js,jsx,cjs,mjs ./common"
   },
   "author": "EternalHeart",
   "license": "ISC",

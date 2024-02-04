@@ -1,5 +1,5 @@
-﻿function getQuestionUrl(enName){
-    return `https://leetcode.cn/problems/${enName}/`
+function getQuestionUrl(enName) {
+  return `https://leetcode.cn/problems/${enName}/`;
 }
 
-module.exports = {getQuestionUrl}
+module.exports = { getQuestionUrl };

@@ -8,22 +8,22 @@ const { exec } = require('child_process');
  * @returns {Promise<unknown>}
  */
 function temExe(temCommand, ...args) {
-    !args?.length && (args = process.argv?.slice(2));
-    return new Promise((resolve, reject) => {
-        const command = temCommand.replace(/\{\d+}/g, (match) => {
-            const argIndex = Number(match.slice(1, -1));
-            return args[argIndex];
-        });
-        exec(command, (error, stdout, stderr) => {
-            if (error) {
-                reject(error.message);
-            } else if (stderr) {
-                reject(stderr);
-            } else {
-                resolve(stdout);
-            }
-        });
-    })
+  !args?.length && (args = process.argv?.slice(2));
+  return new Promise((resolve, reject) => {
+    const command = temCommand.replace(/\{\d+}/g, (match) => {
+      const argIndex = Number(match.slice(1, -1));
+      return args[argIndex];
+    });
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        reject(error.message);
+      } else if (stderr) {
+        reject(stderr);
+      } else {
+        resolve(stdout);
+      }
+    });
+  });
 }
 
-module.exports = { temExe }
+module.exports = { temExe };
