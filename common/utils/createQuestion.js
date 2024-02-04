@@ -7,9 +7,10 @@ const rl = readlinePromises.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
+const sourceFilePath = path.normalize('./common/template/template.js');
+
 function createQuestion(newPath) {
   return new Promise((resolve, reject) => {
-    const sourceFilePath = path.normalize('./common/template/template.js');
     let newDir = path.normalize(`./src/${newPath}`);
     let newFilePath = path.join(newDir, 'index.js');
     // 判断是否存在
@@ -53,4 +54,4 @@ function createQuestion(newPath) {
   });
 }
 
-module.exports = { createQuestion };
+module.exports = { createQuestion, sourceFilePath };
