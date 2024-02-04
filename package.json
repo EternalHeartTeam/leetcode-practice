@@ -8,12 +8,15 @@
     "leet-create": "node common/scripts/create.js",
     "leet-create:i": "node common/scripts/create.js -i",
     "leet-check": "node common/scripts/check.js",
+    "commit": "cz",
     "test": "vitest --run",
     "lint": "eslint --fix --ext .js,jsx,cjs,mjs ./common"
   },
   "author": "EternalHeart",
   "license": "ISC",
   "dependencies": {
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "jsdom": "^23.2.0",
     "vite": "^5.0.11"
   },
@@ -24,5 +27,10 @@
     "eslint-plugin-import": "^2.29.1",
     "rimraf": "^5.0.5",
     "vitest": "^1.2.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
