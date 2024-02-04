@@ -1,5 +1,5 @@
-const { showLogs } = require("../../common/utils/withTimeLog");
-const ListNode = require("../../common/structures/ListNode");
+const { showLogs } = require('../../common/utils/withTimeLog');
+const ListNode = require('../../common/structures/ListNode');
 /**
  * 25.K 个一组翻转链表
  * 给你链表的头节点 head ，每 k 个节点一组进行翻转，请你返回修改后的链表。
@@ -33,72 +33,40 @@ const ListNode = require("../../common/structures/ListNode");
  * @param {number} k
  * @return {ListNode}
  */
-<<<<<<< HEAD
 const myReverse = (head, tail) => {
-    let prev = tail.next;
-    let p = head;
-    while (prev !== tail) {
-        const nex = p.next;
-        p.next = prev;
-        prev = p;
-        p = nex;
-    }
-    return [tail, head];
-}
-var reverseKGroup = function(head, k) {
-    const hair = new ListNode(0);
-    hair.next = head;
-    let pre = hair;
-
-    while (head) {
-        let tail = pre;
-        // 查看剩余部分长度是否大于等于 k
-        for (let i = 0; i < k; ++i) {
-            tail = tail.next;
-            if (!tail) {
-                return hair.next;
-            }
-        }
-        const nex = tail.next;
-        [head, tail] = myReverse(head, tail);
-        // 把子链表重新接回原链表
-        pre.next = head;
-        tail.next = nex;
-        pre = tail;
-        head = tail.next;
-    }
-    return hair.next;
-=======
-/**
- * @param {ListNode} head
- * @param {number} k
- * @return {ListNode}
- */
-const reverseKGroup = function (head, k) {
-  const stack = [];
-  const dummy = { next: head };
-  let pre = dummy;
-  while (true) {
-    let count = 0;
-    let tmp = head;
-    while (tmp && count < k) {
-      stack.push(tmp);
-      tmp = tmp.next;
-      count++;
-    }
-    if (count != k) {
-      pre.next = head;
-      break;
-    }
-    while (stack.length > 0) {
-      pre.next = stack.pop();
-      pre = pre.next;
-    }
-    pre.next = tmp;
-    head = tmp;
+  let prev = tail.next;
+  let p = head;
+  while (prev !== tail) {
+    const nex = p.next;
+    p.next = prev;
+    prev = p;
+    p = nex;
   }
-  return dummy.next;
->>>>>>> 1eb6e3c5ba35b22d7d3ef6893b6ace2d80050d6e
+  return [tail, head];
+};
+const reverseKGroup = function (head, k) {
+  const hair = new ListNode(0);
+  hair.next = head;
+  let pre = hair;
+
+  while (head) {
+    let tail = pre;
+    // 查看剩余部分长度是否大于等于 k
+    for (let i = 0; i < k; ++i) {
+      tail = tail.next;
+      if (!tail) {
+        return hair.next;
+      }
+    }
+    const nex = tail.next;
+    [head, tail] = myReverse(head, tail);
+    // 把子链表重新接回原链表
+    pre.next = head;
+    tail.next = nex;
+    pre = tail;
+    head = tail.next;
+  }
+  return hair.next;
 };
 
 /**
