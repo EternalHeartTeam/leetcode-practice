@@ -12,3 +12,6 @@ test('测试树', ()=>{
   expect(result).toEqual(mockTree);
 
 })
+test('测试树2 特殊值', ()=>{
+  expect(TreeNode.toArray(null)).toEqual([]);
+})

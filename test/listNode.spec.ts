@@ -24,3 +24,13 @@ test('toArray 1', () => {
   const arr = ListNode.toArray(1)
   expect(arr).toEqual([undefined])
 })
+test('parse [1,2,3]', () => {
+  const listNode = ListNode.parse([1,2,3])
+  expect(listNode.val).toEqual(1)
+  expect(listNode.next?.val).toEqual(2)
+  expect(listNode.next?.next?.val).toEqual(3)
+})
+test('parse []', () => {
+  const listNode = ListNode.parse([])
+  expect(listNode).toEqual(null)
+})
