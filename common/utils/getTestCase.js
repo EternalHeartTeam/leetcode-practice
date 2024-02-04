@@ -1,4 +1,4 @@
-﻿const { getDataStructure } = require('./parseStructure');
+const { getDataStructure } = require('./parseStructure');
 
 /**
  * test case 需要从两个地方拿到内容

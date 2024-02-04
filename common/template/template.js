@@ -1,13 +1,12 @@
-const { showLogs } = require("../../common/utils/withTimeLog");
+const { showLogs } = require('../utils/withTimeLog');
 /**
  * @题目
  * @描述
  */
-//@Function
+// @Function
 
 /**
  * Test case
  */
-//@TestCase
-console.log("点击跳转到题目提交:@url")
-
+// @TestCase
+console.log('点击跳转到题目提交:@url');

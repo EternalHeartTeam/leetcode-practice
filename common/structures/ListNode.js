@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ListNode 链表数据结构
  * @param val
  * @param next
