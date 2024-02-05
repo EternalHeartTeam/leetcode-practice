@@ -2,16 +2,15 @@ import fs from "fs";
 import path from "path";
 import readlinePromises from "node:readline/promises";
 import {getCountBySameName} from "./getCountBySameName.js";
-
-  
-export const sourceFilePath = path.normalize('./common/template/template.js');
+import { __dirname} from '#common/utils/getDirname.js'
+export const sourceFilePath = path.normalize(path.resolve(__dirname, '../template/template.js'));
 export function createQuestion(newPath) {
   const rl = readlinePromises.createInterface({
     input: process.stdin,
     output: process.stdout,
   });
   return new Promise((resolve, reject) => {
-    let newDir = path.normalize(`./src/${newPath}`);
+    let newDir = path.normalize(`${process.cwd()}/src/${newPath}`);
     let newFilePath = path.join(newDir, 'index.js');
     // 判断是否存在
     fs.exists(newFilePath, async (exists) => {
