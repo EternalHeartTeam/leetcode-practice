@@ -10,7 +10,7 @@ const { setDataStructure } = require('./parseStructure');
  * @param compare
  * @returns {{预期结果: string, 执行结果: string, 内存占用: string, 测试结果: (string), 执行用时: string}}
  */
-function withTimeLog(fnName, param, compare, compareStruct) {
+function showLogs(fnName, param, compare, compareStruct) {
   // 记录开始时间
   const startTime = performance.now();
   // 获取函数执行前的内存使用情况
@@ -40,7 +40,7 @@ function showLogs(fnName, paramMap, compareMap) {
 
   paramArr.forEach((param, index) => {
     const pasedParma = setDataStructure(param, paramStruct);
-    const logItem = withTimeLog(fnName, pasedParma, compareArr[index], compareStruct);
+    const logItem = showLogs(fnName, pasedParma, compareArr[index], compareStruct);
     logsItems.push(logItem);
   });
   console.table(logsItems);

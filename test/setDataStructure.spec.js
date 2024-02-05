@@ -1,6 +1,6 @@
 
 import {test, expect, describe} from 'vitest';
-const { showLogs } = require("../common/utils/withTimeLog");
+const { showLogs } = require("../common/utils/showLogs");
 const { ListNode, convertListNode } = require("../common/structures/ListNode");
 import { getDataStructure } from "../common/utils/parseStructure";
 
