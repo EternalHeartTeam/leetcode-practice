@@ -1,7 +1,8 @@
-﻿import {removeDomTags} from "./removeDomTags.js";
-import fs from "fs";
-import {getTestCase} from "./getTestCase.js";
-import {getQuestionUrl} from "./getQuestionUrl.js";
+﻿import fs from 'fs';
+import { removeDomTags } from './removeDomTags.js';
+import { getTestCase } from './getTestCase.js';
+import { getQuestionUrl } from './getQuestionUrl.js';
+import createMarkdown from './createMarkdown.js';
 /**
  * @typedef {Object} Question
  * @property {string} title
@@ -38,6 +39,7 @@ export const fulfillQuestion = (questionPath, question) => {
     if (err) throw err;
     // 修改文件内容
     const newData = generateTemplateContent(data, question);
+    createMarkdown(question.detail, questionPath);
     fs.writeFile(questionPath, newData, (err) => {
       if (err) throw err;
       console.log(`[fulfillQuestion]题目[${question.id}][${question.title}]已完成填充.`);
