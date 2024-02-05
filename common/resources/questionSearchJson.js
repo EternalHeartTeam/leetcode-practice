@@ -1,4 +1,4 @@
-function getQuestionSearchJson(keyword) {
+export function getQuestionSearchJson(keyword) {
   return {
     headers: {
       accept: '*/*',
@@ -24,4 +24,3 @@ function getQuestionSearchJson(keyword) {
   };
 }
 
-module.exports = { getQuestionSearchJson };

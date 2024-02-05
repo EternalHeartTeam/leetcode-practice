@@ -1,9 +1,7 @@
-const fs = require('fs');
-const { removeDomTags } = require('./removeDomTags');
-const { getTestCase } = require('./getTestCase');
-const { getQuestionUrl } = require('./getQuestionUrl');
-// import {getQuestion} from "./getQuestion";
-
+﻿import {removeDomTags} from "./removeDomTags.js";
+import fs from "fs";
+import {getTestCase} from "./getTestCase.js";
+import {getQuestionUrl} from "./getQuestionUrl.js";
 /**
  * @typedef {Object} Question
  * @property {string} title
@@ -21,7 +19,7 @@ const { getQuestionUrl } = require('./getQuestionUrl');
  * @param {Question} question
  *
  */
-const generateTemplateContent = (data, question) => data.replace('@题目', `${question.id}.${question.title} ${question.date ? `[${question.date}]` : ''}`)
+export const generateTemplateContent = (data, question) => data.replace('@题目', `${question.id}.${question.title} ${question.date ? `[${question.date}]` : ''}`)
   .replace('@描述', removeDomTags(question.detail)
     .replace('@url', question.url)
     .replace(/\n+/g, '\n')
@@ -34,7 +32,7 @@ const generateTemplateContent = (data, question) => data.replace('@题目', `${q
  * @param questionPath
  * @param question
  */
-const fulfillQuestion = (questionPath, question) => {
+export const fulfillQuestion = (questionPath, question) => {
   // 开始填充内容
   fs.readFile(questionPath, 'utf8', (err, data) => {
     if (err) throw err;
@@ -46,4 +44,3 @@ const fulfillQuestion = (questionPath, question) => {
     });
   });
 };
-module.exports = { fulfillQuestion, generateTemplateContent };

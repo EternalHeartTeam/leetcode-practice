@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "A leetcode practice project",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
+  "imports": {
+    "#common/*": "./common/*"
+  },
   "scripts": {
     "leet-create": "node common/scripts/create.js",
     "leet-create:i": "node common/scripts/create.js -i",

@@ -1,13 +1,12 @@
-const { readdirSync, existsSync, mkdirSync } = require('fs');
-const { normalize } = require('path');
-const { getQuestionListJson } = require('../resources/questionListJson');
-const { getQuestionSearchJson } = require('../resources/questionSearchJson');
+import {existsSync, mkdirSync, readdirSync} from "fs";
+import {normalize} from "path";
+import {getQuestionListJson} from "../resources/questionListJson.js";
 
 /**
  * todo 需要先获取全部题目列表 需要处理随机的问题
  * @returns {*[]}
  */
-async function getAllIds() {
+export async function getAllIds() {
   const total = await getCount();
   const randomSkip = total;
   const res = await fetch('https://leetcode.cn/graphql/', getQuestionListJson(0)).then(((res) => res.json()));
@@ -17,13 +16,13 @@ async function getAllIds() {
  * 获取总数
  * @returns {Promise<any>}
  */
-async function getCount() {
+export async function getCount() {
   return fetch('https://leetcode.cn/graphql/', getQuestionListJson(0)).then(((res) => res.json())).then((res) => res?.data?.problemsetQuestionList?.total);
 }
 /**
  * 读取本地存在的所有题目 并随机题目
  */
-async function getRandomId() {
+export async function getRandomId() {
   const parse = (name) => name.replace(/\.[a-zA-Z0-9-]+$/i, '');
   // src 目录
   const src = normalize('./src/');
@@ -40,7 +39,6 @@ async function getRandomId() {
  * @param len 默认值10
  * @returns {number}
  */
-function random(len = 10) {
+export function random(len = 10) {
   return Math.trunc(Math.random() * len % len);
 }
-module.exports = { getRandomId, random, getAllIds };

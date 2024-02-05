@@ -1,9 +1,10 @@
-const { createQuestion } = require("../utils/createQuestion");
-const {getQuestionToday} = require("../utils/getQuestionToday");
-const {fulfillQuestion} = require("../utils/fulfillQuestion");
-const { writeStore} = require("../utils/store");
-const {getQuestionById} = require("../utils/getQuestionById");
-const {getRandomId} = require("../utils/getRandomId");
+import {createQuestion} from "#common/utils/createQuestion.js";
+import {getQuestionToday} from "#common/utils/getQuestionToday.js";
+import {fulfillQuestion} from "#common/utils/fulfillQuestion.js";
+import {writeStore} from "#common/utils/store.js";
+import {getQuestionById} from "#common/utils/getQuestionById.js";
+import {getRandomId} from "#common/utils/getRandomId.js";
+
 /**
  * leet-create [-t|-r|-i [id]]
  * 默认参数 -t
@@ -15,10 +16,10 @@ const {getRandomId} = require("../utils/getRandomId");
 const args = process.argv.slice(2);
 switch (args[0]) {
     case "-r":
-        getRandomId().then(id=>{
+        getRandomId().then(id => {
             getQuestionById(id).then(question => {
                 const random = `${question.id}.${question.enName}`;
-                writeStore("random-question-info",question);
+                writeStore("random-question-info", question);
                 createQuestion(random).then((filePath) => {
                     fulfillQuestion(filePath, question);
                 })
@@ -27,18 +28,18 @@ switch (args[0]) {
         break;
     case "-i":
         const id = args[1];
-        if(id===undefined) {
+        if (id === undefined) {
             console.warn("请指定对应的编号!")
-            return;
-        }
-        console.log(`获取指定编号[${id}]的题目...`)
-        getQuestionById(id).then(question => {
-            const specified = `${question.id}.${question.enName}`;
-            writeStore("specified-question-info",question);
-            createQuestion(specified).then((filePath) => {
-                fulfillQuestion(filePath, question);
+        }else{
+            console.log(`获取指定编号[${id}]的题目...`)
+            getQuestionById(id).then(question => {
+                const specified = `${question.id}.${question.enName}`;
+                writeStore("specified-question-info", question);
+                createQuestion(specified).then((filePath) => {
+                    fulfillQuestion(filePath, question);
+                })
             })
-        })
+        }
         break;
     case "-t":
     default:

@@ -1,4 +1,4 @@
-const { readdirSync } = require('fs');
+import {readdirSync} from "fs";
 
 /**
  * 根据指定的目录和文件名 给出存在的数量
@@ -6,8 +6,6 @@ const { readdirSync } = require('fs');
  * @param name
  * @returns {number}
  */
-function getCountBySameName(dir, name) {
+export function getCountBySameName(dir, name) {
   return readdirSync(dir).filter((filename) => filename.includes(name)).length;
 }
-
-module.exports = { getCountBySameName };

@@ -1,6 +1,8 @@
-const { parse, toArray } = require('../structures/ListNode');
-const TreeNode = require('../structures/TreeNode');
-const Node = require('../structures/Node');
+import {Node} from "../structures/Node.js";
+import {TreeNode} from "../structures/TreeNode.js";
+import {ListNode} from "#common/structures/ListNode.js";
+const parse = ListNode.parse;
+const toArray = ListNode.toArray;
 
 const paramMap = {
   // 入参map
@@ -10,7 +12,6 @@ const paramMap = {
     TreeNode: (param) => TreeNode.parse(param),
     Node: (param) => Node.parse(param),
     default: (param) => param,
-
   },
   // 返回值map
   return: {
@@ -28,7 +29,7 @@ const paramMap = {
  * @param {string[]} structs
  * @param {string} type
  */
-const setDataStructure = (params, structs, type = 'cases') => params.map((param, index) => {
+export const setDataStructure = (params, structs, type = 'cases') => params.map((param, index) => {
   const struct = structs[index];
   const map = paramMap[type];
   return map[struct] ? map[struct](param) : map.default(param);
@@ -40,7 +41,7 @@ const setDataStructure = (params, structs, type = 'cases') => params.map((param,
  * @param {string} type 类型，param入参，returns返回值
  * @returns {string[]}
  */
-const getDataStructure = (jsCode, type = 'param') => {
+export const getDataStructure = (jsCode, type = 'param') => {
   const regexMap = {
     param: /@param\s+{\s*([^}\s]+)\s*}/g,
     return: /@return\s+{\s*([^}\s]+)\s*}/g,
@@ -52,7 +53,4 @@ const getDataStructure = (jsCode, type = 'param') => {
     paramTypes.push(match[1]);
   }
   return paramTypes;
-};
-module.exports = {
-  setDataStructure, getDataStructure,
 };

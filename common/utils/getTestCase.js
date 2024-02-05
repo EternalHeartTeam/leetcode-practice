@@ -1,5 +1,5 @@
-﻿const {getDataStructure} = require('./parseStructure');
-const {removeDomTags} = require("./removeDomTags");
+﻿import {getDataStructure} from "./parseStructure.js";
+import {removeDomTags} from "./removeDomTags.js";
 
 /**
  * test case 需要从两个地方拿到内容
@@ -8,7 +8,7 @@ const {removeDomTags} = require("./removeDomTags");
  * @param question
  * @returns {string}
  */
-function getTestCase(question) {
+export function getTestCase(question) {
     // 完整的一条语句的reg
     const inputReg = /(<[a-zA-Z]+>)?输入[：|:](<\/[a-zA-Z]+>)?.+\n/g;
     const inputStartReg = /(<[a-zA-Z]+>)?输入[：|:]/gm;
@@ -20,9 +20,9 @@ function getTestCase(question) {
 
     const detail = question.detail.replaceAll('`', '');
     const cases = detail.match(inputReg)
-        ?.map((str) => `[${removeDomTags(str?.replace(inputStartReg, '')?.replace(endReg, '')?.replace('\n', ''))}]`);
+        ?.map((str) => `[${removeDomTags(str?.replace(inputStartReg, '')?.replace(endReg, '')?.replace('\n', '').replace(/[a-zA-Z]+ =/g,""))}]`);
     const expires = detail.match(outputReg)
-        ?.map((str) => removeDomTags(str?.replace(outputStartReg, '')?.replace(endReg, '')?.replace('\n', '')));
+        ?.map((str) => removeDomTags(str?.replace(outputStartReg, '')?.replace(endReg, '')?.replace('\n', '').replace(/[a-zA-Z]+ =/g,"")));
     const functionName = question.jsCode?.match(/(var|let|const).+=/g)?.[0]?.replace(/((var|let|const)|=)\s?/gm, '').trim();
     return `showLogs(
     ${functionName},
@@ -36,5 +36,3 @@ function getTestCase(question) {
     }
 )`;
 }
-
-module.exports = {getTestCase};

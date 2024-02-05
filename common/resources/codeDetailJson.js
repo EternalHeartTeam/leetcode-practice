@@ -1,4 +1,4 @@
-function getCodeDetailJson(todayQuestionEnName) {
+export function getCodeDetailJson(todayQuestionEnName) {
   return {
     headers: {
       accept: '*/*',
@@ -23,5 +23,3 @@ function getCodeDetailJson(todayQuestionEnName) {
     method: 'POST',
   };
 }
-
-module.exports = { getCodeDetailJson };

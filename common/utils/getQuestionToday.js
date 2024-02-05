@@ -1,8 +1,8 @@
-const { writeStore } = require('./store');
-const { getQuestionTodayJson } = require('../resources/questionTodayJson');
-const { getQuestionDetail } = require('./getQuestionDetail');
+import {writeStore} from "./store.js";
+import {getQuestionTodayJson} from "../resources/questionTodayJson.js";
+import {getQuestionDetail} from "./getQuestionDetail.js";
 
-async function getQuestionToday() {
+export async function getQuestionToday() {
   const question = await fetch('https://leetcode.cn/graphql/', getQuestionTodayJson()).then(((res) => res.json()));
   const today = question.data.todayRecord[0].question;
   const { date } = question.data.todayRecord[0];
@@ -11,4 +11,3 @@ async function getQuestionToday() {
   return questionInfo;
 }
 
-module.exports = { getQuestionToday };

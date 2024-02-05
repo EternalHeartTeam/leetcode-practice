@@ -1,8 +1,6 @@
-const { getQuestionSearchJson } = require('../resources/questionSearchJson');
-const { getQuestionDetail } = require('./getQuestionDetail');
-const { writeStore } = require('./store');
-
-async function getQuestionById(id) {
+import {getQuestionSearchJson} from "../resources/questionSearchJson.js";
+import {getQuestionDetail} from "./getQuestionDetail.js";
+export async function getQuestionById(id) {
   const base = await fetch('https://leetcode.cn/graphql/', getQuestionSearchJson(id.toString())).then((res) => res.json());
   const questionContent = base.data.problemsetQuestionList.questions.find((o) => o.frontendQuestionId === id.toString());
   if(!questionContent) {
@@ -15,5 +13,3 @@ async function getQuestionById(id) {
   const question = await getQuestionDetail(slug);
   return question;
 }
-
-module.exports = { getQuestionById };

@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-const Node = require('../common/structures/Node');
+import Node from "#common/structures/Node";
 
 const graphArray1 = [[2, 4], [1, 3], [2, 4], [1, 3]];
 const graphArray2 = [[]];

@@ -1,4 +1,5 @@
-const { showLogs } = require('../utils/showLogs');
+import {showLogs} from "#common/utils/showLogs.js";
+
 /**
  * @题目
  * @描述

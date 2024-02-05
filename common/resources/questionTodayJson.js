@@ -1,4 +1,4 @@
-function getQuestionTodayJson() {
+export function getQuestionTodayJson() {
   return {
     headers: {
       accept: '*/*',
@@ -24,4 +24,3 @@ function getQuestionTodayJson() {
   };
 }
 
-module.exports = { getQuestionTodayJson };

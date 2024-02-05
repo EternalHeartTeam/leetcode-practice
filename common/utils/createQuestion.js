@@ -1,15 +1,13 @@
-const fs = require('fs');
-const path = require('path');
-const readlinePromises = require('node:readline/promises');
-const { getCountBySameName } = require('./getCountBySameName');
-
-const rl = readlinePromises.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-const sourceFilePath = path.normalize('./common/template/template.js');
-
-function createQuestion(newPath) {
+import fs from "fs";
+import path from "path";
+import readlinePromises from "node:readline/promises";
+import {getCountBySameName} from "./getCountBySameName.js";
+export function createQuestion(newPath) {
+  const rl = readlinePromises.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  const sourceFilePath = path.normalize('./common/template/template.js');
   return new Promise((resolve, reject) => {
     let newDir = path.normalize(`./src/${newPath}`);
     let newFilePath = path.join(newDir, 'index.js');
@@ -53,5 +51,3 @@ function createQuestion(newPath) {
     });
   });
 }
-
-module.exports = { createQuestion, sourceFilePath };

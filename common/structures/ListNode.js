@@ -5,7 +5,7 @@
  * @constructor
  */
 
-class ListNode {
+export class ListNode {
   constructor(val, next) {
     this.val = (val === undefined ? 0 : val);
     this.next = (next === undefined ? null : next);
@@ -33,5 +33,3 @@ class ListNode {
     return ListNode.toArray(listNodes.next, arr);
   }
 }
-
-module.exports = ListNode;

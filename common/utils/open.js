@@ -1,13 +1,12 @@
-const os = require('node:os');
-const { exec } = require('child_process');
-
+import os from "node:os";
+import {exec} from "child_process";
 const platform = os.platform();
 
 /**
  * 打开浏览器
  * @param {string} url
  */
-const open = (url) => {
+export const open = (url) => {
   switch (platform) {
     case 'darwin':
       exec(`open "${url}"`);
@@ -22,5 +21,3 @@ const open = (url) => {
       break;
   }
 };
-
-module.exports = { open };

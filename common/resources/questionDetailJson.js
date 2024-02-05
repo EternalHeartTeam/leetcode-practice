@@ -1,4 +1,4 @@
-function getQuestionDetailJson(slug) {
+export function getQuestionDetailJson(slug) {
   return {
     headers: {
       accept: '*/*',
@@ -23,5 +23,3 @@ function getQuestionDetailJson(slug) {
     method: 'POST',
   };
 }
-
-module.exports = { getQuestionDetailJson };

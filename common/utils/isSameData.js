@@ -4,7 +4,7 @@
  * @param b
  * @returns {this is string[]|boolean}
  */
-function isSameData(a, b) {
+export function isSameData(a, b) {
   const typeA = typeof a;
   const typeB = typeof b;
   if (typeA !== typeB) return false;
@@ -29,4 +29,3 @@ function isSameData(a, b) {
   }
 }
 
-module.exports = { isSameData };

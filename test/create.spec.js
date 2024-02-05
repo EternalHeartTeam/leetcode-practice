@@ -1,11 +1,10 @@
 import {afterEach, describe, expect, it, vi} from 'vitest';
-const { getQuestionToday} = require('../common/utils/getQuestionToday');
-const {sourceFilePath} = require('../common/utils/createQuestion');
-const {generateTemplateContent} = require('../common/utils/fulfillQuestion');
-const {getQuestionById} = require('../common/utils/getQuestionById');
-const {removeDomTags} = require('../common/utils/removeDomTags');
-const fs = require('fs');
-
+import {getQuestionToday} from "#common/utils/getQuestionToday";
+import fs from "fs";
+import {removeDomTags} from "#common/utils/removeDomTags";
+import {getQuestionById} from "#common/utils/getQuestionById";
+import {generateTemplateContent} from "#common/utils/fulfillQuestion";
+import {sourceFilePath} from "#common/utils/createQuestion.js";
 
 vi.mock('fs/promises', () => {
   return {

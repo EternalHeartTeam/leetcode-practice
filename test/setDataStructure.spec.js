@@ -1,10 +1,7 @@
-
-import {test, expect, describe} from 'vitest';
-const { showLogs } = require("../common/utils/showLogs");
-const { ListNode, convertListNode } = require("../common/structures/ListNode");
-import { getDataStructure } from "../common/utils/parseStructure";
-
-
+import {expect, test} from 'vitest';
+import {getDataStructure} from "#common/utils/parseStructure";
+import {showLogs} from "#common/utils/showLogs";
+import {ListNode} from "#common/structures/ListNode";
 
 const jsDoc = `/**
 * Definition for singly-linked list.

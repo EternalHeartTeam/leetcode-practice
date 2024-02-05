@@ -1,5 +1,5 @@
 import { test, expect, describe } from 'vitest';
-const ListNode = require('../common/structures/ListNode');
+import ListNode from "#common/structures/ListNode";
 
 test('toArray 正常数组', () => {
   // 创建链表

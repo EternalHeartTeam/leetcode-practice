@@ -1,5 +1,4 @@
-const { exec } = require('child_process');
-
+import {exec} from "child_process";
 /**
  * 执行模板指令 接受外部变量
  * 在调用的地方 获取外部参数 传入模板参数
@@ -7,7 +6,7 @@ const { exec } = require('child_process');
  * @param args
  * @returns {Promise<unknown>}
  */
-function temExe(temCommand, ...args) {
+export function temExe(temCommand, ...args) {
   !args?.length && (args = process.argv?.slice(2));
   return new Promise((resolve, reject) => {
     const command = temCommand.replace(/\{\d+}/g, (match) => {
@@ -26,4 +25,3 @@ function temExe(temCommand, ...args) {
   });
 }
 
-module.exports = { temExe };

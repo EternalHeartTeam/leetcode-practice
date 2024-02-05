@@ -1,4 +1,4 @@
-class TreeNode {
+export class TreeNode {
   constructor(val, left, right) {
     this.left = null;
     this.val = (val === undefined ? 0 : val);
@@ -50,4 +50,3 @@ class TreeNode {
     return result;
   }
 }
-module.exports = TreeNode;

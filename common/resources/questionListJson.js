@@ -1,4 +1,4 @@
-function getQuestionListJson(skip = 0, limit = 50) {
+export function getQuestionListJson(skip = 0, limit = 50) {
   return {
     headers: {
       accept: '*/*',
@@ -24,4 +24,3 @@ function getQuestionListJson(skip = 0, limit = 50) {
   };
 }
 
-module.exports = { getQuestionListJson };

@@ -1,7 +1,7 @@
-const { getJSCode } = require('./getJSCode');
-const { getQuestionDetailJson } = require('../resources/questionDetailJson');
+import {getJSCode} from "./getJSCode.js";
+import {getQuestionDetailJson} from "../resources/questionDetailJson.js";
 
-async function getQuestionDetail(slug, extra) {
+export async function getQuestionDetail(slug, extra) {
   // 标题的英文字符串
   const questionDetail = await fetch('https://leetcode.cn/graphql/', getQuestionDetailJson(slug)).then(((res) => res.json()));
   const detail = questionDetail.data.question;
@@ -15,4 +15,3 @@ async function getQuestionDetail(slug, extra) {
   };
 }
 
-module.exports = { getQuestionDetail };

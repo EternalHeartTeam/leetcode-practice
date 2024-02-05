@@ -1,20 +1,20 @@
 // 千
-const KB = 1024;
+export const KB = 1024;
 // 兆
-const MB = 1024 * KB;
+export const MB = 1024 * KB;
 // 吉
-const GB = 1024 * MB;
+export const GB = 1024 * MB;
 // 太
-const TB = 1024 * GB;
+export const TB = 1024 * GB;
 // 拍
-const PB = 1024 * GB;
+export const PB = 1024 * GB;
 
 /**
  * 获取文件的单位
  * @param size
  * @return {size: number, label: string}
  */
-function getFileSizeUnit(size) {
+export function getFileSizeUnit(size) {
   if (size < KB) {
     return { size: 1, label: 'B' };
   } if (size < MB) {
@@ -33,9 +33,8 @@ function getFileSizeUnit(size) {
  * @param size 文件大小
  * @param precision 小数位
  */
-function getFileSize(size, precision = 2) {
+export function getFileSize(size, precision = 2) {
   const fileSizeType = getFileSizeUnit(size);
   return `${(size / fileSizeType.size).toFixed(precision)} ${fileSizeType.label}`;
 }
 
-module.exports = { getFileSize, getFileSizeUnit };
