@@ -1,5 +1,5 @@
 import {test, expect, describe} from 'vitest';
-import TreeNode from "#common/structures/TreeNode";
+import { TreeNode } from "#common/structures/TreeNode";
 
 const mockTree = [1, 2, 3];
 const mockTree2 = [1,null, 2]

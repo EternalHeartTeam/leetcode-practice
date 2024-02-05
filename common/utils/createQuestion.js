@@ -2,12 +2,14 @@ import fs from "fs";
 import path from "path";
 import readlinePromises from "node:readline/promises";
 import {getCountBySameName} from "./getCountBySameName.js";
+
+  
+export const sourceFilePath = path.normalize('./common/template/template.js');
 export function createQuestion(newPath) {
   const rl = readlinePromises.createInterface({
     input: process.stdin,
     output: process.stdout,
   });
-  const sourceFilePath = path.normalize('./common/template/template.js');
   return new Promise((resolve, reject) => {
     let newDir = path.normalize(`./src/${newPath}`);
     let newFilePath = path.join(newDir, 'index.js');
