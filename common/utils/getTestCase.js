@@ -1,4 +1,5 @@
-const { getDataStructure } = require('./parseStructure');
+﻿const {getDataStructure} = require('./parseStructure');
+const {removeDomTags} = require("./removeDomTags");
 
 /**
  * test case 需要从两个地方拿到内容
@@ -8,13 +9,22 @@ const { getDataStructure } = require('./parseStructure');
  * @returns {string}
  */
 function getTestCase(question) {
-  const detail = question.detail.replaceAll('`', '');
-  const cases = detail.match(/(<[a-zA-Z]+>)?输入[：|:](<\/[a-zA-Z]+>)?.+\n/g)
-    ?.map((str) => `[${str?.replace(/(<[a-zA-Z]+>)?输入[：|:]/gm, '')?.replace(/(<\/[a-zA-Z]+>)?/, '')?.replace('\n', '')}]`);
-  const expires = detail.match(/(<[a-zA-Z]+>)?输出[：|:](<\/[a-zA-Z]+>)?.+\n/g)
-    ?.map((str) => str?.replace(/(<[a-zA-Z]+>)?输出[：|:](<\/[a-zA-Z]+>)?/gm, '')?.replace(/(<\/[a-zA-Z]+>)?/gm, '')?.replace('\n', ''));
-  const functionName = question.jsCode?.match(/var.+=/g)?.[0]?.replace('var ', '')?.replace(' =', '');
-  return `showLogs(
+    // 完整的一条语句的reg
+    const inputReg = /(<[a-zA-Z]+>)?输入[：|:](<\/[a-zA-Z]+>)?.+\n/g;
+    const inputStartReg = /(<[a-zA-Z]+>)?输入[：|:]/gm;
+    // 输出的reg
+    const outputReg = /(<[a-zA-Z]+>)?输出[：|:](<\/[a-zA-Z]+>)?.+\n/g;
+    const outputStartReg = /(<[a-zA-Z]+>)?输出[：|:]/gm;
+    //结尾
+    const endReg = /(<\/[a-zA-Z]+>)?/gm;
+
+    const detail = question.detail.replaceAll('`', '');
+    const cases = detail.match(inputReg)
+        ?.map((str) => `[${removeDomTags(str?.replace(inputStartReg, '')?.replace(endReg, '')?.replace('\n', ''))}]`);
+    const expires = detail.match(outputReg)
+        ?.map((str) => removeDomTags(str?.replace(outputStartReg, '')?.replace(endReg, '')?.replace('\n', '')));
+    const functionName = question.jsCode?.match(/(var|let|const).+=/g)?.[0]?.replace(/((var|let|const)|=)\s?/gm, '').trim();
+    return `showLogs(
     ${functionName},
     {
         data: [${cases}],
@@ -22,8 +32,9 @@ function getTestCase(question) {
     },
     {
         data: [${expires}],
-        structrue: ${JSON.stringify(getDataStructure(question.jsCode, 'return'))}
+        structure: ${JSON.stringify(getDataStructure(question.jsCode, 'return'))}
     }
 )`;
 }
-module.exports = { getTestCase };
+
+module.exports = {getTestCase};

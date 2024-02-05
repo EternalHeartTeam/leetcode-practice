@@ -1,5 +1,4 @@
-import { test, expect, describe,vi, afterEach, it } from 'vitest';
-import A from './features/test';
+import {afterEach, describe, expect, it, vi} from 'vitest';
 const { getQuestionToday} = require('../common/utils/getQuestionToday');
 const {sourceFilePath} = require('../common/utils/createQuestion');
 const {generateTemplateContent} = require('../common/utils/fulfillQuestion');
@@ -19,6 +18,7 @@ const isContainTestCase = (input) => input.includes('showLogs(');
 
 const handleText = (input) => input.replace(/\n+/g, '\n').replaceAll('\n', '\n * ');
 const mockKeys = [ 'enName', 'title', 'detail', 'id', 'jsCode', 'date' ];
+const oneDay = 24*60*60*1000;
 
 function isValidQuestion(res) {
   const content = generateTemplateContent(fileContent,res);
@@ -44,16 +44,10 @@ describe('leet-create', ()=> {
     it('是否正确获取了今天的题目', () => {
       expect(Object.keys(res)).toEqual(mockKeys);
       // 比较日期是否相等
-      expect(new Date(res.date).getDate()).toEqual(new Date().getDate());
-      // 比较月份是否相等
-      expect(new Date(res.date).getMonth()).toEqual(new Date().getMonth());
-      // 比较年份是否相等
-      expect(new Date(res.date).getFullYear()).toEqual(new Date().getFullYear());
-
+      expect(Math.trunc(new Date(res.date).valueOf()/oneDay)).toEqual(Math.trunc(new Date().valueOf()/oneDay));
     });
     it('是否正确的填充了今天的题目', async ()=> {
       isValidQuestion(res)
-
     })
 
   });
