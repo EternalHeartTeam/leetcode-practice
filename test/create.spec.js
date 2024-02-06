@@ -50,7 +50,7 @@ describe('leet-create', ()=> {
     })
 
   });
-  describe('with -r option', async () => {
+  describe('with -i option', async () => {
     const id_25 = '25';
     const res_25 = await getQuestionById(id_25);
     const id_LCS_03 = 'LCS 03';
@@ -75,5 +75,8 @@ describe('leet-create', ()=> {
     })
 
   })
+  // describe('with -r option', async () => {
+    
+  // })
 })
 

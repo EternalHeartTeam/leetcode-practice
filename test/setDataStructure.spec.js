@@ -108,7 +108,6 @@ test('测试', ()=> {
 
   const param = getDataStructure(jsDoc);
   const returnArray = getDataStructure(jsDoc, 'return');
-  console.log(param, 'param', returnArray, 'returnArray')
   expect(param).toEqual([ 'ListNode[]'])
   expect(returnArray).toEqual(['ListNode'])
 
