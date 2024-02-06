@@ -1,8 +1,9 @@
 ﻿import fs from 'fs';
-import { removeDomTags } from '../removeDomTags.js';
+import { removeDomTags } from '../functions/removeDomTags.js';
 import { getTestCase } from './getTestCase.js';
 import { getQuestionUrl } from './getQuestionUrl.js';
 import createMarkdown from './createMarkdown.js';
+import path from "path";
 /**
  * @typedef {Object} Question
  * @property {string} title
@@ -20,14 +21,16 @@ import createMarkdown from './createMarkdown.js';
  * @param {Question} question
  *
  */
-export const generateTemplateContent = (data, question) => data.replace('@题目', `${question.id}.${question.title} ${question.date ? `[${question.date}]` : ''}`)
+export const generateTemplateContent = (data, question) =>
+    data
+  .replace('@题目', `${question.id}.${question.title} ${question.date ? `[${question.date}]` : ''}`)
   .replace('@描述', removeDomTags(question.detail)
-    .replace('@url', question.url)
-    .replace(/\n+/g, '\n')
-    .replaceAll('\n', '\n * '))
+  .replace('@url', question.url)
+  .replace(/\n+/g, '\n')
+  .replaceAll('\n', '\n * '))
   .replace('// @Function', question.jsCode)
   .replace('// @TestCase', getTestCase(question))
-  .replace('@url', getQuestionUrl(question.enName));
+  .replace('@url', getQuestionUrl(question.slug));
 /**
  * 填充模板文件
  * @param questionPath
@@ -42,7 +45,6 @@ export const fulfillQuestion = (questionPath, question) => {
     createMarkdown(question.detail, questionPath);
     fs.writeFile(questionPath, newData, (err) => {
       if (err) throw err;
-      console.log(`[fulfillQuestion]题目[${question.id}][${question.title}]已完成填充.`);
     });
   });
 };

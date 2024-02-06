@@ -1,4 +1,4 @@
-import {showLogs} from "#common/utils/showLogs.js";
+import {showLogs} from "#common/utils/question-handler/showLogs.js";
 
 /**
  * @题目

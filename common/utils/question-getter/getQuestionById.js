@@ -6,7 +6,6 @@ export async function getQuestionById(id) {
   if(!questionContent) {
     return {
       id: null,
-      
     }
   }
   const slug = questionContent.titleSlug;

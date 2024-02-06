@@ -7,7 +7,7 @@ export async function getQuestionDetail(slug, extra) {
   const detail = questionDetail.data.question;
   const jsCode = await getJSCode(slug);
   return {
-    enName: slug,
+    slug: slug,
     title: detail.translatedTitle,
     detail: detail.translatedContent,
     ...jsCode,

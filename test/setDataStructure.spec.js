@@ -1,6 +1,6 @@
 import {expect, test} from 'vitest';
 import {getDataStructure} from "#common/utils/question-handler/parseStructure.js";
-import {showLogs} from "#common/utils/showLogs";
+import {showLogs} from "#common/utils/question-handler/showLogs.js";
 import {ListNode} from "#common/structures/ListNode";
 
 const jsDoc = `/**

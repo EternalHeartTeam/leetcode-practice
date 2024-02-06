@@ -1,3 +1,3 @@
-export function getQuestionUrl(enName) {
-  return `https://leetcode.cn/problems/${enName}/`;
+export function getQuestionUrl(slug) {
+  return `https://leetcode.cn/problems/${slug}/`;
 }
