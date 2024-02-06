@@ -1,8 +1,8 @@
 import {afterEach, describe, expect, it, vi} from 'vitest';
-import {getQuestionToday} from "#common/utils/getQuestionToday";
+import {getQuestionToday} from "#common/utils/question-getter/getQuestionToday.js";
 import fs from "fs";
 import {removeDomTags} from "#common/utils/removeDomTags";
-import {getQuestionById} from "#common/utils/getQuestionById";
+import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
 import {generateTemplateContent} from "#common/utils/question-handler/fulfillQuestion.js";
 import {sourceFilePath} from "#common/utils/question-handler/createQuestion.js";
 

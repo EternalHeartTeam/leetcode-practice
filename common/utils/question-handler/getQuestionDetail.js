@@ -1,5 +1,5 @@
 import {getJSCode} from "./getJSCode.js";
-import {getQuestionDetailJson} from "../../resources/headers/questionDetailJson.js";
+import {getQuestionDetailJson} from "../../../resources/headers/questionDetailJson.js";
 
 export async function getQuestionDetail(slug, extra) {
   // 标题的英文字符串

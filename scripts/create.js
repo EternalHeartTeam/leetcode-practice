@@ -1,9 +1,9 @@
 import {createQuestion} from "#common/utils/question-handler/createQuestion.js";
-import {getQuestionToday} from "#common/utils/getQuestionToday.js";
+import {getQuestionToday} from "#common/utils/question-getter/getQuestionToday.js";
 import {fulfillQuestion} from "#common/utils/question-handler/fulfillQuestion.js";
 import {writeStore} from "#common/utils/store.js";
-import {getQuestionById} from "#common/utils/getQuestionById.js";
-import {getRandomId} from "#common/utils/getRandomId.js";
+import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
+import {getRandomId} from "#common/utils/question-handler/getRandomId.js";
 
 /**
  * leet-create [-t|-r|-i [id]]
