@@ -6,22 +6,23 @@ import {readStore} from "#common/utils/store.js";
 import {showLogs} from "#common/utils/showLogs.js";
 import fs from 'fs';
 import vm from 'vm'
-import path from "path";
-import {parseFilePath} from "#common/utils/parseFilePath.js";
+import {parseFilePath} from "#common/utils/file/parseFilePath.js";
+import {getQuestionByMode} from "#common/utils/store/store-realm.js";
+
 const args = process.argv.slice(2);
 let name;
 switch (args[0]) {
     case "-r": {
-        const random = readStore("random-question-info")
-        name = `${random.id}.${random.enName}`;
+        const random = await getQuestionByMode("random")
+        name = `${random.id}.${random.slug}`;
         console.log(`[leet-check]检测当前随机题目:${name}`)
         break;
     }
 
     case "-i": {
         let id = args[1];
-        const specified = readStore("specified-question-info")
-        name = `${specified.id}.${specified.enName}`;
+        const specified = await getQuestionByMode("identity")
+        name = `${specified.id}.${specified.slug}`;
         if (id === undefined && name.startsWith("undefined")) {
             console.warn("请指定对应的编号进行检查!")
         }
@@ -31,8 +32,8 @@ switch (args[0]) {
 
     case "-t":
     default: {
-        const question = readStore("today-question-info")
-        name = `${question.id}.${question.enName}`;
+        const question = await getQuestionByMode("today")
+        name = `${question.id}.${question.slug}`;
         console.log(`[leet-check]检测题目:${name}`)
     }
         break;

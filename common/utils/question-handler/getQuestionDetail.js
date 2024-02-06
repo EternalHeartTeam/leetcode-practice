@@ -1,5 +1,5 @@
 import {getJSCode} from "./getJSCode.js";
-import {getQuestionDetailJson} from "../resources/questionDetailJson.js";
+import {getQuestionDetailJson} from "../../../resources/headers/questionDetailJson.js";
 
 export async function getQuestionDetail(slug, extra) {
   // 标题的英文字符串
@@ -7,7 +7,7 @@ export async function getQuestionDetail(slug, extra) {
   const detail = questionDetail.data.question;
   const jsCode = await getJSCode(slug);
   return {
-    enName: slug,
+    slug: slug,
     title: detail.translatedTitle,
     detail: detail.translatedContent,
     ...jsCode,

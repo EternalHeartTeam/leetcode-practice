@@ -1,6 +1,6 @@
 import v8 from "v8";
-import {getFileSize} from "./sizeUtil.js";
-import {isSameData} from "./isSameData.js";
+import {getFileSize} from "../functions/sizeUtil.js";
+import {isSameData} from "../functions/isSameData.js";
 import {setDataStructure} from "./parseStructure.js";
 
 /**

@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vitest";
-import {parseFilePath} from "#common/utils/parseFilePath.js";
+import {parseFilePath} from "#common/utils/file/parseFilePath.js";
 
 const path = "src/LRC 257.pp";
 describe("parseFilePath",()=>{

@@ -1,22 +1,20 @@
-import {Node} from "../structures/Node.js";
-import {TreeNode} from "../structures/TreeNode.js";
+import {Node} from "../../structures/Node.js";
+import {TreeNode} from "../../structures/TreeNode.js";
 import {ListNode} from "#common/structures/ListNode.js";
-const parse = ListNode.parse;
-const toArray = ListNode.toArray;
 
 const paramMap = {
   // 入参map
   cases: {
-    ListNode: (_param) => parse(_param),
-    'ListNode[]': (param) => param.map((res) => parse(res)),
+    ListNode: (_param) => ListNode.parse(_param),
+    'ListNode[]': (param) => param.map((res) => ListNode.parse(res)),
     TreeNode: (param) => TreeNode.parse(param),
     Node: (param) => Node.parse(param),
     default: (param) => param,
   },
   // 返回值map
   return: {
-    ListNode: (param) => toArray(param),
-    'ListNode[]': (param) => param.map((res) => toArray(res)),
+    ListNode: (param) => ListNode.toArray(param),
+    'ListNode[]': (param) => param.map((res) => ListNode.toArray(res)),
     TreeNode: (param) => TreeNode.toArray(param),
     Node: (param) => Node.toArray(param),
     default: (param) => param,

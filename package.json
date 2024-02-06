@@ -7,15 +7,16 @@
   "imports": {
     "#common/*": "./common/*"
   },
+  "packageManager": "pnpm@7.0.0+",
   "bin": {
     "lk": "bin/lk.js",
     "lf": "bin/lf.js",
     "lc": "bin/lc.js"
   },
   "scripts": {
-    "leet-create": "node common/scripts/create.js",
-    "leet-create:i": "node common/scripts/create.js -i",
-    "leet-check": "node common/scripts/check.js",
+    "leet-create": "node scripts/create.js",
+    "leet-create:i": "node scripts/create.js -i",
+    "leet-check": "node scripts/check.js",
     "commit": "cz",
     "test": "vitest --run",
     "coverage": "vitest run --coverage",
@@ -24,7 +25,9 @@
   "author": "EternalHeart",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^5.3.0",
     "commander": "^12.0.0",
+    "glob": "^10.3.10",
     "inquirer": "^9.2.14",
     "jsdom": "^23.2.0",
     "realm": "^12.6.0"

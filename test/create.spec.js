@@ -1,10 +1,10 @@
 import {afterEach, describe, expect, it, vi} from 'vitest';
-import {getQuestionToday} from "#common/utils/getQuestionToday";
+import {getQuestionToday} from "#common/utils/question-getter/getQuestionToday.js";
 import fs from "fs";
-import {removeDomTags} from "#common/utils/removeDomTags";
-import {getQuestionById} from "#common/utils/getQuestionById";
-import {generateTemplateContent} from "#common/utils/fulfillQuestion";
-import {sourceFilePath} from "#common/utils/createQuestion.js";
+import {removeDomTags} from "#common/utils/functions/removeDomTags.js";
+import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
+import {generateTemplateContent} from "#common/utils/question-handler/fulfillQuestion.js";
+import {sourceFilePath} from "#common/utils/question-handler/createQuestion.js";
 
 vi.mock('fs/promises', () => {
   return {
@@ -16,7 +16,7 @@ const isContainJsCode = (input) => funRegex.test(input);
 const isContainTestCase = (input) => input.includes('showLogs(');
 
 const handleText = (input) => input.replace(/\n+/g, '\n').replaceAll('\n', '\n * ');
-const mockKeys = [ 'enName', 'title', 'detail', 'id', 'jsCode', 'date' ];
+const mockKeys = [ 'slug', 'title', 'detail', 'id', 'jsCode', 'date' ];
 const oneDay = 24*60*60*1000;
 
 function isValidQuestion(res) {

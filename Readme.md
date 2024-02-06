@@ -71,8 +71,8 @@ yarn leet-create
 
 会通过接口获取今日题目，并会在`src`目录下根据`题目的id`+`题目的英文翻译`创建一个目录，并将今日题目和基础示例代码填充到`index.js`中。
 
-![创建目录](./resources/leet-create-0.png)
-![填充文件](resources/leet-create-1.png)
+![创建目录](resources/images/leet-create-0.png)
+![填充文件](resources/images/leet-create-1.png)
 
 ### 2. 检验今天的题目
 
@@ -102,7 +102,7 @@ Done in 0.18s.
 
 ```
 
-![检测题目](resources/leet-check.png)
+![检测题目](resources/images/leet-check.png)
 
 ### 3. 创建自己想要练习的题目
 
@@ -125,9 +125,9 @@ yarn leet-create -i "LCP 29"
   └── index.js # 模板js文件 可以替换题目
 ```
 
-![1314cmd.png](resources/1314-cmd.png)
-![1314.png](resources/1314.png)
-![1314详情.png](resources/1314-detail.png)
+![1314cmd.png](resources/images/1314-cmd.png)
+![1314.png](resources/images/1314.png)
+![1314详情.png](resources/images/1314-detail.png)
 
 ### 4. 检验自己想要练习的结果
 
@@ -179,7 +179,7 @@ Done in 0.19s.
 
 ```
 
-![1314-check.png](resources/1314-check.png)
+![1314-check.png](resources/images/1314-check.png)
 
 ### 5. 获取随机题目
 
@@ -237,5 +237,6 @@ Done in 0.19s.
 
 ## Contributor
 
-[EternalHeart](https://github.com/wh131462)
-[SmallTeddy](https://github.com/SmallTeddy)
+[<img src="https://avatars.githubusercontent.com/u/48346853" style="border-radius:50%;" width="30" height="30" alt="EternalHeart"/>](https://github.com/wh131462)
+[<img src="https://avatars.githubusercontent.com/u/61453917" style="border-radius:50%;" width="30" height="30" alt="SmartTeddy"/>](https://github.com/SmallTeddy)
+[<img src="https://avatars.githubusercontent.com/u/35305691" style="border-radius:50%;" width="30" height="30" alt="Hedwig-Fang"/>](https://github.com/Hedwig-Fang)
