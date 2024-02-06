@@ -3,6 +3,9 @@
  */
 import {temExe} from "#common/utils/temExe.js";
 import {readStore} from "#common/utils/store.js";
+import {showLogs} from "#common/utils/showLogs.js";
+import fs from 'fs';
+import vm from 'vm'
 import path from "path";
 import {parseFilePath} from "#common/utils/parseFilePath.js";
 const args = process.argv.slice(2);
@@ -34,7 +37,23 @@ switch (args[0]) {
     }
         break;
 }
-const filePath = parseFilePath(`./src/${name}/index.js`);
-temExe('node {0}',filePath)
-    .then(res => console.log(`执行结果:\n${res}`))
-    .catch(e => console.log("执行报错: ", e));
+
+function executeScript(filePath, content) {
+const fileContent = fs.readFileSync(filePath, 'utf-8');
+
+const script = new vm.Script(fileContent);
+return script.runInContext(content);
+
+}
+async function main() {
+    const src = parseFilePath(`${process.cwd()}/src/${name}/index.js`);
+
+    try {
+      await  executeScript(src, vm.createContext({
+            showLogs
+        }))
+   } catch (error) {
+       console.log('执行失败', error)
+   }
+}
+main()
