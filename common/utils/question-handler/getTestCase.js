@@ -1,5 +1,5 @@
 ﻿import {getDataStructure} from "./parseStructure.js";
-import {removeDomTags} from "./removeDomTags.js";
+import {removeDomTags} from "../removeDomTags.js";
 
 /**
  * test case 需要从两个地方拿到内容

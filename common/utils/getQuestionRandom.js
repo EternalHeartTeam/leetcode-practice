@@ -1,4 +1,4 @@
-import {getQuestionSearchJson} from "../resources/questionSearchJson.js";
+import {getQuestionSearchJson} from "../../resources/headers/questionSearchJson.js";
 import {getQuestionDetail} from "./getQuestionDetail.js";
 
 export async function getQuestionRandom(id) {

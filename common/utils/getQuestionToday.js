@@ -1,5 +1,5 @@
 import {writeStore} from "./store.js";
-import {getQuestionTodayJson} from "../resources/questionTodayJson.js";
+import {getQuestionTodayJson} from "../../resources/headers/questionTodayJson.js";
 import {getQuestionDetail} from "./getQuestionDetail.js";
 
 export async function getQuestionToday() {

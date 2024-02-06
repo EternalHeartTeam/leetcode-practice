@@ -1,5 +1,5 @@
 import {expect, test} from 'vitest';
-import {getDataStructure} from "#common/utils/parseStructure";
+import {getDataStructure} from "#common/utils/question-handler/parseStructure.js";
 import {showLogs} from "#common/utils/showLogs";
 import {ListNode} from "#common/structures/ListNode";
 

@@ -3,8 +3,8 @@ import {getQuestionToday} from "#common/utils/getQuestionToday";
 import fs from "fs";
 import {removeDomTags} from "#common/utils/removeDomTags";
 import {getQuestionById} from "#common/utils/getQuestionById";
-import {generateTemplateContent} from "#common/utils/fulfillQuestion";
-import {sourceFilePath} from "#common/utils/createQuestion.js";
+import {generateTemplateContent} from "#common/utils/question-handler/fulfillQuestion.js";
+import {sourceFilePath} from "#common/utils/question-handler/createQuestion.js";
 
 vi.mock('fs/promises', () => {
   return {

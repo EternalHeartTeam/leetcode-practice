@@ -1,5 +1,5 @@
-import {Node} from "../structures/Node.js";
-import {TreeNode} from "../structures/TreeNode.js";
+import {Node} from "../../structures/Node.js";
+import {TreeNode} from "../../structures/TreeNode.js";
 import {ListNode} from "#common/structures/ListNode.js";
 const parse = ListNode.parse;
 const toArray = ListNode.toArray;

@@ -1,6 +1,6 @@
 import {existsSync, mkdirSync, readdirSync} from "fs";
 import {normalize} from "path";
-import {getQuestionListJson} from "../resources/questionListJson.js";
+import {getQuestionListJson} from "../../resources/headers/questionListJson.js";
 
 /**
  * todo 需要先获取全部题目列表 需要处理随机的问题

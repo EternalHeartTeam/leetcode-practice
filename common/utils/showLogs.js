@@ -1,7 +1,7 @@
 import v8 from "v8";
 import {getFileSize} from "./sizeUtil.js";
 import {isSameData} from "./isSameData.js";
-import {setDataStructure} from "./parseStructure.js";
+import {setDataStructure} from "./question-handler/parseStructure.js";
 
 /**
  * 执行并输出时间和内存

@@ -1,5 +1,5 @@
 ﻿import fs from 'fs';
-import { removeDomTags } from './removeDomTags.js';
+import { removeDomTags } from '../removeDomTags.js';
 import { getTestCase } from './getTestCase.js';
 import { getQuestionUrl } from './getQuestionUrl.js';
 import createMarkdown from './createMarkdown.js';

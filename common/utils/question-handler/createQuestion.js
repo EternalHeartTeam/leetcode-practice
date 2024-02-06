@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import readlinePromises from "node:readline/promises";
-import {getCountBySameName} from "./getCountBySameName.js";
+import {getCountBySameName} from "../getCountBySameName.js";
 import { __dirname} from '#common/utils/getDirname.js'
 export const sourceFilePath = path.normalize(path.resolve(__dirname, '../template/template.js'));
 export function createQuestion(newPath) {

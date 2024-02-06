@@ -1,5 +1,5 @@
 import {test, expect} from 'vitest';
-import {getDataStructure} from "#common/utils/parseStructure";
+import {getDataStructure} from "#common/utils/question-handler/parseStructure.js";
 
 const mockJSDOC_multiple = `/**
 * Definition for singly-linked list.
