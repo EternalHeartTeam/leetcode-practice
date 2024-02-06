@@ -38,8 +38,7 @@ const getCase = (args,opts)=>{
 }
 
 const rules = {
-    'today':(args,opts)=>{
-    },
+    'today':(args,opts)=>{},
     'random':(args,opts)=>{},
     'identity':(args,opts)=>{},
 }
