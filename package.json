@@ -8,8 +8,9 @@
     "#common/*": "./common/*"
   },
   "bin": {
-    "lc": "./bin/lc-enter.js",
-    "lk": "./bin/lk-enter.js"
+    "lk": "bin/lk.js",
+    "lf": "bin/lf.js",
+    "lc": "bin/lc.js"
   },
   "scripts": {
     "leet-create": "node common/scripts/create.js",
@@ -23,20 +24,21 @@
   "author": "EternalHeart",
   "license": "ISC",
   "dependencies": {
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
+    "commander": "^12.0.0",
+    "inquirer": "^9.2.14",
     "jsdom": "^23.2.0",
-    "vite": "^5.0.11"
+    "realm": "^12.6.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
     "@vitest/coverage-v8": "^1.2.2",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
-    "inquirer": "^9.2.14",
     "rimraf": "^5.0.5",
-    "shelljs": "^0.8.5",
+    "vite": "^5.0.11",
     "vitest": "^1.2.2"
   },
   "config": {

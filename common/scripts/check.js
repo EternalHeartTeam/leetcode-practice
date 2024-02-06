@@ -3,6 +3,8 @@
  */
 import {temExe} from "#common/utils/temExe.js";
 import {readStore} from "#common/utils/store.js";
+import path from "path";
+import {parseFilePath} from "#common/utils/parseFilePath.js";
 const args = process.argv.slice(2);
 let name;
 switch (args[0]) {
@@ -32,6 +34,7 @@ switch (args[0]) {
     }
         break;
 }
-temExe('node ./src/{0}/index.js', name)
+const filePath = parseFilePath(`./src/${name}/index.js`);
+temExe('node {0}',filePath)
     .then(res => console.log(`执行结果:\n${res}`))
     .catch(e => console.log("执行报错: ", e));
