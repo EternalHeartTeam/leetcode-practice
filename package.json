@@ -4,6 +4,9 @@
   "description": "A leetcode practice project",
   "main": "index.js",
   "type": "module",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "imports": {
     "#common/*": "./common/*",
     "#resources/*": "./resources/*"
@@ -21,6 +24,9 @@
     "easy-find": "node common/view/finder.view.js",
     "easy-create": "node common/view/create.view.js",
     "easy-check": "node common/view/check.view.js",
+    "build-cli": "node esbuild.config.js",
+    "publish-cli": "cd pl-cli && npm publish --registry https://registry.npmjs.org/",
+    "unpublish-cli": "cd pl-cli && npm unpublish --force --registry https://registry.npmjs.org/\n",
     "commit": "cz",
     "test": "vitest --run",
     "coverage": "vitest run --coverage",
@@ -41,6 +47,7 @@
     "@vitest/coverage-v8": "^1.2.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
+    "esbuild": "^0.20.0",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",

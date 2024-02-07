@@ -12,9 +12,9 @@ import {checkQuestion} from "#common/utils/question-handler/checkQuestion.js";
 import {getQuestionByMode} from "#common/utils/store/store-realm.js";
 import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
 import {getQuestionFileName} from "#common/utils/question-handler/getQuestionFileName.js";
-import {rootPath} from "#common/utils/file/getRootPath.js";
 import {getQuestionChineseName} from "#common/utils/question-handler/getQuestionChineseName.js";
-const {version} =  JSON.parse(fs.readFileSync(path.resolve(rootPath,"package.json"),'utf-8'));
+
+const version = process.env.VERSION;
 program
     .version(version)
     .description(`${artFontLogo}\n${aim}`)

@@ -6,7 +6,6 @@ import {love} from "../resources/text/love.js";
 import {aim} from "../resources/text/aim.js";
 import {referMode} from "#common/utils/create-check/refer-mode.js";
 import {getArgs} from "#common/utils/create-check/get-args.js";
-import fs from "fs";
 import {getQuestionToday} from "#common/utils/question-getter/getQuestionToday.js";
 import {createQuestion} from "#common/utils/question-handler/createQuestion.js";
 import path from "path";
@@ -15,10 +14,9 @@ import {createQuestionCopy} from "#common/utils/question-handler/createQuestionC
 import {getQuestionRandom} from "#common/utils/question-getter/getQuestionRandom.js";
 import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
 import {setQuestion} from "#common/utils/store/store-realm.js";
-import {rootPath} from "#common/utils/file/getRootPath.js";
 import {getQuestionChineseName} from "#common/utils/question-handler/getQuestionChineseName.js";
-const {version} =  JSON.parse(fs.readFileSync(path.resolve(rootPath,"package.json"),'utf-8'));
 
+const version = process.env.VERSION;
 program
     .version(version)
     .description(`${artFontLogo}\n${aim}`)

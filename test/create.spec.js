@@ -1,10 +1,9 @@
 import {afterEach, describe, expect, it, vi} from 'vitest';
 import {getQuestionToday} from "#common/utils/question-getter/getQuestionToday.js";
 import fs from "fs";
-import {removeDomTags} from "#common/utils/functions/removeDomTags.js";
 import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
 import {generateTemplateContent} from "#common/utils/question-handler/fulfillQuestion.js";
-import {sourceFilePath} from "#common/utils/question-handler/createQuestion.js";
+import {template} from "#resources/template/template.js";
 
 vi.mock('fs/promises', () => {
   return {
@@ -30,7 +29,7 @@ function isValidQuestion(res) {
   expect(content.includes('提示')).toBeTruthy();
 
 }
-const fileContent = fs.readFileSync(sourceFilePath, 'utf-8');
+const fileContent = template;
 
 describe('leet-create', ()=> {
   // 清楚mock历史记录

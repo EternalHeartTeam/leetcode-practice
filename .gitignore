@@ -29,3 +29,6 @@ coverage/**
 
 # store file
 resources/stores/*
+
+# cli-dist
+pl-cli
