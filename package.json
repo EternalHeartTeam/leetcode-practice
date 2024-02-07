@@ -15,9 +15,10 @@
     "lc": "bin/lc.js"
   },
   "scripts": {
-    "leet-create": "node scripts/create.js",
-    "leet-create:i": "node scripts/create.js -i",
-    "leet-check": "node scripts/check.js",
+    "leet-create": "node bin/lc.js -d src",
+    "leet-check": "node bin/lk.js -d src",
+    "leet-find": "node bin/lf.js -d src",
+    "easy-find": "node common/view/finder.view.js",
     "easy-create": "node common/view/create.view.js",
     "easy-check": "node common/view/check.view.js",
     "commit": "cz",

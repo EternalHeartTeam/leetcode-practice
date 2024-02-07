@@ -23,12 +23,17 @@ program
     .option('-i, --identity <identity>', 'Check the specified question by identity.')
     .option('-r, --random', 'Check the last random question.')
     .option('-t, --today', 'Check the question today.')
+    .option('-d, --directory <directory>', 'Set the question directory.')
     .parse(process.argv)
 
 const cmdArgs = program.args;
 const cmdOpts = program.opts();
+
+// 根据dir 参数来设置基本目录
+const baseDir = cmdOpts.directory?path.join(process.cwd(),cmdOpts.directory):process.cwd();
 // 检测函数
-const check = async (mode,filePath,question)=>{
+const check = async (mode,question)=>{
+    const filePath = path.join(baseDir,getQuestionFileName(question),'index.js');
     if(!fs.existsSync(filePath)) {
         console.log(`文件[${filePath}]不存在,请确保已经创建!`)
     }else{
@@ -41,22 +46,19 @@ const check = async (mode,filePath,question)=>{
 const callModeAction = {
     'today': async () => {
         const question = await getQuestionByMode("today");
-        const filePath = path.join(process.cwd(),getQuestionFileName(question),'index.js');
-        await check('today',filePath,question)
+        await check('today',question)
         process.exit(0);
     },
     'random': async () => {
         const question = await getQuestionByMode("random");
-        const filePath = path.join(process.cwd(),getQuestionFileName(question),'index.js');
-        await check('today',filePath,question)
+        await check('today',question)
         process.exit(0);
     },
     'identity': async (id) => {
         const question = !id?
             await getQuestionByMode(mode):
             await getQuestionById(id);
-        const filePath = path.join(process.cwd(),getQuestionFileName(question),'index.js');
-        await check('today',filePath,question)
+        await check('today',question)
         process.exit(0);
     },
 }

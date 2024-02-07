@@ -27,16 +27,19 @@ program
     .option('-i, --identity <identity>', 'Specify a question by identity.')
     .option('-r, --random', 'Get a question randomly.')
     .option('-t, --today', 'Get a question today.')
+    .option('-d, --directory <directory>', 'Set the question directory.')
     .parse(process.argv)
 
 const cmdArgs = program.args;
 const cmdOpts = program.opts();
+// 根据dir 参数来设置基本目录
+const baseDir = cmdOpts.directory?path.join(process.cwd(),cmdOpts.directory):process.cwd();
 // 创建
 const create = (mode,question)=>{
-    console.log(`MODE: ${mode}`)
+    console.log(`MODE: ${mode}`);
     return new Promise(resolve=>{
         setQuestion(mode,question);
-        const questionDir = path.join(process.cwd(),getQuestionFileName(question))
+        const questionDir = path.join(baseDir,getQuestionFileName(question))
         createQuestion(question,questionDir).then(async (path)=>{
             if(!path)path = await createQuestionCopy(question,questionDir);
             console.log(`题目[${getQuestionChineseName(question)}]获取成功!\n题目文件地址为:${path}`)

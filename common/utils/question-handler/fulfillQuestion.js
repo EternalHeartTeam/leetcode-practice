@@ -3,6 +3,7 @@ import {removeDomTags} from '../functions/removeDomTags.js';
 import {getTestCase} from './getTestCase.js';
 import {getQuestionUrl} from './getQuestionUrl.js';
 import {createMarkdown} from './createMarkdown.js';
+import {getQuestionChineseName} from "#common/utils/question-handler/getQuestionChineseName.js";
 /**
  * @typedef {Object} Question
  * @property {string} title
