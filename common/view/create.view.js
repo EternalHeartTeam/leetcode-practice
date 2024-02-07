@@ -6,6 +6,7 @@ import {getQuestionToday} from "#common/utils/question-getter/getQuestionToday.j
 import {getQuestionRandom} from "#common/utils/question-getter/getQuestionRandom.js";
 import {createQuestion} from "#common/utils/question-handler/createQuestion.js";
 import {createQuestionCopy} from "#common/utils/question-handler/createQuestionCopy.js";
+import {setQuestion} from "#common/utils/store/store-realm.js";
 const modeQuestion = [{
     type: 'list',
     name: 'mode',
@@ -34,6 +35,9 @@ switch (mode){
         question = await getQuestionToday()
         break;
 }
+const store = await setQuestion(mode,question);
+if(!store) console.warn(`[create][${mode}]问题[${question.title}]未成功缓存`)
+console.log(`[create][${mode}]问题[${question.title}]已缓存`,store)
 // 创建题目
 const questionFileName = getQuestionFileName(question);
 const currentDir = process.cwd();
@@ -64,8 +68,9 @@ if(!dirRight){
         questionDir = path.join(path.join(process.cwd(),newDir),`${questionFileName}`)
     }
 }
-let filePath = await createQuestion(question,questionDir)
+let filePath = await createQuestion(question,questionDir);
 if(!filePath){
-    filePath = createQuestionCopy(question)
+    filePath = await createQuestionCopy(question,questionDir);
 }
-console.log(`题目[${questionFileName}]创建完成！`)
+console.log(`题目[${questionFileName}]创建完成！\n文件地址为: ${filePath}`)
+process.exit(0)

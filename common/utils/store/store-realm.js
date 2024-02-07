@@ -20,8 +20,8 @@ const open = async ()=>{
  */
 const exeOnce = async (callback)=>{
     const realm = await open();
-    const res = callback(realm);
-    realm.close()
+    const res = await callback(realm);
+    realm.close();
     return res;
 }
 
@@ -47,7 +47,7 @@ export const setQuestion = (mode,question)=>exeOnce((realm)=>{
         realm.delete(realm.objects("Question").filtered("mode=$0",mode));
         newQuestion = realm.create("Question", Object.assign(question,{mode}));
     });
-    return newQuestion;
+    return newQuestion.toJSON();
 });
 /**
  * 删除某一个模式

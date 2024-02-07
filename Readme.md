@@ -81,8 +81,6 @@ yarn leet-check
 ```
 
 此指令会根据今天的题目信息去执行对应的题目文件，输出结果。
-> NOTE:缓存的实现是在`commom/resouces/store.json`,如果只想让内容在本地存在,不上传到个人项目中的话,执行`git update-index --aussume-unchanged common/resources/store.json`来忽略本地的文件变更即可。
->
 
 ```shell
 yarn leet-check 
@@ -193,7 +191,6 @@ yarn leet-create -r
  D:\GitHub\leetcode-practice> yarn leet-create -r     
 yarn run v1.22.19
 $ node common/scripts/create.js -r
-[store]数据存储成功[random-question-info]:[[object Object]]
 [fulfillQuestion]题目[43][字符串相乘]已完成填充.
 Done in 1.78s.
 ```

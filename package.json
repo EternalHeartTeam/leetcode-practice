@@ -17,6 +17,8 @@
     "leet-create": "node scripts/create.js",
     "leet-create:i": "node scripts/create.js -i",
     "leet-check": "node scripts/check.js",
+    "easy-create": "node common/view/create.view.js",
+    "easy-check": "node common/view/check.view.js",
     "commit": "cz",
     "test": "vitest --run",
     "coverage": "vitest run --coverage",
