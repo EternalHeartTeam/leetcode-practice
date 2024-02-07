@@ -1,5 +1,4 @@
-
-
+export const template = `
 /**
  * @题目
  * @描述
@@ -10,4 +9,4 @@
  * Test case
  */
 // @TestCase
-console.log('点击跳转到题目提交:@url');
+console.log('点击跳转到题目提交:@url');`

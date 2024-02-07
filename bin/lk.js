@@ -7,8 +7,13 @@ import {aim} from "../resources/text/aim.js";
 import {referMode} from "#common/utils/create-check/refer-mode.js";
 import {getArgs} from "#common/utils/create-check/get-args.js";
 import fs from "fs";
-const {version} =  JSON.parse(fs.readFileSync("package.json",'utf-8'));
-
+import path from "path";
+import {checkQuestion} from "#common/utils/question-handler/checkQuestion.js";
+import {getQuestionByMode} from "#common/utils/store/store-realm.js";
+import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
+import {getQuestionFileName} from "#common/utils/question-handler/getQuestionFileName.js";
+import {rootPath} from "#common/utils/file/getRootPath.js";
+const {version} =  JSON.parse(fs.readFileSync(path.resolve(rootPath,"package.json"),'utf-8'));
 program
     .version(version)
     .description(`${artFontLogo}\n${aim}`)
@@ -21,19 +26,37 @@ program
 
 const cmdArgs = program.args;
 const cmdOpts = program.opts();
+// 检测函数
+const check = async (mode,filePath,question)=>{
+    if(!fs.existsSync(filePath)) {
+        console.log(`文件[${filePath}]不存在,请确保已经创建!`)
+    }else{
+        console.log(`MODE: ${mode}\n题目[${question.id}.${question.title}]检测结果:`)
+        await checkQuestion(filePath);
+    }
+    return true;
+}
 // 模式对应的action
 const callModeAction = {
-    'today': () => {
-        // todo 获取今日题目的进程
-        console.log("[leetcode-practice] 检测今日题目")
+    'today': async () => {
+        const question = await getQuestionByMode("today");
+        const filePath = path.join(process.cwd(),getQuestionFileName(question),'index.js');
+        await check('today',filePath,question)
+        process.exit(0);
     },
-    'random': () => {
-        // todo 获取随机题目的进程
-        console.log("[leetcode-practice] 检测随机题目")
+    'random': async () => {
+        const question = await getQuestionByMode("random");
+        const filePath = path.join(process.cwd(),getQuestionFileName(question),'index.js');
+        await check('today',filePath,question)
+        process.exit(0);
     },
-    'identity': (id) => {
-        // todo 获取指定题目的进程
-        console.log(`[leetcode-practice] 检测指定题目[${id}]`)
+    'identity': async (id) => {
+        const question = !id?
+            await getQuestionByMode(mode):
+            await getQuestionById(id);
+        const filePath = path.join(process.cwd(),getQuestionFileName(question),'index.js');
+        await check('today',filePath,question)
+        process.exit(0);
     },
 }
 // 获取模式和参数

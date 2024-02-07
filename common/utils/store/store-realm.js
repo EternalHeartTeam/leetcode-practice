@@ -1,7 +1,8 @@
 import Realm from "realm";
 import {Question} from "#common/utils/store/schemas/question.js";
 import path from "path";
-const localPath = path.normalize("resources/stores/store.realm")
+import {rootPath} from "#common/utils/file/getRootPath.js";
+const localPath = path.resolve(rootPath,"resources/stores/store.realm")
 /**
  * 开启
  * @returns {Promise<Realm>}
@@ -33,7 +34,7 @@ const exeOnce = async (callback)=>{
 export const getQuestionByMode = (mode)=>exeOnce((realm)=>{
     const all = realm.objects("Question");
     const question = all.filtered("mode=$0",mode)?.[0];
-    return question.toJSON();
+    return question?.toJSON();
 })
 /**
  * 存对象

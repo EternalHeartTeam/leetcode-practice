@@ -7,7 +7,16 @@ import {aim} from "../resources/text/aim.js";
 import {referMode} from "#common/utils/create-check/refer-mode.js";
 import {getArgs} from "#common/utils/create-check/get-args.js";
 import fs from "fs";
-const {version} =  JSON.parse(fs.readFileSync("package.json",'utf-8'));
+import {getQuestionToday} from "#common/utils/question-getter/getQuestionToday.js";
+import {createQuestion} from "#common/utils/question-handler/createQuestion.js";
+import path from "path";
+import {getQuestionFileName} from "#common/utils/question-handler/getQuestionFileName.js";
+import {createQuestionCopy} from "#common/utils/question-handler/createQuestionCopy.js";
+import {getQuestionRandom} from "#common/utils/question-getter/getQuestionRandom.js";
+import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
+import {setQuestion} from "#common/utils/store/store-realm.js";
+import {rootPath} from "#common/utils/file/getRootPath.js";
+const {version} =  JSON.parse(fs.readFileSync(path.resolve(rootPath,"package.json"),'utf-8'));
 
 program
     .version(version)
@@ -24,20 +33,42 @@ const cmdOpts = program.opts();
 // 模式对应的action
 const callModeAction = {
     'today': () => {
-        // todo 获取今日题目的进程
-        console.log("[leetcode-practice] 获取今日题目")
+        getQuestionToday().then(question=>{
+            setQuestion("today",question);
+            const questionDir = path.join(process.cwd(),getQuestionFileName(question))
+            createQuestion(question,questionDir).then(async (path)=>{
+                if(!path)path = await createQuestionCopy(question,questionDir);
+                console.log(`[lc] 获取今日题目成功\n题目为[${question.title}]\n文件地址为:${path}`)
+                process.exit(0);
+            })
+        })
     },
     'random': () => {
-        // todo 获取随机题目的进程
-        console.log("[leetcode-practice] 获取随机题目")
+        getQuestionRandom().then(question=>{
+            setQuestion("random",question);
+            const questionDir = path.join(process.cwd(),getQuestionFileName(question))
+            createQuestion(question,questionDir).then(async (path)=>{
+                if(!path)path = await createQuestionCopy(question,questionDir);
+                console.log(`[lc] 获取随机题目成功\n题目为[${question.title}]\n文件地址为:${path}`)
+                process.exit(0);
+            })
+        })
     },
     'identity': (id) => {
-        // todo 获取指定题目的进程
-        console.log(`[leetcode-practice] 获取指定题目[${id}]`)
+        getQuestionById(id).then(question=>{
+            setQuestion("identity",question);
+            const questionDir = path.join(process.cwd(),getQuestionFileName(question))
+            createQuestion(question,questionDir).then(async (path)=>{
+                if(!path)path = await createQuestionCopy(question,questionDir);
+                console.log(`[lc] 获取指定题目成功\n题目为[${question.title}]\n文件地址为:${path}`)
+                process.exit(0);
+            })
+        })
     },
 }
 // 获取模式和参数
 const mode = referMode(cmdArgs, cmdOpts);
 const args = getArgs(mode,cmdArgs,cmdOpts);
 // 执行指令分发
-callModeAction[mode](args);
+await callModeAction[mode](args);
+//

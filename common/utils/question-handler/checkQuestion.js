@@ -20,7 +20,7 @@ export function executeScript(filePath, context) {
  */
 export const checkQuestion = async (path)=>{
     return await executeScript(path, vm.createContext({
-        showLogs
+        showLogs,console
     }))
 }
 

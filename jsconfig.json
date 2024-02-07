@@ -4,6 +4,9 @@
     "paths": {
       "#common/*": [
         "./common/*"
+      ],
+      "#resources/*": [
+        "./resources/*"
       ]
     }
   }

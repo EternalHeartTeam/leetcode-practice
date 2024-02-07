@@ -1,8 +1,14 @@
 import fs from "fs";
 import path from "path";
 import {fulfillQuestion} from "#common/utils/question-handler/fulfillQuestion.js";
+import {template} from "#resources/template/template.js";
 
-export const sourceFilePath = path.normalize('resources/template/template.js');
+/**
+ * 创建问题
+ * @param question 问题对象
+ * @param questionDir 问题要创建的目录 截止到名字
+ * @returns {Promise<unknown>}
+ */
 export const createQuestion = (question, questionDir) => {
     return new Promise(resolve => {
         let filePath = path.normalize(path.join(questionDir, 'index.js'));
@@ -17,10 +23,8 @@ export const createQuestionFile = (questionDir, questionFilePath, question) => {
     return new Promise((resolve, reject) => {
         try {
             fs.mkdir(questionDir, {recursive: true}, () => {
-                // 复制文件
-                fs.copyFile(sourceFilePath, questionFilePath, 0, () => {
-                    fulfillQuestion(questionFilePath, question)
-                    resolve(questionFilePath)
+                fs.writeFile(questionFilePath, template,null,()=>{
+                    fulfillQuestion(questionFilePath, question).then(()=>resolve(questionFilePath))
                 });
             });
         } catch (e) {

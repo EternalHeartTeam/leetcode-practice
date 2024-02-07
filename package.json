@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "imports": {
-    "#common/*": "./common/*"
+    "#common/*": "./common/*",
+    "#resources/*": "./resources/*"
   },
   "packageManager": "pnpm@7.0.0+",
   "bin": {
