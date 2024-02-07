@@ -22,7 +22,7 @@ import {createMarkdown} from './createMarkdown.js';
  */
 export const generateTemplateContent = (data, question) =>
     data
-        .replace('@题目', `${question.id}.${question.title} ${question.date ? `[${question.date}]` : ''}`)
+        .replace('@题目', `${getQuestionChineseName(question)} ${question.date ? `[${question.date}]` : ''}`)
         .replace('@描述', removeDomTags(question.detail)
             .replace('@url', question.url)
             .replace(/\n+/g, '\n')

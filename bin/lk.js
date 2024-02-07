@@ -13,6 +13,7 @@ import {getQuestionByMode} from "#common/utils/store/store-realm.js";
 import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
 import {getQuestionFileName} from "#common/utils/question-handler/getQuestionFileName.js";
 import {rootPath} from "#common/utils/file/getRootPath.js";
+import {getQuestionChineseName} from "#common/utils/question-handler/getQuestionChineseName.js";
 const {version} =  JSON.parse(fs.readFileSync(path.resolve(rootPath,"package.json"),'utf-8'));
 program
     .version(version)
@@ -31,7 +32,7 @@ const check = async (mode,filePath,question)=>{
     if(!fs.existsSync(filePath)) {
         console.log(`文件[${filePath}]不存在,请确保已经创建!`)
     }else{
-        console.log(`MODE: ${mode}\n题目[${question.id}.${question.title}]检测结果:`)
+        console.log(`MODE: ${mode}\n题目[${getQuestionChineseName(question)}]检测结果:`)
         await checkQuestion(filePath);
     }
     return true;

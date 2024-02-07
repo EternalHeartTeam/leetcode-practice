@@ -16,6 +16,7 @@ import {getQuestionRandom} from "#common/utils/question-getter/getQuestionRandom
 import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
 import {setQuestion} from "#common/utils/store/store-realm.js";
 import {rootPath} from "#common/utils/file/getRootPath.js";
+import {getQuestionChineseName} from "#common/utils/question-handler/getQuestionChineseName.js";
 const {version} =  JSON.parse(fs.readFileSync(path.resolve(rootPath,"package.json"),'utf-8'));
 
 program
@@ -32,12 +33,13 @@ const cmdArgs = program.args;
 const cmdOpts = program.opts();
 // 创建
 const create = (mode,question)=>{
+    console.log(`MODE: ${mode}`)
     return new Promise(resolve=>{
         setQuestion(mode,question);
         const questionDir = path.join(process.cwd(),getQuestionFileName(question))
         createQuestion(question,questionDir).then(async (path)=>{
             if(!path)path = await createQuestionCopy(question,questionDir);
-            console.log(`[lc] 获取随机题目成功\n题目为[${question.title}]\n文件地址为:${path}`)
+            console.log(`题目[${getQuestionChineseName(question)}]获取成功!\n题目文件地址为:${path}`)
             resolve(true)
         })
     })
