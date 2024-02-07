@@ -30,39 +30,39 @@ program
 
 const cmdArgs = program.args;
 const cmdOpts = program.opts();
+// 创建
+const create = (mode,question)=>{
+    return new Promise(resolve=>{
+        setQuestion(mode,question);
+        const questionDir = path.join(process.cwd(),getQuestionFileName(question))
+        createQuestion(question,questionDir).then(async (path)=>{
+            if(!path)path = await createQuestionCopy(question,questionDir);
+            console.log(`[lc] 获取随机题目成功\n题目为[${question.title}]\n文件地址为:${path}`)
+            resolve(true)
+        })
+    })
+}
 // 模式对应的action
 const callModeAction = {
     'today': () => {
         getQuestionToday().then(question=>{
-            setQuestion("today",question);
-            const questionDir = path.join(process.cwd(),getQuestionFileName(question))
-            createQuestion(question,questionDir).then(async (path)=>{
-                if(!path)path = await createQuestionCopy(question,questionDir);
-                console.log(`[lc] 获取今日题目成功\n题目为[${question.title}]\n文件地址为:${path}`)
-                process.exit(0);
-            })
+            create("today",question).then(()=>{
+                process.exit(0)
+            });
         })
     },
     'random': () => {
         getQuestionRandom().then(question=>{
-            setQuestion("random",question);
-            const questionDir = path.join(process.cwd(),getQuestionFileName(question))
-            createQuestion(question,questionDir).then(async (path)=>{
-                if(!path)path = await createQuestionCopy(question,questionDir);
-                console.log(`[lc] 获取随机题目成功\n题目为[${question.title}]\n文件地址为:${path}`)
-                process.exit(0);
-            })
+            create("random",question).then(()=>{
+                process.exit(0)
+            });
         })
     },
     'identity': (id) => {
         getQuestionById(id).then(question=>{
-            setQuestion("identity",question);
-            const questionDir = path.join(process.cwd(),getQuestionFileName(question))
-            createQuestion(question,questionDir).then(async (path)=>{
-                if(!path)path = await createQuestionCopy(question,questionDir);
-                console.log(`[lc] 获取指定题目成功\n题目为[${question.title}]\n文件地址为:${path}`)
-                process.exit(0);
-            })
+            create("identity",question).then(()=>{
+                process.exit(0)
+            });
         })
     },
 }
@@ -71,4 +71,3 @@ const mode = referMode(cmdArgs, cmdOpts);
 const args = getArgs(mode,cmdArgs,cmdOpts);
 // 执行指令分发
 await callModeAction[mode](args);
-//
