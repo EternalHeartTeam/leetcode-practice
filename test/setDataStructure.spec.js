@@ -1,6 +1,6 @@
 import {expect, test} from 'vitest';
-import {getDataStructure} from "#common/utils/parseStructure";
-import {showLogs} from "#common/utils/showLogs";
+import {getDataStructure} from "#common/utils/question-handler/parseStructure.js";
+import {showLogs} from "#common/utils/question-handler/showLogs.js";
 import {ListNode} from "#common/structures/ListNode";
 
 const jsDoc = `/**
@@ -108,7 +108,6 @@ test('测试', ()=> {
 
   const param = getDataStructure(jsDoc);
   const returnArray = getDataStructure(jsDoc, 'return');
-  console.log(param, 'param', returnArray, 'returnArray')
   expect(param).toEqual([ 'ListNode[]'])
   expect(returnArray).toEqual(['ListNode'])
 

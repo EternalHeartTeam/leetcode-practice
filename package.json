@@ -1,16 +1,33 @@
 {
   "name": "leetcode-practice",
   "version": "1.0.0",
-  "description": "A leetcode practice project",
+  "description": "A powerful practice platform for leetcode.Using any way you want to create questions.",
+
   "main": "index.js",
   "type": "module",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "imports": {
-    "#common/*": "./common/*"
+    "#common/*": "./common/*",
+    "#resources/*": "./resources/*"
+  },
+  "packageManager": "pnpm@7.0.0+",
+  "bin": {
+    "lk": "bin/lk.js",
+    "lf": "bin/lf.js",
+    "lc": "bin/lc.js"
   },
   "scripts": {
-    "leet-create": "node common/scripts/create.js",
-    "leet-create:i": "node common/scripts/create.js -i",
-    "leet-check": "node common/scripts/check.js",
+    "leet-create": "node bin/lc.js -d src",
+    "leet-check": "node bin/lk.js -d src",
+    "leet-finder": "node bin/lf.js -d src",
+    "easy-create": "node scripts/easy-create.js",
+    "easy-check": "node scripts/easy-check.js",
+    "easy-finder": "node scripts/easy-finder.js",
+    "build-cli": "node esbuild.config.js",
+    "publish-cli": "cd pl-cli && npm publish --registry https://registry.npmjs.org/",
+    "unpublish-cli": "cd pl-cli && npm unpublish --force --registry https://registry.npmjs.org/\n",
     "commit": "cz",
     "test": "vitest --run",
     "coverage": "vitest run --coverage",
@@ -19,18 +36,24 @@
   "author": "EternalHeart",
   "license": "ISC",
   "dependencies": {
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "glob": "^10.3.10",
+    "inquirer": "^9.2.14",
     "jsdom": "^23.2.0",
-    "vite": "^5.0.11"
+    "realm": "^12.6.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
     "@vitest/coverage-v8": "^1.2.2",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "esbuild": "^0.20.0",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
     "rimraf": "^5.0.5",
+    "vite": "^5.0.11",
     "vitest": "^1.2.2"
   },
   "config": {

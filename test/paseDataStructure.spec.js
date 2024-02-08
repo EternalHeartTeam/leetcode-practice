@@ -1,5 +1,5 @@
 import {test, expect} from 'vitest';
-import {getDataStructure} from "#common/utils/parseStructure";
+import {getDataStructure} from "#common/utils/question-handler/parseStructure.js";
 
 const mockJSDOC_multiple = `/**
 * Definition for singly-linked list.
@@ -80,7 +80,6 @@ var mergeKLists = function(lists) {
 const array = [ 'ListNode', 'number', 'number', 'ListNode' ]
 
 test('获取入参的数据结构 多参 是数组',() => {
-  console.log(getDataStructure(mockJSDOC_multiple))
   expect(getDataStructure(mockJSDOC_multiple)).toBeInstanceOf(Array);
 } )
 test('获取入参的数据结构 多参 匹配值',() => {

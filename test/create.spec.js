@@ -1,10 +1,9 @@
 import {afterEach, describe, expect, it, vi} from 'vitest';
-import {getQuestionToday} from "#common/utils/getQuestionToday";
+import {getQuestionToday} from "#common/utils/question-getter/getQuestionToday.js";
 import fs from "fs";
-import {removeDomTags} from "#common/utils/removeDomTags";
-import {getQuestionById} from "#common/utils/getQuestionById";
-import {generateTemplateContent} from "#common/utils/fulfillQuestion";
-import {sourceFilePath} from "#common/utils/createQuestion.js";
+import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
+import {generateTemplateContent} from "#common/utils/question-handler/fulfillQuestion.js";
+import {template} from "#resources/template/template.js";
 
 vi.mock('fs/promises', () => {
   return {
@@ -16,7 +15,7 @@ const isContainJsCode = (input) => funRegex.test(input);
 const isContainTestCase = (input) => input.includes('showLogs(');
 
 const handleText = (input) => input.replace(/\n+/g, '\n').replaceAll('\n', '\n * ');
-const mockKeys = [ 'enName', 'title', 'detail', 'id', 'jsCode', 'date' ];
+const mockKeys = [ 'slug', 'title', 'detail', 'id', 'jsCode', 'date' ];
 const oneDay = 24*60*60*1000;
 
 function isValidQuestion(res) {
@@ -30,7 +29,7 @@ function isValidQuestion(res) {
   expect(content.includes('提示')).toBeTruthy();
 
 }
-const fileContent = fs.readFileSync(sourceFilePath, 'utf-8');
+const fileContent = template;
 
 describe('leet-create', ()=> {
   // 清楚mock历史记录
@@ -50,7 +49,7 @@ describe('leet-create', ()=> {
     })
 
   });
-  describe('with -r option', async () => {
+  describe('with -i option', async () => {
     const id_25 = '25';
     const res_25 = await getQuestionById(id_25);
     const id_LCS_03 = 'LCS 03';
@@ -75,5 +74,8 @@ describe('leet-create', ()=> {
     })
 
   })
+  // describe('with -r option', async () => {
+    
+  // })
 })
 

@@ -1,46 +1,13 @@
 # Leetcode practice
 
-力扣练习库!开始你的每日一题!
+在力扣练习平台!开始你的每日一题!
+
 在编辑器中编写你的代码,简单有效的执行和计时!
 
-## TO-DO List
+我们的目标就是让所有人:
+> 只用专注于代码的实现,而非繁琐的输入输出!
 
-### 功能
-
-#### 优先级高
-
-- [ ] 获取更完备的测试用例，增强用户体验
-- [ ] 获取题解和代码
-- [ ] commit到leetcode
-- [ ] 私人项目部署的实现方案
-
-#### 优先级中
-
-- [ ] 创建一个单独指令lc,用于项目的单独指令,忽略npm/yarn/pnpm的执行差异/歧义
-
-#### 优先级低
-
-- [ ] 实现在编辑器中预览图片(感觉可以不做)
-
-#### 代码优化及基础建设
-
-- [ ] 优化随机题目的随机方式，减少请求
-- [ ] commonJS -> ES6 Module
-- [ ] 优化src下代码结构
-- [ ] 封装npm包，方便后续做成编辑器插件
-
-### 已完归档
-
-- [x] 1.模板:获取js的函数体并替换生成文件中的@function
-- [x] 2.模板:从detail中获取输入用例的数据填充@Testcase
-- [x] 3.模板:获取跳转每日一题的链接替换@url
-- [x] 4.函数:优化时间和资源统计函数
-- [x] 5.优化创建时的体验，添加重复时候的确认覆盖或者添加额外符号
-- [x] 6.特殊数据结构的处理(链表ListNode,树TreeNode,无向连通图Node)的处理
-- [x] 7.创建某一特定编号的题目脚本,以及实现随机题目【随机题目汇集本地题目，然后排除自己本地存在的题目进行随机】
-- [x] 8.加入eslint
-
-## How to use for yourself ?
+## Usage
 
 fork分支`template`的内容,其非内容部分会与主分支保持同步,意思是去除部分我的题目代码,然后使用指令创建你自己的题解即可!
 
@@ -69,8 +36,8 @@ yarn leet-create
 
 会通过接口获取今日题目，并会在`src`目录下根据`题目的id`+`题目的英文翻译`创建一个目录，并将今日题目和基础示例代码填充到`index.js`中。
 
-![创建目录](./resources/leet-create-0.png)
-![填充文件](resources/leet-create-1.png)
+![创建目录](resources/images/leet-create-0.png)
+![填充文件](resources/images/leet-create-1.png)
 
 ### 2. 检验今天的题目
 
@@ -79,8 +46,6 @@ yarn leet-check
 ```
 
 此指令会根据今天的题目信息去执行对应的题目文件，输出结果。
-> NOTE:缓存的实现是在`commom/resouces/store.json`,如果只想让内容在本地存在,不上传到个人项目中的话,执行`git update-index --aussume-unchanged common/resources/store.json`来忽略本地的文件变更即可。
->
 
 ```shell
 yarn leet-check 
@@ -100,7 +65,7 @@ Done in 0.18s.
 
 ```
 
-![检测题目](resources/leet-check.png)
+![检测题目](resources/images/leet-check.png)
 
 ### 3. 创建自己想要练习的题目
 
@@ -123,9 +88,9 @@ yarn leet-create -i "LCP 29"
   └── index.js # 模板js文件 可以替换题目
 ```
 
-![1314cmd.png](resources/1314-cmd.png)
-![1314.png](resources/1314.png)
-![1314详情.png](resources/1314-detail.png)
+![1314cmd.png](resources/images/1314-cmd.png)
+![1314.png](resources/images/1314.png)
+![1314详情.png](resources/images/1314-detail.png)
 
 ### 4. 检验自己想要练习的结果
 
@@ -177,7 +142,7 @@ Done in 0.19s.
 
 ```
 
-![1314-check.png](resources/1314-check.png)
+![1314-check.png](resources/images/1314-check.png)
 
 ### 5. 获取随机题目
 
@@ -191,7 +156,6 @@ yarn leet-create -r
  D:\GitHub\leetcode-practice> yarn leet-create -r     
 yarn run v1.22.19
 $ node common/scripts/create.js -r
-[store]数据存储成功[random-question-info]:[[object Object]]
 [fulfillQuestion]题目[43][字符串相乘]已完成填充.
 Done in 1.78s.
 ```
@@ -235,5 +199,6 @@ Done in 0.19s.
 
 ## Contributor
 
-[EternalHeart](https://github.com/wh131462)
-[SmallTeddy](https://github.com/SmallTeddy)
+[<img src="https://avatars.githubusercontent.com/u/48346853" style="border-radius:50%;" width="30" height="30" alt="EternalHeart"/>](https://github.com/wh131462)
+[<img src="https://avatars.githubusercontent.com/u/61453917" style="border-radius:50%;" width="30" height="30" alt="SmartTeddy"/>](https://github.com/SmallTeddy)
+[<img src="https://avatars.githubusercontent.com/u/35305691" style="border-radius:50%;" width="30" height="30" alt="Hedwig-Fang"/>](https://github.com/Hedwig-Fang)

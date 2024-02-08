@@ -15,6 +15,7 @@ dist-ssr
 *.local
 
 # Editor directories and files
+.vscode
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -25,3 +26,9 @@ dist-ssr
 *.sln
 *.sw?
 coverage/**
+
+# store file
+resources/stores/*
+
+# cli-dist
+pl-cli
