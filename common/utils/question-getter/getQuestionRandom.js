@@ -1,4 +1,4 @@
-import {getQuestionSearchJson} from "../../../resources/headers/questionSearchJson.js";
+import {getQuestionSearchJson} from "#resources/headers/questionSearchJson.js";
 import {getQuestionDetail} from "../question-handler/getQuestionDetail.js";
 import {getRandomId} from "#common/utils/question-handler/getRandomId.js";
 

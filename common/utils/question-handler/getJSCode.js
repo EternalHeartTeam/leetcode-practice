@@ -1,4 +1,4 @@
-﻿import {getCodeDetailJson} from "../../../resources/headers/codeDetailJson.js";
+﻿import {getCodeDetailJson} from "#resources/headers/codeDetailJson.js";
 /**
  * 获取JS code 必须在获取基本信息之后调用 需要传入enName
  * @returns {Promise<unknown>}

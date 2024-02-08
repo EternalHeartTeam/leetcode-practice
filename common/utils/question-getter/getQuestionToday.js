@@ -1,4 +1,4 @@
-import {getQuestionTodayJson} from "../../../resources/headers/questionTodayJson.js";
+import {getQuestionTodayJson} from "#resources/headers/questionTodayJson.js";
 import {getQuestionDetail} from "../question-handler/getQuestionDetail.js";
 
 export async function getQuestionToday() {
