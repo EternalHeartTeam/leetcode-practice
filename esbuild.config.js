@@ -10,10 +10,12 @@ const publishFields = [
     "description",
     "author",
     "license",
-    "publishConfig"
+    "publishConfig",
+    "type",
+    "dependencies"
 ];
-fs.unlink(path.resolve(rootPath, 'pl-cli'),(err)=>{
-    if(err)return;
+fs.unlink(path.resolve(rootPath, 'pl-cli'), (err) => {
+    if (err) return;
     console.log("清理pl-cli成功")
 })
 await esbuild.build({
@@ -36,8 +38,15 @@ await esbuild.build({
     // 构建完成后执行的操作
     // 复制文件
     fs.copyFileSync(path.resolve(rootPath, 'Readme.md'), path.resolve(rootPath, 'pl-cli/Readme.md'));
-    const newPackageJson = publishFields?.reduce((acc,key)=>Object.assign(acc,{[key]:packageJson[key]}),{});
-    fs.writeFileSync(path.resolve(rootPath, 'pl-cli/package.json'),JSON.stringify(newPackageJson));
+    fs.copyFileSync(path.resolve(rootPath, 'LICENSE'), path.resolve(rootPath, 'pl-cli/LICENSE'));
+    const newPackageJson = publishFields?.reduce((acc, key) => Object.assign(acc, {[key]: packageJson[key]}), {
+        bin: {
+            "lk": ".bin/lk.js",
+            "lf": ".bin/lf.js",
+            "lc": ".bin/lc.js"
+        }
+    });
+    fs.writeFileSync(path.resolve(rootPath, 'pl-cli/package.json'), JSON.stringify(newPackageJson));
     console.log("[LP]脚本打包完成,查看目录[pl-cli].")
 }).catch((e) => {
     console.error("[LP]脚本打包失败", e);
