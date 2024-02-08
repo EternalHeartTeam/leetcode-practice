@@ -4,20 +4,25 @@ import fs from "fs";
 import {rootPath} from "#common/utils/file/getRootPath.js";
 // 读取 package.json 文件内容
 const packageJson = JSON.parse(fs.readFileSync(path.resolve(rootPath, 'package.json'), 'utf-8'));
-const publishFields = [
-    "name",
-    "version",
-    "description",
-    "author",
-    "license",
-    "publishConfig",
-    "type",
-    "dependencies"
+const publishExcludeFields = [
+    "scripts",
+    "devDependencies",
+    "imports",
+    "main",
+    "config"
 ];
-fs.unlink(path.resolve(rootPath, 'pl-cli'), (err) => {
-    if (err) return;
-    console.log("清理pl-cli成功")
-})
+const clean = ()=>{
+    return new Promise((resolve, reject) => {
+        fs.rm(path.resolve(rootPath, 'pl-cli'), { recursive: true }, (err) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve();
+            }
+        });
+    });
+}
+await clean();
 await esbuild.build({
     entryPoints: [
         'bin/lk.js',
@@ -30,7 +35,7 @@ await esbuild.build({
     format: 'esm',
     bundle: true,
     minify: true,
-    external: ["fs", "path", "process", "child_process", "commander", "realm", "v8", "vm", "os", "url"],
+    packages: 'external',
     define: {
         'process.env.VERSION': JSON.stringify(packageJson.version)
     }
@@ -39,12 +44,15 @@ await esbuild.build({
     // 复制文件
     fs.copyFileSync(path.resolve(rootPath, 'Readme.md'), path.resolve(rootPath, 'pl-cli/Readme.md'));
     fs.copyFileSync(path.resolve(rootPath, 'LICENSE'), path.resolve(rootPath, 'pl-cli/LICENSE'));
-    const newPackageJson = publishFields?.reduce((acc, key) => Object.assign(acc, {[key]: packageJson[key]}), {
+    const newPackageJson = Object.assign(packageJson, {
         bin: {
             "lk": ".bin/lk.js",
             "lf": ".bin/lf.js",
             "lc": ".bin/lc.js"
         }
+    });
+    publishExcludeFields?.forEach(key=>{
+        delete newPackageJson[key];
     });
     fs.writeFileSync(path.resolve(rootPath, 'pl-cli/package.json'), JSON.stringify(newPackageJson));
     console.log("[LP]脚本打包完成,查看目录[pl-cli].")

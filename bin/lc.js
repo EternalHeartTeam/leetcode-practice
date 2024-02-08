@@ -1,9 +1,9 @@
 #! /usr/bin/env node
 import {program} from "commander";
-import {artFontLogo} from "../resources/text/art-font-logo.js";
-import {examples} from "../resources/text/examples.js";
-import {love} from "../resources/text/love.js";
-import {aim} from "../resources/text/aim.js";
+import {artFontLogo} from "#resources/text/art-font-logo.js";
+import {examples} from "#resources/text/examples.js";
+import {love} from "#resources/text/love.js";
+import {aim} from "#resources/text/aim.js";
 import {referMode} from "#common/utils/create-check/refer-mode.js";
 import {getArgs} from "#common/utils/create-check/get-args.js";
 import {getQuestionToday} from "#common/utils/question-getter/getQuestionToday.js";
@@ -15,23 +15,36 @@ import {getQuestionRandom} from "#common/utils/question-getter/getQuestionRandom
 import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
 import {setQuestion} from "#common/utils/store/store-realm.js";
 import {getQuestionChineseName} from "#common/utils/question-handler/getQuestionChineseName.js";
+import {easyCreateView} from "#common/view/create.view.js";
+import {description} from "#resources/text/description.js";
 
-const version = process.env.VERSION;
+const version = process.env.VERSION??'0.0.0';
 program
     .version(version)
-    .description(`${artFontLogo}\n${aim}`)
+    .description(`${description}\n${artFontLogo}\n${aim}`)
     .addHelpText('after', examples+love)
     .arguments("[identity]")
+    .option('-t, --today', 'Get a question today.')
     .option('-i, --identity <identity>', 'Specify a question by identity.')
     .option('-r, --random', 'Get a question randomly.')
-    .option('-t, --today', 'Get a question today.')
+    .option('-e, --easy', 'Use easy mode.')
     .option('-d, --directory <directory>', 'Set the question directory.')
     .parse(process.argv)
 
 const cmdArgs = program.args;
 const cmdOpts = program.opts();
+/**
+ * 执行逻辑:
+ * 目录检测 - 设置基础目录
+ * 模式检测 - 检测是不是easy mode
+ * [参数检测 - 执行对应参数]
+ */
 // 根据dir 参数来设置基本目录
 const baseDir = cmdOpts.directory?path.join(process.cwd(),cmdOpts.directory):process.cwd();
+if(cmdOpts.easy){
+    await easyCreateView();
+    process.exit(0);;
+}
 // 创建
 const create = (mode,question)=>{
     console.log(`MODE: ${mode}`);
