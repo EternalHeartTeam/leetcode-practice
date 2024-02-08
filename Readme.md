@@ -7,9 +7,16 @@
 我们的目标就是让所有人:
 > 只用专注于代码的实现,而非繁琐的输入输出!
 
-## Usage
+## How to use for your self?
 
-fork分支`template`的内容,其非内容部分会与主分支保持同步,意思是去除部分我的题目代码,然后使用指令创建你自己的题解即可!
+### Plan A (Recommended)
+The best way to use is by using the `lk/lf/lc` command in your terminal.
+
+### Plan B (Supported)
+You can also use the `fork` command on github.com to create your own repository.
+
+### Plan C (Supported)
+We also publish a plugin for `WebStorm` and `VS Code`. You can easily use it to create your question.
 
 ## Preparation
 
@@ -186,16 +193,6 @@ $ node common/scripts/check.js -r
 Done in 0.19s.
 
 ```
-
-## Scripts API Document
-
-| script      | 参数               | 说明                                                  |
-|-------------|------------------|-----------------------------------------------------|
-| leet-create | [-i [题目编号]][-r]  | 创建一个题目,不带参数获取今日题目,`-i` 参数指定题号去获取，`-r` 随机题目          |
-| leet-check  | [-i [题目编号]][-r]       | 执行检测一个题目,不带参数检测今日题目,`-i` 参数指定题号去检测，`-r` 检测上一个随机出的题目 |
-
-> note:
-> 名词解释: 题目编号是leet-code为其分配的唯一id,如`1314`对应题目`矩阵区域和`
 
 ## Contributor
 
