@@ -7,6 +7,8 @@
 我们的目标就是让所有人:
 > 只用专注于代码的实现,而非繁琐的输入输出!
 
+![CLI-lc](resources/images/cli-lc.jpg)
+
 ## How to use for your self?
 
 ### Plan A (Recommended)
