@@ -80,4 +80,3 @@ export const easyCheckView = async () => {
     console.log(`题目[${questionFileName}]检查完成！\n文件地址为: ${filePath}`)
     process.exit(0)
 }
-await easyCheckView()
