@@ -5,3 +5,4 @@
 
 # 1.0.1
 - add `author` info and `repository` in package.json
+
