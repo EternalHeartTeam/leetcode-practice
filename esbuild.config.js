@@ -15,7 +15,7 @@ const clean = ()=>{
     return new Promise((resolve, reject) => {
         fs.rm(path.resolve(rootPath, 'pl-cli'), { recursive: true }, (err) => {
             if (err) {
-                reject(err);
+                resolve()
             } else {
                 resolve();
             }
