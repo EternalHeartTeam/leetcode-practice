@@ -7,8 +7,7 @@ export const easyUpdateView = async()=>{
         name:"willUpdate",
         message:"检测到更新,是否进行更新?"
     };
-    getGithubVersion()
-    const {localVersion,remoteVersion,isUpdate} = {};//await checkUpdate();
+    const {localVersion,remoteVersion,isUpdate} = {};
     console.log(`当前最新版本为: ${remoteVersion}`);
     console.log(`本地版本为: ${localVersion}`);
     if(isUpdate){

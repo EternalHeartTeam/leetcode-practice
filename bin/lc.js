@@ -17,6 +17,7 @@ import {setQuestion} from "#common/utils/store/store-realm.js";
 import {getQuestionChineseName} from "#common/utils/question-handler/getQuestionChineseName.js";
 import {easyCreateView} from "#common/view/create.view.js";
 import {description} from "#resources/text/description.js";
+import {easyUpdateView} from "#common/view/update.view.js";
 
 const version = process.env.VERSION??'0.0.0';
 program
@@ -29,6 +30,7 @@ program
     .option('-r, --random', 'Get a question randomly.')
     .option('-e, --easy', 'Use easy mode.')
     .option('-d, --directory <directory>', 'Set the question directory.')
+    .option('-u, --update','Check the version to determine whether to update to the latest one.')
     .parse(process.argv)
 
 const cmdArgs = program.args;
@@ -43,6 +45,11 @@ const cmdOpts = program.opts();
 const baseDir = cmdOpts.directory?path.join(process.cwd(),cmdOpts.directory):process.cwd();
 if(cmdOpts.easy){
     await easyCreateView();
+    process.exit(0);;
+}
+// 检测更新
+if(cmdOpts.update){
+    await easyUpdateView();
     process.exit(0);;
 }
 // 创建

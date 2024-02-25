@@ -2,6 +2,7 @@ import https from "https";
 import {rootPath} from "#common/utils/file/getRootPath.js";
 import fs from "fs";
 import path from "path";
+import { log } from "console";
 
 const npmUrl =  `https://registry.npmjs.org/leetcode-practice`;
 const githubUrl = `https://api.github.com/repos/wh131462/leetcode-practice/commits?per_page=1`;
@@ -44,6 +45,7 @@ export const getGithubVersion = ()=>{
             });
             res.on('end', () => {
                 try {
+                    console.log(data);
                     const jsonData = JSON.parse(data);
                     const latestCommitSha = jsonData[0].sha;
                     console.log(latestCommitSha)

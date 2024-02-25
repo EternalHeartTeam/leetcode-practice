@@ -100,6 +100,13 @@ npm run easy-fork
 ### CLI的使用
 
 #### lc
+##### 1. 帮助文档
+```shell
+lc -h 
+```
+```shell
+
+```
 
 #### lk
 

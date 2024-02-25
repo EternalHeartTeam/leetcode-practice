@@ -15,6 +15,7 @@ import {getQuestionFileName} from "#common/utils/question-handler/getQuestionFil
 import {getQuestionChineseName} from "#common/utils/question-handler/getQuestionChineseName.js";
 import {easyCheckView} from "#common/view/check.view.js";
 import {description} from "#resources/text/description.js";
+import {easyUpdateView} from "#common/view/update.view.js";
 
 const version = process.env.VERSION ?? '0.0.0';
 program
@@ -27,6 +28,7 @@ program
     .option('-r, --random', 'Check the last random question.')
     .option('-e, --easy', 'Use easy mode.')
     .option('-d, --directory <directory>', 'Set the question directory.')
+    .option('-u, --update','Check the version to determine whether to update to the latest one.')
     .parse(process.argv)
 
 const cmdArgs = program.args;
@@ -44,7 +46,11 @@ if (cmdOpts.easy) {
     await easyCheckView();
     process.exit(0);
 }
-//
+// 检测更新
+if(cmdOpts.update){
+    await easyUpdateView();
+    process.exit(0);;
+}
 // 检测函数
 const check = async (mode, question) => {
     const filePath = path.join(baseDir, getQuestionFileName(question), 'index.js');
