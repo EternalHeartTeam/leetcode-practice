@@ -42,7 +42,7 @@ await esbuild.build({
 }).then(() => {
     // 构建完成后执行的操作
     // 复制文件
-    fs.copyFileSync(path.resolve(rootPath, 'Readme.md'), path.resolve(rootPath, 'pl-cli/Readme.md'));
+    fs.copyFileSync(path.resolve(rootPath, 'README.md'), path.resolve(rootPath, 'pl-cli/README.md'));
     fs.copyFileSync(path.resolve(rootPath, 'LICENSE'), path.resolve(rootPath, 'pl-cli/LICENSE'));
     const newPackageJson = Object.assign(packageJson, {
         bin: {

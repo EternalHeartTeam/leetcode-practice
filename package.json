@@ -1,6 +1,6 @@
 {
   "name": "leetcode-practice",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A powerful practice platform for leetcode.Using any way you want to create questions.",
   "main": "index.js",
   "type": "module",
@@ -24,6 +24,7 @@
     "easy-create": "node scripts/easy-create.js",
     "easy-check": "node scripts/easy-check.js",
     "easy-finder": "node scripts/easy-finder.js",
+    "easy-update": "node scripts/easy-update.js",
     "build-cli": "node esbuild.config.js",
     "publish-cli": "cd pl-cli && npm publish --registry https://registry.npmjs.org/",
     "unpublish-cli": "cd pl-cli && npm unpublish --force --registry https://registry.npmjs.org/\n",
