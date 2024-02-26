@@ -49,8 +49,8 @@
 ```shell
 # 使用npm进行安装
 npm install -g leetcode-practice
-# 使用pnpm进行安装,因为默认就是全局安装的
-pnpm install leetcode-practice
+# 使用pnpm进行安装
+pnpm install -g leetcode-practice
 # 使用yarn进行安装
 yarn global install leetcode-practice
 ```
