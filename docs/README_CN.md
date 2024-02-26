@@ -16,7 +16,7 @@
 
 ## 预览
 
-![CLI-lc](../resources/images/cli-lc.png)
+![CLI-lc](../resources/images/lc-cli-h.png)
 
 ## 我应该怎么使用？（三种方案供你选择）
 

@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 import {program} from "commander";
 import {artFontLogo} from "#resources/text/art-font-logo.js";
-import {examples} from "#resources/text/examples.js";
+import {lcExamples} from "#resources/text/examples.js";
 import {love} from "#resources/text/love.js";
 import {aim} from "#resources/text/aim.js";
 import {referMode} from "#common/utils/create-check/refer-mode.js";
@@ -23,7 +23,7 @@ const version = process.env.VERSION??'0.0.0';
 program
     .version(version)
     .description(`${description}\n${artFontLogo}\n${aim}`)
-    .addHelpText('after', examples+love)
+    .addHelpText('after', lcExamples+love)
     .arguments("[identity]")
     .option('-t, --today', 'Get a question today.')
     .option('-i, --identity <identity>', 'Specify a question by identity.')
