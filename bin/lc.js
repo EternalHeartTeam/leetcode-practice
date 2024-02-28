@@ -83,6 +83,10 @@ const callModeAction = {
     },
     'identity': (id) => {
         getQuestionById(id).then(question=>{
+            if(!question?.id) {
+                console.log(`指定编号: [ ${id} ] 题目不存在.`)
+                process.exit(0)
+            }
             create("identity",question).then(()=>{
                 process.exit(0)
             });
