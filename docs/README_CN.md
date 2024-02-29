@@ -24,19 +24,19 @@
 
 最好的也是最自由的使用方法是：在终端中使用我们的脚手架，通过三个核心指令:`lk`,`lf`,`lc`,来创建和检查你的题解。
 
-[安装](#一.全局安装脚手架 (方案 A)) · [使用](#CLI的使用)
+[安装](#cli-install) · [使用](#cli-usage)
 
 ### 方案 B : fork (受支持的)
 
 你也可以使用`github`的`fork`功能来创建我们的项目副本，然后，直接使用项目内置指令进行题解的创建和检查。
 
-[安装](#二.使用`fork`创建你自己的`leetcode-practice`仓库副本 (方案 B)) · [使用](#fork项目的使用)
+[安装](#fork-install) · [使用](#fork-usage)
 
 ### 方案 C : plugin (受支持的)
 
 你同样可以使用我们发布在插件市场的插件`leetcode-practice`来进行交互式的创建和检查题解。（支持两个主流编辑器：`WebStorm` 和 `VS Code`）
 
-[安装](#三.在编辑器的插件市场安装插件[WebStorm/VS code] (方案 C)) · [使用](#插件的使用)
+[安装](#plugin-install) · [使用](#plugin-usage)
 
 ## 预备条件
 
@@ -45,10 +45,13 @@
 | nodejs | lts |
 | git    | lts |
 
-> note: nodejs:[不知道如何安装node?点我进行了解](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
+> note: nodejs:[nodejs安装向导](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
+> 
+> git:[git下载地址](https://git-scm.com/downloads)
+
 ## 安装
 
-### 一.全局安装脚手架 (方案 A)
+### 一.全局安装脚手架 (方案 A){#cli-install}
 
 你可以使用任意npm包管理软件（例如`npm`,`yarn`,`pnpm`等）的全局安装方法进行安装。
 
@@ -61,7 +64,7 @@ pnpm install -g leetcode-practice
 yarn global install leetcode-practice
 ```
 
-### 二.使用`fork`创建你自己的`leetcode-practice`仓库副本 (方案 B)
+### 二.使用fork创建你自己的leetcode-practice仓库副本 (方案 B){#fork-install}
 
 #### 常规方法
 1. 打开我们的项目地址:[leetcode-practice](https://github.com/wh131462/leetcode-practice)
@@ -98,15 +101,15 @@ npm run easy-fork
 
 3. 完成部署
 
-### 三.在编辑器的插件市场安装插件[WebStorm/VS code] (方案 C)
+### 三.在编辑器的插件市场安装插件 (方案 C){#plugin-install}
 
 待开发...
 
 ## 使用方法
 
-### CLI的使用
+### CLI的使用{#cli-usage}
 
-#### 1. 创建题解 - `lc`
+#### 1.创建题解 - `lc`{#lc}
 
 ##### [1]. 获取今日题目 - [`-t`/`--today`]
 
@@ -184,7 +187,7 @@ lc -e
 
 ```
 
-#### 2. 检查题解 - `lk`
+#### 2.检查题解 - `lk`{#lk}
 
 ##### [1]. 检查今日题解 [`-t`/`--today`]
 
@@ -293,13 +296,13 @@ workspace/leetcode-practice [dev●] » lk -e
 文件地址为: /Users/mac-106/wh131462/workspace/leetcode-practice/41.first-missing-positive/index.js
 ```
 
-#### 3. 题目查找 - `lf`
+#### 3.题目查找 - `lf`{#lf}
 
 待开发...
 
 ##### [1]. 查看题目列表[待开发]
 
-#### 4. 通用参数
+#### 4.通用参数
 
 ##### [1]. 指定目录 - [`-d`/`-directory`]
 
@@ -361,7 +364,7 @@ github仓库的版本号获取成功!
 更新完成~祝你使用愉快~
 ```
 
-### fork项目的使用
+### fork项目的使用{#fork-usage}
 ##### [0]. 安装依赖
 
 在使用之前,先使用包管理工具进行依赖的安装.
@@ -378,7 +381,7 @@ fork项目中的指令,使用上和脚手架CLI的使用参数是一致的,只�
 > 注意:在项目中的脚本,和脚手架的唯一区别就是默认指定了`-d`参数,指向了项目根目录的`src`目录,所以所有的指令都是在src中默认执行的.
 ##### [1]. 创建题解 [`lc`]
 
-参数参考cli的`lc`部分: [lc](#1. 创建题解 - `lc`)
+参数参考cli的`lc`部分: [lc](#lc)
 
 简单使用示例:
 ```shell
@@ -398,7 +401,8 @@ MODE: identity
 ```
 
 ##### [2]. 检查题解 [`lk`]
-参数参考cli的`lk`部分: [lk](#2. 检查题解 - `lk`)
+
+参数参考cli的`lk`部分: [lk](#lk)
 
 简单使用示例:
 ```shell
@@ -425,7 +429,7 @@ MODE: identity
 
 ##### [3]. 查找题解 [`lf`]
 
-参数参考cli的`lf`部分: [lf](#3. 题目查找 - `lf`)
+参数参考cli的`lf`部分: [lf](#lf)
 
 待开发...
 
@@ -435,7 +439,7 @@ MODE: identity
 
 > 注意: 如果你有自己的优化更改代码,这一步请谨慎操作! 请参考我们的[特殊情况下的升级方案](./update.md)!
 
-### 插件的使用
+### 插件的使用{#plugin-usage}
 
 待开发...
 
