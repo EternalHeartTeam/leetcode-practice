@@ -1,449 +1,456 @@
 # Leetcode practice
 
-**中文文档**|[英文文档](../README.md)|[日文文档](./README_JP.md)|[韩文文档](./README_KR.md)
+[중국어 문서](./README_CN.md)|[영어 문서](../README.md)|[일본어 문서](./README_JP.md)|**한국어 문서**
 
-## 简介
+## 소개
 
-一句话介绍：“在编辑器中开始练习你的`leetcode`每日一题！”
+한 문장으로 설명하면: "에디터에서 `LeetCode` 매일 한 문제를 연습하세요!"
 
-如果，你想要在编辑器中编写你的题解...
+만약 당신이 에디터에서 당신의 문제 해결을 작성하고 싶다면...
 
-如果，你想要简单快速的获取每日一题...
+만약 당신이 매일 한 문제를 간편하고 빠르게 받고 싶다면...
 
-如果，你想要创建你自己的题解仓库...
+만약 당신이 자신의 문제 해결 저장소를 만들고 싶다면...
 
-那么，`leetcode-practice`将满足你的一切想要！
+그러면 `LeetCode 연습`이 당신의 모든 요구를 충족시켜줄 것입니다!
 
-## 预览
+## 미리보기
 
 ![CLI-lc](../resources/images/lc-cli-h.png)
 
-## 我应该怎么使用？（三种方案供你选择）
+## 어떻게 사용할까요? (3가지 옵션)
 
-### 方案 A : CLI (推荐使用)
+### 옵션 A: CLI (추천)
 
-最好的也是最自由的使用方法是：在终端中使用我们的脚手架，通过三个核心指令:`lk`,`lf`,`lc`,来创建和检查你的题解。
+가장 좋고 자유로운 사용 방법은 터미널에서 우리의 스캐폴딩을 사용하여 세 가지 핵심 명령어 `lk`, `lf`, `lc`를 사용하여 당신의 문제를 생성하고 검사하는 것입니다.
 
-[安装](#一全局安装脚手架-(方案-A)) · [使用](#CLI的使用)
+[설치](#전역-스캐폴딩-설치-(옵션-A)) · [사용](#CLI의-사용)
 
-### 方案 B : fork (受支持的)
+### 옵션 B: fork (지원됨)
 
-你也可以使用`github`的`fork`功能来创建我们的项目副本，然后，直接使用项目内置指令进行题解的创建和检查。
+`github`의 `fork` 기능을 사용하여 프로젝트의 복제본을 만들고, 프로젝트 내부 명령을 사용하여 문제를 생성하고 검사할 수 있습니다.
 
-[安装](#二使用fork创建你自己的leetcode-practice仓库副本-(方案-B)) · [使用](#fork项目的使用)
+[설치](#fork를-사용하여-나만의-Leetcode-연습-저장소-복제-(옵션-B)) · [사용](#fork-프로젝트의-사용)
 
-### 方案 C : plugin (受支持的)
+### 옵션 C: 플러그인 (지원됨)
 
-你同样可以使用我们发布在插件市场的插件`leetcode-practice`来进行交互式的创建和检查题解。（支持两个主流编辑器：`WebStorm` 和 `VS Code`）
+플러그인 시장에서 배포된 `LeetCode 연습` 플러그인을 사용하여 대화 형으로 문제를 생성하고 검사할 수도 있습니다. (`WebStorm` 및 `VS Code`와 같은 두 가지 주요 편집기를 지원합니다.)
 
-[安装](#三在编辑器的插件市场安装插件-(方案-C)) · [使用](#插件的使用)
+[설치](#플러그인-마켓에서-플러그인-설치-(옵션-C)) · [사용](#플러그인의-사용)
 
-## 预备条件
+## 준비 사항
 
-| 依赖包    | 版本  |
-|--------|-----|
-| nodejs | lts |
-| git    | lts |
+| 의존성 패키지 | 버전 |
+|--------------|----|
+| nodejs       | lts |
+| git          | lts |
 
-> note: nodejs:[nodejs安装向导](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
+> 참고: nodejs:[nodejs 설치 안내](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
 >
-> git:[git下载地址](https://git-scm.com/downloads)
+> git:[git 다운로드 링크](https://git-scm.com/downloads)
 
-## 安装
+## 설치
 
-### 一.全局安装脚手架 (方案 A)
+### 전역 스캐폴딩 설치 (옵션 A)
 
-你可以使用任意npm包管理软件（例如`npm`,`yarn`,`pnpm`等）的全局安装方法进行安装。
+원하는 npm 패키지 관리 소프트웨어(예: `npm`, `yarn`, `pnpm` 등)를 사용하여 전역 설치를 수행할 수 있습니다.
 
 ```shell
-# 使用npm进行安装
+# npm을 사용하여 설치
 npm install -g leetcode-practice
-# 使用pnpm进行安装
+# pnpm을 사용하여 설치
 pnpm install -g leetcode-practice
-# 使用yarn进行安装
+# yarn을 사용하여 설치
 yarn global install leetcode-practice
 ```
 
-### 二.使用fork创建你自己的leetcode-practice仓库副本 (方案 B)
+### fork를 사용하여 나만의 Leetcode 연습 저장소 복제 (옵션 B)
 
-#### 常规方法
-1. 打开我们的项目地址:[leetcode-practice](https://github.com/wh131462/leetcode-practice)
+#### 일반적인 방법
+1. 우리의 프로젝트 주소를 엽니다: [Leetcode 연습](https://github.com/wh131462/leetcode-practice)
 
-![leetcode-practice-github](../resources/images/leetcode-practice-github.png)
+![Leetcode 연습 GitHub](../resources/images/leetcode-practice-github.png)
 
-2. 点击`fork`按钮
+2. `fork` 버튼을 클릭합니다.
 
-你会看到这样的一个页面，然后修改仓库名和描述，确认勾选`Copy the master branch only`
-![github-fork](../resources/images/github-fork.png)
+다음과 같은 페이지가 표시됩니다. 그런 다음 리포지토리 이름과 설명을 수정하고, `Copy the master branch only`를 선택하십시오.
 
-3. 点击确认创建，等待创建
+![GitHub fork](../resources/images/github-fork.png)
 
-![github-forking](../resources/images/github-forking.png)
+3. 확인하여 생성을 기다립니다.
 
-4. 创建完成，然后拉取这个仓库愉快地开始你的解题吧！
+![GitHub fork](../resources/images/github-forking.png)
 
-![github-forked](../resources/images/github-forked.png)
+4. 생성이 완료되면 리포지토리를 가져와서 문제 해결을 시작할 수 있습니다!
 
-#### 简便方法
+![GitHub forked](../resources/images/github-forked.png)
 
-1. 拉取我们的仓库到本地
+#### 간편한 방법
+
+1. 로컬로 리포지토리를 가져옵니다.
 
 ```shell
 git clone https://github.com/wh131462/leetcode-practice.git
 ```
 
-2. 执行我们的部署脚本
+2. 배포 스크립트를 실행합니다.
 
 ```shell
-# 使用你喜欢的包管理器进行执行脚本即可
+# 원하는 패키지 관리자로 스크립트를 실행하십시오.
 npm run easy-fork
 ```
 
-3. 完成部署
+3. 배포 완료
 
-### 三.在编辑器的插件市场安装插件 (方案 C)
+### 플러그인 마켓에서 플러그인 설치 (옵션 C)
 
-待开发...
+개발 중...
 
-## 使用方法
+## 사용법
 
-### CLI的使用
+### CLI의 사용
 
-#### 1.创建题解 - `lc`
+#### 1. 문제 생성 - `lc`
 
-##### [1]. 获取今日题目 - [`-t`/`--today`]
+##### [1]. 오늘의 문제 가져오기 - [`-t`/`--today`]
 
-在终端中键入`lc`指令，即可默认在当前终端的工作区中获取今日的题目。
+터미널에서 `lc` 명령어를 입력하면 현재 터미널 작업 영역에 오늘의 문제가 기본적으로 가져와집니다.
 
 ```shell
 lc 
-# 完整指令
+# 완전한 명령어
 lc -t
 ```
 
-示例获取今日题目：
+오늘의 문제 가져오기 예시:
 
 ```shell
-# 例如当前执行目录为src目录
+# 예를 들어 현재 실행 디렉토리가 src 디렉토리인 경우
 ➜  src git:(dev) ✗ lc
 MODE: today
-题目[2867.统计树中的合法路径数目]获取成功!
-题目文件地址为:/home/wh131462/workspace/leetcode-practice/src/2867.count-valid-paths-in-a-tree/index.js
+문제[2867.통계 트리에서 유효한 경로 수 세기] 가져오기 성공!
+문제 파일 주소는: /home/wh131462/workspace/leetcode-practice/src/2867.count-valid-paths-in-a-tree/index.js
 ```
 
-##### [2]. 获取指定题目 - [`-i`/`--identity`]
+##### [2]. 특정 문제 가져
 
-在终端中键入`lc`指令加上对应的题号，即可在当前工作区中获取指定题目。
+오기 - [`-i`/`--identity`]
+
+터미널에서 `lc` 명령어 다음에 해당 문제 번호를 입력하면 현재 작업 영역에서 해당 문제를 가져옵니다.
 
 ```shell
 lc 1314
-# 完整指令
+# 완전한 명령어
 lc -i 1314
-# 使用双引号(")进行包裹 可以确保指定编号准确，对于带空格的题目编号尤其有用
+# 큰따옴표(")를 사용하여 번호를 둘러싸면 문제 번호를 정확하게 지정할 수 있습니다. 특히 공백이 포함된 문제 번호의 경우에 유용합니다.
 lc -i "LCP 50"
 ```
 
-示例获取`LCP 50`：
+특정 문제 가져오기 예시:
 
 ```shell
 ➜  src git:(dev) ✗ lc "LCP 50"
 MODE: identity
-题目[LCP 50.宝石补给]获取成功!
-题目文件地址为:/home/wh131462/workspace/leetcode-practice/src/LCP 50.WHnhjV/index.js
+문제[LCP 50.보석 공급] 가져오기 성공!
+문제 파일 주소는: /home/wh131462/workspace/leetcode-practice/src/LCP 50.WHnhjV/index.js
 ```
 
-##### [3]. 获取随机题目 - [`-r`/`--random`]
+##### [3]. 무작위 문제 가져오기 - [`-r`/`--random`]
 
-在终端中键入`lc`指令加上参数`-r`，即可在当前工作区中获取随机题目，会优先获取不存在当前目录中的题目。
+터미널에서 `lc` 명령어 뒤에 `-r` 매개변수를 추가하면 현재 작업 영역에서 무작위 문제를 가져옵니다. 현재 디렉토리에 문제가 없는 경우 우선적으로 가져옵니다.
 
 ```shell
-# 完整指令
+# 완전한 명령어
 lc -r
 ```
 
-示例获取随机题目：
+무작위 문제 가져오기 예시:
 
 ```shell
 ➜  src git:(dev) ✗ lc -r
 MODE: random
-题目[14.最长公共前缀]获取成功!
-题目文件地址为:/home/wh131462/workspace/leetcode-practice/src/14.longest-common-prefix/index.js
+문제[14.가장 긴 공통 접두사] 가져오기 성공!
+문제 파일 주소는: /home/wh131462/workspace/leetcode-practice/src/14.longest-common-prefix/index.js
 ```
-##### [5]. 简单创建模式(交互式创建) - [`-e`/`--easy`]
 
-除了如上的使用精准的指令快速创建题目外，还可以使用简单创建模式来进行交互式创建。
+##### [5]. 간편 생성 모드(대화형 생성) - [`-e`/`--easy`]
+
+정확한 명령어를 사용하여 빠르게 문제를 생성하는 것 외에도 간단한 생성 모드를 사용하여 대화형으로 문제를 생성할 수도 있습니다.
+
 ```shell
 lc -e
 ```
 
-使用简单模式创建今日题目示例：
+간단한 모드를 사용하여 오늘의 문제 만들기 예시:
 
 ```shell
 ➜  src git:(dev) ✗ lc -e
-? 请选择创建问题的模式: today
-? 是否在目录[ /home/wh131462/workspace/leetcode-practice/src ]下创建题目[ 2867.count-valid-paths-in-a-tree ]? Yes
-题目[2867.count-valid-paths-in-a-tree]创建完成！
-文件地址为: /home/wh131462/workspace/leetcode-practice/src/2867.count-valid-paths-in-a-tree/index.js
+? 문제 생성 모드를 선택하십시오: today
+? 디렉토리 [ /home/wh131462/workspace/leetcode-practice/src ]에서 문제 [ 2867.count-valid-paths-in-a-tree ]를 만드시겠습니까? Yes
+문제[2867.count-valid-paths-in-a-tree] 생성 완료!
+파일 주소는: /home/wh131462/workspace/leetcode-practice/src/2867.count-valid-paths-in-a-tree/index.js
 
 ```
 
-#### 2.检查题解 - `lk`
+#### 2. 문제 검사 - `lk`
 
-##### [1]. 检查今日题解 [`-t`/`--today`]
+##### [1]. 오늘의 문제 검사 [`-t`/`--today`]
 
-在终端中键入`lk`指令，即可在当前工作区中检查今日题解。
+터미널에서 `lk` 명령어를 입력하면 현재 작업 영역에서 오늘의 문제를 검사합니다.
 
 ```shell
-# 默认执行检查今日题解
+# 기본적으로 오늘의 문제를 검사합니다.
 lk
-# 完整指令
+# 완전한 명령어
 lk -t
 ```
 
-使用示例:
+사용 예시:
 
 ```shell
-# 指定了src目录为根目录
+# src 디렉토리가 루트 디렉토리로 지정되었습니다.
 workspace/leetcode-practice [dev●] » lk -d src -t 
 MODE: today
-题目[2581.统计可能的树根数目]检测结果:
+문제[2581.가능한 트리 루트 수를 세는 것] 검사 결과:
 ┌─────────┬──────────┬──────────┬───────────┬────────────┬───────────┐
-│ (index) │ 测试结果   │ 预期结果  │ 执行结果    │  执行用时   │ 内存占用    │
+│ (index) │ 테스트 결과 │ 예상 결과 │ 실행 결과  │  실행 시간   │ 메모리 사용량 │
 ├─────────┼──────────┼──────────┼───────────┼────────────┼───────────┤
-│    0    │ '未通过'  │   '3'    │ undefined │ '0.0921ms' │ '2.52 KB' │
-│    1    │ '未通过'  │   '5'    │ undefined │ '0.0119ms' │ '2.66 KB' │
+│    0    │ '미통과' │   '3'    │ undefined │ '0.0921ms' │ '2.52 KB' │
+│    1    │ '미통과' │   '5'    │ undefined │ '0.0119ms' │ '2.66 KB' │
 └─────────┴──────────┴──────────┴───────────┴────────────┴───────────┘
-点击跳转到题目提交:https://leetcode.cn/problems/count-number-of-possible-root-nodes/
+문제 제출로 이동하려면 클릭하십시오: https://leetcode-cn/problems/count-number-of-possible-root-nodes/
 ```
 
-##### [2]. 检查指定题解 [`-i`/`--identity` + `<identity>`]
+##### [2]. 특정 문제 검사 [`-i`/`--identity` + `<identity>`]
 
-在终端中键入`lk`指令,并输入题目编号，即可在当前工作区中检查指定题解。
+터미널에서 `lk` 명령어를 입력하고 문제 번호를 입력하면 현재 작업 영역에서 해당 문제를 검사합니다.
 
 ```shell
-# 检查指定题解
+# 특정 문제 검사
 lk 2581
-# 完整指令
+# 완전한 명령어
 lk -i 2581
-# 带空格的编号 使用双引号包裹
+# 큰따옴표(")를 사용하여 번호를 둘러싸면 문제 번호
+
+를 정확하게 지정할 수 있습니다. 특히 공백이 포함된 문제 번호의 경우에 유용합니다.
 lk "LCP 50"
 ```
-使用示例检查指定题解:
+특정 문제 검사 사용 예시:
 
 ```shell
 workspace/leetcode-practice [dev●] » lk -d src 2581
 MODE: identity
-题目[2581.统计可能的树根数目]检测结果:
+문제[2581.가능한 트리 루트 수를 세는 것] 검사 결과:
 ┌─────────┬──────────┬──────────┬───────────┬────────────┬───────────┐
-│ (index) │ 测试结果   │ 预期结果  │ 执行结果    │  执行用时   │ 内存占用    │
+│ (index) │ 테스트 결과 │ 예상 결과 │ 실행 결과  │  실행 시간   │ 메모리 사용량 │
 ├─────────┼──────────┼──────────┼───────────┼────────────┼───────────┤
-│    0    │ '通过'    │   '3'    │ '3'       │ '0.1668ms' │ '2.52 KB' │
-│    1    │ '通过'    │   '5'    │ '5'       │ '0.0234ms' │ '2.66 KB' │
+│    0    │ '통과'    │   '3'    │ '3'       │ '0.1668ms' │ '2.52 KB' │
+│    1    │ '통과'    │   '5'    │ '5'       │ '0.0234ms' │ '2.66 KB' │
 └─────────┴──────────┴──────────┴───────────┴────────────┴───────────┘
-点击跳转到题目提交:https://leetcode.cn/problems/count-number-of-possible-root-nodes/
+문제 제출로 이동하려면 클릭하십시오: https://leetcode-cn/problems/count-number-of-possible-root-nodes/
 ```
 
-##### [3]. 检查随机获取的题解 [`-r`/`--random`]
+##### [3]. 무작위로 가져온 문제 검사 [`-r`/`--random`]
 
-在终端中键入`lk`指令,使用参数`-r`，即可在当前工作区中检查上一个随机获取的题解。
+터미널에서 `lk` 명령어를 입력하고 `-r` 매개변수를 사용하면 최근에 가져온 무작위 문제를 현재 작업 영역에서 검사합니다.
 
 ```shell
-# 完整指令
+# 완전한 명령어
 lk -r
 ```
-使用示例:
+사용 예시:
 
 ```shell
 workspace/leetcode-practice [dev●] » lk -r 
 MODE: random
-题目[41.缺失的第一个正数]检测结果:
+문제[41.누락된 첫 번째 양의 정수] 검사 결과:
 ┌─────────┬──────────┬──────────┬───────────┬────────────┬───────────┐
-│ (index) │ 测试结果 │ 预期结果 │ 执行结果  │  执行用时  │ 内存占用  │
+│ (index) │ 테스트 결과 │ 예상 결과 │ 실행 결과  │  실행 시간  │ 메모리 사용량 │
 ├─────────┼──────────┼──────────┼───────────┼────────────┼───────────┤
-│    0    │ '未通过' │   '3'    │ undefined │ '0.0896ms' │ '2.42 KB' │
-│    1    │ '未通过' │   '2'    │ undefined │ '0.0110ms' │ '2.56 KB' │
-│    2    │ '未通过' │   '1'    │ undefined │ '0.0045ms' │ '2.56 KB' │
+│    0    │ '미통과' │   '3'    │ undefined │ '0.0896ms' │ '2.42 KB' │
+│    1    │ '미통과' │   '2'    │ undefined │ '0.0110ms' │ '2.56 KB' │
+│    2    │ '미통과' │   '1'    │ undefined │ '0.0045ms' │ '2.56 KB' │
 └─────────┴──────────┴──────────┴───────────┴────────────┴───────────┘
-点击跳转到题目提交:https://leetcode.cn/problems/first-missing-positive/
+문제 제출로 이동하려면 클릭하십시오: https://leetcode-cn/problems/first-missing-positive/
 ```
 
-> 注意:在执行此指令之前请务必先执行过,`lc -r`创建了随机题目。
+> 참고: 이 명령을 실행하기 전에 반드시 `lc -r`을 실행하여 무작위 문제를 만들어야 합니다.
 
-##### [4]. 简单模式(交互式检查) [`-e`/`--easy`]
+##### [4]. 간편 모드(대화형 검사) [`-e`/`--easy`]
 
-在终端中键入`lk`指令,使用参数`-e`，即可使用交互式的进行题目检查。
+터미널에서 `lk` 명령어를 입력하고 `-e` 매개변수를 사용하면 대화형으로 문제를 검사할 수 있습니다.
 ```shell
-# 完整指令
+# 완전한 명령어
 lk -e
 ```
 
-使用简单模式检测指定题目:
+간단한 모드를 사용하여 특정 문제 검사:
 
 ```shell
 workspace/leetcode-practice [dev●] » lk -e
-? 请选择检查问题的模式: identity
-? 请输入题目编号: 41
-? 是否检测当前目录[ /Users/mac-106/wh131462/workspace/leetcode-practice ]下的题目[ 41.first-missing-positive ]? Yes
+? 검사 모드를 선택하십시오: identity
+? 문제 번호를 입력하십시오: 41
+? 현재 디렉토리 [ /Users/mac-106/wh131462/workspace/leetcode-practice ]에서 문제 [ 41.first-missing-positive ]를 검사하시겠습니까? Yes
 ┌─────────┬──────────┬──────────┬───────────┬────────────┬───────────┐
-│ (index) │ 测试结果 │ 预期结果 │ 执行结果  │  执行用时  │ 内存占用  │
+│ (index) │ 테스트 결과 │ 예상 결과 │ 실행 결과  │  실행 시간  │ 메모리 사용량 │
 ├─────────┼──────────┼──────────┼───────────┼────────────┼───────────┤
-│    0    │ '未通过' │   '3'    │ undefined │ '0.0969ms' │ '2.42 KB' │
-│    1    │ '未通过' │   '2'    │ undefined │ '0.0139ms' │ '2.56 KB' │
-│    2    │ '未通过' │   '1'    │ undefined │ '0.0051ms' │ '2.56 KB' │
+│    0    │ '미통과' │   '3'    │ undefined │ '0.0969ms' │ '2.42 KB' │
+│    1    │ '미통과' │   '2'    │ undefined │ '0.0139ms' │ '2.56 KB' │
+│    2    │ '미통과' │   '1'    │ undefined │ '0.0051ms' │ '2.56 KB' │
 └─────────┴──────────┴──────────┴───────────┴────────────┴───────────┘
-点击跳转到题目提交:https://leetcode.cn/problems/first-missing-positive/
-题目[41.first-missing-positive]检查完成！
-文件地址为: /Users/mac-106/wh131462/workspace/leetcode-practice/41.first-missing-positive/index.js
+문제 제출로 이동하려면 클릭하십시오: https://leetcode-cn/problems/first-missing-positive/
+문제[41.first-missing-positive] 검사 완료!
+파일 주소는: /Users/mac-106/wh131462/workspace/leetcode-practice/41.first-missing-positive/index.js
 ```
 
-#### 3.题目查找 - `lf`
+#### 3. 문제 찾기 - `lf`
 
-待开发...
+- 개발 중...
 
-##### [1]. 查看题目列表[待开发]
+##### [1]. 문제 목록 보기[미개발]
 
-#### 4.通用参数
+#### 4. 일반 매개변수
 
-##### [1]. 指定目录 - [`-d`/`-directory`]
+##### [1]. 디렉터리 지정 - [`-d`/`-directory`]
 
-`创建`和`检查`指令还可以使用参数`-d`来指定基于当前工作目录的相对地址作为指定目录。
-当指定目录后会在指定目录中进行创建或者检查操作。
+`생성` 및 `검사` 명령은 현재 작업 디렉터리를 기준으로 상대 주소를 지정하는 `-d` 매개변수를 사용할 수 있습니다. 지정된 디렉터리에서 생성 또는 검사 작업이 수행됩니다.
 ```shell
-# 指定当前目录的子目录src作为生成目录
+# 현재 디렉터리의 하위 디렉터리 src를 생성 디렉터리로 지정
 lc -d src -t
-# 指定当前目录的子目录src作为检查目录
+# 현재 디렉터리의 하위 디렉터리 src를 검사 디렉터리로 지정
 lk -d src -i
 ```
 
-使用示例：
+사용 예시:
 
 ```shell
 ➜  src git:(dev) ✗ lc -d src -t
 MODE: today
-题目[2867.统计树中的合法路径数目]获取成功!
-题目文件地址为:/home/wh131462/workspace/leetcode-practice/src/src/2867.count-valid-paths-in-a-tree/index.js
+문제[2867.트리에서 유효한 경로 수 세기]가 생성되었습니다!
+문제 파일 주소는:/home/wh131462/workspace/leetcode-practice/src/src/2867.count-valid-paths-in-a-tree/index.js
 ```
 
-> 注意： 如果指定的目录不存在，会自动生成一个空目录进行创建。
+> 참고: 지정된 디렉터리가 존재하지 않으면 빈 디렉터리가 자동으로 생성됩니다.
 
-##### [2]. 检查版本号 [`-V`/`--version`]
+##### [2]. 버전 확인 [`-V`/`--version`]
 
 ```shell
-# 查看lc版本
+# lc 버전 확인
 lc -V
-# 查看lk版本
+# lk 버전 확인
 lk -V
-# 查看lf版本
+# lf 버전 확인
 lf -V
 ```
 
-查看lc版本示例:
+lc 버전 확인 예시:
 
 ```shell
 workspace/leetcode-practice [dev●] » lc -V
 0.0.0
 ```
 
-##### [3]. 更新检测 [`-u`/`--update`]
-使用`-u`或者`--update`参数可以检测当前版本是否为最新版本，如果当前版本不是最新版本，会提示用户是否进行更新.
+##### [3]. 업데이트 확인 [`-u`/`--update`]
+`-u` 또는 `--update` 매개변수를 사용하여 현재 버전이 최신 버전인지 확인할 수 있습니다. 현재 버전이 최신 버전이 아닌 경우 사용자에게 업데이트를 진행할지 여부를 알립니다.
 ```shell
 lk -u 
 lf -u
 lc -u
 ```
 ```shell
-? 自动检测到的环境为[ project ],如果不是,请进行选择,如是,请按下回车确认. project
-开始获取npm仓库中的版本号...
-npm仓库中的版本号获取成功!
-开始获取github仓库的版本号...
-github仓库的版本号获取成功!
-开始获取本地版本号...
-本地版本号获取成功!
-当前版本:[ 1.0.0 ] npm包最新版本:[ 1.0.1 ] github版本:[ 1.0.1 ]
-? 检测到[ project ]可更新版本[ 1.0.1 ],是否进行更新? (Y/n) Yes
-更新完成~祝你使用愉快~
+? 자동 감지된 환경은 [프로젝트]입니다. 아닌 경우 선택하고, 맞으면 엔터를 누르십시오. 프로젝트
+npm 저장소에서 버전 번호 가져 오기 시작 ...
+npm 저장소의 버전 번호를 성공적으로 가져 왔습니다!
+github 저장소의 버전 번호 가져 오기 시작 ...
+github 저장소의 버전 번호를 성공적으로 가져 왔습니다!
+로컬 버전 번호 가져 오기 시작 ...
+로컬 버전 번호가 성공적으로 가져 왔습니다!
+현재 버전 : [1.0.0] npm 패키지의 최신 버전 : [1.0.1] github 버전 : [1.0.1]
+? [프로젝트]에서 업데이트 가능한 버전 [1.0.1] 감지되었습니다. 업데이트를 수행 하시겠습니까? (Y/n) Yes
+업데이트 완료 ~ 즐거운 사용 되세요 ~
 ```
 
-### fork项目的使用
-##### [0]. 安装依赖
+### fork 프로젝트의 사용
+##### [0]. 의존성 설치
 
-在使用之前,先使用包管理工具进行依赖的安装.
+사용하기 전에 의존성을 설치하기 위해 패키지 관리 도구를 사용하세요.
 
 ```shell
-# 安装依赖 
+# 의존성 설치
 npm install
-# 或者 使用yarn (你可以使用任意一种你喜欢的包管理工具)
+# 또는 yarn (원하는 패키지 관리 도구를 사용할 수 있습니다.)
 yarn
 ```
 
-fork项目中的指令,使用上和脚手架CLI的使用参数是一致的,只不过需要通过`npm run`类似的包管理工具执行命令来执行脚本.
+fork된 프로젝트의 명령어는 CLI의 사용 방법과 매개변수가 동일하지만, 스크립트를 실행하기 위해 `npm run`과 같은 패키지 관리 도구를 사용해야 합니다.
 
-> 注意:在项目中的脚本,和脚手架的唯一区别就是默认指定了`-d`参数,指向了项目根目录的`src`目录,所以所有的指令都是在src中默认执行的.
-##### [1]. 创建题解 [`lc`]
+> 참고: 프로젝트의 스크립트는 "src" 디렉토리를 기본적으로 `-d` 매개변수로 지정하여 프로젝트의 루트 디렉토리에 있는 파일을 실행하도록 되어 있습니다. 따라서 모든 명령은 기본적으로 src에서 실행됩니다.
 
-参数参考cli的`lc`部分: [lc](#1创建题解---lc)
+##### [1]. 문제 생성 [`lc`]
 
-简单使用示例:
+CLI의 `lc` 섹션을 참고하여 매개변수를 사용할 수 있습니다: [lc](#1-문제-생성---lc)
+
+간단한 사용 예시:
 ```shell
-# 使用yarn执行
+# yarn을 사용하여 실행
 yarn lc 1314
 ```
-执行结果:
+실행 결과:
 ```shell
-# 会在src目录下进行生成
+# src 디렉토리에 생성됩니다
 > yarn lc 1314                 
 yarn run v1.22.19
 $ node bin/lc.js -d src 1314
 MODE: identity
-题目[1314.矩阵区域和]获取成功!
-题目文件地址为:/Users/mac-106/wh131462/workspace/leetcode-practice/src/1314.matrix-block-sum/index.js
+문제[1314.행렬 블록 합]이 생성되었습니다!
+문제 파일 주소는: /Users/mac-106/wh131462/workspace/leetcode-practice/src/1314.matrix-block-sum/index.js
 ✨  Done in 1.06s.
 ```
 
-##### [2]. 检查题解 [`lk`]
+##### [2]. 문제 검사 [`lk`]
 
-参数参考cli的`lk`部分: [lk](#2检查题解---lk)
+CLI의 `lk` 섹션을 참고하여 매개변수를 사용할 수 있습니다: [lk](#2-문제-검사---lk)
 
-简单使用示例:
+간단한 사용 예시:
 ```shell
-# 使用yarn执行
+# yarn을 사용하여 실행
 yarn lk 1314
 ```
-执行结果:
+실행 결과:
 ```shell
-# 会在src目录下进行检查
+# src 디렉토리에서 검사됩니다
 > yarn lk 1314
 yarn run v1.22.19
 $ node bin/lk.js -d src 1314
 MODE: identity
-题目[1314.矩阵区域和]检测结果:
+문제[1314.행렬 블록 합] 검사 결과:
 ┌─────────┬──────────┬──────────────────────────────────────┬───────────┬────────────┬───────────┐
-│ (index) │ 测试结果 │               预期结果               │ 执行结果  │  执行用时  │ 内存占用  │
+│ (index) │ 테스트 결과 │               예상 결과               │ 실행 결과  │  실행 시간  │ 메모리 사용량 │
 ├─────────┼──────────┼──────────────────────────────────────┼───────────┼────────────┼───────────┤
-│    0    │ '未通过' │ '[[12,21,16],[27,45,33],[24,39,28]]' │ undefined │ '0.1487ms' │ '2.47 KB' │
-│    1    │ '未通过' │ '[[45,45,45],[45,45,45],[45,45,45]]' │ undefined │ '0.0278ms' │ '2.61 KB' │
+│    0    │ '미통과' │ '[[12,21,16],[27,45,33],[24,39,28]]' │ undefined │ '0.1487ms' │ '2.47 KB' │
+│    1    │ '미통과' │ '[[45,45,45],[45,45,45],[45,45,45]]' │ undefined │ '0.0278ms' │ '2.61 KB' │
 └─────────┴──────────┴──────────────────────────────────────┴───────────┴────────────┴───────────┘
-点击跳转到题目提交:https://leetcode.cn/problems/matrix-block-sum/
+문제 제출로 이동하려면 클릭하십시오: https://leetcode-cn/problems/matrix-block-sum/
 ✨  Done in 1.13s.
 ```
 
-##### [3]. 查找题解 [`lf`]
+##### [3]. 문제 찾기 [`lf`]
 
-参数参考cli的`lf`部分: [lf](#3题目查找---lf)
+CLI의 `lf` 섹션을 참고하여 매개변수를 사용할 수 있습니다: [lf](#3-문제-찾기---lf)
 
-待开发...
+미개발...
 
-##### [4]. 更新 [`update`]
+##### [4]. 업데이트 [`update`]
 
-特定更新本地项目的脚本,会更新所有的非src目录,用以同步项目最新特性.
+로컬 프로젝트를 업데이트하는 특정 스크립트는 모든 src 디렉토리가 아닌 업데이트를 위해 모든 비-src 디렉토리를 업데이트합니다.
 
-> 注意: 如果你有自己的优化更改代码,这一步请谨慎操作! 请参考我们的[特殊情况下的升级方案](./update.md)!
+> 참고: 자체적으로 최적화된 변경 코드가 있는 경우 이 단계를 신중하게 수행하십시오! 특별한 경우의 업그레이드 방법은 [특별한 경우의 업그레이드 방법](./update.md)을 참조하십시오!
 
-### 插件的使用
+### 플러그인의 사용
 
-待开发...
+미개발...
 
-## 贡献者
+## 기여자
 
 [<img src="https://avatars.githubusercontent.com/u/48346853" style="border-radius:50%;" width="30" height="30" alt="EternalHeart"/>](https://github.com/wh131462)
 [<img src="https://avatars.githubusercontent.com/u/61453917" style="border-radius:50%;" width="30" height="30" alt="SmartTeddy"/>](https://github.com/SmallTeddy)
