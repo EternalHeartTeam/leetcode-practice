@@ -34,3 +34,7 @@ resources/stores/*
 # cli-dist
 pl-cli
 */colorFont.js
+
+# package manager
+yarn.lock
+package-lock.json
