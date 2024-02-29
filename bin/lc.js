@@ -45,12 +45,12 @@ const cmdOpts = program.opts();
 const baseDir = cmdOpts.directory?path.join(process.cwd(),cmdOpts.directory):process.cwd();
 if(cmdOpts.easy){
     await easyCreateView();
-    process.exit(0);;
+    process.exit(0);
 }
 // 检测更新
 if(cmdOpts.update){
     await easyUpdateView();
-    process.exit(0);;
+    process.exit(0);
 }
 // 创建
 const create = (mode,question)=>{
