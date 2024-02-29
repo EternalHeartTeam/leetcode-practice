@@ -18,13 +18,10 @@
     "lc": "bin/lc.js"
   },
   "scripts": {
-    "leet-create": "node bin/lc.js -d src",
-    "leet-check": "node bin/lk.js -d src",
-    "leet-finder": "node bin/lf.js -d src",
-    "easy-create": "node scripts/easy-create.js",
-    "easy-check": "node scripts/easy-check.js",
-    "easy-finder": "node scripts/easy-finder.js",
-    "easy-update": "node scripts/easy-update.js",
+    "lc": "node bin/lc.js -d src",
+    "lk": "node bin/lk.js -d src",
+    "lf": "node bin/lf.js -d src",
+    "update": "node scripts/update.js",
     "build-cli": "node esbuild.config.js",
     "publish-cli": "cd pl-cli && npm publish --registry https://registry.npmjs.org/",
     "unpublish-cli": "cd pl-cli && npm unpublish --force --registry https://registry.npmjs.org/\n",

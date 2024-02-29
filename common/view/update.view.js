@@ -52,6 +52,7 @@ export const easyUpdateView = async () => {
             // 4.1 选择更新
             console.log("开始更新...");
             const result = await updateByEnv(env);
+            console.log("更新完成~祝你使用愉快~")
         } else {
             // 4.2 取消更新
             console.log("你选择跳过此次更新,如果想要进行更新,随时可以使用参数 -u 进行更新检测!祝你使用愉快~");
