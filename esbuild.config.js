@@ -1,6 +1,6 @@
 import esbuild from "esbuild";
 import path from "path";
-import fs from "fs";
+import fs, {mkdirSync} from "fs";
 import {rootPath} from "#common/utils/file/getRootPath.js";
 // 读取 package.json 文件内容
 const packageJson = JSON.parse(fs.readFileSync(path.resolve(rootPath, 'package.json'), 'utf-8'));
@@ -42,6 +42,12 @@ await esbuild.build({
 }).then(() => {
     // 构建完成后执行的操作
     // 复制文件
+    const docs = fs.readdirSync(path.resolve(rootPath, 'docs'))
+    // 创建docs
+    mkdirSync(path.resolve(rootPath, 'pl-cli/docs'), { recursive: true });
+    docs.forEach(doc=>{
+        fs.copyFileSync(path.resolve(rootPath, "docs",doc),path.resolve(rootPath, 'pl-cli/docs/',doc))
+    })
     fs.copyFileSync(path.resolve(rootPath, 'README.md'), path.resolve(rootPath, 'pl-cli/README.md'));
     fs.copyFileSync(path.resolve(rootPath, 'LICENSE'), path.resolve(rootPath, 'pl-cli/LICENSE'));
     const newPackageJson = Object.assign(packageJson, {
