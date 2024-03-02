@@ -23,7 +23,7 @@ import {graphql} from "#common/utils/http/graphql.js";
  * @returns {Promise<*>}
  */
 export async function getQuestionTypes() {
-    const res = await graphql(getQuestionTypesJson()).then((res) => res.json());
+    const res = await graphql(getQuestionTypesJson());
     const tags = res.data?.questionTagTypeWithTags;
     // console.log(JSON.stringify(tags))
     return tags;

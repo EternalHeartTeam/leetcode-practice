@@ -5,7 +5,7 @@ import {graphql} from "#common/utils/http/graphql.js";
 
 export async function getQuestionRandom() {
   const id = await getRandomId()
-  const base = await graphql(getQuestionSearchJson(id.toString())).then((res) => res.json());
+  const base = await graphql(getQuestionSearchJson(id.toString()));
   const slug = base.data.problemsetQuestionList.questions.find((o) => o.frontendQuestionId === id.toString()).titleSlug;
   const question = await getQuestionDetail(slug);
   return question;
