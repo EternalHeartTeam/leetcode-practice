@@ -9,7 +9,7 @@ import {getArgs} from "#common/utils/create-check/get-args.js";
 import fs from "fs";
 import path from "path";
 import {checkQuestion} from "#common/utils/question-handler/checkQuestion.js";
-import {getQuestionByMode} from "#common/utils/store/store-realm.js";
+import {getQuestionByMode} from "#common/utils/store/controller/question.js";
 import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
 import {getQuestionFileName} from "#common/utils/question-handler/getQuestionFileName.js";
 import {getQuestionChineseName} from "#common/utils/question-handler/getQuestionChineseName.js";
@@ -28,6 +28,7 @@ program
     .option('-r, --random', 'Check the last random question.')
     .option('-e, --easy', 'Use easy mode.')
     .option('-d, --directory <directory>', 'Set the question directory.')
+    .option('-l, --language [language]', 'Set the code language of question.')
     .option('-u, --update','Check the version to determine whether to update to the latest one.')
     .parse(process.argv)
 
@@ -39,7 +40,20 @@ const cmdOpts = program.opts();
  * 模式检测 - 检测是不是easy mode
  * [参数检测 - 执行对应参数]
  */
-
+/**
+ * 语言设置
+ * -带参设置语言
+ * -无参获取语言
+ */
+if (cmdOpts.language) {
+    if(cmdOpts.language!==true){
+        await easyLanguageView(cmdOpts.language);
+    }else{
+        const lang = await getQuestionLanguage();
+        console.log("当前CLI语言环境为:"+lang);
+    }
+    process.exit(0);
+}
 // 根据dir 参数来设置基本目录
 const baseDir = cmdOpts.directory ? path.join(process.cwd(), cmdOpts.directory) : process.cwd();
 if (cmdOpts.easy) {

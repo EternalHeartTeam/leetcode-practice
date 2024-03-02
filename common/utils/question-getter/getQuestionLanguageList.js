@@ -1,7 +1,7 @@
 import {graphql} from "#common/utils/http/graphql.js";
 import {getQuestionLanguageListJson} from "#resources/headers/questionLanguageListJson.js";
 
-export const getQuestionLanguage = async ()=>{
+export const getQuestionLanguageList = async ()=>{
     const res = await graphql(getQuestionLanguageListJson());
-    console.log(JSON.stringify(res))
+    return res?.data.languageList;
 }
