@@ -2,7 +2,7 @@ import inquirer from "inquirer";
 import path from "path";
 import {getQuestionFileName} from "#common/utils/question-handler/getQuestionFileName.js";
 import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
-import {getQuestionByMode} from "#common/utils/store/store-realm.js";
+import {getQuestionByMode} from "#common/utils/store/controller/question.js";
 import {checkQuestion} from "#common/utils/question-handler/checkQuestion.js";
 import {getCountBySameName} from "#common/utils/file/getCountBySameName.js";
 import {getFileListBySameName} from "#common/utils/file/getFileListBySameName.js";

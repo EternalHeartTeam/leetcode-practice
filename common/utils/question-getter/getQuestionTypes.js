@@ -1,4 +1,5 @@
 import {getQuestionTypesJson} from "#resources/headers/questionTypeJson.js";
+import {graphql} from "#common/utils/http/graphql.js";
 
 /**
  * 获取问题的类型
@@ -22,7 +23,7 @@ import {getQuestionTypesJson} from "#resources/headers/questionTypeJson.js";
  * @returns {Promise<*>}
  */
 export async function getQuestionTypes() {
-    const res = await fetch('https://leetcode.cn/graphql/', getQuestionTypesJson()).then((res) => res.json());
+    const res = await graphql(getQuestionTypesJson()).then((res) => res.json());
     const tags = res.data?.questionTagTypeWithTags;
     // console.log(JSON.stringify(tags))
     return tags;

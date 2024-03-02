@@ -6,7 +6,7 @@ import {getQuestionToday} from "#common/utils/question-getter/getQuestionToday.j
 import {getQuestionRandom} from "#common/utils/question-getter/getQuestionRandom.js";
 import {createQuestion} from "#common/utils/question-handler/createQuestion.js";
 import {createQuestionCopy} from "#common/utils/question-handler/createQuestionCopy.js";
-import {setQuestion} from "#common/utils/store/store-realm.js";
+import {setQuestion} from "#common/utils/store/controller/question.js";
 export const easyCreateView = async ()=>{
     const modeQuestion = [{
         type: 'list',
