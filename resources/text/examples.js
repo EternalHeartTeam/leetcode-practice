@@ -11,6 +11,8 @@ Examples:
   $ lc -e       // Easy mode to create a question.
   $ lc -d src   // Use the relative path to the source folder.
   $ lc -u       // Check the version to determine whether to update to the latest one.
+  $ lc -l       // Get the code language of question.
+  $ lc -l java  // Set the code language of question.
   $ lc -v       // Check the CLI version.
   $ lc -h       // Check the help information.
   
@@ -28,6 +30,8 @@ Examples:
   # Other instructions
   $ lk -e       // Easy mode to check a question.
   $ lk -d src   // Use the relative path to the source folder.
+  $ lk -l       // Get the code language of question.
+  $ lk -l java  // Set the code language of question.
   $ lk -u       // Check the version to determine whether to update to the latest one.
   $ lk -v       // Check the CLI version.
   $ lk -h       // Display the help information.
@@ -43,6 +47,8 @@ Examples:
   # Other instructions
   $ lf -e       // Easy mode to check a question.
   $ lf -d src   // Use the relative path to the source folder.
+  $ lf -l       // Get the code language of question.
+  $ lf -l java  // Set the code language of question.
   $ lf -u       // Check the version to determine whether to update to the latest one.
   $ lf -v       // Check the CLI version.
   $ lf -h       // Display the help information.

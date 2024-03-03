@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import {fulfillQuestion} from "#common/utils/question-handler/fulfillQuestion.js";
 import {template} from "#resources/template/template.js";
+import {getQuestionFileExtension} from "#common/utils/question-handler/questionLanguage.js";
 
 /**
  * 创建问题
@@ -11,7 +12,7 @@ import {template} from "#resources/template/template.js";
  */
 export const createQuestion = (question, questionDir) => {
     return new Promise(resolve => {
-        let filePath = path.normalize(path.join(questionDir, 'index.js'));
+        let filePath = path.normalize(path.join(questionDir, `question${getQuestionFileExtension(question.lang)}`));
         if (fs.existsSync(filePath)) {
             resolve(false);
         } else {

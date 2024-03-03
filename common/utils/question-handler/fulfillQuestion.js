@@ -28,7 +28,7 @@ export const generateTemplateContent = (data, question) =>
             .replace('@url', question.url)
             .replace(/\n+/g, '\n')
             .replaceAll('\n', '\n * '))
-        .replace('// @Function', question.jsCode)
+        .replace('// @Function', question.code)
         .replace('// @TestCase', getTestCase(question))
         .replace('@url', getQuestionUrl(question.slug));
 /**

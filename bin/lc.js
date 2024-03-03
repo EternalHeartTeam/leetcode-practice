@@ -13,13 +13,16 @@ import {getQuestionFileName} from "#common/utils/question-handler/getQuestionFil
 import {createQuestionCopy} from "#common/utils/question-handler/createQuestionCopy.js";
 import {getQuestionRandom} from "#common/utils/question-getter/getQuestionRandom.js";
 import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
-import {setQuestion} from "#common/utils/store/store-realm.js";
+import {setQuestion} from "#common/utils/store/controller/question.js";
 import {getQuestionChineseName} from "#common/utils/question-handler/getQuestionChineseName.js";
 import {easyCreateView} from "#common/view/create.view.js";
 import {description} from "#resources/text/description.js";
 import {easyUpdateView} from "#common/view/update.view.js";
+import {getQuestionLanguage} from "#common/utils/question-handler/questionLanguage.js";
+import {easyLanguageView} from "#common/view/language.view.js";
+import {DefaultVer} from "#common/constants/question.const.js";
 
-const version = process.env.VERSION??'0.0.0';
+const version = process.env.VERSION??DefaultVer;
 program
     .version(version)
     .description(`${description}\n${artFontLogo}\n${aim}`)
@@ -30,6 +33,7 @@ program
     .option('-r, --random', 'Get a question randomly.')
     .option('-e, --easy', 'Use easy mode.')
     .option('-d, --directory <directory>', 'Set the question directory.')
+    .option('-l, --language [language]', 'Set/Get the code language of question.')
     .option('-u, --update','Check the version to determine whether to update to the latest one.')
     .parse(process.argv)
 
@@ -41,6 +45,20 @@ const cmdOpts = program.opts();
  * 模式检测 - 检测是不是easy mode
  * [参数检测 - 执行对应参数]
  */
+/**
+ * 语言设置
+ * -带参设置语言
+ * -无参获取语言
+ */
+if (cmdOpts.language) {
+    if(cmdOpts.language!==true){
+        await easyLanguageView(cmdOpts.language);
+    }else{
+        const lang = await getQuestionLanguage();
+        console.log("当前CLI语言环境为:"+lang);
+    }
+    process.exit(0);
+}
 // 根据dir 参数来设置基本目录
 const baseDir = cmdOpts.directory?path.join(process.cwd(),cmdOpts.directory):process.cwd();
 if(cmdOpts.easy){

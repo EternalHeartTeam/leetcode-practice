@@ -9,7 +9,8 @@ export class Question extends Realm.Object {
             slug: "string",
             title: "string",
             detail: "string",
-            jsCode: "string",
+            lang: "string",
+            code: "string",
             url: "string?",
             date: "string?",
             timestamp: {type:"date",default:()=>new Date()}

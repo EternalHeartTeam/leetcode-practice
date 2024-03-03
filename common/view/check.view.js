@@ -2,7 +2,7 @@ import inquirer from "inquirer";
 import path from "path";
 import {getQuestionFileName} from "#common/utils/question-handler/getQuestionFileName.js";
 import {getQuestionById} from "#common/utils/question-getter/getQuestionById.js";
-import {getQuestionByMode} from "#common/utils/store/store-realm.js";
+import {getQuestionByMode} from "#common/utils/store/controller/question.js";
 import {checkQuestion} from "#common/utils/question-handler/checkQuestion.js";
 import {getCountBySameName} from "#common/utils/file/getCountBySameName.js";
 import {getFileListBySameName} from "#common/utils/file/getFileListBySameName.js";
@@ -75,7 +75,7 @@ export const easyCheckView = async () => {
         questionDir = path.join(questionParentDir, selectQuestion);
         console.log(`用户选择题目[ ${questionFileName}]的副本[ ${selectQuestion}]进行检测`)
     }
-    const filePath = path.join(questionDir, "index.js");
+    const filePath = path.join(questionDir, `question${question.lang}`);
     await checkQuestion(filePath);
     console.log(`题目[${questionFileName}]检查完成！\n文件地址为: ${filePath}`)
     process.exit(0)
