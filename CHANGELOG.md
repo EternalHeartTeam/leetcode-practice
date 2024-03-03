@@ -1,4 +1,9 @@
 # CHANGELOG
+## 1.0.3 release
+### Features
+- you can create question in any supported language file
+- the file name from 'index' to 'question'
+
 ## 1.0.2 release
 ### Features
 - add i18n docs
