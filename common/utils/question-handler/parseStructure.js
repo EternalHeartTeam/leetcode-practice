@@ -35,11 +35,11 @@ export const setDataStructure = (params, structs, type = 'cases') => params.map(
 
 /**
  * 获取test case 入参的数据类型
- * @param {string} jsCode leetcode的实例函数体
+ * @param {string} code leetcode的实例函数体
  * @param {string} type 类型，param入参，returns返回值
  * @returns {string[]}
  */
-export const getDataStructure = (jsCode, type = 'param') => {
+export const getDataStructure = (code, type = 'param') => {
   const regexMap = {
     param: /@param\s+{\s*([^}\s]+)\s*}/g,
     return: /@return\s+{\s*([^}\s]+)\s*}/g,
@@ -47,7 +47,7 @@ export const getDataStructure = (jsCode, type = 'param') => {
   const regex = regexMap[type];
   const paramTypes = [];
   let match;
-  while ((match = regex.exec(jsCode)) !== null) {
+  while ((match = regex.exec(code)) !== null) {
     paramTypes.push(match[1]);
   }
   return paramTypes;

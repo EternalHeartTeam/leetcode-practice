@@ -1,5 +1,6 @@
 ﻿import {getDataStructure} from "./parseStructure.js";
 import {removeDomTags} from "../functions/removeDomTags.js";
+import {DefaultLang} from "#common/constants/question.const.js";
 
 /**
  * test case 需要从两个地方拿到内容
@@ -23,16 +24,19 @@ export function getTestCase(question) {
         ?.map((str) => `[${removeDomTags(str?.replace(inputStartReg, '')?.replace(endReg, '')?.replace('\n', '').replace(/[a-zA-Z]+ =/g,""))}]`);
     const expires = detail.match(outputReg)
         ?.map((str) => removeDomTags(str?.replace(outputStartReg, '')?.replace(endReg, '')?.replace('\n', '').replace(/[a-zA-Z]+ =/g,"")));
-    const functionName = question.jsCode?.match(/(var|let|const).+=/g)?.[0]?.replace(/((var|let|const)|=)\s?/gm, '').trim();
-    return `showLogs(
-    ${functionName},
-    {
-        data: [${cases}],
-        structure: ${JSON.stringify(getDataStructure(question.jsCode))},
-    },
-    {
-        data: [${expires}],
-        structure: ${JSON.stringify(getDataStructure(question.jsCode, 'return'))}
+    if(question.lang === DefaultLang){
+        const functionName = question.code?.match(/(var|let|const).+=/g)?.[0]?.replace(/((var|let|const)|=)\s?/gm, '').trim();
+        return `showLogs(\n${functionName},\n{\ndata: [${cases}],\nstructure: ${JSON.stringify(getDataStructure(question.code))},\n},\n{\ndata: [${expires}],\nstructure: ${JSON.stringify(getDataStructure(question.code, 'return'))}\n}\n)`;
+    }else{
+        // 其他语言无法支持测试 只能提供测试数据
+        console.log(cases,expires);
+        let showText = `\/* 暂无法支持除JS外的语言测试,提取的一些入参和返回值供自行测试，每一个case中的第一行为入参，第二行为返回值\n`;
+        for (let i = 0; i < Math.max(cases.length,expires.length); i++) {
+            showText += `case ${i+1}:\n`;
+            showText += `${cases?.[i]}\n`??'[参数获取错误]\n';
+            showText += `${expires?.[i]}\n`??'[返回值获取错误]\n';
+        }
+        showText += `\n*\/`
+        return showText;
     }
-)`;
 }

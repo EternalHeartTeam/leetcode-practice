@@ -15,7 +15,7 @@ const isContainJsCode = (input) => funRegex.test(input);
 const isContainTestCase = (input) => input.includes('showLogs(');
 
 const handleText = (input) => input.replace(/\n+/g, '\n').replaceAll('\n', '\n * ');
-const mockKeys = [ 'slug', 'title', 'detail', 'id', 'jsCode', 'date' ];
+const mockKeys = [ 'slug', 'title', 'detail', 'id', 'lang','code', 'date' ];
 const oneDay = 24*60*60*1000;
 
 function isValidQuestion(res) {
