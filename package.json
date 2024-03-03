@@ -3,14 +3,22 @@
   "version": "1.0.3",
   "description": "A powerful practice platform for leetcode.Using any way you want to create questions.",
   "type": "module",
+  "packageManager": "pnpm@7.0.0+",
+  "author": {
+    "name": "EternalHeart",
+    "email": "hao131462@qq.com"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wh131462/leetcode-practice.git"
   },
   "imports": {
     "#common/*": "./common/*",
     "#resources/*": "./resources/*"
   },
-  "packageManager": "pnpm@7.0.0+",
   "bin": {
     "lk": "bin/lk.js",
     "lf": "bin/lf.js",
@@ -24,20 +32,12 @@
     "update": "node scripts/update.js",
     "build-cli": "node esbuild.config.js",
     "publish-cli": "cd pl-cli && npm publish --registry https://registry.npmjs.org/",
-    "unpublish-cli": "cd pl-cli && npm unpublish --force --registry https://registry.npmjs.org/\n",
+    "unpublish-cli": "cd pl-cli && npm unpublish --force --registry https://registry.npmjs.org/",
     "commit": "cz",
     "test": "vitest --run",
     "coverage": "vitest run --coverage",
     "lint": "eslint --fix --ext .js,jsx,cjs,mjs ./common",
     "create-color-font": "node scripts/create-color-font.js"
-  },
-  "author": {
-    "name": "EternalHeart",
-    "email": "hao131462@qq.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wh131462/leetcode-practice.git"
   },
   "license": "ISC",
   "dependencies": {
