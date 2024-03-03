@@ -16,8 +16,10 @@ import {getQuestionChineseName} from "#common/utils/question-handler/getQuestion
 import {easyCheckView} from "#common/view/check.view.js";
 import {description} from "#resources/text/description.js";
 import {easyUpdateView} from "#common/view/update.view.js";
+import {getQuestionFileExtension} from "#common/utils/question-handler/questionLanguage.js";
+import {DefaultVer} from "#common/constants/question.const.js";
 
-const version = process.env.VERSION ?? '0.0.0';
+const version = process.env.VERSION ?? DefaultVer;
 program
     .version(version)
     .description(`${description}\n${artFontLogo}\n${aim}`)
@@ -67,7 +69,7 @@ if(cmdOpts.update){
 }
 // 检测函数
 const check = async (mode, question) => {
-    const filePath = path.join(baseDir, getQuestionFileName(question), 'index.js');
+    const filePath = path.join(baseDir, getQuestionFileName(question), `question${getQuestionFileExtension(question.lang)}`);
     if (!fs.existsSync(filePath)) {
         console.log(`文件[${filePath}]不存在,请确保已经创建!`)
     } else {

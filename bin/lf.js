@@ -8,8 +8,10 @@ import {love} from "#resources/text/love.js";
 import {easyUpdateView} from "#common/view/update.view.js";
 import {easyLanguageView} from "#common/view/language.view.js";
 import {getQuestionLanguage} from "#common/utils/question-handler/questionLanguage.js";
+import {getCode} from "#common/utils/question-handler/getCode.js";
+import {DefaultVer} from "#common/constants/question.const.js";
 
-const version = process.env.VERSION ?? '0.0.0';
+const version = process.env.VERSION ?? DefaultVer;
 program
     .version(version)
     .description(`${description}\n${artFontLogo}\n${aim}`)

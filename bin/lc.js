@@ -20,8 +20,9 @@ import {description} from "#resources/text/description.js";
 import {easyUpdateView} from "#common/view/update.view.js";
 import {getQuestionLanguage} from "#common/utils/question-handler/questionLanguage.js";
 import {easyLanguageView} from "#common/view/language.view.js";
+import {DefaultVer} from "#common/constants/question.const.js";
 
-const version = process.env.VERSION??'0.0.0';
+const version = process.env.VERSION??DefaultVer;
 program
     .version(version)
     .description(`${description}\n${artFontLogo}\n${aim}`)

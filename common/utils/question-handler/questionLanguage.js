@@ -1,4 +1,5 @@
 import {getStore, setStore} from "#common/utils/store/controller/store.js";
+import {DefaultLang} from "#common/constants/question.const.js";
 
 /**
  * 设置编程主语言
@@ -11,7 +12,15 @@ export const setQuestionLanguage = async (lang) => {
  */
 export const getQuestionLanguage = async ()=>{
     const lang = await getStore("language")
-    return lang ?? "javascript";
+    return lang ?? DefaultLang;
+}
+/**
+ * 获取文件后缀
+ * @param lang
+ */
+export const getQuestionFileExtension = (lang)=>{
+    const detail = LANGUAGES.find(o=>o.name.toLowerCase()===lang.toLowerCase());
+    return detail?.extension ?? '.js'
 }
 /**
  * 语言
