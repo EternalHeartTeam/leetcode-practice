@@ -307,7 +307,31 @@ To be developed...
 
 #### 4. Common Parameters
 
-##### [1]. Specify Directory - [`-d`/`-directory`]
+##### [1]. Get or specify the current programming language - [-l/-language [language]]
+
+You can use -l without arguments to get the current programming language setting, or you can specify the language parameter to set the language environment of the current CLI to the specified language.
+
+```shell
+# This parameter behaves consistently in lc/lk/lf
+lc -l
+lk -l java
+```
+
+Usage example:
+
+```shell
+# Get language environment
+➜  leetcode-practice git:(dev) ✗ lc -l
+Current CLI language environment is: javascript
+# Change language environment
+➜  leetcode-practice git:(dev) ✗ lc -l java
+? Please confirm the language environment you want to set for the CLI (Press Enter to confirm if the option matches) java
+Setting language environment to: java
+```
+
+Note: Unable to execute test cases in this environment.
+
+##### [2]. Specify Directory - [`-d`/`-directory`]
 
 The `create` and `check` commands can also use the `-d` parameter to specify a relative address based on the current working directory as the specified directory.
 When specifying a directory, the operation will be performed in that directory.
@@ -329,7 +353,7 @@ Problem file address is: /home/wh131462/workspace/leetcode-practice/src/src/2867
 
 > Note: If the specified directory does not exist, an empty directory will be created.
 
-##### [2]. Check Version [`-V`/`--version`]
+##### [3]. Check Version [`-V`/`--version`]
 
 ```shell
 # Check lc version
@@ -349,7 +373,7 @@ workspace/leetcode-practice [dev●] » lc -V
 0.0.0
 ```
 
-##### [3]. Update Check [`-u`/`--update`]
+##### [4]. Update Check [`-u`/`--update`]
 
 Using the `-u` or `--update` parameter, you can check whether the current version is the latest version. If the current version is not the latest version, you will be prompted whether to update.
 ```shell
