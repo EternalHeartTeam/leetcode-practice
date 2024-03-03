@@ -16,7 +16,7 @@ program
     .version(version)
     .description(`${description}\n${artFontLogo}\n${aim}`)
     .addHelpText('after', lfExamples + love)
-    .option('-l, --language [language]', 'Set the code language of question.')
+    .option('-l, --language [language]', 'Set/Get the code language of question.')
     .option('-u, --update', 'Check the version to determine whether to update to the latest one.')
     .parse(process.argv)
 

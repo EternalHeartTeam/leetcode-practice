@@ -33,7 +33,7 @@ program
     .option('-r, --random', 'Get a question randomly.')
     .option('-e, --easy', 'Use easy mode.')
     .option('-d, --directory <directory>', 'Set the question directory.')
-    .option('-l, --language [language]', 'Set the code language of question.')
+    .option('-l, --language [language]', 'Set/Get the code language of question.')
     .option('-u, --update','Check the version to determine whether to update to the latest one.')
     .parse(process.argv)
 
