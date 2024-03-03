@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "A powerful practice platform for leetcode.Using any way you want to create questions.",
   "type": "module",
-  "packageManager": "pnpm@7.0.0+",
+  "packageManager": "yarn@1.22.0+",
   "author": {
     "name": "EternalHeart",
     "email": "hao131462@qq.com"
