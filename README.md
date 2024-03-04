@@ -213,8 +213,8 @@ Check result for problem [2581.Count Possible Trees]:
 ┌─────────┬─────────────┬─────────────────┬──────────────────┬────────────────┬──────────────┐
 │ (index) │ Test Result │ Expected Result │ Execution Result │ Execution Time │ Memory Usage │
 ├─────────┼─────────────┼─────────────────┼──────────────────┼────────────────┼──────────────┤
-│    0    │  'Failed'   │       '3'       │      undefined    │   '0.0921ms'   │  '2.52 KB'   │
-│    1    │  'Failed'   │       '5'       │      undefined    │   '0.0119ms'   │  '2.66 KB'   │
+│    0    │  'Failed'   │       '3'       │     undefined    │   '0.0921ms'   │  '2.52 KB'   │
+│    1    │  'Failed'   │       '5'       │     undefined    │   '0.0119ms'   │  '2.66 KB'   │
 └─────────┴─────────────┴─────────────────┴──────────────────┴────────────────┴──────────────┘
 Click to jump to problem submission: https://leetcode.com/problems/count-number-of-possible-root-nodes/
 ```
