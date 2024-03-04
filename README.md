@@ -266,9 +266,9 @@ Check result for problem [41.First Missing Positive]:
 ┌─────────┬─────────────┬─────────────────┬──────────────────┬────────────────┬──────────────┐
 │ (index) │ Test Result │ Expected Result │ Execution Result │ Execution Time │ Memory Usage │
 ├─────────┼─────────────┼─────────────────┼──────────────────┼────────────────┼──────────────┤
-│    0    │  'Failed'   │       '3'       │     undefined     │   '0.0896ms'   │  '2.42 KB'   │
-│    1    │  'Failed'   │       '2'       │     undefined     │   '0.0110ms'   │  '2.56 KB'   │
-│    2    │  'Failed'   │       '1'       │     undefined     │   '0.0045ms'   │  '2.56 KB'   │
+│    0    │  'Failed'   │       '3'       │     undefined    │   '0.0896ms'   │  '2.42 KB'   │
+│    1    │  'Failed'   │       '2'       │     undefined    │   '0.0110ms'   │  '2.56 KB'   │
+│    2    │  'Failed'   │       '1'       │     undefined    │   '0.0045ms'   │  '2.56 KB'   │
 └─────────┴─────────────┴─────────────────┴──────────────────┴────────────────┴──────────────┘
 Click to jump to problem submission: https://leetcode.com/problems/first-missing-positive/
 ```
@@ -294,9 +294,9 @@ workspace/leetcode-practice [dev●] » lk -e
 ┌─────────┬─────────────┬─────────────────┬──────────────────┬────────────────┬──────────────┐
 │ (index) │ Test Result │ Expected Result │ Execution Result │ Execution Time │ Memory Usage │
 ├─────────┼─────────────┼─────────────────┼──────────────────┼────────────────┼──────────────┤
-│    0    │  'Failed'   │       '3'       │     undefined     │   '0.0969ms'   │  '2.42 KB'   │
-│    1    │  'Failed'   │       '2'       │     undefined     │   '0.0139ms'   │  '2.56 KB'   │
-│    2    │  'Failed'   │       '1'       │     undefined     │   '0.0051ms'   │  '2.56 KB'   │
+│    0    │  'Failed'   │       '3'       │     undefined    │   '0.0969ms'   │  '2.42 KB'   │
+│    1    │  'Failed'   │       '2'       │     undefined    │   '0.0139ms'   │  '2.56 KB'   │
+│    2    │  'Failed'   │       '1'       │     undefined    │   '0.0051ms'   │  '2.56 KB'   │
 └─────────┴─────────────┴─────────────────┴──────────────────┴────────────────┴──────────────┘
 Click to jump to problem submission: https://leetcode.com/problems/first-missing-positive/
 Problem [41.first-missing-positive] checked!
@@ -465,8 +465,8 @@ Check result for problem [1314.Matrix Block Sum]:
 ┌─────────┬─────────────┬─────────────────────────────────────────────┬──────────────────┬────────────────┬──────────────┐
 │ (index) │ Test Result │               Expected Result               │ Execution Result │ Execution Time │ Memory Usage │
 ├─────────┼─────────────┼─────────────────────────────────────────────┼──────────────────┼────────────────┼──────────────┤
-│    0    │  'Failed'   │    '[[12,21,16],[27,45,33],[24,39,28]]'     │     undefined     │   '0.1487ms'   │  '2.47 KB'   │
-│    1    │  'Failed'   │    '[[45,45,45],[45,45,45],[45,45,45]]'     │     undefined     │   '0.0278ms'   │  '2.61 KB'   │
+│    0    │  'Failed'   │    '[[12,21,16],[27,45,33],[24,39,28]]'     │     undefined    │   '0.1487ms'   │  '2.47 KB'   │
+│    1    │  'Failed'   │    '[[45,45,45],[45,45,45],[45,45,45]]'     │     undefined    │   '0.0278ms'   │  '2.61 KB'   │
 └─────────┴─────────────┴─────────────────────────────────────────────┴──────────────────┴────────────────┴──────────────┘
 Click to jump to problem submission: https://leetcode.com/problems/matrix-block-sum/
 ✨  Done in 1.13s.
