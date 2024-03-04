@@ -208,12 +208,12 @@ Example of checking today's solution:
 workspace/leetcode-practice [dev●] » lk -d src -t 
 MODE: today
 Check result for problem [2581.Count Possible Trees]:
-┌─────────┬──────────┬──────────┬───────────┬────────────┬───────────┐
+┌─────────┬─────────────┬─────────────────┬──────────────────┬────────────────┬──────────────┐
 │ (index) │ Test Result │ Expected Result │ Execution Result │ Execution Time │ Memory Usage │
-├─────────┼──────────┼──────────┼───────────┼────────────┼───────────┤
-│    0    │  'Failed'  │     '3'      │  undefined  │  '0.0921ms'  │  '2.52 KB'  │
-│    1    │  'Failed'  │     '5'      │  undefined  │  '0.0119ms'  │  '2.66 KB'  │
-└─────────┴──────────┴──────────┴───────────┴────────────┴───────────┘
+├─────────┼─────────────┼─────────────────┼──────────────────┼────────────────┼──────────────┤
+│    0    │  'Failed'   │       '3'       │      undefined    │   '0.0921ms'   │  '2.52 KB'   │
+│    1    │  'Failed'   │       '5'       │      undefined    │   '0.0119ms'   │  '2.66 KB'   │
+└─────────┴─────────────┴─────────────────┴──────────────────┴────────────────┴──────────────┘
 Click to jump to problem submission: https://leetcode.com/problems/count-number-of-possible-root-nodes/
 ```
 
@@ -235,14 +235,13 @@ Example of checking the specified solution:
 workspace/leetcode-practice [dev●] » lk -d src 2581
 MODE: identity
 Check result for problem [2581.Count Possible Trees]:
-┌─────────┬──────────┬
 
-──────────┬───────────┬────────────┬───────────┐
+┌─────────┬─────────────┬─────────────────┬──────────────────┬────────────────┬──────────────┐
 │ (index) │ Test Result │ Expected Result │ Execution Result │ Execution Time │ Memory Usage │
-├─────────┼──────────┼──────────┼───────────┼────────────┼───────────┤
-│    0    │  'Passed'  │     '3'      │     '3'     │  '0.1668ms'  │  '2.52 KB'  │
-│    1    │  'Passed'  │     '5'      │     '5'     │  '0.0234ms'  │  '2.66 KB'  │
-└─────────┴──────────┴──────────┴───────────┴────────────┴───────────┘
+├─────────┼─────────────┼─────────────────┼──────────────────┼────────────────┼──────────────┤
+│    0    │  'Passed'   │       '3'       │        '3'       │   '0.1668ms'   │  '2.52 KB'   │
+│    1    │  'Passed'   │       '5'       │        '5'       │   '0.0234ms'   │  '2.66 KB'   │
+└─────────┴─────────────┴─────────────────┴──────────────────┴────────────────┴──────────────┘
 Click to jump to problem submission: https://leetcode.com/problems/count-number-of-possible-root-nodes/
 ```
 
@@ -260,13 +259,13 @@ Example of checking a randomly obtained solution:
 workspace/leetcode-practice [dev●] » lk -r 
 MODE: random
 Check result for problem [41.First Missing Positive]:
-┌─────────┬──────────┬──────────┬───────────┬────────────┬───────────┐
+┌─────────┬─────────────┬─────────────────┬──────────────────┬────────────────┬──────────────┐
 │ (index) │ Test Result │ Expected Result │ Execution Result │ Execution Time │ Memory Usage │
-├─────────┼──────────┼──────────┼───────────┼────────────┼───────────┤
-│    0    │  'Failed'  │     '3'      │  undefined  │  '0.0896ms'  │  '2.42 KB'  │
-│    1    │  'Failed'  │     '2'      │  undefined  │  '0.0110ms'  │  '2.56 KB'  │
-│    2    │  'Failed'  │     '1'      │  undefined  │  '0.0045ms'  │  '2.56 KB'  │
-└─────────┴──────────┴──────────┴───────────┴────────────┴───────────┘
+├─────────┼─────────────┼─────────────────┼──────────────────┼────────────────┼──────────────┤
+│    0    │  'Failed'   │       '3'       │     undefined     │   '0.0896ms'   │  '2.42 KB'   │
+│    1    │  'Failed'   │       '2'       │     undefined     │   '0.0110ms'   │  '2.56 KB'   │
+│    2    │  'Failed'   │       '1'       │     undefined     │   '0.0045ms'   │  '2.56 KB'   │
+└─────────┴─────────────┴─────────────────┴──────────────────┴────────────────┴──────────────┘
 Click to jump to problem submission: https://leetcode.com/problems/first-missing-positive/
 ```
 
@@ -287,13 +286,13 @@ workspace/leetcode-practice [dev●] » lk -e
 ? Select the mode of problem checking: identity
 ? Enter the problem number: 41
 ? Do you want to check the problem [ 41.first-missing-positive ] in the current directory [ /Users/mac-106/wh131462/workspace/leetcode-practice ]? Yes
-┌─────────┬──────────┬──────────┬───────────┬────────────┬───────────┐
+┌─────────┬─────────────┬─────────────────┬──────────────────┬────────────────┬──────────────┐
 │ (index) │ Test Result │ Expected Result │ Execution Result │ Execution Time │ Memory Usage │
-├─────────┼──────────┼──────────┼───────────┼────────────┼───────────┤
-│    0    │  'Failed'  │     '3'      │  undefined  │  '0.0969ms'  │  '2.42 KB'  │
-│    1    │  'Failed'  │     '2'      │  undefined  │  '0.0139ms'  │  '2.56 KB'  │
-│    2    │  'Failed'  │     '1'      │  undefined  │  '0.0051ms'  │  '2.56 KB'  │
-└─────────┴──────────┴──────────┴───────────┴────────────┴───────────┘
+├─────────┼─────────────┼─────────────────┼──────────────────┼────────────────┼──────────────┤
+│    0    │  'Failed'   │       '3'       │     undefined     │   '0.0969ms'   │  '2.42 KB'   │
+│    1    │  'Failed'   │       '2'       │     undefined     │   '0.0139ms'   │  '2.56 KB'   │
+│    2    │  'Failed'   │       '1'       │     undefined     │   '0.0051ms'   │  '2.56 KB'   │
+└─────────┴─────────────┴─────────────────┴──────────────────┴────────────────┴──────────────┘
 Click to jump to problem submission: https://leetcode.com/problems/first-missing-positive/
 Problem [41.first-missing-positive] checked!
 File address is: /Users/mac-106/wh131462/workspace/leetcode-practice/41.first-missing-positive/index.js
@@ -449,12 +448,12 @@ yarn run v1.22.19
 $ node bin/lk.js -d src 1314
 MODE: identity
 Check result for problem [1314.Matrix Block Sum]:
-┌─────────┬──────────┬──────────────────────────────────────┬───────────┬────────────┬───────────┐
+┌─────────┬─────────────┬─────────────────────────────────────────────┬──────────────────┬────────────────┬──────────────┐
 │ (index) │ Test Result │               Expected Result               │ Execution Result │ Execution Time │ Memory Usage │
-├─────────┼──────────┼──────────────────────────────────────┼───────────┼────────────┼───────────┤
-│    0    │  'Failed'  │ '[[12,21,16],[27,45,33],[24,39,28]]' │ undefined │ '0.1487ms' │ '2.47 KB'  │
-│    1    │  'Failed'  │ '[[45,45,45],[45,45,45],[45,45,45]]' │ undefined │ '0.0278ms' │ '2.61 KB'  │
-└─────────┴──────────┴──────────────────────────────────────┴───────────┴────────────┴───────────┘
+├─────────┼─────────────┼─────────────────────────────────────────────┼──────────────────┼────────────────┼──────────────┤
+│    0    │  'Failed'   │    '[[12,21,16],[27,45,33],[24,39,28]]'     │     undefined     │   '0.1487ms'   │  '2.47 KB'   │
+│    1    │  'Failed'   │    '[[45,45,45],[45,45,45],[45,45,45]]'     │     undefined     │   '0.0278ms'   │  '2.61 KB'   │
+└─────────┴─────────────┴─────────────────────────────────────────────┴──────────────────┴────────────────┴──────────────┘
 Click to jump to problem submission: https://leetcode.com/problems/matrix-block-sum/
 ✨  Done in 1.13s.
 ```
