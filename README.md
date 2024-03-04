@@ -24,19 +24,19 @@ Then, leetcode-practice will meet all your needs!
 
 The best and most flexible way to use it is to use our CLI in the terminal. You can create and check your solutions using three core commands: `lk`, `lf`, and `lc`.
 
-[Installation](#I-Global-Installation-of-CLI-(Option-A)) · [Usage](#Using-CLI)
+[Installation](#I-Global-Installation-of-CLI-(Option-A)) · [Usage](#using-cli)
 
 ### Option B: Fork (Supported)
 
 You can also use GitHub's fork feature to create a copy of our project. Then, you can directly use the built-in commands within the project to create and check solutions.
 
-[Installation](#II-Fork-the-Repository-to-Create-Your-Own-leetcode-practice-Repository-(Option-B)) · [Usage](#Using-the-Forked-Project)
+[Installation](#II-Fork-the-Repository-to-Create-Your-Own-leetcode-practice-Repository-(Option-B)) · [Usage](#using-the-forked-project)
 
 ### Option C: Plugin (Supported)
 
 You can also use our `leetcode-practice` plugin available in the plugin marketplace for interactive creation and checking of solutions. (Supported on two popular editors: `WebStorm` and `VS Code`)
 
-[Installation](#III-Install-Plugins-from-the-Editor's-Marketplace-(Option-C)) · [Usage](#Plugin-Usage)
+[Installation](#III-Install-Plugins-from-the-Editor's-Marketplace-(Option-C)) · [Usage](#plugin-usage)
 
 ## Prerequisites
 
@@ -67,6 +67,7 @@ yarn global install leetcode-practice
 ### II. Fork the Repository to Create Your Own leetcode-practice Repository (Option B)
 
 #### Regular Method
+
 1. Open our project link: [leetcode-practice](https://github.com/wh131462/leetcode-practice)
 
 ![leetcode-practice-github](resources/images/leetcode-practice-github.png)
@@ -173,6 +174,7 @@ Problem file address is: /home/wh131462/workspace/leetcode-practice/src/14.longe
 ##### [5]. Easy Creation Mode (Interactive Creation) - [`-e`/`--easy`]
 
 In addition to creating problems quickly with precise commands as mentioned above, you can also use easy creation mode for interactive creation.
+
 ```shell
 lc -e
 ```
@@ -229,6 +231,7 @@ lk -i 2581
 # For problem numbers with spaces, use double quotation marks
 lk "LCP 50"
 ```
+
 Example of checking the specified solution:
 
 ```shell
@@ -253,6 +256,7 @@ Type `lk` followed by the `-r` parameter in the terminal to check the previously
 # Full command
 lk -r
 ```
+
 Example of checking a randomly obtained solution:
 
 ```shell
@@ -274,6 +278,7 @@ Click to jump to problem submission: https://leetcode.com/problems/first-missing
 ##### [4]. Easy Mode (Interactive Checking) [`-e`/`--easy`]
 
 Type `lk` followed by the `-e` parameter in the terminal to use interactive mode for checking the problem.
+
 ```shell
 # Full command
 lk -e
@@ -334,6 +339,7 @@ Note: Unable to execute test cases in this environment.
 
 The `create` and `check` commands can also use the `-d` parameter to specify a relative address based on the current working directory as the specified directory.
 When specifying a directory, the operation will be performed in that directory.
+
 ```shell
 # Use the src directory as the generation directory
 lc -d src -t
@@ -375,11 +381,13 @@ workspace/leetcode-practice [dev●] » lc -V
 ##### [4]. Update Check [`-u`/`--update`]
 
 Using the `-u` or `--update` parameter, you can check whether the current version is the latest version. If the current version is not the latest version, you will be prompted whether to update.
+
 ```shell
 lk -u 
 lf -u
 lc -u
 ```
+
 ```shell
 ? Automatically detected environment is [ project ], if not, please make a selection, if yes, please press Enter to confirm. project
 Start getting version number in npm repository...
@@ -412,14 +420,17 @@ The commands in the forked project are the same as those in the CLI usage parame
 
 ##### [1]. Create Solution [`lc`]
 
-Refer to the `lc` part of the CLI for parameters: [lc](#1-Creating-Solutions---lc)
+Refer to the `lc` part of the CLI for parameters: [lc](#1-creating-solutions---lc)
 
 Simple usage example:
+
 ```shell
 # Execute using yarn
 yarn lc 1314
 ```
+
 Execution result:
+
 ```shell
 # Generated in the src directory
 > yarn lc 1314                 
@@ -433,14 +444,17 @@ Problem file address is:/Users/mac-106/wh131462/workspace/leetcode-practice/src/
 
 ##### [2]. Check Solution [`lk`]
 
-Refer to the `lk` part of the CLI for parameters: [lk](#2-Checking-Solutions---lk)
+Refer to the `lk` part of the CLI for parameters: [lk](#2-checking-solutions---lk)
 
 Simple usage example:
+
 ```shell
 # Execute using yarn
 yarn lk 1314
 ```
+
 Execution result:
+
 ```shell
 # Checked in the src directory
 > yarn lk 1314
@@ -460,7 +474,7 @@ Click to jump to problem submission: https://leetcode.com/problems/matrix-block-
 
 ##### [3]. Look Up Solutions [`lf`]
 
-Refer to the `lf` part of the CLI for parameters: [lf](#3-Problem-Lookup---lf)
+Refer to the `lf` part of the CLI for parameters: [lf](#3-problem-lookup---lf)
 
 To be developed...
 
