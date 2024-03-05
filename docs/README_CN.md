@@ -212,36 +212,12 @@ MODE: today
 题目[2581.统计可能的树根数目]检测结果:
 ```
 
-<table border="1" style="text-align: center">
-    <tr>
-        <td>index</td>
-        <td>测量结果</td>
-        <td>预期结果</td>
-        <td>执行结果</td>
-        <td>执行用时</td>
-        <td>内存占用</td>
-    </tr>
-    <tr>
-        <td>0</td>
-        <td>未通过</td>
-        <td>'3'</td>
-        <td>undefined</td>
-        <td>0.0921ms</td>
-        <td>2.52 KB</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>通过</td>
-        <td>'5'</td>
-        <td>undefined</td>
-        <td>0.0119ms</td>
-        <td>2.66 KB</td>
-    </tr>
-</table>
+| index | 测量结果 | 预期结果 | 执行结果 | 执行用时 | 内存占用 |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 未通过 | '3' | undefined | 0.0921ms | 2.52 KB |
+| 1 | 通过 | '5' | undefined | 0.0119ms | 2.66 KB |
 
-```shell
-点击跳转到题目提交:https://leetcode.cn/problems/count-number-of-possible-root-nodes/
-```
+> 点击跳转到题目提交:<https://leetcode.cn/problems/count-number-of-possible-root-nodes/>
 
 ##### [2]. 检查指定题解 [`-i`/`--identity` + `<identity>`]
 
@@ -264,36 +240,12 @@ MODE: identity
 题目[2581.统计可能的树根数目]检测结果:
 ```
 
-<table border="1" style="text-align: center">
-    <tr>
-        <td>index</td>
-        <td>测量结果</td>
-        <td>预期结果</td>
-        <td>执行结果</td>
-        <td>执行用时</td>
-        <td>内存占用</td>
-    </tr>
-    <tr>
-        <td>0</td>
-        <td>通过</td>
-        <td>'3'</td>
-        <td>'3'</td>
-        <td>0.1668ms</td>
-        <td>2.52 KB</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>通过</td>
-        <td>'5'</td>
-        <td>'5'</td>
-        <td>0.0234ms</td>
-        <td>2.66 KB</td>
-    </tr>
-</table>
+| index | 测量结果 | 预期结果 | 执行结果 | 执行用时 | 内存占用 |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 通过 | '3' | '3' | 0.1668ms | 2.52 KB |
+| 1 | 通过 | '5' | '5' | 0.0234ms | 2.66 KB |
 
-```shell
-点击跳转到题目提交:https://leetcode.cn/problems/count-number-of-possible-root-nodes/
-```
+> 点击跳转到题目提交:<https://leetcode.cn/problems/count-number-of-possible-root-nodes/>
 
 ##### [3]. 检查随机获取的题解 [`-r`/`--random`]
 
@@ -312,45 +264,14 @@ MODE: random
 题目[41.缺失的第一个正数]检测结果:
 ```
 
-<table border="1" style="text-align: center">
-    <tr>
-        <td>index</td>
-        <td>测量结果</td>
-        <td>预期结果</td>
-        <td>执行结果</td>
-        <td>执行用时</td>
-        <td>内存占用</td>
-    </tr>
-    <tr>
-        <td>0</td>
-        <td>未通过</td>
-        <td>'3'</td>
-        <td>undefined</td>
-        <td>0.0896ms</td>
-        <td>2.42 KB</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>未通过</td>
-        <td>'2'</td>
-        <td>undefined</td>
-        <td>0.0110ms</td>
-        <td>2.56 KB</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>未通过</td>
-        <td>'1'</td>
-        <td>undefined</td>
-        <td>0.0045ms</td>
-        <td>2.56 KB</td>
-    </tr>
-</table>
+| index | 测量结果 | 预期结果 | 执行结果 | 执行用时 | 内存占用 |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 未通过 | '3' | undefined | 0.0896ms | 2.42 KB |
+| 1 | 未通过 | '2' | undefined | 0.0110ms | 2.56 KB |
+| 2 | 未通过 | '1' | undefined | 0.0045ms | 2.56 KB |
 
-```shell
-点击跳转到题目提交:https://leetcode.cn/problems/first-missing-positive/
-```
-
+> 点击跳转到题目提交:<https://leetcode.cn/problems/first-missing-positive/>
+>
 > 注意:在执行此指令之前请务必先执行过,`lc -r`创建了随机题目。
 
 ##### [4]. 简单模式(交互式检查) [`-e`/`--easy`]
@@ -371,46 +292,15 @@ workspace/leetcode-practice [dev●] » lk -e
 ? 是否检测当前目录[ /Users/mac-106/wh131462/workspace/leetcode-practice ]下的题目[ 41.first-missing-positive ]? Yes
 ```
 
-<table border="1" style="text-align: center">
-    <tr>
-        <td>index</td>
-        <td>测量结果</td>
-        <td>预期结果</td>
-        <td>执行结果</td>
-        <td>执行用时</td>
-        <td>内存占用</td>
-    </tr>
-    <tr>
-        <td>0</td>
-        <td>未通过</td>
-        <td>'3'</td>
-        <td>undefined</td>
-        <td>0.0969ms</td>
-        <td>2.42 KB</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>未通过</td>
-        <td>'2'</td>
-        <td>undefined</td>
-        <td>0.0139ms</td>
-        <td>2.56 KB</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>未通过</td>
-        <td>'1'</td>
-        <td>undefined</td>
-        <td>0.0051ms</td>
-        <td>2.56 KB</td>
-    </tr>
-</table>
+| index | 测量结果 | 预期结果 | 执行结果 | 执行用时 | 内存占用 |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 未通过 | '3' | undefined | 0.0969ms | 2.42 KB |
+| 1 | 未通过 | '2' | undefined | 0.0139ms | 2.56 KB |
+| 2 | 未通过 | '1' | undefined | 0.0051ms | 2.56 KB |
 
-```shell
-点击跳转到题目提交:https://leetcode.cn/problems/first-missing-positive/
-题目[41.first-missing-positive]检查完成！
-文件地址为: /Users/mac-106/wh131462/workspace/leetcode-practice/41.first-missing-positive/index.js
-```
+> 点击跳转到题目提交:<https://leetcode.cn/problems/first-missing-positive/>
+> 题目[41.first-missing-positive]检查完成！
+> 文件地址为: /Users/mac-106/wh131462/workspace/leetcode-practice/41.first-missing-positive/index.js
 
 #### 3.题目查找 - `lf`
 
@@ -511,7 +401,7 @@ github仓库的版本号获取成功!
 
 ### fork项目的使用
 
-##### [0]. 安装依赖
+#### [0]. 安装依赖
 
 在使用之前,先使用包管理工具进行依赖的安装.
 
@@ -526,7 +416,7 @@ fork项目中的指令,使用上和脚手架CLI的使用参数是一致的,只�
 
 > 注意:在项目中的脚本,和脚手架的唯一区别就是默认指定了`-d`参数,指向了项目根目录的`src`目录,所以所有的指令都是在src中默认执行的.
 >
-##### [1]. 创建题解 [`lc`]
+#### [1]. 创建题解 [`lc`]
 
 参数参考cli的`lc`部分: [lc](#1创建题解---lc)
 
@@ -550,7 +440,7 @@ MODE: identity
 ✨  Done in 1.06s.
 ```
 
-##### [2]. 检查题解 [`lk`]
+#### [2]. 检查题解 [`lk`]
 
 参数参考cli的`lk`部分: [lk](#2检查题解---lk)
 
@@ -572,45 +462,21 @@ MODE: identity
 题目[1314.矩阵区域和]检测结果:
 ```
 
-<table border="1" style="text-align: center">
-    <tr>
-        <td>index</td>
-        <td>测量结果</td>
-        <td>预期结果</td>
-        <td>执行结果</td>
-        <td>执行用时</td>
-        <td>内存占用</td>
-    </tr>
-    <tr>
-        <td>0</td>
-        <td>未通过</td>
-        <td>'[[12,21,16],[27,45,33],[24,39,28]]'</td>
-        <td>undefined</td>
-        <td>0.1487ms</td>
-        <td>2.47 KB</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>未通过</td>
-        <td>'[[45,45,45],[45,45,45],[45,45,45]]'</td>
-        <td>undefined</td>
-        <td>0.0278ms</td>
-        <td>2.61 KB</td>
-    </tr>
-</table>
+| index | 测量结果 | 预期结果 | 执行结果 | 执行用时 | 内存占用 |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 未通过 | '[[12,21,16],[27,45,33],[24,39,28]]' | undefined | 0.1487ms | 2.47 KB |
+| 1 | 未通过 | '[[45,45,45],[45,45,45],[45,45,45]]' | undefined | 0.0278ms | 2.61 KB |
 
-```shell
-点击跳转到题目提交:https://leetcode.cn/problems/matrix-block-sum/
-✨  Done in 1.13s.
-```
+> 点击跳转到题目提交:<https://leetcode.cn/problems/matrix-block-sum/>
+> ✨  Done in 1.13s.
 
-##### [3]. 查找题解 [`lf`]
+#### [3]. 查找题解 [`lf`]
 
 参数参考cli的`lf`部分: [lf](#3题目查找---lf)
 
 待开发...
 
-##### [4]. 更新 [`update`]
+#### [4]. 更新 [`update`]
 
 特定更新本地项目的脚本,会更新所有的非src目录,用以同步项目最新特性.
 
