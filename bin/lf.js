@@ -10,6 +10,7 @@ import {easyLanguageView} from "#common/view/language.view.js";
 import {getQuestionLanguage} from "#common/utils/question-handler/questionLanguage.js";
 import {getCode} from "#common/utils/question-handler/getCode.js";
 import {DefaultVer} from "#common/constants/question.const.js";
+import {easyFinderView} from "#common/view/finder.view.js";
 
 const version = process.env.VERSION ?? DefaultVer;
 program
@@ -42,3 +43,6 @@ if (cmdOpts.update) {
     await easyUpdateView();
     process.exit(0);
 }
+// 进入视图操作
+await easyFinderView();
+process.exit(0);
