@@ -1,5 +1,4 @@
 import {exeOnce} from "#common/utils/store/store-realm.js";
-import {UpdateMode} from "realm";
 
 /**
  * 设置一项记录
@@ -10,7 +9,9 @@ import {UpdateMode} from "realm";
 export const setStore = (key,value) => exeOnce((realm) => {
     let newStore;
     realm.write(() => {
-        newStore = realm.create("Store", {key,value},UpdateMode.Modified);
+        const oldStore = realm.objects('Person').filtered(`key = "${key}"`)[0];
+        realm.delete(oldStore);
+        newStore = realm.create("Store", {key,value});
     });
     return newStore.toJSON();
 });
