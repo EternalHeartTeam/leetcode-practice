@@ -69,7 +69,11 @@ if(cmdOpts.update){
 }
 // 检测函数
 const check = async (mode, question) => {
-    const filePath = path.join(baseDir, getQuestionFileName(question), `question${getQuestionFileExtension(question.lang)}`);
+    if(!question) {
+        console.log("题目信息不存在,请使用lc指令进行创建~");
+        return false;
+    }
+    const filePath = path.join(baseDir, getQuestionFileName(question), `question${getQuestionFileExtension(question?.lang)}`);
     if (!fs.existsSync(filePath)) {
         console.log(`文件[${filePath}]不存在,请确保已经创建!`)
     } else {
