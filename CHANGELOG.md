@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.0.4 release
+### Fixes
+- fix the bug cannot create question
 ## 1.0.3 release
 ### Features
 - you can create question in any supported language file

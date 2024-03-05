@@ -1,6 +1,6 @@
 {
   "name": "leetcode-practice",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A powerful practice platform for leetcode.Using any way you want to create questions.",
   "type": "module",
   "packageManager": "yarn@1.22.0+",
