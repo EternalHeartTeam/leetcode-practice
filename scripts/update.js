@@ -1,7 +1,7 @@
 // 更新脚本 默认是项目中
-import {checkUpdate} from "#common/utils/etc/update.js";
+import {checkUpdate} from "#common/utils/update/update.js";
 import inquirer from "inquirer";
-import {updateProject} from "#common/utils/etc/updateByEnv.js";
+import {updateProject} from "#common/utils/update/updateByEnv.js";
 
 const {isGithubUpdate,githubVersion,localVersion} = await checkUpdate()
 console.log(`当前版本: [${localVersion}] github版本: [${githubVersion}] `);

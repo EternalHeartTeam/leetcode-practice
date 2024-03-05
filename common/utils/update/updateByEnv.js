@@ -2,7 +2,7 @@ import {exec} from "child_process";
 import inquirer from "inquirer";
 import https from "https";
 import fs from "fs";
-import {getGithubVersion} from "#common/utils/etc/update.js";
+import {getGithubVersion} from "#common/utils/update/update.js";
 
 /**
  * 根据环境进行更新

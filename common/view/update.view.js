@@ -1,7 +1,7 @@
-import {checkUpdate, getGithubVersion} from "#common/utils/etc/update.js";
+import {checkUpdate, getGithubVersion} from "#common/utils/update/update.js";
 import inquirer from "inquirer";
 import {currentEnv} from "#common/utils/etc/checkEnv.js";
-import {updateByEnv} from "#common/utils/etc/updateByEnv.js";
+import {updateByEnv} from "#common/utils/update/updateByEnv.js";
 
 export const easyUpdateView = async () => {
     // 1. 询问当前的环境是啥 (自动检测一次)

@@ -1,5 +1,5 @@
 /**
- * 基础请求
+ * 基础请求-直接返回JSON格式的值
  * @param url
  * @param options
  * @returns {Promise<any>}
