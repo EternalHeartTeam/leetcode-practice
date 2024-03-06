@@ -2,12 +2,14 @@ import https from "https";
 import {rootPath} from "#common/utils/file/getRootPath.js";
 import fs from "fs";
 import path from "path";
-import {GITHUB_HOST, GITHUB_RAW, NPM_URL, PackageName} from "#common/constants/question.const.js";
+import {GITEE_URL, GITHUB_HOST, GITHUB_RAW, NPM_URL, PackageName} from "#common/constants/question.const.js";
 import {url_join} from "#common/utils/http/urlJoin.js";
 import {fetch_} from "#common/utils/http/fetch_.js";
 // npm 中的 包地址
 const npmUrl =  url_join(NPM_URL,PackageName);
 const githubUrl = url_join(GITHUB_RAW,GITHUB_HOST,PackageName,"master/package.json");
+const giteeUrl = url_join(GITEE_URL,GITHUB_HOST,PackageName,'raw',"master/package.json");
+
 /**
  * 获取远端npm库中的版本号
  */
@@ -28,9 +30,10 @@ export const getNpmVersion = async ()=>{
  */
 export const getGithubVersion = async ()=>{
     try{
-        const res = await fetch_(githubUrl,{method:"GET"});
-        console.log("获取Github版本成功！======",res?.version)
-        return res?.version;
+        const [{reason:_1,value:github}, {reason:_2,value:gitee}] = await Promise.allSettled([fetch_(githubUrl,{method:"GET"}),fetch_(giteeUrl,{method:"GET"})]);
+        const ver = github?.['version']??gitee?.['version'];
+        console.log("获取Github版本成功！======",ver);
+        return ver;
     }
     catch(e){
         console.log("获取Github版本失败！",e)
@@ -38,10 +41,9 @@ export const getGithubVersion = async ()=>{
     }
 }
 export const getLocalVersion = ()=>{
-    console.log("开始获取本地版本号...")
     try{
         const {version} = JSON.parse(fs.readFileSync(path.resolve(rootPath,'package.json'),"utf-8"))
-        console.log("本地版本号获取成功!")
+        console.log("本地版本号获取成功!======",version)
         return version;
     }
     catch (e){

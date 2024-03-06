@@ -15,5 +15,6 @@ export const NPM_URL = "https://registry.npmjs.org/";
 export const GITHUB_RAW = "https://raw.githubusercontent.com/";
 // github
 export const GITHUB_URL = "https://github.com/";
-
+// gitee
+export const GITEE_URL = "https://gitee.com/";
 //endregion
