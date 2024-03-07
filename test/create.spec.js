@@ -1,21 +1,21 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { getQuestionToday } from '#common/utils/question-getter/getQuestionToday.js'
-import fs from 'fs'
 import { getQuestionById } from '#common/utils/question-getter/getQuestionById.js'
 import { generateTemplateContent } from '#common/utils/question-handler/fulfillQuestion.js'
 import { template } from '#resources/template/template.js'
 
 vi.mock('fs/promises', () => {
   return {
-    writeFile: vi.fn()
+    writeFile: vi.fn(),
   }
 })
 const funRegex = /var\s+(\w+)\s*=\s*function\s*\(([^)]*)\)\s*{\s*([^}]*)\s*}/
-const isContainJsCode = (input) => funRegex.test(input)
-const isContainTestCase = (input) => input.includes('showLogs(')
+const isContainJsCode = input => funRegex.test(input)
+const isContainTestCase = input => input.includes('showLogs(')
 
-const handleText = (input) =>
-  input.replace(/\n+/g, '\n').replaceAll('\n', '\n * ')
+function handleText(input) {
+  return input.replace(/\n+/g, '\n').replaceAll('\n', '\n * ')
+}
 const mockKeys = ['id', 'slug', 'title', 'detail', 'lang', 'code', 'date']
 const oneDay = 24 * 60 * 60 * 1000
 

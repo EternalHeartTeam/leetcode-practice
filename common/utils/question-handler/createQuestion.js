@@ -15,14 +15,15 @@ export function createQuestion(question, questionDir) {
     const filePath = path.normalize(
       path.join(
         questionDir,
-        `question${getQuestionFileExtension(question.lang)}`
-      )
+        `question${getQuestionFileExtension(question.lang)}`,
+      ),
     )
-    if (fs.existsSync(filePath)) resolve(false)
-    else
+    if (fs.existsSync(filePath)) { resolve(false) }
+    else {
       createQuestionFile(questionDir, filePath, question)
-        .then((path) => resolve(path))
-        .catch((e) => resolve(false))
+        .then(path => resolve(path))
+        .catch(e => resolve(false))
+    }
   })
 }
 export function createQuestionFile(questionDir, questionFilePath, question) {
@@ -31,11 +32,12 @@ export function createQuestionFile(questionDir, questionFilePath, question) {
       fs.mkdir(questionDir, { recursive: true }, () => {
         fs.writeFile(questionFilePath, template, null, () => {
           fulfillQuestion(questionFilePath, question).then(() =>
-            resolve(questionFilePath)
+            resolve(questionFilePath),
           )
         })
       })
-    } catch (e) {
+    }
+    catch (e) {
       reject(e)
     }
   })

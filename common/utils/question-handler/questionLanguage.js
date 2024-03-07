@@ -20,7 +20,7 @@ export async function getQuestionLanguage() {
  */
 export function getQuestionFileExtension(lang) {
   const detail = LANGUAGES.find(
-    (o) => o.name.toLowerCase() === lang.toLowerCase()
+    o => o.name.toLowerCase() === lang.toLowerCase(),
   )
   return detail?.extension ?? '.js'
 }
@@ -32,146 +32,146 @@ export const LANGUAGES = [
   {
     id: 0,
     name: 'cpp',
-    extension: '.cpp'
+    extension: '.cpp',
   },
   {
     id: 1,
     name: 'java',
-    extension: '.java'
+    extension: '.java',
   },
   {
     id: 2,
     name: 'python',
-    extension: '.py'
+    extension: '.py',
   },
   {
     id: 11,
     name: 'python3',
-    extension: '.py'
+    extension: '.py',
   },
   {
     id: 3,
     name: 'mysql',
-    extension: '.sql'
+    extension: '.sql',
   },
   {
     id: 14,
     name: 'mssql',
-    extension: '.sql'
+    extension: '.sql',
   },
   {
     id: 15,
     name: 'oraclesql',
-    extension: '.sql'
+    extension: '.sql',
   },
   {
     id: 4,
     name: 'c',
-    extension: '.c'
+    extension: '.c',
   },
   {
     id: 5,
     name: 'csharp',
-    extension: '.cs'
+    extension: '.cs',
   },
   {
     id: 6,
     name: 'javascript',
-    extension: '.js'
+    extension: '.js',
   },
   {
     id: 20,
     name: 'typescript',
-    extension: '.ts'
+    extension: '.ts',
   },
   {
     id: 8,
     name: 'bash',
-    extension: '.sh'
+    extension: '.sh',
   },
   {
     id: 19,
     name: 'php',
-    extension: '.php'
+    extension: '.php',
   },
   {
     id: 9,
     name: 'swift',
-    extension: '.swift'
+    extension: '.swift',
   },
   {
     id: 13,
     name: 'kotlin',
-    extension: '.kt'
+    extension: '.kt',
   },
   {
     id: 24,
     name: 'dart',
-    extension: '.dart'
+    extension: '.dart',
   },
   {
     id: 10,
     name: 'golang',
-    extension: '.go'
+    extension: '.go',
   },
   {
     id: 7,
     name: 'ruby',
-    extension: '.rb'
+    extension: '.rb',
   },
   {
     id: 12,
     name: 'scala',
-    extension: '.scala'
+    extension: '.scala',
   },
   {
     id: 16,
     name: 'html',
-    extension: '.html'
+    extension: '.html',
   },
   {
     id: 17,
     name: 'pythonml',
-    extension: '.py'
+    extension: '.py',
   },
   {
     id: 18,
     name: 'rust',
-    extension: '.rs'
+    extension: '.rs',
   },
   {
     id: 21,
     name: 'racket',
-    extension: '.rkt'
+    extension: '.rkt',
   },
   {
     id: 22,
     name: 'erlang',
-    extension: '.erl'
+    extension: '.erl',
   },
   {
     id: 23,
     name: 'elixir',
-    extension: '.ex'
+    extension: '.ex',
   },
   {
     id: 25,
     name: 'pythondata',
-    extension: '.py'
+    extension: '.py',
   },
   {
     id: 26,
     name: 'react',
-    extension: '.jsx'
+    extension: '.jsx',
   },
   {
     id: 27,
     name: 'vanillajs',
-    extension: '.js'
+    extension: '.js',
   },
   {
     id: 28,
     name: 'postgresql',
-    extension: '.sql'
-  }
+    extension: '.sql',
+  },
 ]

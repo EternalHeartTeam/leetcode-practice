@@ -15,8 +15,10 @@ export function temExe(temCommand, ...args) {
       return args[argIndex]
     })
     exec(command, (error, stdout, stderr) => {
-      if (error) reject(error.message)
-      else if (stderr) reject(stderr)
+      if (error)
+        reject(error.message)
+      else if (stderr)
+        reject(stderr)
       else resolve(stdout)
     })
   })

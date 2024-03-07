@@ -5,11 +5,11 @@ import { graphql } from '#common/utils/http/graphql.js'
 export async function getQuestionById(id) {
   const base = await graphql(getQuestionSearchJson(id.toString()))
   const questionContent = base?.data?.problemsetQuestionList?.questions?.find(
-    (o) => o?.frontendQuestionId === id.toString()
+    o => o?.frontendQuestionId === id.toString(),
   )
   if (!questionContent) {
     return {
-      id: null
+      id: null,
     }
   }
   const slug = questionContent.titleSlug

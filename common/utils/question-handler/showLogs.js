@@ -20,7 +20,7 @@ export function parseLog(fnName, param, compare, compareStruct) {
   const [parsedCompareArr] = setDataStructure(
     [callVal],
     compareStruct,
-    'return'
+    'return',
   )
   // 获取函数执行后的内存使用情况
   const endHeapStatsArray = v8.getHeapSpaceStatistics()
@@ -28,11 +28,11 @@ export function parseLog(fnName, param, compare, compareStruct) {
   const endTime = performance.now()
   const startHeapStats = startHeapStatsArray.reduce(
     (prev, curr) => (prev += curr.space_used_size),
-    0
+    0,
   )
   const endHeapStats = endHeapStatsArray.reduce(
     (prev, curr) => (prev += curr.space_used_size),
-    0
+    0,
   )
 
   return {
@@ -40,7 +40,7 @@ export function parseLog(fnName, param, compare, compareStruct) {
     预期结果: JSON.stringify(compare),
     执行结果: JSON.stringify(parsedCompareArr),
     执行用时: `${Number(endTime - startTime).toFixed(4)}ms`,
-    内存占用: getFileSize(endHeapStats - startHeapStats)
+    内存占用: getFileSize(endHeapStats - startHeapStats),
   }
 }
 
@@ -55,7 +55,7 @@ export function showLogs(fnName, paramMap, compareMap) {
       fnName,
       parsedParma,
       compareArr[index],
-      compareStruct
+      compareStruct,
     )
     logsItems.push(logItem)
   })

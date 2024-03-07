@@ -6,7 +6,7 @@ import {
   GITHUB_HOST,
   GITHUB_RAW,
   NPM_URL,
-  PackageName
+  PackageName,
 } from '#common/constants/question.const.js'
 import { url_join } from '#common/utils/http/urlJoin.js'
 import { fetch_ } from '#common/utils/http/fetch_.js'
@@ -17,14 +17,14 @@ const githubUrl = url_join(
   GITHUB_RAW,
   GITHUB_HOST,
   PackageName,
-  'master/package.json'
+  'master/package.json',
 )
 const giteeUrl = url_join(
   GITEE_URL,
   GITHUB_HOST,
   PackageName,
   'raw',
-  'master/package.json'
+  'master/package.json',
 )
 
 /**
@@ -35,7 +35,8 @@ export async function getNpmVersion() {
     const res = await fetch_(npmUrl, { method: 'GET' })
     console.log('获取NPM版本成功！======', res['dist-tags']?.latest)
     return res['dist-tags']?.latest
-  } catch (e) {
+  }
+  catch (e) {
     console.log('获取NPM版本失败！')
     throw new Error(e)
   }
@@ -46,15 +47,16 @@ export async function getNpmVersion() {
  */
 export async function getGithubVersion() {
   try {
-    const [{ reason: _1, value: github }, { reason: _2, value: gitee }] =
-      await Promise.allSettled([
+    const [{ reason: _1, value: github }, { reason: _2, value: gitee }]
+      = await Promise.allSettled([
         fetch_(githubUrl, { method: 'GET' }),
-        fetch_(giteeUrl, { method: 'GET' })
+        fetch_(giteeUrl, { method: 'GET' }),
       ])
     const ver = github?.version ?? gitee?.version
     console.log('获取Github版本成功！======', ver)
     return ver
-  } catch (e) {
+  }
+  catch (e) {
     console.log('获取Github版本失败！', e)
     throw new Error(e)
   }
@@ -62,11 +64,12 @@ export async function getGithubVersion() {
 export function getLocalVersion() {
   try {
     const { version } = JSON.parse(
-      fs.readFileSync(path.resolve(rootPath, 'package.json'), 'utf-8')
+      fs.readFileSync(path.resolve(rootPath, 'package.json'), 'utf-8'),
     )
     console.log('本地版本号获取成功!======', version)
     return version
-  } catch (e) {
+  }
+  catch (e) {
     console.log('本地版本号获取失败!')
     return false
   }
@@ -84,6 +87,6 @@ export async function checkUpdate() {
     npmVersion: remote,
     githubVersion: github,
     isCliUpdate: remote !== local,
-    isGithubUpdate: github !== local
+    isGithubUpdate: github !== local,
   }
 }

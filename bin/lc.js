@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+import path from 'node:path'
 import { program } from 'commander'
 import { artFontLogo } from '#resources/text/art-font-logo.js'
 import { lcExamples } from '#resources/text/examples.js'
@@ -7,7 +8,6 @@ import { aim } from '#resources/text/aim.js'
 import { referMode } from '#common/utils/create-check/refer-mode.js'
 import { getArgs } from '#common/utils/create-check/get-args.js'
 import { getQuestionToday } from '#common/utils/question-getter/getQuestionToday.js'
-import path from 'path'
 
 import { getQuestionRandom } from '#common/utils/question-getter/getQuestionRandom.js'
 
@@ -19,7 +19,7 @@ import { easyLanguageView } from '#common/view/language.view.js'
 import { DefaultVer } from '#common/constants/question.const.js'
 import {
   create,
-  createQuestionById
+  createQuestionById,
 } from '#common/utils/create-check/createUtil.js'
 
 const version = process.env.VERSION ?? DefaultVer
@@ -36,7 +36,7 @@ program
   .option('-l, --language [language]', 'Set/Get the code language of question.')
   .option(
     '-u, --update',
-    'Check the version to determine whether to update to the latest one.'
+    'Check the version to determine whether to update to the latest one.',
   )
   .parse(process.argv)
 
@@ -56,9 +56,10 @@ const cmdOpts = program.opts()
 if (cmdOpts.language) {
   if (cmdOpts.language !== true) {
     await easyLanguageView(cmdOpts.language)
-  } else {
+  }
+  else {
     const lang = await getQuestionLanguage()
-    console.log('当前CLI语言环境为:' + lang)
+    console.log(`当前CLI语言环境为:${lang}`)
   }
   process.exit(0)
 }
@@ -96,7 +97,7 @@ export const callModeAction = {
   identity: async (id) => {
     await createQuestionById(id, baseDir)
     process.exit(0)
-  }
+  },
 }
 // 获取模式和参数
 const mode = referMode(cmdArgs, cmdOpts)

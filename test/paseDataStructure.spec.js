@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest'
+import { expect, it } from 'vitest'
 import { getDataStructure } from '#common/utils/question-handler/parseStructure.js'
 
 const mockJSDOC_multiple = `/**
@@ -79,31 +79,31 @@ var mergeKLists = function(lists) {
 
 const array = ['ListNode', 'number', 'number', 'ListNode']
 
-test('获取入参的数据结构 多参 是数组', () => {
+it('获取入参的数据结构 多参 是数组', () => {
   expect(getDataStructure(mockJSDOC_multiple)).toBeInstanceOf(Array)
 })
-test('获取入参的数据结构 多参 匹配值', () => {
+it('获取入参的数据结构 多参 匹配值', () => {
   expect(getDataStructure(mockJSDOC_multiple)).toEqual(array)
 })
-test('获取入参的数据结构 单参 是数组', () => {
+it('获取入参的数据结构 单参 是数组', () => {
   expect(getDataStructure(mockJSDOC_single)).toBeInstanceOf(Array)
 })
-test('获取入参的数据结构 单参 匹配值', () => {
+it('获取入参的数据结构 单参 匹配值', () => {
   expect(getDataStructure(mockJSDOC_single)).toEqual(['ListNode'])
 })
 
-test('获取返回值的数据结构 单参 匹配值', () => {
+it('获取返回值的数据结构 单参 匹配值', () => {
   expect(getDataStructure(mockJSDOC_single, 'return')).toEqual(['ListNode'])
 })
-test('获取入参的数据结构 单参 ListNode[]', () => {
+it('获取入参的数据结构 单参 ListNode[]', () => {
   expect(getDataStructure(mockJSDOC_ListNodeArray, 'param')).toEqual([
-    'ListNode[]'
+    'ListNode[]',
   ])
 })
-test('获取返回值的数据结构 单参 匹配值', () => {
+it('获取返回值的数据结构 单参 匹配值', () => {
   expect(getDataStructure(mockJSDOC_single, 'return')).toEqual(['ListNode'])
   expect(getDataStructure(mockJSDOC_multiple, 'return')).toEqual(['ListNode'])
 })
-test('获取返回值的数据结构 单参 void', () => {
+it('获取返回值的数据结构 单参 void', () => {
   expect(getDataStructure(return_void, 'return')).toEqual(['void'])
 })

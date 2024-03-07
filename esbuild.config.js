@@ -1,26 +1,26 @@
+import path from 'node:path'
+import fs, { mkdirSync } from 'node:fs'
 import esbuild from 'esbuild'
-import path from 'path'
-import fs, { mkdirSync } from 'fs'
 import { rootPath } from '#common/utils/file/getRootPath.js'
+
 // 读取 package.json 文件内容
 const packageJson = JSON.parse(
-  fs.readFileSync(path.resolve(rootPath, 'package.json'), 'utf-8')
+  fs.readFileSync(path.resolve(rootPath, 'package.json'), 'utf-8'),
 )
 const publishExcludeFields = [
   'scripts',
   'devDependencies',
   'imports',
   'main',
-  'config'
+  'config',
 ]
-const clean = () => {
+function clean() {
   return new Promise((resolve, reject) => {
     fs.rm(path.resolve(rootPath, 'pl-cli'), { recursive: true }, (err) => {
-      if (err) {
+      if (err)
         resolve()
-      } else {
+      else
         resolve()
-      }
     })
   })
 }
@@ -36,8 +36,8 @@ await esbuild
     minify: true,
     packages: 'external',
     define: {
-      'process.env.VERSION': JSON.stringify(packageJson.version)
-    }
+      'process.env.VERSION': JSON.stringify(packageJson.version),
+    },
   })
   .then(() => {
     // 构建完成后执行的操作
@@ -48,30 +48,30 @@ await esbuild
     docs.forEach((doc) => {
       fs.copyFileSync(
         path.resolve(rootPath, 'docs', doc),
-        path.resolve(rootPath, 'pl-cli/docs/', doc)
+        path.resolve(rootPath, 'pl-cli/docs/', doc),
       )
     })
     fs.copyFileSync(
       path.resolve(rootPath, 'README.md'),
-      path.resolve(rootPath, 'pl-cli/README.md')
+      path.resolve(rootPath, 'pl-cli/README.md'),
     )
     fs.copyFileSync(
       path.resolve(rootPath, 'LICENSE'),
-      path.resolve(rootPath, 'pl-cli/LICENSE')
+      path.resolve(rootPath, 'pl-cli/LICENSE'),
     )
     const newPackageJson = Object.assign(packageJson, {
       bin: {
         lk: '.bin/lk.js',
         lf: '.bin/lf.js',
-        lc: '.bin/lc.js'
-      }
+        lc: '.bin/lc.js',
+      },
     })
     publishExcludeFields?.forEach((key) => {
       delete newPackageJson[key]
     })
     fs.writeFileSync(
       path.resolve(rootPath, 'pl-cli/package.json'),
-      JSON.stringify(newPackageJson)
+      JSON.stringify(newPackageJson),
     )
     console.log('[LP]脚本打包完成,查看目录[pl-cli].')
   })

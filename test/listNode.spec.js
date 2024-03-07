@@ -1,7 +1,7 @@
-import { test, expect, describe } from 'vitest'
+import { expect, it } from 'vitest'
 import { ListNode } from '#common/structures/ListNode'
 
-test('toArray 正常数组', () => {
+it('toArray 正常数组', () => {
   // 创建链表
   const head = new ListNode(1)
   const node1 = new ListNode(2)
@@ -12,25 +12,25 @@ test('toArray 正常数组', () => {
   const arr = ListNode.toArray(head)
   expect(arr).toEqual([1, 2, 3])
 })
-test('toArray undefined', () => {
+it('toArray undefined', () => {
   const arr = ListNode.toArray(undefined)
   expect(arr).toEqual([])
 })
-test('toArray false', () => {
+it('toArray false', () => {
   const arr = ListNode.toArray(false)
   expect(arr).toEqual([undefined])
 })
-test('toArray 1', () => {
+it('toArray 1', () => {
   const arr = ListNode.toArray(1)
   expect(arr).toEqual([undefined])
 })
-test('parse [1,2,3]', () => {
+it('parse [1,2,3]', () => {
   const listNode = ListNode.parse([1, 2, 3])
   expect(listNode.val).toEqual(1)
   expect(listNode.next?.val).toEqual(2)
   expect(listNode.next?.next?.val).toEqual(3)
 })
-test('parse []', () => {
+it('parse []', () => {
   const listNode = ListNode.parse([])
   expect(listNode).toEqual(null)
 })
