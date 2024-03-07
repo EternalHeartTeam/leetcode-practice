@@ -37,7 +37,6 @@ export async function easyFinderView() {
     case '进入筛选模式':
       break
   }
-
   process.exit(0)
 }
 
