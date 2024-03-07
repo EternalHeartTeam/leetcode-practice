@@ -8,12 +8,16 @@ import { createQuestion } from '#common/utils/question-handler/createQuestion.js
 import { createQuestionCopy } from '#common/utils/question-handler/createQuestionCopy.js'
 import { setQuestion } from '#common/utils/store/controller/question.js'
 
+
+
+
+
 export async function easyCreateView() {
   const modeQuestion = [{
     type: 'list',
     name: 'mode',
     message: '请选择创建问题的模式:',
-    choices: ['today', 'identity', 'random'],
+    choices: ['today', 'identity', 'random',   ],
   }]
   // 第一个问题 选择的模式
   const { mode } = await inquirer.prompt(modeQuestion, null)
