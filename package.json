@@ -36,7 +36,8 @@
     "commit": "cz",
     "test": "vitest --run",
     "coverage": "vitest run --coverage",
-    "lint": "eslint --fix --ext .js,jsx,cjs,mjs ./common",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "lint:all": "eslint .",
     "lint:fix": "eslint . --fix",
     "create-color-font": "node scripts/create-color-font.js"
@@ -46,12 +47,17 @@
     "@inquirer/select": "^2.0.0",
     "chalk": "^5.3.0",
     "commander": "^12.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
     "glob": "^10.3.10",
     "inquirer": "^9.2.14",
+    "prettier": "^3.2.5",
     "realm": "^12.6.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.8.0",
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
     "@types/node": "^20.11.5",
     "@vitest/coverage-v8": "^1.2.2",
     "commitizen": "^4.3.0",
@@ -61,9 +67,15 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
     "gradient-string": "^2.0.2",
+    "husky": "^9.0.11",
     "rimraf": "^5.0.5",
     "vite": "^5.0.11",
     "vitest": "^1.2.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,tsx,ts}": [
+      "npm run lint"
+    ]
   },
   "config": {
     "commitizen": {
