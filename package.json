@@ -39,7 +39,7 @@
     "format": "prettier --write .",
     "lint": "eslint . --fix",
     "lint:all": "eslint .",
-    "prepare": "husky || true",
+    "prepare": "husky install",
     "create-color-font": "node scripts/create-color-font.js"
   },
   "license": "ISC",
