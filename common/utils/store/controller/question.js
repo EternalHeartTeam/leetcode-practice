@@ -12,6 +12,7 @@ export function getQuestionByMode(mode) {
     return question?.toJSON()
   })
 }
+
 /**
  * 存对象
  * @param mode
@@ -28,6 +29,7 @@ export function setQuestion(mode, question) {
     return newQuestion.toJSON()
   })
 }
+
 /**
  * 删除某一个模式
  * @param mode
@@ -40,6 +42,7 @@ export function deleteQuestionByMode(mode) {
     })
   })
 }
+
 /**
  * 删除全部
  */
