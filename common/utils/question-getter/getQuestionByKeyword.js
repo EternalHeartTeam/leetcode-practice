@@ -6,4 +6,3 @@ export async function getQuestionByKeyword(keyword) {
   console.log(questionData)
   return questionData?.data?.problemsetQuestionList?.questions
 }
-

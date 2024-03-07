@@ -25,10 +25,9 @@ export async function easyFinderView() {
         choices: []
       }]
       let list = []
-      console.log(data)
-      // data.map(q => list.push(q.titleCn))
-      // questionList[0].choices = list.join(',')
-      // console.log(list)
+      data.map(q => list.push(q.titleCn))
+      questionList[0].choices = list.join(',')
+      console.log(list)
       // const { chooseQuestion } = await inquirer.prompt(questionList, null)
       // console.log(chooseQuestion)
       break
