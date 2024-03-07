@@ -1,3 +1,4 @@
-import {__dirname} from "#common/utils/file/getDirname.js";
-import path from "path";
-export const rootPath =path.dirname(path.dirname(path.dirname(__dirname)));
+import path from 'node:path'
+import { __dirname } from '#common/utils/file/getDirname.js'
+
+export const rootPath = path.dirname(path.dirname(path.dirname(__dirname)))

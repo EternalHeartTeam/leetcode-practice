@@ -3,7 +3,8 @@
  * @param question
  * @returns {string}
  */
-export const getQuestionFileName = (question)=>{
-    if(!question||!question?.id)return "";
-    return `${question.id}.${question.slug}`;
+export function getQuestionFileName(question) {
+  if (!question || !question?.id)
+    return ''
+  return `${question.id}.${question.slug}`
 }

@@ -1,5 +1,5 @@
-import {readdirSync} from "fs";
+import { readdirSync } from 'node:fs'
 
 export function getFileListBySameName(dir, name) {
-    return readdirSync(dir).filter((filename) => filename.includes(name));
+  return readdirSync(dir).filter(filename => filename.includes(name))
 }

@@ -4,8 +4,8 @@
  * @param rest
  * @returns {string}
  */
-export const url_join = (host,...rest)=>{
-    const host_base = host.replace(/\/$/,"");
-    const path = rest.join('/').replace(/(\/){1,3}/gmi,'/').replace(/^\//,'');
-    return [host_base,path].join("/");
+export function url_join(host, ...rest) {
+  const host_base = host.replace(/\/$/, '')
+  const path = rest.join('/').replace(/(\/){1,3}/gmi, '/').replace(/^\//, '')
+  return [host_base, path].join('/')
 }

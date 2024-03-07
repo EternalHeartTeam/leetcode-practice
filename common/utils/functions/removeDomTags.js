@@ -1,4 +1,4 @@
-﻿/**
+/**
  * 去除dom标签
  * @param input
  * @returns {string|string}
@@ -9,6 +9,5 @@ export function removeDomTags(input) {
     .replaceAll('&nbsp;', ' ')
     .replaceAll('&lt;', '<')
     .replaceAll('&gt;', '>')
-    .replaceAll('`', '');
+    .replaceAll('`', '')
 }
-

@@ -1,4 +1,4 @@
-import {readdirSync} from "fs";
+import { readdirSync } from 'node:fs'
 
 /**
  * 根据指定的目录和文件名 给出存在的数量
@@ -7,5 +7,5 @@ import {readdirSync} from "fs";
  * @returns {number}
  */
 export function getCountBySameName(dir, name) {
-  return readdirSync(dir).filter((filename) => filename.includes(name)).length;
+  return readdirSync(dir).filter(filename => filename.includes(name)).length
 }

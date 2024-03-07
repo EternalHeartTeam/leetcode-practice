@@ -5,6 +5,6 @@
  * @returns {Promise<any>}
  * @private
  */
-export const fetch_ = async (url,options)=>{
-    return await fetch(url,options).then(res=>res.json())
+export async function fetch_(url, options) {
+  return await fetch(url, options).then(res => res.json())
 }

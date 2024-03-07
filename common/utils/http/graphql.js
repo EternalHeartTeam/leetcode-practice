@@ -1,5 +1,5 @@
-import path from "path";
-import {fetch_} from "#common/utils/http/fetch_.js";
+import path from 'node:path'
+import { fetch_ } from '#common/utils/http/fetch_.js'
 
 /**
  * 请求
@@ -7,6 +7,6 @@ import {fetch_} from "#common/utils/http/fetch_.js";
  * @param host
  * @returns {Promise<any>}
  */
-export const graphql = async (options, host = "https://leetcode.cn/")=>{
-    return await fetch_(path.join(host,'graphql'),options);
+export async function graphql(options, host = 'https://leetcode.cn/') {
+  return await fetch_(path.join(host, 'graphql'), options)
 }

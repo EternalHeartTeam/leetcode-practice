@@ -37,6 +37,8 @@
     "test": "vitest --run",
     "coverage": "vitest run --coverage",
     "lint": "eslint --fix --ext .js,jsx,cjs,mjs ./common",
+    "lint:all": "eslint .",
+    "lint:fix": "eslint . --fix",
     "create-color-font": "node scripts/create-color-font.js"
   },
   "license": "ISC",
@@ -48,12 +50,13 @@
     "realm": "^12.6.0"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.8.0",
     "@types/node": "^20.11.5",
     "@vitest/coverage-v8": "^1.2.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "esbuild": "^0.20.0",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
     "gradient-string": "^2.0.2",
