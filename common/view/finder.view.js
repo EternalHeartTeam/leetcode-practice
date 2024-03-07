@@ -11,13 +11,14 @@ export async function easyFinderView() {
   const { mode } = await inquirer.prompt(modeQuestion, null)
   const questionKeyword = [{
     type: 'input',
-    name: 'identity',
+    name: 'keyword',
     message: '请输入关键词:',
   }]
 
   switch (mode) {
     case '关键词搜索':
-      const data = await getQuestionByKeyword(await inquirer.prompt(questionKeyword, null))
+      const { keyword } = await inquirer.prompt(questionKeyword, null)
+      const data = await getQuestionByKeyword(keyword)
       const questionList = [{
         type: 'list',
         name: 'chooseQuestion',
