@@ -15,6 +15,7 @@
 - [ ] commit到leetcode
 - [ ] 插件制作-WS/VS code
 - [ ] fork脚本的编写
+- [ ] 一键拉取题目集合，比如说hot 100
 
 ### 优先级中
 

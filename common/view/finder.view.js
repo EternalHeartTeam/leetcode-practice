@@ -1,41 +1,93 @@
-import inquirer from 'inquirer'
-import { getQuestionByKeyword } from '#common/utils/question-getter/getQuestionByKeyword.js'
+import select, { Separator } from '@inquirer/select';
+import { getTitleSlugList, getHot100QuestionListJSCode } from '#common/utils/question-handler/getHot100QuestionList.js';
+import {createQuestionByTitleSlug} from '#common/utils/create-check/createUtil.js'
 
-export async function easyFinderView() {
-  const modeQuestion = [{
-    type: 'list',
-    name: 'mode',
-    message: '请选择查找的模式?',
-    choices: ['关键词搜索', 'Top 100列表查询', '进入筛选模式'],
-  }]
-  const { mode } = await inquirer.prompt(modeQuestion, null)
-  const questionKeyword = [{
-    type: 'input',
-    name: 'keyword',
-    message: '请输入关键词:',
-  }]
+const hotMode = async () => {
 
-  switch (mode) {
-    case '关键词搜索':
-      const { keyword } = await inquirer.prompt(questionKeyword, null)
-      const data = await getQuestionByKeyword(keyword)
-      const questionList = [{
-        type: 'list',
-        name: 'chooseQuestion',
-        message: '请选择题目',
-        choices: []
-      }]
-      let list = data.map(q=>`${q.frontendQuestionId}.${q.titleCn}`);
-      questionList[0].choices = list;
-      const { chooseQuestion } = await inquirer.prompt(questionList, null)
-      console.log(chooseQuestion)
-      break
-    case 'Top 100列表查询':
-      break
-    case '进入筛选模式':
-      break
-  }
-  process.exit(0)
+    const createMode = await select({
+        message: "拉题模式",
+        choices: [{
+            name: '单个选择',
+            value: 'single'
+        }, {
+            name: '全部拉取',
+            value: 'all'
+        }]
+       
+    })
+    if(createMode === "single") {
+        const titleSlugList = await getTitleSlugList();
+        const singleMode = {
+            message: "请选择题目?",
+            choices: titleSlugList.map(res=> ({
+                name: res,
+                value: res,
+            }))
+        }
+        const singleChoice = await select(singleMode);
+
+       await createQuestionByTitleSlug(singleChoice)
+       
+
+   
+    }
+    if(createMode === "all") {
+        const titleSlugList = await getHot100QuestionListJSCode();
+    }
+
+
 }
 
-await easyFinderView()
+const keywordMode = async () => {
+  const data = await getQuestionByKeyword(await inquirer.prompt(questionKeyword, null))
+  const questionList = [{
+    type: 'list',
+    name: 'chooseQuestion',
+    message: '请选择题目',
+    choices: []
+  }]
+  let list = []
+  data.map(q => list.push(q.titleCn))
+  questionList[0].choices = list.join(',')
+  console.log(list)
+}
+const selectMode = async () => {
+
+}
+
+export const easyFinderView = async ()=>{
+    const choices = [{
+        name: "关键词搜索",
+        value: "keyword",
+        description: "关键词描述"
+    }, {
+        name: "hot 100列表查询",
+        value: "hot",
+        description: "最受欢迎的100道题目"
+    }, {
+        name: "筛选模式",
+        value: "select",
+        description: "筛选题目"
+    }];
+
+    const modeQuestion = {
+        message:"请选择查找的模式?",
+        choices,
+    };
+    const mode = await select(modeQuestion);
+
+    const modeMap = {
+      hot: hotMode,
+      keyword: keywordMode,
+      select: selectMode
+    }
+    await modeMap[mode]()
+
+
+
+
+
+}
+
+
+
