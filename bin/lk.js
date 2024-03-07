@@ -26,12 +26,18 @@ program
   .addHelpText('after', lkExamples + love)
   .arguments('[identity]')
   .option('-t, --today', 'Check the question today.')
-  .option('-i, --identity <identity>', 'Check the specified question by identity.')
+  .option(
+    '-i, --identity <identity>',
+    'Check the specified question by identity.'
+  )
   .option('-r, --random', 'Check the last random question.')
   .option('-e, --easy', 'Use easy mode.')
   .option('-d, --directory <directory>', 'Set the question directory.')
   .option('-l, --language [language]', 'Set/Get the code language of question.')
-  .option('-u, --update', 'Check the version to determine whether to update to the latest one.')
+  .option(
+    '-u, --update',
+    'Check the version to determine whether to update to the latest one.'
+  )
   .parse(process.argv)
 
 const cmdArgs = program.args
@@ -50,15 +56,16 @@ const cmdOpts = program.opts()
 if (cmdOpts.language) {
   if (cmdOpts.language !== true) {
     await easyLanguageView(cmdOpts.language)
-  }
-  else {
+  } else {
     const lang = await getQuestionLanguage()
     console.log(`当前CLI语言环境为:${lang}`)
   }
   process.exit(0)
 }
 // 根据dir 参数来设置基本目录
-const baseDir = cmdOpts.directory ? path.join(process.cwd(), cmdOpts.directory) : process.cwd()
+const baseDir = cmdOpts.directory
+  ? path.join(process.cwd(), cmdOpts.directory)
+  : process.cwd()
 if (cmdOpts.easy) {
   await easyCheckView()
   process.exit(0)
@@ -74,12 +81,17 @@ async function check(mode, question) {
     console.log('题目信息不存在,请使用lc指令进行创建~')
     return false
   }
-  const filePath = path.join(baseDir, getQuestionFileName(question), `question${getQuestionFileExtension(question?.lang)}`)
+  const filePath = path.join(
+    baseDir,
+    getQuestionFileName(question),
+    `question${getQuestionFileExtension(question?.lang)}`
+  )
   if (!fs.existsSync(filePath)) {
     console.log(`文件[${filePath}]不存在,请确保已经创建!`)
-  }
-  else {
-    console.log(`MODE: ${mode}\n题目[${getQuestionChineseName(question)}]检测结果:`)
+  } else {
+    console.log(
+      `MODE: ${mode}\n题目[${getQuestionChineseName(question)}]检测结果:`
+    )
     await checkQuestion(filePath)
   }
   return true
@@ -102,7 +114,7 @@ const callModeAction = {
       : await getQuestionById(id)
     await check('identity', question)
     process.exit(0)
-  },
+  }
 }
 // 获取模式和参数
 const mode = referMode(cmdArgs, cmdOpts)

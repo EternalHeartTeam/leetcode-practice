@@ -19,8 +19,11 @@ export function executeScript(filePath, context) {
  * @param path
  */
 export async function checkQuestion(path) {
-  return await executeScript(path, vm.createContext({
-    showLogs,
-    console,
-  }))
+  return await executeScript(
+    path,
+    vm.createContext({
+      showLogs,
+      console
+    })
+  )
 }

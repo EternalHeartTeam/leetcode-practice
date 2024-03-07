@@ -1,14 +1,13 @@
 export class TreeNode {
   constructor(val, left, right) {
     this.left = null
-    this.val = (val === undefined ? 0 : val)
-    this.left = (left === undefined ? null : left)
-    this.right = (right === undefined ? null : right)
+    this.val = val === undefined ? 0 : val
+    this.left = left === undefined ? null : left
+    this.right = right === undefined ? null : right
   }
 
   static parse(arr) {
-    if (arr.length === 0)
-      return null
+    if (arr.length === 0) return null
     const root = new TreeNode(arr[0])
     const queue = [root]
     for (let i = 1; i < arr.length; i += 2) {
@@ -27,8 +26,7 @@ export class TreeNode {
 
   static toArray(treeNode) {
     const result = []
-    if (!treeNode)
-      return result
+    if (!treeNode) return result
 
     const queue = [treeNode]
 
@@ -38,14 +36,12 @@ export class TreeNode {
         result.push(node.val)
         queue.push(node.left)
         queue.push(node.right)
-      }
-      else {
+      } else {
         result.push(null)
       }
     }
 
-    while (result.length > 0 && result[result.length - 1] === null)
-      result.pop()
+    while (result.length > 0 && result[result.length - 1] === null) result.pop()
 
     return result
   }

@@ -24,24 +24,24 @@ Then, leetcode-practice will meet all your needs!
 
 The best and most flexible way to use it is to use our CLI in the terminal. You can create and check your solutions using three core commands: `lk`, `lf`, and `lc`.
 
-[Installation](#I-Global-Installation-of-CLI-(Option-A)) · [Usage](#using-cli)
+[Installation](<#I-Global-Installation-of-CLI-(Option-A)>) · [Usage](#using-cli)
 
 ### Option B: Fork (Supported)
 
 You can also use GitHub's fork feature to create a copy of our project. Then, you can directly use the built-in commands within the project to create and check solutions.
 
-[Installation](#II-Fork-the-Repository-to-Create-Your-Own-leetcode-practice-Repository-(Option-B)) · [Usage](#using-the-forked-project)
+[Installation](<#II-Fork-the-Repository-to-Create-Your-Own-leetcode-practice-Repository-(Option-B)>) · [Usage](#using-the-forked-project)
 
 ### Option C: Plugin (Supported)
 
 You can also use our `leetcode-practice` plugin available in the plugin marketplace for interactive creation and checking of solutions. (Supported on two popular editors: `WebStorm` and `VS Code`)
 
-[Installation](#III-Install-Plugins-from-the-Editor's-Marketplace-(Option-C)) · [Usage](#plugin-usage)
+[Installation](<#III-Install-Plugins-from-the-Editor's-Marketplace-(Option-C)>) · [Usage](#plugin-usage)
 
 ## Prerequisites
 
 | Dependency | Version |
-|------------|---------|
+| ---------- | ------- |
 | nodejs     | lts     |
 | git        | lts     |
 
@@ -117,7 +117,7 @@ To be developed...
 Type `lc` in the terminal to get today's problem in the current working directory by default.
 
 ```shell
-lc 
+lc
 # Full command
 lc -t
 ```
@@ -207,15 +207,15 @@ Example of checking today's solution:
 
 ```shell
 # Specified src directory as the root directory
-workspace/leetcode-practice [dev●] » lk -d src -t 
+workspace/leetcode-practice [dev●] » lk -d src -t
 MODE: today
 Check result for problem [2581.Count Possible Trees]:
 ```
 
 | index | Test Result | Expected Result | Execution Result | Execution Time | Memory Usage |
-| --- | --- | --- | --- | --- | --- |
-| 0 | 'Failed' | '3' | undefined | 0.0921ms | 2.52 KB |
-| 1 | 'Passed' | '5' | undefined | 0.0119ms | 2.66 KB |
+| ----- | ----------- | --------------- | ---------------- | -------------- | ------------ |
+| 0     | 'Failed'    | '3'             | undefined        | 0.0921ms       | 2.52 KB      |
+| 1     | 'Passed'    | '5'             | undefined        | 0.0119ms       | 2.66 KB      |
 
 > Click to jump to problem submission: <https://leetcode.com/problems/count-number-of-possible-root-nodes/>
 
@@ -241,9 +241,9 @@ Check result for problem [2581.Count Possible Trees]:
 ```
 
 | index | Test Result | Expected Result | Execution Result | Execution Time | Memory Usage |
-| --- | --- | --- | --- | --- | --- |
-| 0 | 'Passed' | '3' | '3' | 0.1668ms | 2.52 KB |
-| 1 | 'Passed' | '5' | '5' | 0.0234ms | 2.66 KB |
+| ----- | ----------- | --------------- | ---------------- | -------------- | ------------ |
+| 0     | 'Passed'    | '3'             | '3'              | 0.1668ms       | 2.52 KB      |
+| 1     | 'Passed'    | '5'             | '5'              | 0.0234ms       | 2.66 KB      |
 
 > Click to jump to problem submission: <https://leetcode.com/problems/count-number-of-possible-root-nodes/>
 
@@ -259,16 +259,16 @@ lk -r
 Example of checking a randomly obtained solution:
 
 ```shell
-workspace/leetcode-practice [dev●] » lk -r 
+workspace/leetcode-practice [dev●] » lk -r
 MODE: random
 Check result for problem [41.First Missing Positive]:
 ```
 
 | index | Test Result | Expected Result | Execution Result | Execution Time | Memory Usage |
-| --- | --- | --- | --- | --- | --- |
-| 0 | 'Failed' | '3' | undefined | 0.0896ms | 2.42 KB |
-| 1 | 'Failed' | '2' | undefined | 0.0110ms | 2.56 KB |
-| 2 | 'Failed' | '1' | undefined | 0.0045ms | 2.56 KB |
+| ----- | ----------- | --------------- | ---------------- | -------------- | ------------ |
+| 0     | 'Failed'    | '3'             | undefined        | 0.0896ms       | 2.42 KB      |
+| 1     | 'Failed'    | '2'             | undefined        | 0.0110ms       | 2.56 KB      |
+| 2     | 'Failed'    | '1'             | undefined        | 0.0045ms       | 2.56 KB      |
 
 > Click to jump to problem submission: <https://leetcode.com/problems/first-missing-positive/>
 >
@@ -293,10 +293,10 @@ workspace/leetcode-practice [dev●] » lk -e
 ```
 
 | index | Test Result | Expected Result | Execution Result | Execution Time | Memory Usage |
-| --- | --- | --- | --- | --- | --- |
-| 0 | 'Failed' | '3' | undefined | 0.0969ms | 2.42 KB |
-| 1 | 'Failed' | '2' | undefined | 0.0139ms | 2.56 KB |
-| 2 | 'Failed' | '1' | undefined | 0.0051ms | 2.56 KB |
+| ----- | ----------- | --------------- | ---------------- | -------------- | ------------ |
+| 0     | 'Failed'    | '3'             | undefined        | 0.0969ms       | 2.42 KB      |
+| 1     | 'Failed'    | '2'             | undefined        | 0.0139ms       | 2.56 KB      |
+| 2     | 'Failed'    | '1'             | undefined        | 0.0051ms       | 2.56 KB      |
 
 > Click to jump to problem submission: <https://leetcode.com/problems/first-missing-positive/>
 > Problem [41.first-missing-positive] checked!
@@ -382,7 +382,7 @@ workspace/leetcode-practice [dev●] » lc -V
 Using the `-u` or `--update` parameter, you can check whether the current version is the latest version. If the current version is not the latest version, you will be prompted whether to update.
 
 ```shell
-lk -u 
+lk -u
 lf -u
 lc -u
 ```
@@ -407,7 +407,7 @@ Update completed~Enjoy your use~
 Before using, install dependencies using a package manager.
 
 ```shell
-# Install dependencies 
+# Install dependencies
 npm install
 # Or use yarn (you can use any package manager you like)
 yarn
@@ -432,7 +432,7 @@ Execution result:
 
 ```shell
 # Generated in the src directory
-> yarn lc 1314                 
+> yarn lc 1314
 yarn run v1.22.19
 $ node bin/lc.js -d src 1314
 MODE: identity
@@ -463,13 +463,13 @@ MODE: identity
 Check result for problem [1314.Matrix Block Sum]:
 ```
 
-| index | Test Result | Expected Result | Execution Result | Execution Time | Memory Usage |
-| --- | --- | --- | --- | --- | --- |
-| 0 | 'Failed' | '[[12,21,16],[27,45,33],[24,39,28]]' | undefined | 0.1487ms | 2.47 KB |
-| 1 | 'Failed' | '[[45,45,45],[45,45,45],[45,45,45]]' | undefined | 0.0278ms | 2.61 KB |
+| index | Test Result | Expected Result                      | Execution Result | Execution Time | Memory Usage |
+| ----- | ----------- | ------------------------------------ | ---------------- | -------------- | ------------ |
+| 0     | 'Failed'    | '[[12,21,16],[27,45,33],[24,39,28]]' | undefined        | 0.1487ms       | 2.47 KB      |
+| 1     | 'Failed'    | '[[45,45,45],[45,45,45],[45,45,45]]' | undefined        | 0.0278ms       | 2.61 KB      |
 
 > Click to jump to problem submission: <https://leetcode.com/problems/matrix-block-sum/>
-> ✨  Done in 1.13s.
+> ✨ Done in 1.13s.
 
 #### [3]. Look Up Solutions [`lf`]
 

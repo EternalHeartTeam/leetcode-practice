@@ -27,10 +27,8 @@ export async function updateByEnv(env) {
 export function updateCli() {
   return new Promise((resolve, reject) => {
     exec(`npm install -g leetcode-practice`, (err, stdout, stderr) => {
-      if (err)
-        reject(err)
-      else
-        resolve()
+      if (err) reject(err)
+      else resolve()
     })
   })
 }
@@ -56,10 +54,8 @@ export async function updateProject() {
   async function execCommand(command) {
     return new Promise((resolve, reject) => {
       exec(command, (error, stdout, stderr) => {
-        if (error)
-          reject(error)
-        else
-          resolve(stdout.trim())
+        if (error) reject(error)
+        else resolve(stdout.trim())
       })
     })
   }
@@ -72,8 +68,8 @@ export async function updateProject() {
         type: 'confirm',
         name: 'hasChanges',
         message: '是否存在自己修改过的内容？',
-        default: false,
-      },
+        default: false
+      }
     ])
 
     // 0.1 如果有过更改,终止更新脚本,并给出提示建议
@@ -92,7 +88,9 @@ export async function updateProject() {
     }
 
     // 2. 下载所有的文件并对应更新文件(除package.json)
-    const response = await https.get('https://raw.githubusercontent.com/wh131462/leetcode-practice')
+    const response = await https.get(
+      'https://raw.githubusercontent.com/wh131462/leetcode-practice'
+    )
     const filesToUpdate = response.data
 
     // 2.0 所有的文件在更新后都进行git add [file-path]
@@ -114,8 +112,7 @@ export async function updateProject() {
 
     // 4. 完成更新
     console.log('项目更新完成。')
-  }
-  catch (error) {
+  } catch (error) {
     console.error('更新过程中出现错误:', error)
   }
 }

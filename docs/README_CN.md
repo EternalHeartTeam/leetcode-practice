@@ -24,26 +24,26 @@
 
 最好的也是最自由的使用方法是：在终端中使用我们的脚手架，通过三个核心指令:`lk`,`lf`,`lc`,来创建和检查你的题解。
 
-[安装](#一全局安装脚手架-(方案-A)) · [使用](#CLI的使用)
+[安装](<#一全局安装脚手架-(方案-A)>) · [使用](#CLI的使用)
 
 ### 方案 B : fork (受支持的)
 
 你也可以使用`github`的`fork`功能来创建我们的项目副本，然后，直接使用项目内置指令进行题解的创建和检查。
 
-[安装](#二使用fork创建你自己的leetcode-practice仓库副本-(方案-B)) · [使用](#fork项目的使用)
+[安装](<#二使用fork创建你自己的leetcode-practice仓库副本-(方案-B)>) · [使用](#fork项目的使用)
 
 ### 方案 C : plugin (受支持的)
 
 你同样可以使用我们发布在插件市场的插件`leetcode-practice`来进行交互式的创建和检查题解。（支持两个主流编辑器：`WebStorm` 和 `VS Code`）
 
-[安装](#三在编辑器的插件市场安装插件-(方案-C)) · [使用](#插件的使用)
+[安装](<#三在编辑器的插件市场安装插件-(方案-C)>) · [使用](#插件的使用)
 
 ## 预备条件
 
-| 依赖包    | 版本  |
-|--------|-----|
-| nodejs | lts |
-| git    | lts |
+| 依赖包 | 版本 |
+| ------ | ---- |
+| nodejs | lts  |
+| git    | lts  |
 
 > note: nodejs:[nodejs安装向导](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
 >
@@ -117,7 +117,7 @@ npm run easy-fork
 在终端中键入`lc`指令，即可默认在当前终端的工作区中获取今日的题目。
 
 ```shell
-lc 
+lc
 # 完整指令
 lc -t
 ```
@@ -207,15 +207,15 @@ lk -t
 
 ```shell
 # 指定了src目录为根目录
-workspace/leetcode-practice [dev●] » lk -d src -t 
+workspace/leetcode-practice [dev●] » lk -d src -t
 MODE: today
 题目[2581.统计可能的树根数目]检测结果:
 ```
 
-| index | 测量结果 | 预期结果 | 执行结果 | 执行用时 | 内存占用 |
-| --- | --- | --- | --- | --- | --- |
-| 0 | 未通过 | '3' | undefined | 0.0921ms | 2.52 KB |
-| 1 | 通过 | '5' | undefined | 0.0119ms | 2.66 KB |
+| index | 测量结果 | 预期结果 | 执行结果  | 执行用时 | 内存占用 |
+| ----- | -------- | -------- | --------- | -------- | -------- |
+| 0     | 未通过   | '3'      | undefined | 0.0921ms | 2.52 KB  |
+| 1     | 通过     | '5'      | undefined | 0.0119ms | 2.66 KB  |
 
 > 点击跳转到题目提交:<https://leetcode.cn/problems/count-number-of-possible-root-nodes/>
 
@@ -241,9 +241,9 @@ MODE: identity
 ```
 
 | index | 测量结果 | 预期结果 | 执行结果 | 执行用时 | 内存占用 |
-| --- | --- | --- | --- | --- | --- |
-| 0 | 通过 | '3' | '3' | 0.1668ms | 2.52 KB |
-| 1 | 通过 | '5' | '5' | 0.0234ms | 2.66 KB |
+| ----- | -------- | -------- | -------- | -------- | -------- |
+| 0     | 通过     | '3'      | '3'      | 0.1668ms | 2.52 KB  |
+| 1     | 通过     | '5'      | '5'      | 0.0234ms | 2.66 KB  |
 
 > 点击跳转到题目提交:<https://leetcode.cn/problems/count-number-of-possible-root-nodes/>
 
@@ -259,16 +259,16 @@ lk -r
 使用示例:
 
 ```shell
-workspace/leetcode-practice [dev●] » lk -r 
+workspace/leetcode-practice [dev●] » lk -r
 MODE: random
 题目[41.缺失的第一个正数]检测结果:
 ```
 
-| index | 测量结果 | 预期结果 | 执行结果 | 执行用时 | 内存占用 |
-| --- | --- | --- | --- | --- | --- |
-| 0 | 未通过 | '3' | undefined | 0.0896ms | 2.42 KB |
-| 1 | 未通过 | '2' | undefined | 0.0110ms | 2.56 KB |
-| 2 | 未通过 | '1' | undefined | 0.0045ms | 2.56 KB |
+| index | 测量结果 | 预期结果 | 执行结果  | 执行用时 | 内存占用 |
+| ----- | -------- | -------- | --------- | -------- | -------- |
+| 0     | 未通过   | '3'      | undefined | 0.0896ms | 2.42 KB  |
+| 1     | 未通过   | '2'      | undefined | 0.0110ms | 2.56 KB  |
+| 2     | 未通过   | '1'      | undefined | 0.0045ms | 2.56 KB  |
 
 > 点击跳转到题目提交:<https://leetcode.cn/problems/first-missing-positive/>
 >
@@ -292,11 +292,11 @@ workspace/leetcode-practice [dev●] » lk -e
 ? 是否检测当前目录[ /Users/mac-106/wh131462/workspace/leetcode-practice ]下的题目[ 41.first-missing-positive ]? Yes
 ```
 
-| index | 测量结果 | 预期结果 | 执行结果 | 执行用时 | 内存占用 |
-| --- | --- | --- | --- | --- | --- |
-| 0 | 未通过 | '3' | undefined | 0.0969ms | 2.42 KB |
-| 1 | 未通过 | '2' | undefined | 0.0139ms | 2.56 KB |
-| 2 | 未通过 | '1' | undefined | 0.0051ms | 2.56 KB |
+| index | 测量结果 | 预期结果 | 执行结果  | 执行用时 | 内存占用 |
+| ----- | -------- | -------- | --------- | -------- | -------- |
+| 0     | 未通过   | '3'      | undefined | 0.0969ms | 2.42 KB  |
+| 1     | 未通过   | '2'      | undefined | 0.0139ms | 2.56 KB  |
+| 2     | 未通过   | '1'      | undefined | 0.0051ms | 2.56 KB  |
 
 > 点击跳转到题目提交:<https://leetcode.cn/problems/first-missing-positive/>
 > 题目[41.first-missing-positive]检查完成！
@@ -381,7 +381,7 @@ workspace/leetcode-practice [dev●] » lc -V
 使用`-u`或者`--update`参数可以检测当前版本是否为最新版本，如果当前版本不是最新版本，会提示用户是否进行更新.
 
 ```shell
-lk -u 
+lk -u
 lf -u
 lc -u
 ```
@@ -406,7 +406,7 @@ github仓库的版本号获取成功!
 在使用之前,先使用包管理工具进行依赖的安装.
 
 ```shell
-# 安装依赖 
+# 安装依赖
 npm install
 # 或者 使用yarn (你可以使用任意一种你喜欢的包管理工具)
 yarn
@@ -415,7 +415,7 @@ yarn
 fork项目中的指令,使用上和脚手架CLI的使用参数是一致的,只不过需要通过`npm run`类似的包管理工具执行命令来执行脚本.
 
 > 注意:在项目中的脚本,和脚手架的唯一区别就是默认指定了`-d`参数,指向了项目根目录的`src`目录,所以所有的指令都是在src中默认执行的.
->
+
 #### [1]. 创建题解 [`lc`]
 
 参数参考cli的`lc`部分: [lc](#1创建题解---lc)
@@ -431,7 +431,7 @@ yarn lc 1314
 
 ```shell
 # 会在src目录下进行生成
-> yarn lc 1314                 
+> yarn lc 1314
 yarn run v1.22.19
 $ node bin/lc.js -d src 1314
 MODE: identity
@@ -462,13 +462,13 @@ MODE: identity
 题目[1314.矩阵区域和]检测结果:
 ```
 
-| index | 测量结果 | 预期结果 | 执行结果 | 执行用时 | 内存占用 |
-| --- | --- | --- | --- | --- | --- |
-| 0 | 未通过 | '[[12,21,16],[27,45,33],[24,39,28]]' | undefined | 0.1487ms | 2.47 KB |
-| 1 | 未通过 | '[[45,45,45],[45,45,45],[45,45,45]]' | undefined | 0.0278ms | 2.61 KB |
+| index | 测量结果 | 预期结果                             | 执行结果  | 执行用时 | 内存占用 |
+| ----- | -------- | ------------------------------------ | --------- | -------- | -------- |
+| 0     | 未通过   | '[[12,21,16],[27,45,33],[24,39,28]]' | undefined | 0.1487ms | 2.47 KB  |
+| 1     | 未通过   | '[[45,45,45],[45,45,45],[45,45,45]]' | undefined | 0.0278ms | 2.61 KB  |
 
 > 点击跳转到题目提交:<https://leetcode.cn/problems/matrix-block-sum/>
-> ✨  Done in 1.13s.
+> ✨ Done in 1.13s.
 
 #### [3]. 查找题解 [`lf`]
 

@@ -7,5 +7,5 @@ import { readdirSync } from 'node:fs'
  * @returns {number}
  */
 export function getCountBySameName(dir, name) {
-  return readdirSync(dir).filter(filename => filename.includes(name)).length
+  return readdirSync(dir).filter((filename) => filename.includes(name)).length
 }

@@ -17,7 +17,10 @@ program
   .description(`${description}\n${artFontLogo}\n${aim}`)
   .addHelpText('after', lfExamples + love)
   .option('-l, --language [language]', 'Set/Get the code language of question.')
-  .option('-u, --update', 'Check the version to determine whether to update to the latest one.')
+  .option(
+    '-u, --update',
+    'Check the version to determine whether to update to the latest one.'
+  )
   .parse(process.argv)
 
 const cmdArgs = program.args
@@ -31,8 +34,7 @@ const cmdOpts = program.opts()
 if (cmdOpts.language) {
   if (cmdOpts.language !== true) {
     await easyLanguageView(cmdOpts.language)
-  }
-  else {
+  } else {
     const lang = await getQuestionLanguage()
     console.log(`当前CLI语言环境为:${lang}`)
   }

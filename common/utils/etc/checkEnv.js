@@ -6,6 +6,6 @@
  */
 export function currentEnv() {
   const url = import.meta.url
-  const projectReg = /etc\/checkEnv.js$/mi
+  const projectReg = /etc\/checkEnv.js$/im
   return projectReg.test(url) ? 'project' : 'cli'
 }

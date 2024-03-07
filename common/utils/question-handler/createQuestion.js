@@ -12,11 +12,17 @@ import { getQuestionFileExtension } from '#common/utils/question-handler/questio
  */
 export function createQuestion(question, questionDir) {
   return new Promise((resolve) => {
-    const filePath = path.normalize(path.join(questionDir, `question${getQuestionFileExtension(question.lang)}`))
-    if (fs.existsSync(filePath))
-      resolve(false)
+    const filePath = path.normalize(
+      path.join(
+        questionDir,
+        `question${getQuestionFileExtension(question.lang)}`
+      )
+    )
+    if (fs.existsSync(filePath)) resolve(false)
     else
-      createQuestionFile(questionDir, filePath, question).then(path => resolve(path)).catch(e => resolve(false))
+      createQuestionFile(questionDir, filePath, question)
+        .then((path) => resolve(path))
+        .catch((e) => resolve(false))
   })
 }
 export function createQuestionFile(questionDir, questionFilePath, question) {
@@ -24,11 +30,12 @@ export function createQuestionFile(questionDir, questionFilePath, question) {
     try {
       fs.mkdir(questionDir, { recursive: true }, () => {
         fs.writeFile(questionFilePath, template, null, () => {
-          fulfillQuestion(questionFilePath, question).then(() => resolve(questionFilePath))
+          fulfillQuestion(questionFilePath, question).then(() =>
+            resolve(questionFilePath)
+          )
         })
       })
-    }
-    catch (e) {
+    } catch (e) {
       reject(e)
     }
   })

@@ -1,16 +1,16 @@
-import { test, expect, describe } from 'vitest';
-import  { ListNode } from "#common/structures/ListNode";
+import { test, expect, describe } from 'vitest'
+import { ListNode } from '#common/structures/ListNode'
 
 test('toArray 正常数组', () => {
   // 创建链表
-  const head = new ListNode(1);
-  const node1 = new ListNode(2);
-  const node2 = new ListNode(3);
-  head.next = node1;
-  node1.next = node2;
+  const head = new ListNode(1)
+  const node1 = new ListNode(2)
+  const node2 = new ListNode(3)
+  head.next = node1
+  node1.next = node2
 
- const arr = ListNode.toArray(head)
- expect(arr).toEqual([1, 2, 3])
+  const arr = ListNode.toArray(head)
+  expect(arr).toEqual([1, 2, 3])
 })
 test('toArray undefined', () => {
   const arr = ListNode.toArray(undefined)
@@ -25,7 +25,7 @@ test('toArray 1', () => {
   expect(arr).toEqual([undefined])
 })
 test('parse [1,2,3]', () => {
-  const listNode = ListNode.parse([1,2,3])
+  const listNode = ListNode.parse([1, 2, 3])
   expect(listNode.val).toEqual(1)
   expect(listNode.next?.val).toEqual(2)
   expect(listNode.next?.next?.val).toEqual(3)
