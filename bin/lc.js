@@ -85,7 +85,11 @@ export const callModeAction = {
             });
         })
     },
-    'identity':(id)=> createQuestionById(id, baseDir),
+    'identity':async(id)=> {
+        await  createQuestionById(id, baseDir)
+        process.exit(0)
+
+    },
 }
 // 获取模式和参数
 const mode = referMode(cmdArgs, cmdOpts)
