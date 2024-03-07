@@ -72,11 +72,6 @@
     "vite": "^5.0.11",
     "vitest": "^1.2.2"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,tsx,ts}": [
       "npm run lint"
