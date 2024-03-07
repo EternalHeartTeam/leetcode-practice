@@ -14,6 +14,7 @@ import { setQuestion } from '#common/utils/store/controller/question.js'
 
 
 
+
 export async function easyCreateView() {
   const modeQuestion = [
     {
