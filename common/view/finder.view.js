@@ -25,12 +25,10 @@ export async function easyFinderView() {
         message: '请选择题目',
         choices: []
       }]
-      let list = []
-      data.map(q => list.push(q.titleCn))
-      questionList[0].choices = list.join(',')
-      console.log(list)
-      // const { chooseQuestion } = await inquirer.prompt(questionList, null)
-      // console.log(chooseQuestion)
+      let list = data.map(q=>`${q.frontendQuestionId}.${q.titleCn}`);
+      questionList[0].choices = list;
+      const { chooseQuestion } = await inquirer.prompt(questionList, null)
+      console.log(chooseQuestion)
       break
     case 'Top 100列表查询':
       break
