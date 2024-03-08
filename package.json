@@ -44,6 +44,7 @@
     "create-color-font": "node scripts/create-color-font.js"
   },
   "dependencies": {
+    "@inquirer/input": "^2.0.1",
     "@inquirer/select": "^2.0.0",
     "chalk": "^5.3.0",
     "commander": "^12.0.0",

@@ -1,8 +1,8 @@
 import v8 from 'node:v8'
+import { Table } from 'console-table-printer'
 import { getFileSize } from '../functions/sizeUtil.js'
 import { isSameData } from '../functions/isSameData.js'
 import { setDataStructure } from './parseStructure.js'
-import { Table } from 'console-table-printer'
 
 /**
  * 执行并输出时间和内存
@@ -68,15 +68,16 @@ export function showLogs(fnName, paramMap, compareMap) {
       { name: '执行结果', title: '执行结果', alignment: 'center', maxLen: 40 },
       { name: '执行用时', title: '执行用时', alignment: 'center', maxLen: 10 },
       { name: '内存占用', title: '内存占用', alignment: 'center', maxLen: 10 },
-    ]
+    ],
   })
   logsItems.forEach((item) => {
-    for(let key in item) {
-      if(key === '预期结果' || key === '执行结果') {
-        item[key] = item[key].length >= 40 ?  `${item[key].slice(0, 37)}...` : item[key]
+    for (const key in item) {
+      if (key === '预期结果' || key === '执行结果') {
+        item[key]
+          = item[key]?.length >= 40 ? `${item[key].slice(0, 37)}...` : item[key]
       }
     }
-    logTable.addRow(item, { color: item.测试结果 === '通过' ? 'green' : 'red', })
+    logTable.addRow(item, { color: item.测试结果 === '通过' ? 'green' : 'red' })
   })
-  logTable.printTable();
+  logTable.printTable()
 }

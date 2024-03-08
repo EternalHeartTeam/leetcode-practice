@@ -23,7 +23,10 @@ export function create(mode, question, baseDir) {
   })
 }
 
-export async function createQuestionByTitleSlug(titleSlug, baseDir = process.cwd()) {
+export async function createQuestionByTitleSlug(
+  titleSlug,
+  baseDir = process.cwd(),
+) {
   const { question } = await getQuestionIdBySlug(titleSlug)
 
   await createQuestionById(question.questionId, baseDir)
@@ -35,5 +38,4 @@ export async function createQuestionById(id, baseDir) {
     process.exit(0)
   }
   await create('identity', question, baseDir)
-  //  process.exit(0)
 }
