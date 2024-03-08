@@ -35,7 +35,7 @@
     "publish-cli": "cd pl-cli && npm publish --registry https://registry.npmjs.org/",
     "unpublish-cli": "cd pl-cli && npm unpublish --force --registry https://registry.npmjs.org/",
     "commit": "cz",
-    "test": "vitest --run",
+    "test": "vitest",
     "coverage": "vitest run --coverage",
     "format": "prettier --write .",
     "lint": "eslint . --fix",
