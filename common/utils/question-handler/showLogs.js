@@ -2,6 +2,7 @@ import v8 from 'node:v8'
 import { getFileSize } from '../functions/sizeUtil.js'
 import { isSameData } from '../functions/isSameData.js'
 import { setDataStructure } from './parseStructure.js'
+import { Table } from 'console-table-printer'
 
 /**
  * 执行并输出时间和内存
@@ -59,5 +60,18 @@ export function showLogs(fnName, paramMap, compareMap) {
     )
     logsItems.push(logItem)
   })
-  console.table(logsItems)
+
+  const logTable = new Table({
+    columns: [
+      { name: '测试结果', title: '测试结果', alignment: 'left', color: "blue" },
+      { name: '预期结果', title: '预期结果', alignment: 'left', maxLen: 10 },
+      { name: '执行结果', title: '执行结果', alignment: 'left', maxLen: 10 },
+      { name: '执行用时', title: '执行用时', alignment: 'left', color: "red" },
+      { name: '内存占用', title: '内存占用', alignment: 'left', color: "green" },
+    ]
+  })
+  logsItems.forEach((item) => {
+    logTable.addRow(item)
+  })
+  logTable.printTable();
 }
