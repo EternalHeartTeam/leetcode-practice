@@ -491,3 +491,9 @@ MODE: identity
 [<img src="https://avatars.githubusercontent.com/u/48346853" style="border-radius:50%;" width="30" height="30" alt="EternalHeart"/>](https://github.com/wh131462)
 [<img src="https://avatars.githubusercontent.com/u/61453917" style="border-radius:50%;" width="30" height="30" alt="SmartTeddy"/>](https://github.com/SmallTeddy)
 [<img src="https://avatars.githubusercontent.com/u/35305691" style="border-radius:50%;" width="30" height="30" alt="Hedwig-Fang"/>](https://github.com/Hedwig-Fang)
+
+## 使用反馈
+
+如果有使用上的`问题`,或者一些`好的建议`,可以加我们的`使用反馈群`进行`反馈`!我们会及时处理!
+
+![反馈群](../resources/images/service-qrcode.png)

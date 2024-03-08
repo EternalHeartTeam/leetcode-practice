@@ -492,3 +492,9 @@ To be developed...
 [<img src="https://avatars.githubusercontent.com/u/48346853" style="border-radius:50%;" width="30" height="30" alt="EternalHeart"/>](https://github.com/wh131462)
 [<img src="https://avatars.githubusercontent.com/u/61453917" style="border-radius:50%;" width="30" height="30" alt="SmartTeddy"/>](https://github.com/SmallTeddy)
 [<img src="https://avatars.githubusercontent.com/u/35305691" style="border-radius:50%;" width="30" height="30" alt="Hedwig-Fang"/>](https://github.com/Hedwig-Fang)
+
+## Feedback
+
+If you encounter any `issues` or have some `great suggestions`, feel free to join our `Feedback Group` for providing `feedback`! We will address them promptly!
+
+![Feedback Group](resources/images/service-qrcode.png)

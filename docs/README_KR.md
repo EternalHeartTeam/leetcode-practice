@@ -495,3 +495,9 @@ CLI의 `lf` 섹션을 참고하여 매개변수를 사용할 수 있습니다: [
 [<img src="https://avatars.githubusercontent.com/u/48346853" style="border-radius:50%;" width="30" height="30" alt="EternalHeart"/>](https://github.com/wh131462)
 [<img src="https://avatars.githubusercontent.com/u/61453917" style="border-radius:50%;" width="30" height="30" alt="SmartTeddy"/>](https://github.com/SmallTeddy)
 [<img src="https://avatars.githubusercontent.com/u/35305691" style="border-radius:50%;" width="30" height="30" alt="Hedwig-Fang"/>](https://github.com/Hedwig-Fang)
+
+## 피드백
+
+사용 중에 `문제`가 있거나 `좋은 제안`이 있으면 언제든지 `피드백 그룹`에 참여하여 `피드백`을 제공하십시오! 우리는 신속하게 처리할 것입니다!
+
+![피드백 그룹](../resources/images/service-qrcode.png)
