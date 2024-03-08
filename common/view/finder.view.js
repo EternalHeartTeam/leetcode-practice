@@ -1,9 +1,15 @@
 import select from '@inquirer/select'
+import input from '@inquirer/input'
+
 import {
   getHot100QuestionListJSCode,
   getTitleSlugList,
 } from '#common/utils/question-handler/getHot100QuestionList.js'
-import { createQuestionByTitleSlug } from '#common/utils/create-check/createUtil.js'
+import {
+  createQuestionById,
+  createQuestionByTitleSlug,
+} from '#common/utils/create-check/createUtil.js'
+import { getQuestionByKeyword } from '#common/utils/question-getter/getQuestionByKeyword.js'
 
 async function hotMode() {
   const createMode = await select({
@@ -32,21 +38,23 @@ async function hotMode() {
 }
 
 async function keywordMode() {
-  const data = await getQuestionByKeyword(
-    await inquirer.prompt(questionKeyword, null),
-  )
-  const questionList = [
-    {
-      type: 'list',
-      name: 'chooseQuestion',
-      message: '请选择题目',
-      choices: [],
-    },
-  ]
-  const list = []
-  data.map(q => list.push(q.titleCn))
-  questionList[0].choices = list.join(',')
-  console.log(list)
+  const keyword = await input({ message: '请输入关键词', name: 'keyword' })
+  const data = await getQuestionByKeyword(keyword)
+  const list = data?.map((q) => {
+    return {
+      name: `${q.frontendQuestionId}.${q.titleCn}`,
+      value: q.frontendQuestionId,
+    }
+  })
+  const listQuestion = {
+    type: 'list',
+    name: 'chooseQuestion',
+    message: '请选择题目',
+    choices: list,
+  }
+  const chooseQuestion = await select(listQuestion)
+  console.log(chooseQuestion)
+  await createQuestionById(chooseQuestion, process.cwd())
 }
 async function selectMode() {}
 
