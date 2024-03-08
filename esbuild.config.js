@@ -9,7 +9,7 @@ const packageJson = JSON.parse(
 )
 const esbuildConfig = {
   entryPoints: ['bin/lk.js', 'bin/lf.js', 'bin/lc.js'],
-  outdir: 'pl-cli/.bin',
+  outdir: 'pl-cli/bin',
   platform: 'node',
   target: ['node20'],
   format: 'esm',
@@ -21,9 +21,9 @@ const esbuildConfig = {
   },
 }
 const buildBinConfig = {
-  lk: '.bin/lk.js',
-  lf: '.bin/lf.js',
-  lc: '.bin/lc.js',
+  lk: 'bin/lk.js',
+  lf: 'bin/lf.js',
+  lc: 'bin/lc.js',
 }
 const publishExcludeFields = [
   'scripts',
