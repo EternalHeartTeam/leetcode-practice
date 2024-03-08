@@ -63,15 +63,15 @@ export function showLogs(fnName, paramMap, compareMap) {
 
   const logTable = new Table({
     columns: [
-      { name: '测试结果', title: '测试结果', alignment: 'left', color: "blue" },
-      { name: '预期结果', title: '预期结果', alignment: 'left', maxLen: 10 },
-      { name: '执行结果', title: '执行结果', alignment: 'left', maxLen: 10 },
-      { name: '执行用时', title: '执行用时', alignment: 'left', color: "red" },
-      { name: '内存占用', title: '内存占用', alignment: 'left', color: "green" },
+      { name: '测试结果', title: '测试结果', alignment: 'center', maxLen: 10 },
+      { name: '预期结果', title: '预期结果', alignment: 'center', maxLen: 40 },
+      { name: '执行结果', title: '执行结果', alignment: 'center', maxLen: 40 },
+      { name: '执行用时', title: '执行用时', alignment: 'center', maxLen: 10 },
+      { name: '内存占用', title: '内存占用', alignment: 'center', maxLen: 10 },
     ]
   })
   logsItems.forEach((item) => {
-    logTable.addRow(item)
+    logTable.addRow(item, { color: item.测试结果 === '通过' ? 'green' : 'red', })
   })
   logTable.printTable();
 }
