@@ -71,6 +71,11 @@ export function showLogs(fnName, paramMap, compareMap) {
     ]
   })
   logsItems.forEach((item) => {
+    for(let key in item) {
+      if(key === '预期结果' || key === '执行结果') {
+        item[key] = item[key].length >= 40 ?  `${item[key].slice(0, 37)}...` : item[key]
+      }
+    }
     logTable.addRow(item, { color: item.测试结果 === '通过' ? 'green' : 'red', })
   })
   logTable.printTable();
