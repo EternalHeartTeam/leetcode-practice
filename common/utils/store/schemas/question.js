@@ -11,11 +11,11 @@ export class Question extends Realm.Object {
       title: 'string',
       detail: 'string',
       lang: 'string',
-      code: 'string',
+      code: 'string?',
       url: 'string?',
       date: 'string?',
-      timestamp: { type: 'date', default: () => new Date() }
+      timestamp: { type: 'date', default: () => new Date() },
     },
-    primaryKey: '_id'
+    primaryKey: '_id',
   }
 }

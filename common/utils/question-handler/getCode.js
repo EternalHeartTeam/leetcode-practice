@@ -8,5 +8,14 @@ import { getQuestionCodeList } from '#common/utils/question-getter/getQuestionCo
  */
 export async function getCode(slug, lang) {
   const list = await getQuestionCodeList(slug)
-  return list.find((o) => o.langSlug === lang)?.code
+  return list.find(o => o.langSlug === lang)?.code
+}
+/**
+ * 获取支持的代码语言
+ * @param slug
+ * @returns {Promise<string[]>}
+ */
+export async function getSupportCode(slug) {
+  const list = await getQuestionCodeList(slug)
+  return list.map(code => code?.langSlug)
 }

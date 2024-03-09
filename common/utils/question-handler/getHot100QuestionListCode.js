@@ -7,7 +7,7 @@ export async function getTitleSlugList() {
   const res = await getQuestionListHot100()
   const { planSubGroups } = res
   return planSubGroups.reduce((acc, cur) => {
-    acc.push(...cur.questions.map((res) => res.titleSlug))
+    acc.push(...cur.questions.map(res => res.titleSlug))
     return acc
   }, [])
 }
@@ -15,8 +15,8 @@ export async function getTitleSlugList() {
 async function getPromiseList() {
   const titleSlugList = await getTitleSlugList()
   const dir = path.join(process.cwd(), 'hot100')
-  return titleSlugList.map((titleSlug) =>
-    createQuestionByTitleSlug(titleSlug, dir)
+  return titleSlugList.map(titleSlug =>
+    createQuestionByTitleSlug(titleSlug, dir),
   )
 }
 

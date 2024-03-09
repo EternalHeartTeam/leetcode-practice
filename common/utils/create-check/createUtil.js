@@ -13,9 +13,10 @@ export function create(mode, question, baseDir) {
     setQuestion(mode, question)
     const questionDir = path.join(baseDir, getQuestionFileName(question))
     createQuestion(question, questionDir).then(async (path) => {
-      if (!path) path = await createQuestionCopy(question, questionDir)
+      if (!path)
+        path = await createQuestionCopy(question, questionDir)
       console.log(
-        `题目[${getQuestionChineseName(question)}]获取成功!\n题目文件地址为:${path}`
+        `题目[${getQuestionChineseName(question)}]获取成功!\n题目文件地址为:${path}`,
       )
       resolve(true)
     })
@@ -24,7 +25,7 @@ export function create(mode, question, baseDir) {
 
 export async function createQuestionByTitleSlug(
   titleSlug,
-  baseDir = process.cwd()
+  baseDir = process.cwd(),
 ) {
   const { question } = await getQuestionIdBySlug(titleSlug)
 
@@ -32,7 +33,7 @@ export async function createQuestionByTitleSlug(
 }
 export async function createQuestionById(id, baseDir) {
   const question = await getQuestionById(id)
-  if (!question?.id) console.log(`指定编号: [ ${id} ] 题目不存在.`)
-
+  if (!question?.id)
+    console.log(`指定编号: [ ${id} ] 题目不存在.`)
   await create('identity', question, baseDir)
 }

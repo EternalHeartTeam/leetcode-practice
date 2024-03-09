@@ -10,6 +10,6 @@ export function getQuestionLanguageListJson() {
             "variables": {},
             "operationName": "languageList"
         }`,
-    method: 'POST'
+    method: 'POST',
   }
 }

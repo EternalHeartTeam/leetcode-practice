@@ -5,12 +5,15 @@ import { createMarkdown } from './createMarkdown.js'
 import { getQuestionChineseName } from '#common/utils/question-handler/getQuestionChineseName.js'
 import { getConsoleText } from '#common/utils/question-handler/getConsoleText.js'
 import { template } from '#resources/template/template.js'
-import { setBlockComment } from '#common/utils/question-handler/questionLanguage.js'
+import {
+  setBlockComment,
+  setLineComment,
+} from '#common/utils/question-handler/questionLanguage.js'
 
 /**
  * @typedef {object} Question
  * @property {string} title
- * @property {string} title
+ * @property {string} slug
  * @property {number} date
  * @property {string} detail
  * @property {string} lang
@@ -23,18 +26,25 @@ import { setBlockComment } from '#common/utils/question-handler/questionLanguage
 
 /**
  *
- * @param {string} data
  * @param {Question} question
  *
  */
 export function generateTemplateContent(question) {
   const title = `${getQuestionChineseName(question)} ${question.date ? `[${question.date}]` : ''}\n`
   const describe = removeDomTags(question.detail).replace(/\n+/g, '\n')
+  const lang = question.lang
   const code = question.code
   return template
-    .replace('@Title', setBlockComment(question.lang, title + describe))
+    .replace('@Title', setBlockComment(lang, title + describe))
     .replace('@Describe', '')
-    .replace('@Function', code)
+    .replace(
+      '@Function',
+      code
+      ?? setLineComment(
+        lang,
+          `!important: 此题目没有当前语言[${lang}]的代码模板!`,
+      ),
+    )
     .replace('@TestCase', getTestCase(question))
     .replace('@Console', getConsoleText(question))
 }
@@ -47,12 +57,12 @@ export function fulfillQuestion(questionPath, question) {
   return new Promise((resolve) => {
     // 创建描述文件 md
     createMarkdown(question.detail, questionPath)
-    // 创建填充内容并创建
     // 开始填充内容
     const newData = generateTemplateContent(question)
     // 创建文件
     fs.writeFile(questionPath, newData, (err) => {
-      if (err) throw err
+      if (err)
+        throw err
       resolve()
     })
   })

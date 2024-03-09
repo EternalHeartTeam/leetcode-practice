@@ -7,7 +7,7 @@ export async function getQuestionRandom() {
   const id = await getRandomId()
   const base = await graphql(getQuestionSearchJson(id.toString()))
   const slug = base.data.problemsetQuestionList.questions.find(
-    (o) => o.frontendQuestionId === id.toString()
+    o => o.frontendQuestionId === id.toString(),
   ).titleSlug
   const question = await getQuestionDetail(slug)
   return question
