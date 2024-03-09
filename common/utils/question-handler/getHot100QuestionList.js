@@ -1,24 +1,23 @@
 import path from 'node:path'
 import { createQuestionByTitleSlug } from '../create-check/createUtil.js'
+import { graphql } from '#common/utils/http/graphql.js'
 
-const bodyString
-  = '{"query":"\\n    query studyPlanPastSolved($slug: String!) {\\n  studyPlanV2Detail(planSlug: $slug) {\\n    planSubGroups {\\n      slug\\n      questions {\\n        titleSlug\\n        status\\n      }\\n    }\\n  }\\n}\\n    ","variables":{"slug":"top-100-liked"},"operationName":"studyPlanPastSolved"}'
+const bodyString =
+  '{"query":"\\n    query studyPlanPastSolved($slug: String!) {\\n  studyPlanV2Detail(planSlug: $slug) {\\n    planSubGroups {\\n      slug\\n      questions {\\n        titleSlug\\n        status\\n      }\\n    }\\n  }\\n}\\n    ","variables":{"slug":"top-100-liked"},"operationName":"studyPlanPastSolved"}'
 const headers = {
-  'content-type': 'application/json',
+  'content-type': 'application/json'
 }
 
 const initJson = {
   headers,
   body: bodyString,
-  method: 'POST',
+  method: 'POST'
 }
 // 抓hot100列表
 export async function getHot100QuestionList() {
-  const res = await fetch('https://leetcode.cn/graphql/', initJson).then(
-    res => res.json(),
-  )
+  const res = await graphql(initJson)
   const {
-    data: { studyPlanV2Detail },
+    data: { studyPlanV2Detail }
   } = res
   return studyPlanV2Detail
 }
@@ -28,7 +27,7 @@ export async function getTitleSlugList() {
   const res = await getHot100QuestionList()
   const { planSubGroups } = res
   return planSubGroups.reduce((acc, cur) => {
-    acc.push(...cur.questions.map(res => res.titleSlug))
+    acc.push(...cur.questions.map((res) => res.titleSlug))
     return acc
   }, [])
 }
@@ -36,8 +35,8 @@ export async function getTitleSlugList() {
 async function getPromiseList() {
   const titleSlugList = await getTitleSlugList()
   const dir = path.join(process.cwd(), 'hot100')
-  return titleSlugList.map(titleSlug =>
-    createQuestionByTitleSlug(titleSlug, dir),
+  return titleSlugList.map((titleSlug) =>
+    createQuestionByTitleSlug(titleSlug, dir)
   )
 }
 
