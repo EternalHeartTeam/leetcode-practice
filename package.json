@@ -29,7 +29,6 @@
     "lc": "node bin/lc.js -d src",
     "lk": "node bin/lk.js -d src",
     "lf": "node bin/lf.js -d src",
-    "fork": "node scripts/fork.js",
     "update": "node scripts/update.js",
     "build-cli": "node esbuild.config.js",
     "publish-cli": "cd pl-cli && npm publish --registry https://registry.npmjs.org/",
@@ -41,7 +40,9 @@
     "lint": "eslint . --fix",
     "lint:all": "eslint .",
     "prepare": "husky install",
-    "create-color-font": "node scripts/create-color-font.js"
+    "create-color-font": "node scripts/create-color-font.js",
+    "release": "release-it",
+    "try-release": "release-it --dry-run"
   },
   "dependencies": {
     "@inquirer/input": "^2.0.1",
@@ -61,6 +62,7 @@
     "@antfu/eslint-config": "^2.8.0",
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
+    "@release-it/conventional-changelog": "^8.0.1",
     "@types/node": "^20.11.5",
     "@vitest/coverage-v8": "^1.2.2",
     "commitizen": "^4.2.5",
@@ -71,6 +73,7 @@
     "eslint-plugin-import": "^2.29.1",
     "gradient-string": "^2.0.2",
     "husky": "^8.0.1",
+    "release-it": "^17.1.1",
     "rimraf": "^5.0.5",
     "vite": "^5.0.11",
     "vitest": "^1.2.2"

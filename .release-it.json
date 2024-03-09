@@ -1,0 +1,26 @@
+{
+  "github": {
+    "release": true,
+    "web": true,
+    "autoGenerate": true
+  },
+  "git": {
+    "commitMessage": "release: v${version}"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "npm": {
+    "publish": true,
+    "skipChecks": true
+  },
+  "hooks": {
+    "after:bump": "echo 更新版本成功"
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
+  }
+}
