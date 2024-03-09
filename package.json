@@ -29,7 +29,6 @@
     "lc": "node bin/lc.js -d src",
     "lk": "node bin/lk.js -d src",
     "lf": "node bin/lf.js -d src",
-    "fork": "node scripts/fork.js",
     "update": "node scripts/update.js",
     "build-cli": "node esbuild.config.js",
     "publish-cli": "cd pl-cli && npm publish --registry https://registry.npmjs.org/",
