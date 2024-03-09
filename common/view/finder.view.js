@@ -11,7 +11,7 @@ import {
 } from '#common/utils/create-check/createUtil.js'
 import { getQuestionByKeyword } from '#common/utils/question-getter/getQuestionByKeyword.js'
 
-async function hotMode() {
+async function hotMode(baseDir = process.cwd()) {
   const createMode = await select({
     message: '拉题模式',
     choices: [
@@ -30,12 +30,12 @@ async function hotMode() {
     }
     const singleChoice = await select(singleMode)
 
-    await createQuestionByTitleSlug(singleChoice)
+    await createQuestionByTitleSlug(singleChoice, baseDir)
   }
   if (createMode === 'all') await getHot100QuestionListCode()
 }
 
-async function keywordMode() {
+async function keywordMode(baseDir = process.cwd()) {
   const keyword = await input({ message: '请输入关键词', name: 'keyword' })
   const data = await getQuestionByKeyword(keyword)
   const list = data?.map((q) => {
@@ -52,11 +52,11 @@ async function keywordMode() {
   }
   const chooseQuestion = await select(listQuestion)
   console.log(chooseQuestion)
-  await createQuestionById(chooseQuestion, process.cwd())
+  await createQuestionById(chooseQuestion, baseDir)
 }
-async function selectMode() {}
+async function selectMode(baseDir) {}
 
-export async function easyFinderView() {
+export async function easyFinderView(baseDir = process.cwd()) {
   const choices = [
     { name: '关键词搜索', value: 'keyword', description: '关键词描述' },
     {
@@ -78,5 +78,5 @@ export async function easyFinderView() {
     keyword: keywordMode,
     select: selectMode
   }
-  await modeMap[mode]()
+  await modeMap[mode](baseDir)
 }

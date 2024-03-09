@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+import path from 'node:path'
 import { program } from 'commander'
 import { description } from '#resources/text/description.js'
 import { artFontLogo } from '#resources/text/art-font-logo.js'
@@ -17,6 +18,7 @@ program
   .description(`${description}\n${artFontLogo}\n${aim}`)
   .addHelpText('after', lfExamples + love)
   .option('-l, --language [language]', 'Set/Get the code language of question.')
+  .option('-d, --directory <directory>', 'Set the question directory.')
   .option(
     '-u, --update',
     'Check the version to determine whether to update to the latest one.'
@@ -40,11 +42,15 @@ if (cmdOpts.language) {
   }
   process.exit(0)
 }
+// 根据dir 参数来设置基本目录
+const baseDir = cmdOpts.directory
+  ? path.join(process.cwd(), cmdOpts.directory)
+  : process.cwd()
 // 检测更新
 if (cmdOpts.update) {
   await easyUpdateView()
   process.exit(0)
 }
 // 进入视图操作
-await easyFinderView()
+await easyFinderView(baseDir)
 process.exit(0)
