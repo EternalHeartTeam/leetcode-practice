@@ -17,6 +17,7 @@ export function open(url) {
       break
     case 'linux':
       exec(`xdg-open "${url}"`)
+      break
     default:
       console.log(`Unsupported platform: ${platform}`)
       break
