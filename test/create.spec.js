@@ -2,7 +2,6 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { getQuestionToday } from '#common/utils/question-getter/getQuestionToday.js'
 import { getQuestionById } from '#common/utils/question-getter/getQuestionById.js'
 import { generateTemplateContent } from '#common/utils/question-handler/fulfillQuestion.js'
-import { template } from '#resources/template/template.js'
 
 vi.mock('fs/promises', () => {
   return {
@@ -13,11 +12,7 @@ const funRegex = /var\s+(\w+)\s*=\s*function\s*\(([^)]*)\)\s*{\s*([^}]*)\s*}/
 const isContainJsCode = (input) => funRegex.test(input)
 const isContainTestCase = (input) => input.includes('showLogs(')
 
-function handleText(input) {
-  return input.replace(/\n+/g, '\n').replaceAll('\n', '\n * ')
-}
 const mockKeys = ['id', 'slug', 'title', 'detail', 'lang', 'code', 'date']
-const oneDay = 24 * 60 * 60 * 1000
 
 function isValidQuestion(res) {
   const content = generateTemplateContent(res)
@@ -29,7 +24,6 @@ function isValidQuestion(res) {
   expect(content.includes('示例')).toBeTruthy()
   expect(content.includes('提示')).toBeTruthy()
 }
-const fileContent = template
 
 describe('lc', () => {
   // 清楚mock历史记录

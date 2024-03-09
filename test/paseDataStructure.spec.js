@@ -92,16 +92,16 @@ it('获取入参的数据结构 单参 匹配值', () => {
   expect(getDataStructure(mockJSDOC_single)).toEqual(['ListNode'])
 })
 
-it('获取返回值的数据结构 单参 匹配值', () => {
-  expect(getDataStructure(mockJSDOC_single, 'return')).toEqual(['ListNode'])
-})
 it('获取入参的数据结构 单参 ListNode[]', () => {
   expect(getDataStructure(mockJSDOC_ListNodeArray, 'param')).toEqual([
-    'ListNode[]',
+    'ListNode[]'
   ])
 })
 it('获取返回值的数据结构 单参 匹配值', () => {
   expect(getDataStructure(mockJSDOC_single, 'return')).toEqual(['ListNode'])
+})
+
+it('获取返回值的数据结构 多参 匹配值', () => {
   expect(getDataStructure(mockJSDOC_multiple, 'return')).toEqual(['ListNode'])
 })
 it('获取返回值的数据结构 单参 void', () => {

@@ -22,23 +22,23 @@ export function getTestCase(question) {
 
   const detail = question.detail.replaceAll('`', '')
   const cases = detail.match(inputReg)?.map(
-    str =>
+    (str) =>
       `[${removeDomTags(
         str
           ?.replace(inputStartReg, '')
           ?.replace(endReg, '')
           ?.replace('\n', '')
-          .replace(/[a-zA-Z]+ =/g, ''),
-      )}]`,
+          .replace(/[a-zA-Z]+ =/g, '')
+      )}]`
   )
-  const expires = detail.match(outputReg)?.map(str =>
+  const expires = detail.match(outputReg)?.map((str) =>
     removeDomTags(
       str
         ?.replace(outputStartReg, '')
         ?.replace(endReg, '')
         ?.replace('\n', '')
-        .replace(/[a-zA-Z]+ =/g, ''),
-    ),
+        .replace(/[a-zA-Z]+ =/g, '')
+    )
   )
   if (question.lang === DefaultLang) {
     const functionName = question.code
@@ -46,8 +46,7 @@ export function getTestCase(question) {
       ?.replace(/((var|let|const)|=)\s?/gm, '')
       .trim()
     return `showLogs(\n${functionName},\n{\ndata: [${cases}],\nstructure: ${JSON.stringify(getDataStructure(question.code))},\n},\n{\ndata: [${expires}],\nstructure: ${JSON.stringify(getDataStructure(question.code, 'return'))}\n}\n)`
-  }
-  else {
+  } else {
     // 其他语言无法支持测试 只能提供测试数据
     // 生成注释语句
     let showText = `暂无法支持除JS外的语言测试,提取的一些入参和返回值供自行测试，每一个case中的第一行为入参，第二行为返回值\n`

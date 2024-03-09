@@ -14,16 +14,15 @@ export function createQuestion(question, questionDir) {
     const filePath = path.normalize(
       path.join(
         questionDir,
-        `question${getQuestionFileExtension(question.lang)}`,
-      ),
+        `question${getQuestionFileExtension(question.lang)}`
+      )
     )
     if (fs.existsSync(filePath)) {
       resolve(false)
-    }
-    else {
+    } else {
       createQuestionFile(questionDir, filePath, question)
-        .then(path => resolve(path))
-        .catch(e => resolve(false))
+        .then((path) => resolve(path))
+        .catch(() => resolve(false))
     }
   })
 }
@@ -34,11 +33,10 @@ export function createQuestionFile(questionDir, questionFilePath, question) {
       fs.mkdir(questionDir, { recursive: true }, () => {
         // 写入文件和模板
         fulfillQuestion(questionFilePath, question).then(() =>
-          resolve(questionFilePath),
+          resolve(questionFilePath)
         )
       })
-    }
-    catch (e) {
+    } catch (e) {
       reject(e)
     }
   })

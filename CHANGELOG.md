@@ -1,12 +1,13 @@
 # CHANGELOG
-## 1.0.5 release  [2024-3-]
+
+## 1.0.5 release [2024-3-]
 
 ### Features
 
 - Added eslint, prettier, and commit-lint to development dependencies.
 - Implemented a hot 100 list feature and added keyword search functionality.
 
-## 1.0.4 release  [2024-3-5 22:10]
+## 1.0.4 release [2024-3-5 22:10]
 
 ### Fixes
 

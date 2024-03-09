@@ -19,8 +19,7 @@ function convData(data) {
  */
 function parseData(dataStr) {
   const prefixReg = /^\$<.+>\$/im
-  if (!prefixReg.test(dataStr))
-    return null
+  if (!prefixReg.test(dataStr)) return null
 
   const type = dataStr.match(prefixReg)[0].replace(/[$<>]+/g, '')
   const remainStr = dataStr.replace(prefixReg, '')
@@ -34,7 +33,7 @@ function parseData(dataStr) {
     case 'number':
       return Number(remainStr)
     case 'function':
-      return Function(remainStr)
+      return () => remainStr
     case 'string':
     default:
       return remainStr
@@ -90,7 +89,7 @@ export function deleteStore(key) {
  * @param mode
  * @returns {Promise<void>}
  */
-export function clearStore(mode) {
+export function clearStore() {
   return exeOnce((realm) => {
     realm.write(() => {
       realm.delete(realm.objects('Store'))

@@ -12,14 +12,14 @@ import { getQuestionFileExtension } from '#common/utils/question-handler/questio
  */
 export function createQuestionCopy(question, questionDir) {
   if (!question || !question.id)
-    return Promise.reject('question is empty')
+    return Promise.reject(new Error('question is empty'))
   const dir = path.dirname(questionDir)
   const name = `${question.id}.${question.slug}`
   const affix = ` [${getCountBySameName(dir, name)}]`
   const copyFileDir = path.join(dir, `${name}${affix}`)
   const copyFilePath = path.join(
     copyFileDir,
-    `question${getQuestionFileExtension(question.lang)}`,
+    `question${getQuestionFileExtension(question.lang)}`
   )
   return createQuestionFile(copyFileDir, copyFilePath, question)
 }
