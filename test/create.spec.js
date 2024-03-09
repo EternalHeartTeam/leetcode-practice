@@ -6,12 +6,12 @@ import { template } from '#resources/template/template.js'
 
 vi.mock('fs/promises', () => {
   return {
-    writeFile: vi.fn(),
+    writeFile: vi.fn()
   }
 })
 const funRegex = /var\s+(\w+)\s*=\s*function\s*\(([^)]*)\)\s*{\s*([^}]*)\s*}/
-const isContainJsCode = input => funRegex.test(input)
-const isContainTestCase = input => input.includes('showLogs(')
+const isContainJsCode = (input) => funRegex.test(input)
+const isContainTestCase = (input) => input.includes('showLogs(')
 
 function handleText(input) {
   return input.replace(/\n+/g, '\n').replaceAll('\n', '\n * ')
@@ -20,7 +20,7 @@ const mockKeys = ['id', 'slug', 'title', 'detail', 'lang', 'code', 'date']
 const oneDay = 24 * 60 * 60 * 1000
 
 function isValidQuestion(res) {
-  const content = generateTemplateContent(fileContent, res)
+  const content = generateTemplateContent(res)
   // 是否含有函数
   expect(isContainJsCode(content)).toBeTruthy()
   // 是否含有测试用例
@@ -41,8 +41,6 @@ describe('lc', () => {
 
     it('是否正确获取了今天的题目', () => {
       expect(Object.keys(res)).toEqual(mockKeys)
-      // 比较日期是否相等
-      // expect(Math.trunc(new Date(res.date).valueOf()/oneDay)).toEqual(Math.trunc(new Date().valueOf()/oneDay));
     })
     it('是否正确的填充了今天的题目', async () => {
       isValidQuestion(res)
