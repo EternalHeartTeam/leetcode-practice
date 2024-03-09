@@ -1,30 +1,9 @@
 import path from 'node:path'
 import { createQuestionByTitleSlug } from '../create-check/createUtil.js'
-import { graphql } from '#common/utils/http/graphql.js'
-
-const bodyString =
-  '{"query":"\\n    query studyPlanPastSolved($slug: String!) {\\n  studyPlanV2Detail(planSlug: $slug) {\\n    planSubGroups {\\n      slug\\n      questions {\\n        titleSlug\\n        status\\n      }\\n    }\\n  }\\n}\\n    ","variables":{"slug":"top-100-liked"},"operationName":"studyPlanPastSolved"}'
-const headers = {
-  'content-type': 'application/json'
-}
-
-const initJson = {
-  headers,
-  body: bodyString,
-  method: 'POST'
-}
-// 抓hot100列表
-export async function getHot100QuestionList() {
-  const res = await graphql(initJson)
-  const {
-    data: { studyPlanV2Detail }
-  } = res
-  return studyPlanV2Detail
-}
-
+import { getQuestionListHot100 } from '#common/utils/question-getter/getQuestionListHot100.js'
 // 获取题目列表
 export async function getTitleSlugList() {
-  const res = await getHot100QuestionList()
+  const res = await getQuestionListHot100()
   const { planSubGroups } = res
   return planSubGroups.reduce((acc, cur) => {
     acc.push(...cur.questions.map((res) => res.titleSlug))
