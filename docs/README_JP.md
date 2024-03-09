@@ -173,7 +173,7 @@ MODE: random
 問題ファイルの場所は:/home/wh131462/workspace/leetcode-practice/src/14.longest-common-prefix/index.js
 ```
 
-##### [5]. 簡易作成モード（対話形式で作成） - [`-e`/`--easy`]
+##### [4]. 簡易作成モード（対話形式で作成） - [`-e`/`--easy`]
 
 正確な指示を使用して問題を素早く作成するだけでなく、簡単な作成モードを使用して対話形式で作成することもできます。
 
