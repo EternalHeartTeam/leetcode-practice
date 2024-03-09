@@ -174,7 +174,7 @@ MODE: random
 문제 파일 주소는: /home/wh131462/workspace/leetcode-practice/src/14.longest-common-prefix/index.js
 ```
 
-##### [5]. 간편 생성 모드(대화형 생성) - [`-e`/`--easy`]
+##### [4]. 간편 생성 모드(대화형 생성) - [`-e`/`--easy`]
 
 정확한 명령어를 사용하여 빠르게 문제를 생성하는 것 외에도 간단한 생성 모드를 사용하여 대화형으로 문제를 생성할 수도 있습니다.
 
