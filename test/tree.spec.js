@@ -39,6 +39,6 @@ it('测试树 pase mockTree3', () => {
     ),
   )
 })
-it('测试树 pase mockTree3', () => {
+it('测试树 pase mockTree4', () => {
   expect(TreeNode.parse([0])).toEqual(new TreeNode())
 })
