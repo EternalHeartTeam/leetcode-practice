@@ -23,7 +23,7 @@ program
   )
   .parse(process.argv)
 
-const cmdArgs = program.args
+// const cmdArgs = program.args
 const cmdOpts = program.opts()
 
 /**

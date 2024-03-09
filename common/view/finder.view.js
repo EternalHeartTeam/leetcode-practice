@@ -32,9 +32,8 @@ async function hotMode() {
 
     await createQuestionByTitleSlug(singleChoice)
   }
-  if (createMode === 'all') {
-    const titleSlugList = await getHot100QuestionListCode()
-  }
+  if (createMode === 'all')
+    await getHot100QuestionListCode()
 }
 
 async function keywordMode() {
