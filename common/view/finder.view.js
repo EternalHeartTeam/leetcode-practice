@@ -2,9 +2,9 @@ import select from '@inquirer/select'
 import input from '@inquirer/input'
 
 import {
-  getHot100QuestionListJSCode,
+  getHot100QuestionListCode,
   getTitleSlugList,
-} from '#common/utils/question-handler/getHot100QuestionList.js'
+} from '#common/utils/question-handler/getHot100QuestionListCode.js'
 import {
   createQuestionById,
   createQuestionByTitleSlug,
@@ -33,7 +33,7 @@ async function hotMode() {
     await createQuestionByTitleSlug(singleChoice)
   }
   if (createMode === 'all') {
-    const titleSlugList = await getHot100QuestionListJSCode()
+    const titleSlugList = await getHot100QuestionListCode()
   }
 }
 

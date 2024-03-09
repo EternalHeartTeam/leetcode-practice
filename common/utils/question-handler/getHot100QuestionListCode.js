@@ -20,7 +20,7 @@ async function getPromiseList() {
   )
 }
 
-export async function getHot100QuestionListJSCode() {
+export async function getHot100QuestionListCode() {
   const promiseList = await getPromiseList()
   return await Promise.all(promiseList)
 }

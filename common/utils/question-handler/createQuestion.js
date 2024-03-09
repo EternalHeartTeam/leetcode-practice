@@ -1,7 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fulfillQuestion } from '#common/utils/question-handler/fulfillQuestion.js'
-import { template } from '#resources/template/template.js'
 import { getQuestionFileExtension } from '#common/utils/question-handler/questionLanguage.js'
 
 /**
@@ -18,7 +17,9 @@ export function createQuestion(question, questionDir) {
         `question${getQuestionFileExtension(question.lang)}`,
       ),
     )
-    if (fs.existsSync(filePath)) { resolve(false) }
+    if (fs.existsSync(filePath)) {
+      resolve(false)
+    }
     else {
       createQuestionFile(questionDir, filePath, question)
         .then(path => resolve(path))
@@ -29,12 +30,12 @@ export function createQuestion(question, questionDir) {
 export function createQuestionFile(questionDir, questionFilePath, question) {
   return new Promise((resolve, reject) => {
     try {
+      // 创建题目的目录
       fs.mkdir(questionDir, { recursive: true }, () => {
-        fs.writeFile(questionFilePath, template, null, () => {
-          fulfillQuestion(questionFilePath, question).then(() =>
-            resolve(questionFilePath),
-          )
-        })
+        // 写入文件和模板
+        fulfillQuestion(questionFilePath, question).then(() =>
+          resolve(questionFilePath),
+        )
       })
     }
     catch (e) {

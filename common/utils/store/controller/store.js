@@ -51,8 +51,8 @@ export function setStore(key, value) {
   return exeOnce((realm) => {
     let newStore
     realm.write(() => {
-      const oldStore = realm.objects('Person').filtered(`key = "${key}"`)[0]
-      realm.delete(oldStore)
+      const oldStore = realm.objects('Store').filtered(`key = "${key}"`)?.[0]
+      oldStore && realm.delete(oldStore)
       newStore = realm.create('Store', { key, value: convData(value) })
     })
     return newStore.toJSON()
