@@ -31,7 +31,7 @@ function isValidQuestion(res) {
 }
 const fileContent = template
 
-describe('leet-create', () => {
+describe('lc', () => {
   // 清楚mock历史记录
   afterEach(() => {
     vi.clearAllMocks()
@@ -69,7 +69,7 @@ describe('leet-create', () => {
     it('是否正确的获取了指定内容的题目 主题空间', async () => {
       const content = '主题空间'
       const res = await getQuestionById(content)
-      expect(res.id).toEqual(null)
+      expect(res?.id).toEqual(null)
     })
   })
   // describe('with -r option', async () => {
