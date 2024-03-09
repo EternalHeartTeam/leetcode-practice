@@ -1,6 +1,7 @@
 import { removeDomTags } from '../functions/removeDomTags.js'
 import { getDataStructure } from './parseStructure.js'
 import { DefaultLang } from '#common/constants/question.const.js'
+import { setBlockComment } from '#common/utils/question-handler/questionLanguage.js'
 
 /**
  * test case 需要从两个地方拿到内容
@@ -48,14 +49,18 @@ export function getTestCase(question) {
   }
   else {
     // 其他语言无法支持测试 只能提供测试数据
-    console.log(cases, expires)
-    let showText = `\/* 暂无法支持除JS外的语言测试,提取的一些入参和返回值供自行测试，每一个case中的第一行为入参，第二行为返回值\n`
-    for (let i = 0; i < Math.max(cases.length, expires.length); i++) {
+    // 生成注释语句
+    let showText = `暂无法支持除JS外的语言测试,提取的一些入参和返回值供自行测试，每一个case中的第一行为入参，第二行为返回值\n`
+    for (
+      let i = 0;
+      i < Math.max(cases?.length ?? 0, expires?.length ?? 0);
+      i++
+    ) {
       showText += `case ${i + 1}:\n`
       showText += `${cases?.[i]}\n` ?? '[参数获取错误]\n'
       showText += `${expires?.[i]}\n` ?? '[返回值获取错误]\n'
     }
-    showText += `\n*\/`
-    return showText
+    showText += `\n`
+    return setBlockComment(question.lang, showText)
   }
 }

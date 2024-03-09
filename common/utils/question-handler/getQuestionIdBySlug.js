@@ -1,3 +1,5 @@
+import { graphql } from '#common/utils/http/graphql.js'
+
 const headers = {
   'content-type': 'application/json',
 }
@@ -16,9 +18,7 @@ export async function getQuestionIdBySlug(titleSlug) {
     body: JSON.stringify(body),
     method: 'POST',
   }
-  const res = await fetch('https://leetcode.cn/graphql/', initJson).then(
-    res => res.json(),
-  )
+  const res = await graphql(initJson)
   const { data: question } = res
   return question
 }

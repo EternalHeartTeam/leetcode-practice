@@ -1,12 +1,8 @@
-export const template = `
-/**
- * @题目
- * @描述
- */
-// @Function
+// 模板 - 生成的内容会被替换
+export const template = `@Title
+@Describe
+@Function
+@TestCase
 
-/**
- * Test case
- */
-// @TestCase
-console.log('点击跳转到题目提交:@url');`
+@Console
+`

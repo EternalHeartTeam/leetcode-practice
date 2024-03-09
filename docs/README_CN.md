@@ -171,7 +171,7 @@ MODE: random
 题目文件地址为:/home/wh131462/workspace/leetcode-practice/src/14.longest-common-prefix/index.js
 ```
 
-##### [5]. 简单创建模式(交互式创建) - [`-e`/`--easy`]
+##### [4]. 简单创建模式(交互式创建) - [`-e`/`--easy`]
 
 除了如上的使用精准的指令快速创建题目外，还可以使用简单创建模式来进行交互式创建。
 
