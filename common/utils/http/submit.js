@@ -1,4 +1,3 @@
-import path from 'node:path'
 import { fetch_ } from '#common/utils/http/fetch_.js'
 import { url_join } from '#common/utils/http/urlJoin.js'
 
