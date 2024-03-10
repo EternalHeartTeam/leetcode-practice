@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fulfillQuestion } from '#common/utils/question-handler/fulfillQuestion.js'
 import { getQuestionFileExtension } from '#common/utils/question-handler/questionLanguage.js'
-import { getSupportCode } from '#common/utils/question-handler/getCode.js'
+import { getSupportCode } from '#common/utils/question-handler/code.js'
 
 /**
  * 创建问题

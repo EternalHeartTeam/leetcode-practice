@@ -210,6 +210,7 @@ export const LANGUAGES = [
     lineComment: '--'
   }
 ]
+
 /**
  * 设置编程主语言
  */
@@ -241,6 +242,17 @@ export function getQuestionFileExtension(lang = DefaultLang) {
   return detail?.extension
 }
 
+/**
+ * 通过后缀获取语言配置
+ * @param extensionLike
+ * @returns {*}
+ */
+export function getLangByExtension(extensionLike) {
+  const reg = /\.[0-9a-zA-Z_]+$/im
+  const match = extensionLike.match(reg)
+  let extension = match === null ? '.' + extensionLike : match[0]
+  return LANGUAGES?.find((o) => o.extension === extension)
+}
 /**
  * 获取行注释
  * @param lang

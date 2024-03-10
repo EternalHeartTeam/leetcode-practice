@@ -9,6 +9,7 @@ import {
   setBlockComment,
   setLineComment
 } from '#common/utils/question-handler/questionLanguage.js'
+import { getCodeRange } from '#common/utils/question-handler/code.js'
 
 /**
  * @typedef {object} Question
@@ -37,14 +38,7 @@ export function generateTemplateContent(question) {
   return template
     .replace('@Title', setBlockComment(lang, title + describe))
     .replace('@Describe', '')
-    .replace(
-      '@Function',
-      code ??
-        setLineComment(
-          lang,
-          `!important: 此题目没有当前语言[${lang}]的代码模板!`
-        )
-    )
+    .replace('@Function', getCodeRange(lang, code))
     .replace('@TestCase', getTestCase(question))
     .replace('@Console', getConsoleText(question))
 }
