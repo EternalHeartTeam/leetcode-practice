@@ -4,7 +4,7 @@ import { getQuestionListHot100Json } from '#resources/headers/questionListHot100
 export async function getQuestionListHot100() {
   const res = await graphql(getQuestionListHot100Json())
   const {
-    data: { studyPlanV2Detail },
+    data: { studyPlanV2Detail }
   } = res
   return studyPlanV2Detail
 }
