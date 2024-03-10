@@ -1,5 +1,5 @@
 import { getQuestionDetailJson } from '#resources/headers/questionDetailJson.js'
-import { getCode } from '#common/utils/question-handler/getCode.js'
+import { code } from '#common/utils/question-handler/code.js'
 import { getQuestionLanguage } from '#common/utils/question-handler/questionLanguage.js'
 import { graphql } from '#common/utils/http/graphql.js'
 
@@ -14,7 +14,7 @@ export async function getQuestionDetail(slug, extra = {}) {
   const questionDetail = await graphql(getQuestionDetailJson(slug))
   const detail = questionDetail.data.question
   const curLang = await getQuestionLanguage()
-  const code = await getCode(slug, curLang)
+  const code = await code(slug, curLang)
   return {
     id: detail?.questionId,
     slug,
