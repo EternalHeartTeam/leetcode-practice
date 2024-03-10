@@ -6,9 +6,9 @@ import fs from 'node:fs'
  * @param baseDir
  * @returns {string|undefined|string[]}
  */
-export const getFilePathById = (id, baseDir = process.cwd()) => {
+export function getFilePathById(id, baseDir = process.cwd()) {
   const dir = fs.readdirSync(baseDir)
-  const files = dir.filter((o) => o.startsWith(id + '.'))
+  const files = dir.filter((o) => o.startsWith(`${id}.`))
   if (files.length > 1) return files
   return files?.[0]
 }

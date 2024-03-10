@@ -5,10 +5,7 @@ import { createMarkdown } from './createMarkdown.js'
 import { getQuestionChineseName } from '#common/utils/question-handler/getQuestionChineseName.js'
 import { getConsoleText } from '#common/utils/question-handler/getConsoleText.js'
 import { template } from '#resources/template/template.js'
-import {
-  setBlockComment,
-  setLineComment
-} from '#common/utils/question-handler/questionLanguage.js'
+import { setBlockComment } from '#common/utils/question-handler/questionLanguage.js'
 import { getCodeRange } from '#common/utils/question-handler/code.js'
 
 /**
