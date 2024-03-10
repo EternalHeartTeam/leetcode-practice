@@ -496,3 +496,7 @@ To be developed...
 If you encounter any `issues` or have some `great suggestions`, feel free to join our `Feedback Group` for providing `feedback`! We will address them promptly!
 
 ![Feedback Group](resources/images/service-qrcode.png)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=EternalHeartTeam/leetcode-practice&type=Date)](https://star-history.com/#EternalHeartTeam/leetcode-practice&Date)
