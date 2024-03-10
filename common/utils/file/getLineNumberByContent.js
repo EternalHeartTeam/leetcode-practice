@@ -7,13 +7,13 @@ import fs from 'node:fs'
  * @returns {Promise<unknown>}
  */
 export function getLineNumberByContent(filePath, searchString) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     let lineNumber = 0
     const readStream = fs.createReadStream(filePath, { encoding: 'utf-8' })
 
     readStream.on('data', (chunk) => {
       const lines = chunk.split('\n')
-      for (let line of lines) {
+      for (const line of lines) {
         lineNumber++
         if (line.includes(searchString)) {
           readStream.close()
@@ -28,7 +28,7 @@ export function getLineNumberByContent(filePath, searchString) {
       resolve(0)
     })
 
-    readStream.on('error', (error) => {
+    readStream.on('error', () => {
       console.warn(`"${searchString}" not found in file: ${filePath}`)
       resolve(0)
     })
