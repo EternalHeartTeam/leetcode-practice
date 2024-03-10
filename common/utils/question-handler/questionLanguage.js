@@ -250,7 +250,7 @@ export function getQuestionFileExtension(lang = DefaultLang) {
 export function getLangByExtension(extensionLike) {
   const reg = /\.[0-9a-zA-Z_]+$/im
   const match = extensionLike.match(reg)
-  let extension = match === null ? '.' + extensionLike : match[0]
+  const extension = match === null ? `.${extensionLike}` : match[0]
   return LANGUAGES?.find((o) => o.extension === extension)
 }
 /**

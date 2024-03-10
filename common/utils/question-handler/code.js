@@ -1,12 +1,10 @@
+import fs from 'node:fs'
 import { getQuestionCodeList } from '#common/utils/question-getter/getQuestionCodeList.js'
 import {
   getLangByExtension,
   setLineComment
 } from '#common/utils/question-handler/questionLanguage.js'
 import { DefaultLang } from '#common/constants/question.const.js'
-import fs from 'node:fs'
-import path from 'node:path'
-import { parseFilePath } from '#common/utils/file/parseFilePath.js'
 
 /**
  * 获取代码
@@ -14,7 +12,7 @@ import { parseFilePath } from '#common/utils/file/parseFilePath.js'
  * @param lang
  * @returns {Promise<*>}
  */
-export async function code(slug, lang) {
+export async function getCodeBySlug(slug, lang) {
   const list = await getQuestionCodeList(slug)
   return list.find((o) => o.langSlug === lang)?.code
 }
@@ -34,29 +32,27 @@ export async function getSupportCode(slug) {
  * @param code
  * @returns {*|string}
  */
-export const getCodeRange = (lang, code) => {
+export function getCodeRange(lang, code) {
   if (!code) {
     return setLineComment(
       lang,
       `!important: 此题目没有当前语言[${lang}]的代码模板!`
     )
   }
-  return (
-    setLineComment(lang, '@QUESTION_START') +
-    code +
-    '\n' +
-    setLineComment(lang, '@QUESTION_END')
-  )
+  return `${setLineComment(lang, '@QUESTION_START') + code}\n${setLineComment(
+    lang,
+    '@QUESTION_END'
+  )}`
 }
 /**
  * 获取文件中的代码部分
  */
-export const getCodeInFile = (filePath) => {
+export function getCodeInFile(filePath) {
   const lang = getLangByExtension(filePath)?.lang ?? DefaultLang
   const data = fs.readFileSync(filePath, 'utf-8')
   const startTag = setLineComment(lang, '@QUESTION_START')
   const endTag = setLineComment(lang, '@QUESTION_END')
-  const rangeReg = new RegExp(startTag + '.*' + endTag, 'ms')
+  const rangeReg = new RegExp(`${startTag}.*${endTag}`, 'ms')
   const rangeTagReg = new RegExp(`(${startTag}|${endTag})+`, 'mg')
   const match = data.match(rangeReg)
   if (!match) return null
