@@ -7,7 +7,7 @@ import { getConsoleText } from '#common/utils/question-handler/getConsoleText.js
 import { template } from '#resources/template/template.js'
 import {
   setBlockComment,
-  setLineComment,
+  setLineComment
 } from '#common/utils/question-handler/questionLanguage.js'
 
 /**
@@ -39,11 +39,11 @@ export function generateTemplateContent(question) {
     .replace('@Describe', '')
     .replace(
       '@Function',
-      code
-      ?? setLineComment(
-        lang,
-          `!important: 此题目没有当前语言[${lang}]的代码模板!`,
-      ),
+      code ??
+        setLineComment(
+          lang,
+          `!important: 此题目没有当前语言[${lang}]的代码模板!`
+        )
     )
     .replace('@TestCase', getTestCase(question))
     .replace('@Console', getConsoleText(question))
@@ -61,8 +61,7 @@ export function fulfillQuestion(questionPath, question) {
     const newData = generateTemplateContent(question)
     // 创建文件
     fs.writeFile(questionPath, newData, (err) => {
-      if (err)
-        throw err
+      if (err) throw err
       resolve()
     })
   })

@@ -23,7 +23,7 @@ export async function checkQuestion(path) {
     path,
     vm.createContext({
       showLogs,
-      console,
-    }),
+      console
+    })
   )
 }

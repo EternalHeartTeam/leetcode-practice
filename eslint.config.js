@@ -6,6 +6,6 @@ export default antfu({
     'no-console': 'off',
     'no-irregular-whitespace': 'off',
     'eslint-comments/no-unlimited-disable': 'off',
-    'no-cond-assign': 'off',
-  },
+    'no-cond-assign': 'off'
+  }
 })

@@ -28,7 +28,7 @@ program
   .option('-t, --today', 'Check the question today.')
   .option(
     '-i, --identity <identity>',
-    'Check the specified question by identity.',
+    'Check the specified question by identity.'
   )
   .option('-r, --random', 'Check the last random question.')
   .option('-e, --easy', 'Use easy mode.')
@@ -36,7 +36,7 @@ program
   .option('-l, --language [language]', 'Set/Get the code language of question.')
   .option(
     '-u, --update',
-    'Check the version to determine whether to update to the latest one.',
+    'Check the version to determine whether to update to the latest one.'
   )
   .parse(process.argv)
 
@@ -61,8 +61,7 @@ const args = getArgs(mode, cmdArgs, cmdOpts)
 if (cmdOpts.language) {
   if (cmdOpts.language !== true) {
     await easyLanguageView(cmdOpts.language)
-  }
-  else {
+  } else {
     const lang = await getQuestionLanguage()
     console.log(`当前CLI语言环境为:${lang}`)
   }
@@ -90,14 +89,13 @@ async function check(mode, question) {
   const filePath = path.join(
     baseDir,
     getQuestionFileName(question),
-    `question${getQuestionFileExtension(question?.lang)}`,
+    `question${getQuestionFileExtension(question?.lang)}`
   )
   if (!fs.existsSync(filePath)) {
     console.log(`文件[${filePath}]不存在,请确保已经创建!`)
-  }
-  else {
+  } else {
     console.log(
-      `MODE: ${mode}\n题目[${getQuestionChineseName(question)}]检测结果:`,
+      `MODE: ${mode}\n题目[${getQuestionChineseName(question)}]检测结果:`
     )
     await checkQuestion(filePath)
   }
@@ -121,7 +119,7 @@ const callModeAction = {
       : await getQuestionById(id)
     await check('identity', question)
     process.exit(0)
-  },
+  }
 }
 
 // 执行指令分发
