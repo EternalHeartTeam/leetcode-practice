@@ -31,7 +31,7 @@ export async function createQuestionByTitleSlug(
 
   await createQuestionById(question.questionId, baseDir)
 }
-export async function createQuestionById(id, baseDir) {
+export async function createQuestionById(id, baseDir = process.cwd()) {
   const question = await getQuestionById(id)
   if (!question?.id)
     console.log(`指定编号: [ ${id} ] 题目不存在.`)

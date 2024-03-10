@@ -303,7 +303,7 @@ export function setBlockComment(lang = DefaultLang, comment = '') {
         (p, line) => (p += `${startTag} ${line}\n`),
         '',
       )
-      return `${start}\n${content}${end}`
+      return `${start}\n${content}${end}\n`
     }
     default:
       return comment

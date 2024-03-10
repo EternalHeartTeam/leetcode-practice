@@ -4,6 +4,38 @@ import { DefaultLang } from '#common/constants/question.const.js'
 import { setBlockComment } from '#common/utils/question-handler/questionLanguage.js'
 
 /**
+ * 输出的日志
+ * @param question
+ * @param functionName
+ * @param cases
+ * @param expires
+ * @returns {`showLogs(
+  ${string},
+  {
+    data: [${string}],
+    structure: ${string}
+  },
+  {
+    data: [${string}],
+    structure: ${string}
+  }
+)`}
+ */
+function logsTemplate(question, functionName, cases, expires) {
+  return `showLogs(
+  ${functionName},
+  {
+    data: [${cases}],
+    structure: ${JSON.stringify(getDataStructure(question.code))}
+  },
+  {
+    data: [${expires}],
+    structure: ${JSON.stringify(getDataStructure(question.code, 'return'))}
+  }
+)`
+}
+
+/**
  * test case 需要从两个地方拿到内容
  * 1.详情：拿到默认的几个用例
  * 2.函数名：拿到函数名创建用例函数
@@ -47,7 +79,10 @@ export function getTestCase(question) {
       .trim()
     if (!functionName)
       return ''
-    return `showLogs(\n${functionName},\n{\ndata: [${cases}],\nstructure: ${JSON.stringify(getDataStructure(question.code))},\n},\n{\ndata: [${expires}],\nstructure: ${JSON.stringify(getDataStructure(question.code, 'return'))}\n}\n)`
+    return (
+      setBlockComment(question.lang, 'Test Cases')
+      + logsTemplate(question, functionName, cases, expires)
+    )
   }
   else {
     // 其他语言无法支持测试 只能提供测试数据

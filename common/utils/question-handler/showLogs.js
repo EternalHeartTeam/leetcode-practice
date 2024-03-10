@@ -77,7 +77,9 @@ export function showLogs(fnName, paramMap, compareMap) {
           = item[key]?.length >= 40 ? `${item[key].slice(0, 37)}...` : item[key]
       }
     }
-    logTable.addRow(item, { color: item.测试结果 === '通过' ? 'green' : 'red' })
+    logTable.addRow(item, {
+      color: item['测试结果'] === '通过' ? 'green' : 'red',
+    })
   })
   logTable.printTable()
 }
