@@ -68,7 +68,6 @@ async function keywordMode(baseDir = process.cwd()) {
 }
 
 async function selectMode(baseDir) {
-
   console.log(baseDir)
 }
 
