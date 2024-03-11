@@ -15,7 +15,7 @@
     "publish": false
   },
   "hooks": {
-    "after:bump": "git add CHANGELOG.md && git commit -m 'chore: update changelog' && echo 更新版本成功!添加changelog的commit成功!"
+    "after:bump": "git add CHANGELOG.md && git commit -n -m 'chore: update changelog' && echo 更新版本成功!添加changelog的commit成功!"
   },
   "plugins": {
     "@release-it/bumper": {
