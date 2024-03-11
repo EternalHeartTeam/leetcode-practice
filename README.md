@@ -24,18 +24,19 @@ Then, `leetcode-practice` is all you need!
 
 ### 0. Prerequisites
 
-| Tool     | Remarks                      |
-| -------- | :---------------------------: |
-| nodejs   |            lts              |
-| git      |            lts              |
-| computer | Ability to run Chrome and a code editor |
-| patience |    A heart that can persist in practicing problems    |
+| Tool     |                     Remarks                     |
+| -------- | :---------------------------------------------: |
+| nodejs   |                       lts                       |
+| git      |                       lts                       |
+| computer |     Ability to run Chrome and a code editor     |
+| patience | A heart that can persist in practicing problems |
 
 > Note: nodejs: [Node.js Installation Guide](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
 >
 > git: [Git Download Page](https://git-scm.com/downloads)
 
 ### 1. How Can I Use It? (Three Options for You to Choose From)
+
 #### Option A. Command-Line Interface (CLI) (Recommended)
 
 This option is the most recommended way to use the tool. You can freely create and check your solutions in any directory using the CLI commands `lc`, `lk`, and `lf`.
@@ -46,7 +47,7 @@ This option is the most recommended way to use the tool. You can freely create a
 
 If you want to quickly create your own repository for solutions, you can use our template project to quickly create a GitHub project and get comprehensive initialization content.
 
->  Usage Preview
+> Usage Preview
 
 #### Option C. Plugin (Supported, Under Development)
 
@@ -55,6 +56,7 @@ If you want to create solutions in your editor by clicking buttons, you can use 
 > Usage Preview
 
 ### 2. How Should I Use It? (Detailed Installation and Usage Guides for Three Options)
+
 #### Option A. Command-Line Interface (CLI)
 
 ##### 1. Installation
@@ -78,7 +80,7 @@ yarn add --dev leetcode-practice
 
 ##### 2. Usage
 
-Here's a simple introduction to creating and checking daily questions, as well as using keyword search. For more detailed instructions and parameters, please refer to the [KFC and its Key Parameter Explanation](#3.-KFC-and-its-Key-Parameter-Explanation-(Universal-Reference-Manual)) section.
+Here's a simple introduction to creating and checking daily questions, as well as using keyword search. For more detailed instructions and parameters, please refer to the [KFC and its Key Parameter Explanation](<#3.-KFC-and-its-Key-Parameter-Explanation-(Universal-Reference-Manual)>) section.
 
 ###### 2.1 Creating a Question
 
@@ -169,10 +171,7 @@ MODE: identity
 
 1. Open
 
-our template project [leetcodePracticeTemplate](https://github.com/EternalHeartTeam/LeetcodePracticeTemplate) on GitHub.
-2. Click on `Use this template` in the upper right corner and select `Create a new repository`.
-3. Fill in the information as you would when creating a normal repository.
-4. Wait... and you're done. You now have your own `LeetCode solutions repository` and will receive long-term support from the `leetcode-practice` official team!
+our template project [leetcodePracticeTemplate](https://github.com/EternalHeartTeam/LeetcodePracticeTemplate) on GitHub. 2. Click on `Use this template` in the upper right corner and select `Create a new repository`. 3. Fill in the information as you would when creating a normal repository. 4. Wait... and you're done. You now have your own `LeetCode solutions repository` and will receive long-term support from the `leetcode-practice` official team!
 
 > Fill in the creation process chart
 
@@ -182,7 +181,7 @@ our template project [leetcodePracticeTemplate](https://github.com/EternalHeartT
 
 e.g. Using my personal project as an example
 
-```shell 
+```shell
 # This is just an example. Please clone your own project (when you attempt this, the project may have been cleared, which is a normal phenomenon, please don't be surprised)
 git clone git@github.com:wh131462/my-leetcode-practice.git
 # Move into the project directory
@@ -193,7 +192,7 @@ npm i
 
 2. Usage in the project
 
-There are two ways to use the `leetcode-practice` in the template project: `project internal commands` and `npm scripts`. The process of creation is demonstrated below, and other command usages and parameters are consistent with the scaffold. Please refer to the [KFC and its Key Parameter Explanation](#3.-KFC-and-its-Key-Parameter-Explanation-(Universal-Reference-Manual)) section.
+There are two ways to use the `leetcode-practice` in the template project: `project internal commands` and `npm scripts`. The process of creation is demonstrated below, and other command usages and parameters are consistent with the scaffold. Please refer to the [KFC and its Key Parameter Explanation](<#3.-KFC-and-its-Key-Parameter-Explanation-(Universal-Reference-Manual)>) section.
 
 ```shell
 # Under the root directory of the project, execute npm run lc to create today's question. Because -d src is configured by default, the creation will be done under the src directory
@@ -230,47 +229,47 @@ npm i --save-dev leetcode-practice
 
 `KFC` is a simple mnemonic that can quickly remember our three core commands: `lk`, `lf`, and `lc`.
 
-| Command | Explanation                        |
-|-------|----------------------------------|
-| lc    | Core creation command, supports three creation modes (daily question, specified question, random question) for creating questions |
-| lk    | Core checking command, supports three modes corresponding to the question for checking questions |
-| lf    | Core search command, which can quickly search for the question you want based on prompts |
+| Command | Explanation                                                                                                                       |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| lc      | Core creation command, supports three creation modes (daily question, specified question, random question) for creating questions |
+| lk      | Core checking command, supports three modes corresponding to the question for checking questions                                  |
+| lf      | Core search command, which can quickly search for the question you want based on prompts                                          |
 
 #### [1]. lc
 
-| Short Parameter  | Full Parameter  | Explanation                              |
-|---------------|----------------|-----------------------------------------|
-| No parameter / `-t` | `--today`      | Create today's daily question            |
-| Question number / `-i` | `--identity`   | Create the question corresponding to the specified number |
-| `-r`          | `--random`     | Create a random question that has not appeared in the current directory |
-| `-e`          | `--easy`       | Interactive creation of questions       |
+| Short Parameter        | Full Parameter | Explanation                                                             |
+| ---------------------- | -------------- | ----------------------------------------------------------------------- |
+| No parameter / `-t`    | `--today`      | Create today's daily question                                           |
+| Question number / `-i` | `--identity`   | Create the question corresponding to the specified number               |
+| `-r`                   | `--random`     | Create a random question that has not appeared in the current directory |
+| `-e`                   | `--easy`       | Interactive creation of questions                                       |
 
 #### [2]. lk
 
-| Short Parameter  | Full Parameter  | Explanation                                |
-|---------------|----------------|-------------------------------------------|
-| No parameter / `-t` | `--today`      | Check today's daily question               |
+| Short Parameter        | Full Parameter | Explanation                                                                                                                                       |
+| ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| No parameter / `-t`    | `--today`      | Check today's daily question                                                                                                                      |
 | Question number / `-i` | `--identity`   | Check the question corresponding to the specified number, and check if the question with the specified ID exists in the current working directory |
-| `-r`          | `--random`     | Check the question created using the random mode last time |
-| `-e`          | `--easy`       | Interactive check of the corresponding question based on prompts |
+| `-r`                   | `--random`     | Check the question created using the random mode last time                                                                                        |
+| `-e`                   | `--easy`       | Interactive check of the corresponding question based on prompts                                                                                  |
 
 > Note: When checking, please pay attention to what mode to use for checking, and make sure that you have performed the corresponding mode creation operation.
 > The specified ID mode is an exception because it will check whether the specified ID exists in the current working directory.
 
 #### [3]. lf
 
-| Short Parameter  | Full Parameter  | Explanation                                        |
-|---------------|----------------|---------------------------------------------------|
-| No parameter  | None           | Enter interactive search, and search or filter questions based on prompts |
+| Short Parameter | Full Parameter | Explanation                                                               |
+| --------------- | -------------- | ------------------------------------------------------------------------- |
+| No parameter    | None           | Enter interactive search, and search or filter questions based on prompts |
 
 #### [4]. General Parameters
 
-| Short Parameter    | Full Parameter                 | Explanation                                                    |
-|-----------------|------------------------------|---------------------------------------------------------------|
-| `-d <directory>`| `--directory <directory>`    | Specify the working directory (a relative address of the current execution directory), which will affect the creation and checking |
-| `-V`            | `--version`                  | Check the version number                                       |
-| `-h`            | `--help`                     | Get help information                                           |
-| `-l [language]` | `--language [language]`      | Without specifying a parameter, get the current language environment (default is JavaScript). Specifying a parameter can set the language environment to the corresponding language (e.g., `-l java` sets the language environment to Java) |
-| `-u`            | `--update`                   | Update the current script or dependency                         |
+| Short Parameter  | Full Parameter            | Explanation                                                                                                                                                                                                                                 |
+| ---------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-d <directory>` | `--directory <directory>` | Specify the working directory (a relative address of the current execution directory), which will affect the creation and checking                                                                                                          |
+| `-V`             | `--version`               | Check the version number                                                                                                                                                                                                                    |
+| `-h`             | `--help`                  | Get help information                                                                                                                                                                                                                        |
+| `-l [language]`  | `--language [language]`   | Without specifying a parameter, get the current language environment (default is JavaScript). Specifying a parameter can set the language environment to the corresponding language (e.g., `-l java` sets the language environment to Java) |
+| `-u`             | `--update`                | Update the current script or dependency                                                                                                                                                                                                     |
 
 > Note: General parameters refer to parameters supported by all three scripts `lk`, `lf`, and `lc`. The semantics of usage are generally the same, but there may be differences in the meanings of behaviors in some commands (for example, specifying the `-d` parameter in the `lc` command means `creating questions in the specified directory`, while in the `lk` command, specifying the `-d` parameter means `creating questions in the specified directory`).
