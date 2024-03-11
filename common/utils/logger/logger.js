@@ -1,5 +1,5 @@
-import { getStore } from '#common/utils/store/controller/store.js'
 import chalk from 'chalk'
+import { getStore } from '#common/utils/store/controller/store.js'
 
 class Logger {
   constructor(env) {

@@ -1,5 +1,5 @@
 import path from 'node:path'
-import fs, { mkdirSync } from 'node:fs'
+import fs from 'node:fs'
 import esbuild from 'esbuild'
 import { rootPath } from '#common/utils/file/getRootPath.js'
 import { logger } from '#common/utils/logger/logger.js'
