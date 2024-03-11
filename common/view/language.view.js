@@ -4,6 +4,7 @@ import {
   setQuestionLanguage
 } from '#common/utils/question-handler/questionLanguage.js'
 import { DefaultLang } from '#common/constants/question.const.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 export async function easyLanguageView(defaultLang = DefaultLang) {
   const list = LANGUAGES.map((o) => o.name)
@@ -18,7 +19,7 @@ export async function easyLanguageView(defaultLang = DefaultLang) {
     }
   ]
   const { newSet } = await inquirer.prompt(setQuestion, null)
-  console.log('设置语言环境为:', newSet)
+  logger.info('设置语言环境为:', newSet)
   await setQuestionLanguage(newSet)
   process.exit(0)
 }

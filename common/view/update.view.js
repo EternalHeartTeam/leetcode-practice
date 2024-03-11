@@ -2,6 +2,7 @@ import inquirer from 'inquirer'
 import { checkUpdate } from '#common/utils/update/update.js'
 import { currentEnv } from '#common/utils/etc/checkEnv.js'
 import { updateByEnv } from '#common/utils/update/updateByEnv.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 export async function easyUpdateView() {
   // 1. 询问当前的环境是啥 (自动检测一次)
@@ -23,7 +24,7 @@ export async function easyUpdateView() {
     isCliUpdate,
     isGithubUpdate
   } = await checkUpdate()
-  console.log(
+  logger.info(
     `当前版本:[ ${localVersion} ] npm包最新版本:[ ${npmVersion} ] github版本:[ ${githubVersion} ]`
   )
   let isUpdate = false
@@ -38,7 +39,7 @@ export async function easyUpdateView() {
       version = npmVersion
       break
     default:
-      console.log('未知环境:', choseEnv)
+      logger.warn('未知环境:', choseEnv)
       process.exit(0)
       break
   }
@@ -52,18 +53,18 @@ export async function easyUpdateView() {
     const { willUpdate } = await inquirer.prompt(checkQuestion, null)
     if (willUpdate) {
       // 4.1 选择更新
-      console.log('开始更新...')
+      logger.info('开始更新...')
       await updateByEnv(env)
-      console.log('更新完成~祝你使用愉快~')
+      logger.info('更新完成~祝你使用愉快~')
     } else {
       // 4.2 取消更新
-      console.log(
+      logger.info(
         '你选择跳过此次更新,如果想要进行更新,随时可以使用参数 -u 进行更新检测!祝你使用愉快~'
       )
     }
     process.exit(0)
   } else {
-    console.log('当前已是最新版本!祝你使用愉快~')
+    logger.info('当前已是最新版本!祝你使用愉快~')
     process.exit(0)
   }
 }

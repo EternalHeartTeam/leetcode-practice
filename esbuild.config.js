@@ -2,6 +2,7 @@ import path from 'node:path'
 import fs, { mkdirSync } from 'node:fs'
 import esbuild from 'esbuild'
 import { rootPath } from '#common/utils/file/getRootPath.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 // 读取 package.json 文件内容
 const packageJson = JSON.parse(
@@ -44,37 +45,17 @@ function clean() {
 }
 
 /**
- * 创建入口文件 暴露三个接口
- */
-function createIndex() {
-  const dirs = buildBinConfig
-  const expTem = `export * from `
-
-  const content = Object.values(dirs).reduce((p, file) => {
-    return `${p + expTem}'${file}'\n`
-  }, '')
-  const filePath = 'pl-cli/index.js'
-  fs.writeFileSync(filePath, content)
-}
-
-/**
  * 复制文档
  */
 function copyDocs() {
-  // 复制文件
-  const docs = fs.readdirSync(path.resolve(rootPath, 'docs'))
   // 创建docs
-  mkdirSync(path.resolve(rootPath, 'pl-cli/docs'), { recursive: true })
+  const docs = ['README.md', 'README_CN.md', 'README_JP.md']
   docs.forEach((doc) => {
     fs.copyFileSync(
-      path.resolve(rootPath, 'docs', doc),
-      path.resolve(rootPath, 'pl-cli/docs/', doc)
+      path.resolve(rootPath, doc),
+      path.resolve(rootPath, `pl-cli/${doc}`)
     )
   })
-  fs.copyFileSync(
-    path.resolve(rootPath, 'README.md'),
-    path.resolve(rootPath, 'pl-cli/README.md')
-  )
   fs.copyFileSync(
     path.resolve(rootPath, 'LICENSE'),
     path.resolve(rootPath, 'pl-cli/LICENSE')
@@ -91,7 +72,6 @@ function rewritePackageFile() {
   publishExcludeFields?.forEach((key) => {
     delete newPackageJson[key]
   })
-  Object.assign(newPackageJson, { main: 'index.js' })
   fs.writeFileSync(
     path.resolve(rootPath, 'pl-cli/package.json'),
     JSON.stringify(newPackageJson)
@@ -104,7 +84,6 @@ function rewritePackageFile() {
 function afterBuild() {
   copyDocs()
   rewritePackageFile()
-  createIndex()
 }
 
 /**
@@ -117,10 +96,10 @@ async function main() {
     .then(() => {
       // 构建完成后执行的操作
       afterBuild()
-      console.log('[LP]脚本打包完成,查看目录[pl-cli].')
+      logger.info('[LP]脚本打包完成,请查看目录[ pl-cli ].')
     })
     .catch((e) => {
-      console.error('[LP]脚本打包失败', e)
+      logger.error('[LP]脚本打包失败', e)
       process.exit(1)
     })
 }

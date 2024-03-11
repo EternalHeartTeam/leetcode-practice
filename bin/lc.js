@@ -21,6 +21,7 @@ import {
   create,
   createQuestionById
 } from '#common/utils/create-check/createUtil.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 const version = process.env.VERSION ?? DefaultVer
 program
@@ -58,7 +59,7 @@ if (cmdOpts.language) {
     await easyLanguageView(cmdOpts.language)
   } else {
     const lang = await getQuestionLanguage()
-    console.log(`当前CLI语言环境为:${lang}`)
+    logger.info(`当前CLI语言环境为:${lang}`)
   }
   process.exit(0)
 }

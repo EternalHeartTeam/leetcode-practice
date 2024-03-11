@@ -38,7 +38,7 @@ if (cmdOpts.language) {
     await easyLanguageView(cmdOpts.language)
   } else {
     const lang = await getQuestionLanguage()
-    console.log(`当前CLI语言环境为:${lang}`)
+    logger.info(`当前CLI语言环境为:${lang}`)
   }
   process.exit(0)
 }

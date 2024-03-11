@@ -10,6 +10,7 @@ import {
 } from '#common/constants/question.const.js'
 import { url_join } from '#common/utils/http/urlJoin.js'
 import { fetch_ } from '#common/utils/http/fetch_.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 // npm 中的 包地址
 const npmUrl = url_join(NPM_URL, PackageName)
@@ -33,10 +34,10 @@ const giteeUrl = url_join(
 export async function getNpmVersion() {
   try {
     const res = await fetch_(npmUrl, { method: 'GET' })
-    console.log('获取NPM版本成功！======', res['dist-tags']?.latest)
+    logger.info('获取NPM版本成功！======', res['dist-tags']?.latest)
     return res['dist-tags']?.latest
   } catch (e) {
-    console.log('获取NPM版本失败！')
+    logger.info('获取NPM版本失败！')
     throw new Error(e)
   }
 }
@@ -52,10 +53,10 @@ export async function getGithubVersion() {
         fetch_(giteeUrl, { method: 'GET' })
       ])
     const ver = github?.version ?? gitee?.version
-    console.log('获取Github版本成功！======', ver)
+    logger.info('获取Github版本成功！======', ver)
     return ver
   } catch (e) {
-    console.log('获取Github版本失败！', e)
+    logger.info('获取Github版本失败！', e)
     throw new Error(e)
   }
 }
@@ -64,10 +65,10 @@ export function getLocalVersion() {
     const { version } = JSON.parse(
       fs.readFileSync(path.resolve(rootPath, 'package.json'), 'utf-8')
     )
-    console.log('本地版本号获取成功!======', version)
+    logger.info('本地版本号获取成功!======', version)
     return version
   } catch (e) {
-    console.log('本地版本号获取失败!')
+    logger.info('本地版本号获取失败!')
     return false
   }
 }

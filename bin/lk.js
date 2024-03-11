@@ -18,6 +18,7 @@ import { description } from '#resources/text/description.js'
 import { easyUpdateView } from '#common/view/update.view.js'
 import { getQuestionFileExtension } from '#common/utils/question-handler/questionLanguage.js'
 import { DefaultVer } from '#common/constants/question.const.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 const version = process.env.VERSION ?? DefaultVer
 program
@@ -63,7 +64,7 @@ if (cmdOpts.language) {
     await easyLanguageView(cmdOpts.language)
   } else {
     const lang = await getQuestionLanguage()
-    console.log(`当前CLI语言环境为:${lang}`)
+    logger.info(`当前CLI语言环境为:${lang}`)
   }
   process.exit(0)
 }
@@ -83,7 +84,7 @@ if (cmdOpts.update) {
 // 检测函数
 async function check(mode, question) {
   if (!question) {
-    console.log('题目信息不存在,请使用lc指令进行创建~')
+    logger.info('题目信息不存在,请使用lc指令进行创建~')
     return false
   }
   const filePath = path.join(
@@ -92,9 +93,9 @@ async function check(mode, question) {
     `question${getQuestionFileExtension(question?.lang)}`
   )
   if (!fs.existsSync(filePath)) {
-    console.log(`文件[${filePath}]不存在,请确保已经创建!`)
+    logger.info(`文件[${filePath}]不存在,请确保已经创建!`)
   } else {
-    console.log(
+    logger.info(
       `MODE: ${mode}\n题目[${getQuestionChineseName(question)}]检测结果:`
     )
     await checkQuestion(filePath)

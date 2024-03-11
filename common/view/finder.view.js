@@ -9,6 +9,7 @@ import {
 import { getQuestionByKeyword } from '#common/utils/question-getter/getQuestionByKeyword.js'
 import { getStudyPlanList } from '#common/utils/question-getter/getStudyPlanList.js'
 import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuestionList.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 async function studyMode(baseDir = process.cwd()) {
   const questionList = await getStudyPlanList()
@@ -51,7 +52,7 @@ async function studyMode(baseDir = process.cwd()) {
 
     await createQuestionByTitleSlug(singleChoice, baseDir)
   }
-  if (createMode === 'all') console.log('暂不支持')
+  if (createMode === 'all') logger.warn('暂不支持')
   // await getHot100QuestionListCode()
 }
 
@@ -71,12 +72,11 @@ async function keywordMode(baseDir = process.cwd()) {
     choices: list
   }
   const chooseQuestion = await select(listQuestion)
-  console.log(chooseQuestion)
   await createQuestionById(chooseQuestion, baseDir)
 }
 
 async function selectMode(baseDir) {
-  console.log(baseDir)
+  logger.info(baseDir)
 }
 
 export async function easyFinderView(baseDir = process.cwd()) {
