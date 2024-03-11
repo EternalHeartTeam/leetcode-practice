@@ -37,6 +37,8 @@ export function updateCli() {
  * @returns {Promise<void>}
  */
 export async function updateProject() {
+  console.log('脚本升级中,请等待后续版本更新...')
+  return
   // todo 更新项目
   // 0. 询问是否存在自己修改过的内容
   // 0.1 如果有过更改,终止更新脚本,并给出提示建议

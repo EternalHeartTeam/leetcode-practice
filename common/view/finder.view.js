@@ -65,8 +65,8 @@ export async function easyFinderView(baseDir = process.cwd()) {
       name: 'hot 100列表查询',
       value: 'hot',
       description: '最受欢迎的100道题目'
-    },
-    { name: '筛选模式', value: 'select', description: '筛选题目' }
+    }
+    // { name: '筛选模式', value: 'select', description: '筛选题目' }
   ]
 
   const modeQuestion = {
