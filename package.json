@@ -42,7 +42,7 @@
     "lint:all": "eslint .",
     "prepare": "husky install",
     "create-color-font": "node scripts/create-color-font.js",
-    "release": "release-it",
+    "release": "release-it --ci",
     "try-release": "release-it --dry-run"
   },
   "dependencies": {
