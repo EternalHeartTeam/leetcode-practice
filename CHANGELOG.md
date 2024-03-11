@@ -1,3 +1,17 @@
+
+
+## [1.0.6](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.5...cli-v1.0.6) (2024-03-11)
+
+
+### Bug Fixes
+
+* realm-compatible-problem ([#25](https://github.com/wh131462/leetcode-practice/issues/25)) ([d2d37d6](https://github.com/wh131462/leetcode-practice/commit/d2d37d68e6405507340b115d55bec15e070cf3ba))
+
+
+### Features
+
+* change lf feature and update docs ([#27](https://github.com/wh131462/leetcode-practice/issues/27)) ([3b7e129](https://github.com/wh131462/leetcode-practice/commit/3b7e129b722391b50d32e48e782f244a12faad05))
+
 ## 1.0.5 (2024-03-11)
 
 ### Bug Fixes
