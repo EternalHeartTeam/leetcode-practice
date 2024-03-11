@@ -5,7 +5,7 @@
     "autoGenerate": true
   },
   "git": {
-    "commitMessage": "release: v${version}",
+    "commitMessage": "feat: v${version}",
     "tagName": "cli-v${version}",
     "tag": true,
     "push": true,
