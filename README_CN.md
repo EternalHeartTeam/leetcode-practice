@@ -1,8 +1,10 @@
 # Leetcode practice
 
-**中文文档**|[英文文档](../README.md)|[日文文档](./README_JP.md)|[韩文文档](./README_KR.md)
+**中文文档**|[English Document](./README.md)|[日本語の文書](./README_JP.md)
 
-## 简介
+## I.项目信息
+
+### 1.简介
 
 一句话介绍：“在编辑器中开始练习你的`leetcode`每日一题！”
 
@@ -14,486 +16,281 @@
 
 那么，`leetcode-practice`将满足你的一切想要！
 
-## 预览
+### 2.预览
 
 ![CLI-lc](../resources/images/lc-cli-h.png)
 
-## 我应该怎么使用？（三种方案供你选择）
+## II.使用须知
 
-### 方案 A : CLI (推荐使用)
+### 0. 预备条件
 
-最好的也是最自由的使用方法是：在终端中使用我们的脚手架，通过三个核心指令:`lk`,`lf`,`lc`,来创建和检查你的题解。
-
-[安装](<#一全局安装脚手架-(方案-A)>) · [使用](#CLI的使用)
-
-### 方案 B : fork (受支持的)
-
-你也可以使用`github`的`fork`功能来创建我们的项目副本，然后，直接使用项目内置指令进行题解的创建和检查。
-
-[安装](<#二使用fork创建你自己的leetcode-practice仓库副本-(方案-B)>) · [使用](#fork项目的使用)
-
-### 方案 C : plugin (受支持的)
-
-你同样可以使用我们发布在插件市场的插件`leetcode-practice`来进行交互式的创建和检查题解。（支持两个主流编辑器：`WebStorm` 和 `VS Code`）
-
-[安装](<#三在编辑器的插件市场安装插件-(方案-C)>) · [使用](#插件的使用)
-
-## 预备条件
-
-| 依赖包 | 版本 |
-| ------ | ---- |
-| nodejs | lts  |
-| git    | lts  |
+| 工具     |            备注            |
+| -------- | :------------------------: |
+| nodejs   |            lts             |
+| git      |            lts             |
+| computer | 能够运行chrome和代码编辑器 |
+| patience |    一颗能够坚持刷题的心    |
 
 > note: nodejs:[nodejs安装向导](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
 >
 > git:[git下载地址](https://git-scm.com/downloads)
 
-## 安装
+### 1. 我可以怎么用? (三种方案供你选择)
+#### 方案A.脚手架 CLI (推荐)
+此方案是最为推荐的使用方案，通过脚手架指令`lc`、`lk`、`lf`自由灵活的在任意的目录中创建并检查你的题解。
 
-### 一.全局安装脚手架 (方案 A)
+> 使用预览
 
-你可以使用任意npm包管理软件（例如`npm`,`yarn`,`pnpm`等）的全局安装方法进行安装。
+#### 方案B.模板项目 Template project (支持)
+
+如果你想要快速的创建一个自己的题解库，可以使用我们的模板项目进行快速的创建github项目，并且获得完善的初始化内容。
+
+>  使用预览
+
+#### 方案C.插件 Plugin (支持，待开发)
+
+如果你想在编辑器中通过点击操作按钮来创建题解，可以使用我们的编辑器插件(计划支持`WebStorm`和`VSCode`)在你的编辑器中创建题解。
+
+> 使用预览
+
+### 2. 我应该怎么用？(三种方案的详细的安装和使用教程)
+#### 方案A.脚手架 CLI
+
+##### 1.安装
+
+你可以使用任意一款npm包管理软件（例如*`*npm*`*,*`*yarn*`*,*`*pnpm*`*等）的在`项目`中或者`全局`进行安装。
 
 ```shell
-# 使用npm进行安装
+# 示例:全局安装
+# 使用npm进行全局安装
 npm install -g leetcode-practice
 # 使用pnpm进行安装
 pnpm install -g leetcode-practice
 # 使用yarn进行安装
 yarn global install leetcode-practice
+
+# 示例:在项目中安装
+yarn add --dev leetcode-practice
 ```
 
-### 二.使用fork创建你自己的leetcode-practice仓库副本 (方案 B)
+> 提示: 在项目中安装和全局安装的区别在于脚手架的作用范围不同。如果在项目中安装，那么指令只能在该项目内使用，而在其他项目中（未安装leetcode-practice包的情况下）则无法使用指令。而全局安装则允许在任何目录下使用指令。
 
-#### 常规方法
+##### 2.使用
 
-1. 打开我们的项目地址:[leetcode-practice](https://github.com/wh131462/leetcode-practice)
+在这里给大家简单介绍一下每日一题的`创建`和`检查`，还有关键词搜索的使用方式，最为详细具体的指令和参数请参照[KFC及其关键参数说明 ](#3.-KFC及其关键参数说明-(三种方案通用的参考手册))
 
-![leetcode-practice-github](../resources/images/leetcode-practice-github.png)
+###### 2.1 创建题目
 
-2. 点击`fork`按钮
-
-你会看到这样的一个页面，然后修改仓库名和描述，确认勾选`Copy the master branch only`
-![github-fork](../resources/images/github-fork.png)
-
-3. 点击确认创建，等待创建
-
-![github-forking](../resources/images/github-forking.png)
-
-4. 创建完成，然后拉取这个仓库愉快地开始你的解题吧！
-
-![github-forked](../resources/images/github-forked.png)
-
-#### 简便方法
-
-1. 拉取我们的仓库到本地
+在指令作用范围中，执行指令`lc`来进行创建今天的每日一题:
 
 ```shell
-git clone https://github.com/wh131462/leetcode-practice.git
-```
-
-2. 执行我们的部署脚本
-
-```shell
-# 使用你喜欢的包管理器进行执行脚本即可
-npm run easy-fork
-```
-
-3. 完成部署
-
-### 三.在编辑器的插件市场安装插件 (方案 C)
-
-待开发...
-
-## 使用方法
-
-### CLI的使用
-
-#### 1.创建题解 - `lc`
-
-##### [1]. 获取今日题目 - [`-t`/`--today`]
-
-在终端中键入`lc`指令，即可默认在当前终端的工作区中获取今日的题目。
-
-```shell
+# 移动到我的工作目录中
+cd my-workspace
+# 创建每日一题
 lc
-# 完整指令
-lc -t
 ```
 
-示例获取今日题目：
+当看到提示:
 
 ```shell
-# 例如当前执行目录为src目录
-➜  src git:(dev) ✗ lc
 MODE: today
-题目[2867.统计树中的合法路径数目]获取成功!
-题目文件地址为:/home/wh131462/workspace/leetcode-practice/src/2867.count-valid-paths-in-a-tree/index.js
+题目[299.猜数字游戏]获取成功!
+题目文件地址为:/my-workspace/299.bulls-and-cows/question.js
 ```
 
-##### [2]. 获取指定题目 - [`-i`/`--identity`]
+你的题目就已经创建完成了！可以在编辑器中愉快的解题了！
 
-在终端中键入`lc`指令加上对应的题号，即可在当前工作区中获取指定题目。
+###### 2.2 检查题目
 
-```shell
-lc 1314
-# 完整指令
-lc -i 1314
-# 使用双引号(")进行包裹 可以确保指定编号准确，对于带空格的题目编号尤其有用
-lc -i "LCP 50"
-```
-
-示例获取`LCP 50`：
+当你完成解题代码的编写，可以通过`lk`指令进行简单的检查题解！
 
 ```shell
-➜  src git:(dev) ✗ lc "LCP 50"
-MODE: identity
-题目[LCP 50.宝石补给]获取成功!
-题目文件地址为:/home/wh131462/workspace/leetcode-practice/src/LCP 50.WHnhjV/index.js
-```
-
-##### [3]. 获取随机题目 - [`-r`/`--random`]
-
-在终端中键入`lc`指令加上参数`-r`，即可在当前工作区中获取随机题目，会优先获取不存在当前目录中的题目。
-
-```shell
-# 完整指令
-lc -r
-```
-
-示例获取随机题目：
-
-```shell
-➜  src git:(dev) ✗ lc -r
-MODE: random
-题目[14.最长公共前缀]获取成功!
-题目文件地址为:/home/wh131462/workspace/leetcode-practice/src/14.longest-common-prefix/index.js
-```
-
-##### [4]. 简单创建模式(交互式创建) - [`-e`/`--easy`]
-
-除了如上的使用精准的指令快速创建题目外，还可以使用简单创建模式来进行交互式创建。
-
-```shell
-lc -e
-```
-
-使用简单模式创建今日题目示例：
-
-```shell
-➜  src git:(dev) ✗ lc -e
-? 请选择创建问题的模式: today
-? 是否在目录[ /home/wh131462/workspace/leetcode-practice/src ]下创建题目[ 2867.count-valid-paths-in-a-tree ]? Yes
-题目[2867.count-valid-paths-in-a-tree]创建完成！
-文件地址为: /home/wh131462/workspace/leetcode-practice/src/2867.count-valid-paths-in-a-tree/index.js
-
-```
-
-#### 2.检查题解 - `lk`
-
-##### [1]. 检查今日题解 [`-t`/`--today`]
-
-在终端中键入`lk`指令，即可在当前工作区中检查今日题解。
-
-```shell
-# 默认执行检查今日题解
+# lk指令和lc指令的模式是对应的，不带参数的时候意为检查今日题目
 lk
-# 完整指令
-lk -t
 ```
 
-使用示例:
+你会得到如下提示信息:
 
 ```shell
-# 指定了src目录为根目录
-workspace/leetcode-practice [dev●] » lk -d src -t
 MODE: today
-题目[2581.统计可能的树根数目]检测结果:
+题目[299.猜数字游戏]检测结果:
+┌────────────┬──────────────────────────────────────────┬──────────────────────────────────────────┬────────────┬────────────┐
+│  测试结果  │                 预期结果                    │                 执行结果                  │  执行用时    │  内存占用   │
+├────────────┼──────────────────────────────────────────┼──────────────────────────────────────────┼────────────┼────────────┤
+│    通过    │                  "1A3B"                   │                  "1A3B"                  │  0.1361ms  │  2.79 KB   │
+│    通过    │                  "1A1B"                   │                  "1A1B"                  │  0.0623ms  │  2.93 KB   │
+└────────────┴──────────────────────────────────────────┴──────────────────────────────────────────┴────────────┴────────────┘
+点击跳转到题目提交: https://leetcode.cn/problems/bulls-and-cows/
 ```
 
-| index | 测量结果 | 预期结果 | 执行结果  | 执行用时 | 内存占用 |
-| ----- | -------- | -------- | --------- | -------- | -------- |
-| 0     | 未通过   | '3'      | undefined | 0.0921ms | 2.52 KB  |
-| 1     | 通过     | '5'      | undefined | 0.0119ms | 2.66 KB  |
+你可以看到`测试结果`、`预期结果`、`执行结果`、`执行用时`以及`内存占用`信息。
 
-> 点击跳转到题目提交:<https://leetcode.cn/problems/count-number-of-possible-root-nodes/>
+###### 2.3 搜索题目
 
-##### [2]. 检查指定题解 [`-i`/`--identity` + `<identity>`]
-
-在终端中键入`lk`指令,并输入题目编号，即可在当前工作区中检查指定题解。
+关键词搜索是核心指令`lf`的一项基本功能，可以通过关键词的形式获取题目信息，并快速的选择创建。
 
 ```shell
-# 检查指定题解
-lk 2581
-# 完整指令
-lk -i 2581
-# 带空格的编号 使用双引号包裹
-lk "LCP 50"
+# lf指令是一个完全交互式的指令 按其中的提示进行输入操作即可获取自己想要的信息
+lf
 ```
 
-使用示例检查指定题解:
+以下演示获取`两数之和`这个题目如何通过关键词搜索创建:
 
 ```shell
-workspace/leetcode-practice [dev●] » lk -d src 2581
+# 在输入关键词 两数 之后 按下回车 会出现所有和两数相关的题目 按键盘的上下键进行选择 回车进行确认
+? 请选择查找的模式? 关键词搜索
+? 请输入关键词 两数
+? 请选择题目
+LCR 025.两数相加 II
+2.两数相加
+29.两数相除
+❯ 1.两数之和
+LCR 006.两数之和 II - 输入有序数组
+445.两数相加 II
+LCR 056.两数之和 IV - 输入二叉搜索树
+(Use arrow keys to reveal more choices)
+
+# 确认后的会进行题目创建，返回成功信息
+? 请选择查找的模式? 关键词搜索
+? 请输入关键词 两数
+? 请选择题目 1.两数之和
+1
 MODE: identity
-题目[2581.统计可能的树根数目]检测结果:
+题目[1.两数之和]获取成功!
+题目文件地址为:fill:///my-workspace/1.two-sum/question.js:36
 ```
 
-| index | 测量结果 | 预期结果 | 执行结果 | 执行用时 | 内存占用 |
-| ----- | -------- | -------- | -------- | -------- | -------- |
-| 0     | 通过     | '3'      | '3'      | 0.1668ms | 2.52 KB  |
-| 1     | 通过     | '5'      | '5'      | 0.0234ms | 2.66 KB  |
+> 提示: 在创建完成的时候会输出一个可以点击跳转的文件地址，如果在编辑器的控制台中点击，会直接打开对应的文件的函数开始位置。
 
-> 点击跳转到题目提交:<https://leetcode.cn/problems/count-number-of-possible-root-nodes/>
+#### 方案B.模板项目 Template project
 
-##### [3]. 检查随机获取的题解 [`-r`/`--random`]
+##### 1.创建模板项目
 
-在终端中键入`lk`指令,使用参数`-r`，即可在当前工作区中检查上一个随机获取的题解。
+1. 在`github`中打开我们的模板项目[leetcodePracticeTemplate](https://github.com/EternalHeartTeam/LeetcodePracticeTemplate)。
+2. `点击`右上角的`Use this template`,选择[`Create a new repository`](https://github.com/new?template_name=LeetcodePracticeTemplate&template_owner=EternalHeartTeam)。
+3. 就像创建一个正常的仓库一样去填写信息即可。
+4. 等待...然后完成，从此你就有了一个自己的`leetcode题解仓库`，并且长期受`leetcode-practice`官方支持！
+
+> 填充创建过程图
+
+##### 2. 使用模板项目
+
+1. 拉取项目,并进行初始化依赖。
+
+e.g. 以我个人的项目为例
+
+```shell 
+# 这里只是示例，请拉取自己的项目(在你看到这进行尝试的时候，此项目可能已经被清理，正常现象请勿疑惑)
+git clone git@github.com:wh131462/my-leetcode-practice.git
+# 移动进项目目录
+cd my-leetcode-practice
+# 初始化
+npm i
+```
+
+2. 在项目中的使用
+
+在模板项目中使用`leetcode-practice`的方式有两种，一种是`项目内指令`的形式，一种是`npm脚本`的形式。接下来演示创建的过程，其他的指令用法和参数与脚手架一致，请参考[KFC及其关键参数说明](#3.-KFC及其关键参数说明-(三种方案通用的参考手册))部分。
 
 ```shell
-# 完整指令
-lk -r
+# 在项目的根目录下 执行npm run lc 创建今日一题，因为默认配置了 -d src 所以 会在 src 目录下进行创建
+npm run lc
+# 也可以使用 yarn :任意一种你喜欢的包管理工具
+yarn lc
 ```
 
-使用示例:
+你也可以使用指令`lc`来创建,当然，你只能在项目中使用我们的脚本(如果你没有全局安装`leetcode-practice`的话)。
+```shell
+# 使用lc 会在当前工作目录创建 如果 需要和脚本的表现保持一致(指在src目录下创建)，请使用 -d src 参数
+lc
+```
+
+> 注意：在这里进行一下强调，项目内指令的说法是指指令的作用范围限制是当前的项目目录，也就是说在其他的目录，你尝试使用lc指令会发现不起作用。
+> 
+> 同样的，你也会发现在第一次安装好的时候，在项目内使用lc指令，也是不起作用的，这个时候需要关闭终端(terminal)再打开进行手动的刷新缓存。
+> 
+> npm脚本指在 package.json 中的 scripts 字段下封装的脚本指令。
+
+3. 更新依赖
+
+当你想要进行更新的时候，可以执行封装好的npm指令:`update`,可以帮你安装`最新版本(latest)`的`leetcode-practice`。
 
 ```shell
-workspace/leetcode-practice [dev●] » lk -r
-MODE: random
-题目[41.缺失的第一个正数]检测结果:
+# 使用任意一种包管理工具执行即可
+npm run update
+# 当然你也可以自己执行指令
+npm i --save-dev leetcode-practice
 ```
 
-| index | 测量结果 | 预期结果 | 执行结果  | 执行用时 | 内存占用 |
-| ----- | -------- | -------- | --------- | -------- | -------- |
-| 0     | 未通过   | '3'      | undefined | 0.0896ms | 2.42 KB  |
-| 1     | 未通过   | '2'      | undefined | 0.0110ms | 2.56 KB  |
-| 2     | 未通过   | '1'      | undefined | 0.0045ms | 2.56 KB  |
+#### 方案C.插件 Plugin （待开发）
 
-> 点击跳转到题目提交:<https://leetcode.cn/problems/first-missing-positive/>
->
-> 注意:在执行此指令之前请务必先执行过,`lc -r`创建了随机题目。
+### 3. KFC及其关键参数说明 (三种方案通用的参考手册)
 
-##### [4]. 简单模式(交互式检查) [`-e`/`--easy`]
+#### [0].什么是KFC?
 
-在终端中键入`lk`指令,使用参数`-e`，即可使用交互式的进行题目检查。
+`KFC`是一个简便记法，可以快速记忆我们的三个核心指令:`lk`,`lf`,`lc`。
 
-```shell
-# 完整指令
-lk -e
-```
+| 指令 | 说明                                                     |
+|----|--------------------------------------------------------|
+| lc | 核心创建指令，支持三种创建模式 ( 每日一题、指定题目、随机题目 ) 进行题目的创建             |
+| lk | 核心检查指令，支持三种模式对应的题目检测                                   |
+| lf | 核心查找指令，可以快捷的搜索你想要的题目，支持Hot100，关键词搜索，条件筛选等模式进行搜索题目并支持创建 |
 
-使用简单模式检测指定题目:
+#### [1].lc
 
-```shell
-workspace/leetcode-practice [dev●] » lk -e
-? 请选择检查问题的模式: identity
-? 请输入题目编号: 41
-? 是否检测当前目录[ /Users/mac-106/wh131462/workspace/leetcode-practice ]下的题目[ 41.first-missing-positive ]? Yes
-```
+| 简单参数      | 完整参数         | 说明               |
+|-----------|--------------|------------------|
+| 无参数/`-t`  | `--today`    | 创建今日的每日一题        |
+| 题目编号/`-i` | `--identity` | 创建指定编号对应的题目      |
+| `-r`      | `--random`   | 创建当前目录下未出现过的随机题目 |
+| `-e`      | `--easy`     | 交互式创建题目          |
 
-| index | 测量结果 | 预期结果 | 执行结果  | 执行用时 | 内存占用 |
-| ----- | -------- | -------- | --------- | -------- | -------- |
-| 0     | 未通过   | '3'      | undefined | 0.0969ms | 2.42 KB  |
-| 1     | 未通过   | '2'      | undefined | 0.0139ms | 2.56 KB  |
-| 2     | 未通过   | '1'      | undefined | 0.0051ms | 2.56 KB  |
-
-> 点击跳转到题目提交:<https://leetcode.cn/problems/first-missing-positive/>
-> 题目[41.first-missing-positive]检查完成！
-> 文件地址为: /Users/mac-106/wh131462/workspace/leetcode-practice/41.first-missing-positive/index.js
+#### [2].lk
 
-#### 3.题目查找 - `lf`
+| 简单参数      | 完整参数         | 说明                                   |
+|-----------|--------------|--------------------------------------|
+| 无参数/`-t`  | `--today`    | 检查今日的每日一题                            |
+| 题目编号/`-i` | `--identity` | 检查指定编号对应的题目，会检查当前工作目录下的是否存在指定id对应的题目 |
+| `-r`      | `--random`   | 检查上一次使用随机模式创建的题目                     |
+| `-e`      | `--easy`     | 交互式的根据提示去检查对应的题目                     |
 
-待开发...
+> 注意: 当你检测的时候需要注意，使用什么模式去检查，请确保你已经执行过对应模式的创建操作。
+> 指定编号模式除外，因为会优先检查指定的id是否在当前工作目录存在。
 
-##### [1]. 查看题目列表[待开发]
+#### [3].lf
 
-#### 4.通用参数
+| 简单参数 | 完整参数 | 说明                        |
+|------|------|---------------------------|
+| 无参数  | 无    | 进入交互式查询，可根据提示搜索或筛选题目并创建题目 |
 
-##### [1]. 获取或指定当前编程语言 - [`-l`/`-language` [language]]
+#### [4].通用参数
 
-可以通过`-l`不带参数来获取当前的编程语言设定，也可以通过指定语言参数将当前cli的语言环境设定为指定的语言。
+| 简单参数             | 完整参数                      | 说明                                                                        |
+|------------------|---------------------------|---------------------------------------------------------------------------|
+| `-d <directory>` | `--directory <directory>` | 指定工作目录(是一个当前执行目录的相对地址)，会影响创建和检查                                           |
+| `-V`             | `--version`               | 检查版本号                                                                     |
+| `-h`             | `--help`                  | 获取帮助信息                                                                    |
+| `-l [language]`  | `--language [language]`   | 不指定参数为获取当前的语言环境(默认为javascript),指定参数可以设置语言环境为对应语言(如`-l java`可以指定语言环境为java) |
+| `-u`             | `--update`                | 更新当前脚本或者依赖                                                                |
 
-```shell
-# 此参数在 lc/lk/lf 中的表现一致
-lc -l
-lk -l java
-```
+> 注意:通用参数指三个脚本`lk`,`lf`,`lc`都支持的参数，使用上的语义一般来说是相同的，但是可能有些指令上的行为含义会有所不同(比如`lc`指令指定`-d`参数是指`在指定目录中创建题目`,而`lk`指令指定`-d`参数就是指`在指定目录创建题目`)。
 
-使用示例：
+## III. Additional Information
 
-```shell
-# 获取语言环境
-➜  leetcode-practice git:(dev) ✗ lc -l
-当前CLI语言环境为:javascript
-# 更改语言环境
-➜  leetcode-practice git:(dev) ✗ lc -l java
-? 请确认你要设置CLI的语言环境(如果选项匹配成功，那么按下回车确认即可) java
-设置语言环境为: java
+### 1. Contributors
 
-```
+The development and improvement of the project would not be possible without the hard work of these contributors. Sincere thanks to all of them!
 
-> 注意: 在这个环境下无法执行检测测试用例。
+<a href="https://github.com/EternalHeartTeam/leetcode-practice/graphs/contributors" target="_blank"><img src="https://raw.githubusercontent.com/EternalHeartTeam/leetcode-practice/svg/images/contributors.png" /></a>
 
-##### [2]. 指定目录 - [`-d`/`-directory`]
+### 2. Feedback
 
-`创建`和`检查`指令还可以使用参数`-d`来指定基于当前工作目录的相对地址作为指定目录。
-当指定目录后会在指定目录中进行创建或者检查操作。
+If you have any questions about usage or would like to offer some suggestions, feel free to join our feedback group!
 
-```shell
-# 指定当前目录的子目录src作为生成目录
-lc -d src -t
-# 指定当前目录的子目录src作为检查目录
-lk -d src -i
-```
+Engage in face-to-face discussions with developers in the group, hoping to resonate with each other and spark new ideas!
 
-使用示例：
+![Feedback Group](./resources/images/service-qrcode.png)
 
-```shell
-➜  src git:(dev) ✗ lc -d src -t
-MODE: today
-题目[2867.统计树中的合法路径数目]获取成功!
-题目文件地址为:/home/wh131462/workspace/leetcode-practice/src/src/2867.count-valid-paths-in-a-tree/index.js
-```
+### 3. Star Trend Chart
 
-> 注意： 如果指定的目录不存在，会自动生成一个空目录进行创建。
-
-##### [3]. 检查版本号 [`-V`/`--version`]
-
-```shell
-# 查看lc版本
-lc -V
-# 查看lk版本
-lk -V
-# 查看lf版本
-lf -V
-```
-
-查看lc版本示例:
-
-```shell
-workspace/leetcode-practice [dev●] » lc -V
-0.0.0
-```
-
-##### [4]. 更新检测 [`-u`/`--update`]
-
-使用`-u`或者`--update`参数可以检测当前版本是否为最新版本，如果当前版本不是最新版本，会提示用户是否进行更新.
-
-```shell
-lk -u
-lf -u
-lc -u
-```
-
-```shell
-? 自动检测到的环境为[ project ],如果不是,请进行选择,如是,请按下回车确认. project
-开始获取npm仓库中的版本号...
-npm仓库中的版本号获取成功!
-开始获取github仓库的版本号...
-github仓库的版本号获取成功!
-开始获取本地版本号...
-本地版本号获取成功!
-当前版本:[ 1.0.0 ] npm包最新版本:[ 1.0.1 ] github版本:[ 1.0.1 ]
-? 检测到[ project ]可更新版本[ 1.0.1 ],是否进行更新? (Y/n) Yes
-更新完成~祝你使用愉快~
-```
-
-### fork项目的使用
-
-#### [0]. 安装依赖
-
-在使用之前,先使用包管理工具进行依赖的安装.
-
-```shell
-# 安装依赖
-npm install
-# 或者 使用yarn (你可以使用任意一种你喜欢的包管理工具)
-yarn
-```
-
-fork项目中的指令,使用上和脚手架CLI的使用参数是一致的,只不过需要通过`npm run`类似的包管理工具执行命令来执行脚本.
-
-> 注意:在项目中的脚本,和脚手架的唯一区别就是默认指定了`-d`参数,指向了项目根目录的`src`目录,所以所有的指令都是在src中默认执行的.
-
-#### [1]. 创建题解 [`lc`]
-
-参数参考cli的`lc`部分: [lc](#1创建题解---lc)
-
-简单使用示例:
-
-```shell
-# 使用yarn执行
-yarn lc 1314
-```
-
-执行结果:
-
-```shell
-# 会在src目录下进行生成
-> yarn lc 1314
-yarn run v1.22.19
-$ node bin/lc.js -d src 1314
-MODE: identity
-题目[1314.矩阵区域和]获取成功!
-题目文件地址为:/Users/mac-106/wh131462/workspace/leetcode-practice/src/1314.matrix-block-sum/index.js
-✨  Done in 1.06s.
-```
-
-#### [2]. 检查题解 [`lk`]
-
-参数参考cli的`lk`部分: [lk](#2检查题解---lk)
-
-简单使用示例:
-
-```shell
-# 使用yarn执行
-yarn lk 1314
-```
-
-执行结果:
-
-```shell
-# 会在src目录下进行检查
-> yarn lk 1314
-yarn run v1.22.19
-$ node bin/lk.js -d src 1314
-MODE: identity
-题目[1314.矩阵区域和]检测结果:
-```
-
-| index | 测量结果 | 预期结果                             | 执行结果  | 执行用时 | 内存占用 |
-| ----- | -------- | ------------------------------------ | --------- | -------- | -------- |
-| 0     | 未通过   | '[[12,21,16],[27,45,33],[24,39,28]]' | undefined | 0.1487ms | 2.47 KB  |
-| 1     | 未通过   | '[[45,45,45],[45,45,45],[45,45,45]]' | undefined | 0.0278ms | 2.61 KB  |
-
-> 点击跳转到题目提交:<https://leetcode.cn/problems/matrix-block-sum/>
-> ✨ Done in 1.13s.
-
-#### [3]. 查找题解 [`lf`]
-
-参数参考cli的`lf`部分: [lf](#3题目查找---lf)
-
-待开发...
-
-#### [4]. 更新 [`update`]
-
-特定更新本地项目的脚本,会更新所有的非src目录,用以同步项目最新特性.
-
-> 注意: 如果你有自己的优化更改代码,这一步请谨慎操作! 请参考我们的[特殊情况下的升级方案](./update.md)!
-
-### 插件的使用
-
-待开发...
-
-## 贡献者
-
-[<img src="https://avatars.githubusercontent.com/u/48346853" style="border-radius:50%;" width="30" height="30" alt="EternalHeart"/>](https://github.com/wh131462)
-[<img src="https://avatars.githubusercontent.com/u/61453917" style="border-radius:50%;" width="30" height="30" alt="SmartTeddy"/>](https://github.com/SmallTeddy)
-[<img src="https://avatars.githubusercontent.com/u/35305691" style="border-radius:50%;" width="30" height="30" alt="Hedwig-Fang"/>](https://github.com/Hedwig-Fang)
-
-## 使用反馈
-
-如果有使用上的`问题`,或者一些`好的建议`,可以加我们的`使用反馈群`进行`反馈`!我们会及时处理!
-
-![反馈群](../resources/images/service-qrcode.png)
+[![Star History Chart](https://api.star-history.com/svg?repos=EternalHeartTeam/leetcode-practice&type=Date)](https://star-history.com/#EternalHeartTeam/leetcode-practice&Date)

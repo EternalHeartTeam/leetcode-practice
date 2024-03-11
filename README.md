@@ -1,500 +1,276 @@
 # Leetcode practice
 
-[Chinese Document](docs/README_CN.md)|**English Document**|[Japanese Document](docs/README_JP.md)|[Korean Document](docs/README_KR.md)
+**中文文档**|[English Document](./README.md)|[日本語の文書](./README_JP.md)
 
-## Introduction
+## I. Project Information
 
-A brief introduction: "Start practicing your daily LeetCode questions in the editor!"
+### 1. Introduction
+
+One-sentence introduction: "Start practicing your `LeetCode` daily questions in the editor!"
 
 If you want to write your solutions in the editor...
 
-If you want to quickly access daily questions...
+If you want a simple and quick way to get daily questions...
 
-If you want to create your own solution repository...
+If you want to create your own repository for solutions...
 
-Then, leetcode-practice will meet all your needs!
+Then, `leetcode-practice` is all you need!
 
-## Preview
+### 2. Preview
 
-![CLI-lc](resources/images/lc-cli-h.png)
+![CLI-lc](../resources/images/lc-cli-h.png)
 
-## How should I use it? (Three options for you to choose from)
+## II. Instructions for Use
 
-### Option A: CLI (Recommended)
+### 0. Prerequisites
 
-The best and most flexible way to use it is to use our CLI in the terminal. You can create and check your solutions using three core commands: `lk`, `lf`, and `lc`.
+| Tool     | Remarks                      |
+| -------- | :---------------------------: |
+| nodejs   |            lts              |
+| git      |            lts              |
+| computer | Ability to run Chrome and a code editor |
+| patience |    A heart that can persist in practicing problems    |
 
-[Installation](<#I-Global-Installation-of-CLI-(Option-A)>) · [Usage](#using-cli)
-
-### Option B: Fork (Supported)
-
-You can also use GitHub's fork feature to create a copy of our project. Then, you can directly use the built-in commands within the project to create and check solutions.
-
-[Installation](<#II-Fork-the-Repository-to-Create-Your-Own-leetcode-practice-Repository-(Option-B)>) · [Usage](#using-the-forked-project)
-
-### Option C: Plugin (Supported)
-
-You can also use our `leetcode-practice` plugin available in the plugin marketplace for interactive creation and checking of solutions. (Supported on two popular editors: `WebStorm` and `VS Code`)
-
-[Installation](<#III-Install-Plugins-from-the-Editor's-Marketplace-(Option-C)>) · [Usage](#plugin-usage)
-
-## Prerequisites
-
-| Dependency | Version |
-| ---------- | ------- |
-| nodejs     | lts     |
-| git        | lts     |
-
-> note: nodejs:[Node.js Installation Guide](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
+> Note: nodejs: [Node.js Installation Guide](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
 >
-> git:[Git Download Link](https://git-scm.com/downloads)
+> git: [Git Download Page](https://git-scm.com/downloads)
 
-## Installation
+### 1. How Can I Use It? (Three Options for You to Choose From)
+#### Option A. Command-Line Interface (CLI) (Recommended)
 
-### I. Global Installation of CLI (Option A)
+This option is the most recommended way to use the tool. You can freely create and check your solutions in any directory using the CLI commands `lc`, `lk`, and `lf`.
 
-You can install the CLI globally using any npm package manager such as `npm`, `yarn`, `pnpm`, etc.
+> Usage Preview
+
+#### Option B. Template Project (Supported)
+
+If you want to quickly create your own repository for solutions, you can use our template project to quickly create a GitHub project and get comprehensive initialization content.
+
+>  Usage Preview
+
+#### Option C. Plugin (Supported, Under Development)
+
+If you want to create solutions in your editor by clicking buttons, you can use our editor plugin (planned support for `WebStorm` and `VSCode`) to create solutions in your editor.
+
+> Usage Preview
+
+### 2. How Should I Use It? (Detailed Installation and Usage Guides for Three Options)
+#### Option A. Command-Line Interface (CLI)
+
+##### 1. Installation
+
+You can install it globally or locally in your project using any npm package manager (e.g., `npm`, `yarn`, `pnpm`).
 
 ```shell
-# Using npm
+# Example: Global Installation
+# Using npm for global installation
 npm install -g leetcode-practice
-# Using pnpm
+# Using pnpm for installation
 pnpm install -g leetcode-practice
-# Using yarn
+# Using yarn for installation
 yarn global install leetcode-practice
+
+# Example: Installation in the Project
+yarn add --dev leetcode-practice
 ```
 
-### II. Fork the Repository to Create Your Own leetcode-practice Repository (Option B)
+> Note: The difference between installing in the project and globally lies in the scope of the CLI commands. If installed in the project, the commands can only be used within that project, and cannot be used in other projects (where the `leetcode-practice` package is not installed). Global installation allows you to use the commands in any directory.
 
-#### Regular Method
+##### 2. Usage
 
-1. Open our project link: [leetcode-practice](https://github.com/wh131462/leetcode-practice)
+Here's a simple introduction to creating and checking daily questions, as well as using keyword search. For more detailed instructions and parameters, please refer to the [KFC and its Key Parameter Explanation](#3.-KFC-and-its-Key-Parameter-Explanation-(Universal-Reference-Manual)) section.
 
-![leetcode-practice-github](resources/images/leetcode-practice-github.png)
+###### 2.1 Creating a Question
 
-2. Click the `fork` button
-
-You will see a page like this, then modify the repository name and description, make sure to check `Copy the master branch only`.
-![github-fork](resources/images/github-fork.png)
-
-3. Click confirm to create, wait for creation
-
-![github-forking](resources/images/github-forking.png)
-
-4. Once created, pull this repository and start solving problems happily!
-
-![github-forked](resources/images/github-forked.png)
-
-#### Simplified Method
-
-1. Pull our repository to your local machine
+Within the command scope, use the command `lc` to create today's daily question:
 
 ```shell
-git clone https://github.com/wh131462/leetcode-practice.git
-```
-
-2. Execute our deployment script
-
-```shell
-# Use your preferred package manager to execute the script
-npm run easy-fork
-```
-
-3. Deployment completed
-
-### III. Install Plugins from the Editor's Marketplace (Option C)
-
-To be developed...
-
-## Usage
-
-### Using CLI
-
-#### 1. Creating Solutions - `lc`
-
-##### [1]. Get Today's Problem - [`-t`/`--today`]
-
-Type `lc` in the terminal to get today's problem in the current working directory by default.
-
-```shell
+# Move to my workspace directory
+cd my-workspace
+# Create the daily question
 lc
-# Full command
-lc -t
 ```
 
-Example of getting today's problem:
+When you see the prompt:
 
 ```shell
-# For example, the current execution directory is src
-➜  src git:(dev) ✗ lc
 MODE: today
-Successfully obtained problem [2867.Count the Number of Valid Paths in a Tree]!
-Problem file address is: /home/wh131462/workspace/leetcode-practice/src/2867.count-valid-paths-in-a-tree/index.js
+题目[299.猜数字游戏]获取成功!
+题目文件地址为:/my-workspace/299.bulls-and-cows/question.js
 ```
 
-##### [2]. Get Specified Problem - [`-i`/`--identity`]
+Your question has been created! You can now solve it happily in the editor!
 
-Type `lc` followed by the corresponding problem number in the terminal to get the specified problem in the current working directory.
+###### 2.2 Checking a Question
 
-```shell
-lc 1314
-# Full command
-lc -i 1314
-# Use double quotation marks (") to ensure accurate identification, especially for problem numbers with spaces
-lc -i "LCP 50"
-```
-
-Example of getting problem `LCP 50`:
+Once you've written your solution code, you can use the `lk` command to perform a simple check of the solution!
 
 ```shell
-➜  src git:(dev) ✗ lc "LCP 50"
-MODE: identity
-Successfully obtained problem [LCP 50.Supply of Jewel]!
-Problem file address is: /home/wh131462/workspace/leetcode-practice/src/LCP 50.WHnhjV/index.js
-```
-
-##### [3]. Get Random Problem - [`-r`/`--random`]
-
-Type `lc` followed by the `-r` parameter in the terminal to get a random problem in the current working directory. It will prioritize obtaining problems not currently in the directory.
-
-```shell
-# Full command
-lc -r
-```
-
-Example of getting a random problem:
-
-```shell
-➜  src git:(dev) ✗ lc -r
-MODE: random
-Successfully obtained problem [14.Longest Common Prefix]!
-Problem file address is: /home/wh131462/workspace/leetcode-practice/src/14.longest-common-prefix/index.js
-```
-
-##### [5]. Easy Creation Mode (Interactive Creation) - [`-e`/`--easy`]
-
-In addition to creating problems quickly with precise commands as mentioned above, you can also use easy creation mode for interactive creation.
-
-```shell
-lc -e
-```
-
-Example of creating today's problem using easy mode:
-
-```shell
-➜  src git:(dev) ✗ lc -e
-? Select the problem creation mode: today
-? Create the problem [ 2867.count-valid-paths-in-a-tree ] in the directory [ /home/wh131462/workspace/leetcode-practice/src ]? Yes
-Problem [2867.count-valid-paths-in-a-tree] created!
-File address is: /home/wh131462/workspace/leetcode-practice/src/2867.count-valid-paths-in-a-tree/index.js
-
-```
-
-#### 2. Checking Solutions - `lk`
-
-##### [1]. Check Today's Solution [`-t`/`--today`]
-
-Type `lk` in the terminal to check today's solution in the current working directory.
-
-```shell
-# By default, check today's solution
+# The lk command corresponds to the lc command mode, and when used without parameters, it means checking today's question
 lk
-# Full command
-lk -t
 ```
 
-Example of checking today's solution:
+You will receive information like this:
 
 ```shell
-# Specified src directory as the root directory
-workspace/leetcode-practice [dev●] » lk -d src -t
 MODE: today
-Check result for problem [2581.Count Possible Trees]:
+题目[299.猜数字游戏]检测结果:
+┌────────────┬──────────────────────────────────────────┬──────────────────────────────────────────┬────────────┬────────────┐
+│  测试结果  │                 预期结果                    │                 执行结果                  │  执行用时    │  内存占用   │
+├────────────┼──────────────────────────────────────────┼──────────────────────────────────────────┼────────────┼────────────┤
+│    通过    │                  "1A3B"                   │                  "1A3B"                  │  0.1361ms  │  2.79 KB   │
+│    通过    │                  "1A1B"                   │                  "1A1B"                  │  0.0623ms  │  2.93 KB   │
+└────────────┴──────────────────────────────────────────┴──────────────────────────────────────────┴────────────┴────────────┘
+Click here to submit the question: https://leetcode-cn.com/problems/bulls-and-cows/
 ```
 
-| index | Test Result | Expected Result | Execution Result | Execution Time | Memory Usage |
-| ----- | ----------- | --------------- | ---------------- | -------------- | ------------ |
-| 0     | 'Failed'    | '3'             | undefined        | 0.0921ms       | 2.52 KB      |
-| 1     | 'Passed'    | '5'             | undefined        | 0.0119ms       | 2.66 KB      |
+You can see the `Test Result`, `Expected Result`, `Execution Result`, `Execution Time`, and `Memory Usage` information.
 
-> Click to jump to problem submission: <https://leetcode.com/problems/count-number-of-possible-root-nodes/>
+###### 2.3 Searching for a Question
 
-##### [2]. Check Specified Solution [`-i`/`--identity` + `<identity>`]
-
-Type `lk` followed by the problem number in the terminal to check the specified solution in the current working directory.
+Keyword search is a basic function of the core command `lf`, which allows you to quickly search for the question you want and choose to create it.
 
 ```shell
-# Check specified solution
-lk 2581
-# Full command
-lk -i 2581
-# For problem numbers with spaces, use double quotation marks
-lk "LCP 50"
-```
-
-Example of checking the specified solution:
-
-```shell
-workspace/leetcode-practice [dev●] » lk -d src 2581
-MODE: identity
-Check result for problem [2581.Count Possible Trees]:
-```
-
-| index | Test Result | Expected Result | Execution Result | Execution Time | Memory Usage |
-| ----- | ----------- | --------------- | ---------------- | -------------- | ------------ |
-| 0     | 'Passed'    | '3'             | '3'              | 0.1668ms       | 2.52 KB      |
-| 1     | 'Passed'    | '5'             | '5'              | 0.0234ms       | 2.66 KB      |
-
-> Click to jump to problem submission: <https://leetcode.com/problems/count-number-of-possible-root-nodes/>
-
-##### [3]. Check Randomly Obtained Solution [`-r`/`--random`]
-
-Type `lk` followed by the `-r` parameter in the terminal to check the previously randomly obtained solution in the current working directory.
-
-```shell
-# Full command
-lk -r
-```
-
-Example of checking a randomly obtained solution:
-
-```shell
-workspace/leetcode-practice [dev●] » lk -r
-MODE: random
-Check result for problem [41.First Missing Positive]:
-```
-
-| index | Test Result | Expected Result | Execution Result | Execution Time | Memory Usage |
-| ----- | ----------- | --------------- | ---------------- | -------------- | ------------ |
-| 0     | 'Failed'    | '3'             | undefined        | 0.0896ms       | 2.42 KB      |
-| 1     | 'Failed'    | '2'             | undefined        | 0.0110ms       | 2.56 KB      |
-| 2     | 'Failed'    | '1'             | undefined        | 0.0045ms       | 2.56 KB      |
-
-> Click to jump to problem submission: <https://leetcode.com/problems/first-missing-positive/>
->
-> Note: Ensure that `lc -r` has been executed before this command to create a random problem.
-
-##### [4]. Easy Mode (Interactive Checking) [`-e`/`--easy`]
-
-Type `lk` followed by the `-e` parameter in the terminal to use interactive mode for checking the problem.
-
-```shell
-# Full command
-lk -e
-```
-
-Example of checking the specified problem using easy mode:
-
-```shell
-workspace/leetcode-practice [dev●] » lk -e
-? Select the mode of problem checking: identity
-? Enter the problem number: 41
-? Do you want to check the problem [ 41.first-missing-positive ] in the current directory [ /Users/mac-106/wh131462/workspace/leetcode-practice ]? Yes
-```
-
-| index | Test Result | Expected Result | Execution Result | Execution Time | Memory Usage |
-| ----- | ----------- | --------------- | ---------------- | -------------- | ------------ |
-| 0     | 'Failed'    | '3'             | undefined        | 0.0969ms       | 2.42 KB      |
-| 1     | 'Failed'    | '2'             | undefined        | 0.0139ms       | 2.56 KB      |
-| 2     | 'Failed'    | '1'             | undefined        | 0.0051ms       | 2.56 KB      |
-
-> Click to jump to problem submission: <https://leetcode.com/problems/first-missing-positive/>
-> Problem [41.first-missing-positive] checked!
-> File address is: /Users/mac-106/wh131462/workspace/leetcode-practice/41.first-missing-positive/index.js
-
-#### 3. Problem Lookup - `lf`
-
-To be developed...
-
-##### [1]. View Problem List [To be developed]
-
-#### 4. Common Parameters
-
-##### [1]. Get or specify the current programming language - [-l/-language [language]]
-
-You can use -l without arguments to get the current programming language setting, or you can specify the language parameter to set the language environment of the current CLI to the specified language.
-
-```shell
-# This parameter behaves consistently in lc/lk/lf
-lc -l
-lk -l java
-```
-
-Usage example:
-
-```shell
-# Get language environment
-➜  leetcode-practice git:(dev) ✗ lc -l
-Current CLI language environment is: javascript
-# Change language environment
-➜  leetcode-practice git:(dev) ✗ lc -l java
-? Please confirm the language environment you want to set for the CLI (Press Enter to confirm if the option matches) java
-Setting language environment to: java
-```
-
-Note: Unable to execute test cases in this environment.
-
-##### [2]. Specify Directory - [`-d`/`-directory`]
-
-The `create` and `check` commands can also use the `-d` parameter to specify a relative address based on the current working directory as the specified directory.
-When specifying a directory, the operation will be performed in that directory.
-
-```shell
-# Use the src directory as the generation directory
-lc -d src -t
-# Use the src directory as the check directory
-lk -d src -i
-```
-
-Example:
-
-```shell
-➜  src git:(dev) ✗ lc -d src -t
-MODE: today
-Successfully obtained problem [2867.Count the Number of Valid Paths in a Tree]!
-Problem file address is: /home/wh131462/workspace/leetcode-practice/src/src/2867.count-valid-paths-in-a-tree/index.js
-```
-
-> Note: If the specified directory does not exist, an empty directory will be created.
-
-##### [3]. Check Version [`-V`/`--version`]
-
-```shell
-# Check lc version
-lc -V
-# Check lk version
-lk -V
-# Check lf version
+# The lf command is completely interactive. Follow the prompts to enter the desired information
 lf
-
- -V
 ```
 
-Example of checking the lc version:
+The following demonstrates how to use keyword search to create the `Two Sum` question:
 
 ```shell
-workspace/leetcode-practice [dev●] » lc -V
-0.0.0
-```
+# After entering the keyword `two sum` and pressing Enter, all questions related to `two sum` will appear. Use the up and down arrow keys on the keyboard to select, and press Enter to confirm.
+? Choose the search mode? Keyword search
+? Enter keywords two sum
+? Choose a question
+  LCR 025.两数相加 II
+  2.两数相加
+  29.两数相除
+❯ 1.两数之和
+  LCR 006.两数之和 II - 输入有序数组
+  445.两数相加 II
+  LCR 056.两数之和 IV - 输入二叉搜索树
+(Use arrow keys to reveal more choices)
 
-##### [4]. Update Check [`-u`/`--update`]
-
-Using the `-u` or `--update` parameter, you can check whether the current version is the latest version. If the current version is not the latest version, you will be prompted whether to update.
-
-```shell
-lk -u
-lf -u
-lc -u
-```
-
-```shell
-? Automatically detected environment is [ project ], if not, please make a selection, if yes, please press Enter to confirm. project
-Start getting version number in npm repository...
-Successfully obtained version number in npm repository!
-Start getting version number in github repository...
-Successfully obtained version number in github repository!
-Start getting local version number...
-Successfully obtained local version number!
-Current version:[ 1.0.0 ] npm package latest version:[ 1.0.1 ] github version:[ 1.0.1 ]
-? Detected [ project ] can update to version[ 1.0.1 ], whether to update? (Y/n) Yes
-Update completed~Enjoy your use~
-```
-
-### Using the Forked Project
-
-#### [0]. Dependency Installation
-
-Before using, install dependencies using a package manager.
-
-```shell
-# Install dependencies
-npm install
-# Or use yarn (you can use any package manager you like)
-yarn
-```
-
-The commands in the forked project are the same as those in the CLI usage parameters, except that the scripts are executed through the package manager such as `npm run`.
-
-> Note: The only difference between the scripts in the project and the scaffolding is that the `-d` parameter is specified by default, pointing to the `src` directory at the root of the project, so all commands are executed by default in `src`.
-
-#### [1]. Create Solution [`lc`]
-
-Refer to the `lc` part of the CLI for parameters: [lc](#1-creating-solutions---lc)
-
-Simple usage example:
-
-```shell
-# Execute using yarn
-yarn lc 1314
-```
-
-Execution result:
-
-```shell
-# Generated in the src directory
-> yarn lc 1314
-yarn run v1.22.19
-$ node bin/lc.js -d src 1314
+# After confirmation, the question will be created, and a success message will be returned
+? Choose the search mode? Keyword search
+? Enter keywords two sum
+? Choose a question 1.两数之和
+1
 MODE: identity
-Successfully obtained problem [1314.Matrix Block Sum]!
-Problem file address is:/Users/mac-106/wh131462/workspace/leetcode-practice/src/1314.matrix-block-sum/index.js
-✨  Done in 1.06s.
+题目[1.两数之和]获取成功!
+题目文件地址为:fill:///my-workspace/1.two-sum/question.js:36
 ```
 
-#### [2]. Check Solution [`lk`]
+> Note: When the creation is complete, a clickable file address will be output. If clicked in the editor console, it will directly open the corresponding file to the start of the function.
 
-Refer to the `lk` part of the CLI for parameters: [lk](#2-checking-solutions---lk)
+#### Option B. Template Project
 
-Simple usage example:
+##### 1. Creating a Template Project
+
+1. Open
+
+our template project [leetcodePracticeTemplate](https://github.com/EternalHeartTeam/LeetcodePracticeTemplate) on GitHub.
+2. Click on `Use this template` in the upper right corner and select `Create a new repository`.
+3. Fill in the information as you would when creating a normal repository.
+4. Wait... and you're done. You now have your own `LeetCode solutions repository` and will receive long-term support from the `leetcode-practice` official team!
+
+> Fill in the creation process chart
+
+##### 2. Using the Template Project
+
+1. Clone the project and initialize the dependencies.
+
+e.g. Using my personal project as an example
+
+```shell 
+# This is just an example. Please clone your own project (when you attempt this, the project may have been cleared, which is a normal phenomenon, please don't be surprised)
+git clone git@github.com:wh131462/my-leetcode-practice.git
+# Move into the project directory
+cd my-leetcode-practice
+# Initialize
+npm i
+```
+
+2. Usage in the project
+
+There are two ways to use the `leetcode-practice` in the template project: `project internal commands` and `npm scripts`. The process of creation is demonstrated below, and other command usages and parameters are consistent with the scaffold. Please refer to the [KFC and its Key Parameter Explanation](#3.-KFC-and-its-Key-Parameter-Explanation-(Universal-Reference-Manual)) section.
 
 ```shell
-# Execute using yarn
-yarn lk 1314
+# Under the root directory of the project, execute npm run lc to create today's question. Because -d src is configured by default, the creation will be done under the src directory
+npm run lc
+# You can also use yarn: any package management tool you like
+yarn lc
 ```
 
-Execution result:
+You can also use the `lc` command to create, of course, you can only use our script in the project (if you haven't installed the `leetcode-practice` package globally).
 
 ```shell
-# Checked in the src directory
-> yarn lk 1314
-yarn run v1.22.19
-$ node bin/lk.js -d src 1314
-MODE: identity
-Check result for problem [1314.Matrix Block Sum]:
+# Using lc will create in the current working directory. If you need to keep consistent with the script's behavior (creating under src directory), please use the -d src parameter
+lc
 ```
 
-| index | Test Result | Expected Result                      | Execution Result | Execution Time | Memory Usage |
-| ----- | ----------- | ------------------------------------ | ---------------- | -------------- | ------------ |
-| 0     | 'Failed'    | '[[12,21,16],[27,45,33],[24,39,28]]' | undefined        | 0.1487ms       | 2.47 KB      |
-| 1     | 'Failed'    | '[[45,45,45],[45,45,45],[45,45,45]]' | undefined        | 0.0278ms       | 2.61 KB      |
+> Note: Here's an emphasis. The term "project internal command" means that the scope of the command is limited to the current project directory, meaning that if you try to use the lc command in another directory, you'll find that it doesn't work. Similarly, you'll find that when you first install it, the lc command doesn't work in the project until you close and reopen the terminal (terminal) to manually refresh the cache. npm script refers to a script command encapsulated under the scripts field in package.json.
 
-> Click to jump to problem submission: <https://leetcode.com/problems/matrix-block-sum/>
-> ✨ Done in 1.13s.
+3. Updating Dependencies
 
-#### [3]. Look Up Solutions [`lf`]
+When you want to update, you can execute the encapsulated npm command `update`, which can help you install the `latest version (latest)` of `leetcode-practice`.
 
-Refer to the `lf` part of the CLI for parameters: [lf](#3-problem-lookup---lf)
+```shell
+# Execute using any package management tool
+npm run update
+# Of course, you can also execute the command yourself
+npm i --save-dev leetcode-practice
+```
 
-To be developed...
+#### Option C. Plugin (Under Development)
 
-#### [4]. Update [`update`]
+### 3. KFC and its Key Parameter Explanation (Universal Reference Manual)
 
-This is a special script to update the local project, which updates all non-src directories to synchronize with the latest features of the project.
+#### [0]. What is KFC?
 
-> Note: If you have your own optimized code changes, be cautious about this step! Please refer to our [upgrade plan under special circumstances](./update.md)!
+`KFC` is a simple mnemonic that can quickly remember our three core commands: `lk`, `lf`, and `lc`.
 
-### Plugin Usage
+| Command | Explanation                        |
+|-------|----------------------------------|
+| lc    | Core creation command, supports three creation modes (daily question, specified question, random question) for creating questions |
+| lk    | Core checking command, supports three modes corresponding to the question for checking questions |
+| lf    | Core search command, which can quickly search for the question you want based on prompts |
 
-To be developed...
+#### [1]. lc
 
-## Contributors
+| Short Parameter  | Full Parameter  | Explanation                              |
+|---------------|----------------|-----------------------------------------|
+| No parameter / `-t` | `--today`      | Create today's daily question            |
+| Question number / `-i` | `--identity`   | Create the question corresponding to the specified number |
+| `-r`          | `--random`     | Create a random question that has not appeared in the current directory |
+| `-e`          | `--easy`       | Interactive creation of questions       |
 
-[<img src="https://avatars.githubusercontent.com/u/48346853" style="border-radius:50%;" width="30" height="30" alt="EternalHeart"/>](https://github.com/wh131462)
-[<img src="https://avatars.githubusercontent.com/u/61453917" style="border-radius:50%;" width="30" height="30" alt="SmartTeddy"/>](https://github.com/SmallTeddy)
-[<img src="https://avatars.githubusercontent.com/u/35305691" style="border-radius:50%;" width="30" height="30" alt="Hedwig-Fang"/>](https://github.com/Hedwig-Fang)
+#### [2]. lk
 
-## Feedback
+| Short Parameter  | Full Parameter  | Explanation                                |
+|---------------|----------------|-------------------------------------------|
+| No parameter / `-t` | `--today`      | Check today's daily question               |
+| Question number / `-i` | `--identity`   | Check the question corresponding to the specified number, and check if the question with the specified ID exists in the current working directory |
+| `-r`          | `--random`     | Check the question created using the random mode last time |
+| `-e`          | `--easy`       | Interactive check of the corresponding question based on prompts |
 
-If you encounter any `issues` or have some `great suggestions`, feel free to join our `Feedback Group` for providing `feedback`! We will address them promptly!
+> Note: When checking, please pay attention to what mode to use for checking, and make sure that you have performed the corresponding mode creation operation.
+> The specified ID mode is an exception because it will check whether the specified ID exists in the current working directory.
 
-![Feedback Group](resources/images/service-qrcode.png)
+#### [3]. lf
+
+| Short Parameter  | Full Parameter  | Explanation                                        |
+|---------------|----------------|---------------------------------------------------|
+| No parameter  | None           | Enter interactive search, and search or filter questions based on prompts |
+
+#### [4]. General Parameters
+
+| Short Parameter    | Full Parameter                 | Explanation                                                    |
+|-----------------|------------------------------|---------------------------------------------------------------|
+| `-d <directory>`| `--directory <directory>`    | Specify the working directory (a relative address of the current execution directory), which will affect the creation and checking |
+| `-V`            | `--version`                  | Check the version number                                       |
+| `-h`            | `--help`                     | Get help information                                           |
+| `-l [language]` | `--language [language]`      | Without specifying a parameter, get the current language environment (default is JavaScript). Specifying a parameter can set the language environment to the corresponding language (e.g., `-l java` sets the language environment to Java) |
+| `-u`            | `--update`                   | Update the current script or dependency                         |
+
+> Note: General parameters refer to parameters supported by all three scripts `lk`, `lf`, and `lc`. The semantics of usage are generally the same, but there may be differences in the meanings of behaviors in some commands (for example, specifying the `-d` parameter in the `lc` command means `creating questions in the specified directory`, while in the `lk` command, specifying the `-d` parameter means `creating questions in the specified directory`).
