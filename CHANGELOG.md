@@ -1,5 +1,7 @@
 
 
+## [1.0.4-beta](https://github.com/wh131462/leetcode-practice/compare/cli-v0.0.1...cli-v1.0.4-beta) (2024-03-11)
+
 ## 0.0.1 (2024-03-11)
 
 
