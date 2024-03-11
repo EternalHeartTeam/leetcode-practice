@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.repository == 'doocs/md'
+    if: github.repository == 'EternalHeartTeam/leetcode-practice'
     steps:
       - uses: actions/checkout@v3
       # Setup .npmrc file to publish to npm
@@ -18,7 +18,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm install
       - run: npm run build-cli
-      - run: cd md-cli && npm ci && npm publish
+      - run: npm ci && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
