@@ -24,7 +24,7 @@ async function studyMode(baseDir = process.cwd()) {
     message: '拉题模式',
     choices: [
       { name: '单个选择', value: 'single' },
-      { name: '全部拉取', value: 'all' }
+      { name: '全部拉取（暂不支持）', value: 'all' }
     ]
   })
   if (createMode === 'single') {
@@ -51,7 +51,10 @@ async function studyMode(baseDir = process.cwd()) {
 
     await createQuestionByTitleSlug(singleChoice, baseDir)
   }
-  // if (createMode === 'all') await getHot100QuestionListCode()
+  if (createMode === 'all') {
+    console.log('暂不支持')
+    // await getHot100QuestionListCode()
+  }
 }
 
 async function keywordMode(baseDir = process.cwd()) {
