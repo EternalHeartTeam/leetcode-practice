@@ -1,41 +1,41 @@
 # CHANGELOG
 
-## 1.0.5 release [2024-3-]
+## 1.0.5 release [2024-03]
 
 ### Features
 
 - Added eslint, prettier, and commit-lint to development dependencies.
 - Implemented a hot 100 list feature and added keyword search functionality.
 
-## 1.0.4 release [2024-3-5 22:10]
+## 1.0.4 release [2024-03-05 22:10]
 
-### Fixes
+### Bug Fixes
 
-- fix the bug cannot create question
+- Fix the bug that cannot create a question.
 
-## 1.0.3 release [2024-3-3 20:26]
-
-### Features
-
-- you can create question in any supported language file
-- the file name from 'index' to 'question'
-
-## 1.0.2 release [2024-2-29 19:02]
+## 1.0.3 release [2024-03-03 20:26]
 
 ### Features
 
-- add i18n docs
+- You can now create questions in any supported language file.
+- Renamed the file from 'index' to 'question'.
 
-## 1.0.1 release [2024-2-8 13:49]
-
-### Features
-
-- add `author` info and `repository` in package.json
-
-## 1.0.0 release [2024-2-8 13:49]
+## 1.0.2 release [2024-02-29 19:02]
 
 ### Features
 
-- cli: lk/lf/lc 脚本实现 检测/查找/创建 功能,强而有力地支持了题目的便捷创建.
-- template project: easy mode 实现交互性创建,leet-create和leet-check保持src目录下创建题解.
-- plugin: 插件化的设计完善,进行立项.
+- Added i18n docs.
+
+## 1.0.1 release [2024-02-08 13:49]
+
+### Features
+
+- Added `author` info and `repository` in package.json.
+
+## 1.0.0 release [2024-02-08 13:49]
+
+### Features
+
+- **CLI:** Implemented scripts lk/lf/lc for detection, search, and creation functions, providing convenient creation of questions.
+- **Template Project:** Implemented interactive creation with easy mode, leet-create and leet-check now create solutions under the src directory.
+- **Plugin:** Perfected the plugin design and initiated the project.
