@@ -7,11 +7,11 @@
   "git": {
     "commitMessage": "release: v${version}",
     "tagName": "cli-v${version}",
-    "tag": true
+    "tag": true,
+    "push": true,
+    "pushArgs": ["--follow-tags"]
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
+  "npm": false,
   "hooks": {
     "after:bump": "echo 更新版本成功"
   },
