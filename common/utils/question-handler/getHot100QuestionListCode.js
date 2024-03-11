@@ -1,10 +1,10 @@
 import path from 'node:path'
 import { createQuestionByTitleSlug } from '../create-check/createUtil.js'
-import { getQuestionListHot100 } from '#common/utils/question-getter/getQuestionListHot100.js'
+import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuestionList.js'
 
 // 获取题目列表
 export async function getTitleSlugList() {
-  const res = await getQuestionListHot100()
+  const res = await getPlanQuestionList()
   const { planSubGroups } = res
   return planSubGroups.reduce((acc, cur) => {
     acc.push(...cur.questions.map((res) => res.titleSlug))
