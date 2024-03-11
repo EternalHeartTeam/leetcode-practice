@@ -1,29 +1,34 @@
-# 1.0.4 release [2024-03-05]
+# 1.0.4 [2024-03-05]
+
 
 ### Bug Fixes
 
 - Fix the bug that cannot create a question.
 
-## 1.0.3 release [2024-03-03]
+# 1.0.3 [2024-03-03]
+
 
 ### Features
 
 - You can now create questions in any supported language file.
 - Renamed the file from 'index' to 'question'.
 
-## 1.0.2 release [2024-02-29]
+# 1.0.2 [2024-02-29]
+
 
 ### Features
 
 - Added i18n docs.
 
-## 1.0.1 release [2024-02-08]
+# 1.0.1 [2024-02-08]
+
 
 ### Features
 
 - Added `author` info and `repository` in package.json.
 
-## 1.0.0 release [2024-02-08]
+# 1.0.0 [2024-02-08]
+
 
 ### Features
 
