@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getQuestionListHot100 } from '#common/utils/question-getter/getQuestionListHot100.js'
+import { getQuestionListHot100 } from '#common/utils/question-getter/getPlanQuestionList.js'
 
 describe('hot 100获取数据测试', () => {
   it('是否正确获取了hot 100合集', async () => {

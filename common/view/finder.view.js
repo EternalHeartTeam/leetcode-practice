@@ -1,17 +1,25 @@
 import select from '@inquirer/select'
 import input from '@inquirer/input'
 
-import {
-  getHot100QuestionListCode,
-  getTitleSlugList
-} from '#common/utils/question-handler/getHot100QuestionListCode.js'
+// import { getHot100QuestionListCode } from '#common/utils/question-handler/getHot100QuestionListCode.js'
 import {
   createQuestionById,
   createQuestionByTitleSlug
 } from '#common/utils/create-check/createUtil.js'
 import { getQuestionByKeyword } from '#common/utils/question-getter/getQuestionByKeyword.js'
+import { getStudyPlanList } from '#common/utils/question-getter/getStudyPlanList.js'
+import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuestionList.js'
 
-async function hotMode(baseDir = process.cwd()) {
+async function studyMode(baseDir = process.cwd()) {
+  const questionList = await getStudyPlanList()
+  const planListMode = {
+    message: '请选择学习计划',
+    choices: questionList.map((item) => ({
+      name: `${item.name}${item.premiumOnly ? '(VIP)' : ''}`,
+      value: item.slug
+    }))
+  }
+  const planSlug = await select(planListMode)
   const createMode = await select({
     message: '拉题模式',
     choices: [
@@ -20,10 +28,14 @@ async function hotMode(baseDir = process.cwd()) {
     ]
   })
   if (createMode === 'single') {
-    const titleSlugList = await getTitleSlugList()
+    const { planSubGroups } = await getPlanQuestionList(planSlug)
+    const planList = planSubGroups.reduce((acc, cur) => {
+      acc.push(...cur.questions.map((res) => res.titleSlug))
+      return acc
+    }, [])
     const singleMode = {
       message: '请选择题目?',
-      choices: titleSlugList.map((res) => ({
+      choices: planList.map((res) => ({
         name: res,
         value: res
       }))
@@ -32,7 +44,7 @@ async function hotMode(baseDir = process.cwd()) {
 
     await createQuestionByTitleSlug(singleChoice, baseDir)
   }
-  if (createMode === 'all') await getHot100QuestionListCode()
+  // if (createMode === 'all') await getHot100QuestionListCode()
 }
 
 async function keywordMode(baseDir = process.cwd()) {
@@ -54,18 +66,16 @@ async function keywordMode(baseDir = process.cwd()) {
   console.log(chooseQuestion)
   await createQuestionById(chooseQuestion, baseDir)
 }
+
 async function selectMode(baseDir) {
+
   console.log(baseDir)
 }
 
 export async function easyFinderView(baseDir = process.cwd()) {
   const choices = [
     { name: '关键词搜索', value: 'keyword', description: '关键词描述' },
-    {
-      name: 'hot 100列表查询',
-      value: 'hot',
-      description: '最受欢迎的100道题目'
-    },
+    { name: '学习计划', value: 'study', description: '企业和经典面试题目列表' },
     { name: '筛选模式', value: 'select', description: '筛选题目' }
   ]
 
@@ -76,7 +86,7 @@ export async function easyFinderView(baseDir = process.cwd()) {
   const mode = await select(modeQuestion)
 
   const modeMap = {
-    hot: hotMode,
+    study: studyMode,
     keyword: keywordMode,
     select: selectMode
   }
