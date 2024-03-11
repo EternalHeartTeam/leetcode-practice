@@ -30,14 +30,19 @@ async function studyMode(baseDir = process.cwd()) {
   if (createMode === 'single') {
     const { planSubGroups } = await getPlanQuestionList(planSlug)
     const planList = planSubGroups.reduce((acc, cur) => {
-      acc.push(...cur.questions.map((res) => res.titleSlug))
+      acc.push(...cur.questions.map((res) => {
+        return {
+          cnTitle: res.translatedTitle,
+          enTitle: res.titleSlug
+        }
+      }))
       return acc
     }, [])
     const singleMode = {
       message: '请选择题目?',
       choices: planList.map((res) => ({
-        name: res,
-        value: res
+        name: res.cnTitle,
+        value: res.enTitle
       }))
     }
     const singleChoice = await select(singleMode)
