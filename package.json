@@ -25,6 +25,19 @@
     "lf": "bin/lf.js",
     "lc": "bin/lc.js"
   },
+  "pkg": {
+    "name": "leetcode-practice",
+    "bin": {
+      "lc": "pl-cli/bin/lc.js",
+      "lk": "pl-cli/bin/lk.js",
+      "lf": "pl-cli/bin/lf.js"
+    },
+    "targets": [
+      "node14-macos-x64",
+      "node14-linux-x64"
+    ],
+    "outputPath": "pl-build"
+  },
   "scripts": {
     "lc": "node bin/lc.js -d src",
     "lk": "node bin/lk.js -d src",
