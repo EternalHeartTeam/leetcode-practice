@@ -1,3 +1,7 @@
+
+
+## [1.0.5-beta.0](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.5-bera.0...cli-v1.0.5-beta.0) (2024-03-11)
+
 ## [1.0.5-bera.0](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.4-beta...cli-v1.0.5-bera.0) (2024-03-11)
 
 ## [1.0.4-beta](https://github.com/wh131462/leetcode-practice/compare/cli-v0.0.1...cli-v1.0.4-beta) (2024-03-11)
