@@ -1,7 +1,7 @@
 {
   "name": "leetcode-practice",
   "type": "module",
-  "version": "1.0.4",
+  "version": "1.0.5-beta.0",
   "packageManager": "yarn@1.22.0",
   "description": "A powerful practice platform for leetcode.Using any way you want to create questions.",
   "author": {
@@ -29,6 +29,7 @@
     "lc": "node bin/lc.js -d src",
     "lk": "node bin/lk.js -d src",
     "lf": "node bin/lf.js -d src",
+    "release:cli": "node scripts/release.js",
     "update": "node scripts/update.js",
     "build-cli": "node esbuild.config.js",
     "publish-cli": "cd pl-cli && npm publish --registry https://registry.npmjs.org/",
@@ -62,6 +63,7 @@
     "@antfu/eslint-config": "^2.8.0",
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
+    "@release-it/bumper": "^6.0.1",
     "@release-it/conventional-changelog": "^8.0.1",
     "@types/node": "^20.11.5",
     "@vitest/coverage-v8": "^1.2.2",
