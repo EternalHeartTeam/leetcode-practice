@@ -25,7 +25,7 @@ Then, `leetcode-practice` is all you need!
 ### 0. Prerequisites
 
 | Tool     |                     Remarks                     |
-|----------|:-----------------------------------------------:|
+| -------- | :---------------------------------------------: |
 | nodejs   |                       lts                       |
 | git      |                       lts                       |
 | computer |     Ability to run Chrome and a code editor     |
@@ -230,7 +230,7 @@ npm i --save-dev leetcode-practice
 `KFC` is a simple mnemonic that can quickly remember our three core commands: `lk`, `lf`, and `lc`.
 
 | Command | Explanation                                                                                                                       |
-|---------|-----------------------------------------------------------------------------------------------------------------------------------|
+| ------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | lc      | Core creation command, supports three creation modes (daily question, specified question, random question) for creating questions |
 | lk      | Core checking command, supports three modes corresponding to the question for checking questions                                  |
 | lf      | Core search command, which can quickly search for the question you want based on prompts                                          |
@@ -238,7 +238,7 @@ npm i --save-dev leetcode-practice
 #### [1]. lc
 
 | Short Parameter        | Full Parameter | Explanation                                                             |
-|------------------------|----------------|-------------------------------------------------------------------------|
+| ---------------------- | -------------- | ----------------------------------------------------------------------- |
 | No parameter / `-t`    | `--today`      | Create today's daily question                                           |
 | Question number / `-i` | `--identity`   | Create the question corresponding to the specified number               |
 | `-r`                   | `--random`     | Create a random question that has not appeared in the current directory |
@@ -247,7 +247,7 @@ npm i --save-dev leetcode-practice
 #### [2]. lk
 
 | Short Parameter        | Full Parameter | Explanation                                                                                                                                       |
-|------------------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | No parameter / `-t`    | `--today`      | Check today's daily question                                                                                                                      |
 | Question number / `-i` | `--identity`   | Check the question corresponding to the specified number, and check if the question with the specified ID exists in the current working directory |
 | `-r`                   | `--random`     | Check the question created using the random mode last time                                                                                        |
@@ -259,13 +259,13 @@ npm i --save-dev leetcode-practice
 #### [3]. lf
 
 | Short Parameter | Full Parameter | Explanation                                                               |
-|-----------------|----------------|---------------------------------------------------------------------------|
+| --------------- | -------------- | ------------------------------------------------------------------------- |
 | No parameter    | None           | Enter interactive search, and search or filter questions based on prompts |
 
 #### [4]. General Parameters
 
 | Short Parameter  | Full Parameter            | Explanation                                                                                                                                                                                                                                 |
-|------------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `-d <directory>` | `--directory <directory>` | Specify the working directory (a relative address of the current execution directory), which will affect the creation and checking                                                                                                          |
 | `-V`             | `--version`               | Check the version number                                                                                                                                                                                                                    |
 | `-h`             | `--help`                  | Get help information                                                                                                                                                                                                                        |
