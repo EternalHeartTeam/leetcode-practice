@@ -51,10 +51,8 @@ async function studyMode(baseDir = process.cwd()) {
 
     await createQuestionByTitleSlug(singleChoice, baseDir)
   }
-  if (createMode === 'all') {
-    console.log('暂不支持')
-    // await getHot100QuestionListCode()
-  }
+  if (createMode === 'all') console.log('暂不支持')
+  // await getHot100QuestionListCode()
 }
 
 async function keywordMode(baseDir = process.cwd()) {
