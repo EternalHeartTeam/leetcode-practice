@@ -5,22 +5,26 @@
     "autoGenerate": true
   },
   "git": {
-    "commitMessage": "release: v${version}"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "commitMessage": "feat: v${version}",
+    "tagName": "cli-v${version}",
+    "tag": true,
+    "push": true,
+    "pushArgs": ["--follow-tags"]
   },
   "npm": {
-    "publish": true,
-    "skipChecks": true
+    "publish": false
   },
   "hooks": {
     "after:bump": "echo 更新版本成功"
   },
   "plugins": {
+    "@release-it/bumper": {
+      "preset": "angular"
+    },
     "@release-it/conventional-changelog": {
       "preset": "angular",
-      "infile": "CHANGELOG.md"
+      "infile": "CHANGELOG.md",
+      "ignoreRecommendedBump": true
     }
   }
 }

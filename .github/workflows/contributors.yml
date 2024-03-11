@@ -2,12 +2,13 @@ name: gen-org-contributors
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
+    if: github.repository == 'EternalHeartTeam/leetcode-practice'
     steps:
       - uses: thinkasany/organize-contributors@master
         with:
@@ -16,5 +17,5 @@ jobs:
           png_path: images/contributors.png
           json_path: contributors.json
           branch: svg
-          commit_message: "chore: update contributors"
-          excludes_list: "ImgBotApp,github-actions[bot],actions-user,imgbot[bot],dependabot[bot]"
+          commit_message: 'chore: update contributors'
+          excludes_list: 'ImgBotApp,github-actions[bot],actions-user,imgbot[bot],dependabot[bot]'
