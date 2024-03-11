@@ -123,12 +123,6 @@
 - docs: add CHANGELOG and TO-DO
 - srcipts即将废弃，视图交互性代码完善1/3
 
-# 1.0.4 [2024-03-05]
-
-### Bug Fixes
-
-- Fix the bug that cannot create a question.
-
 # 1.0.3 [2024-03-03]
 
 ### Features
