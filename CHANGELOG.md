@@ -1,38 +1,29 @@
-# CHANGELOG
-
-## 1.0.5 release [2024-03]
-
-### Features
-
-- Added eslint, prettier, and commit-lint to development dependencies.
-- Implemented a hot 100 list feature and added keyword search functionality.
-
-## 1.0.4 release [2024-03-05 22:10]
+# 1.0.4 release [2024-03-05]
 
 ### Bug Fixes
 
 - Fix the bug that cannot create a question.
 
-## 1.0.3 release [2024-03-03 20:26]
+## 1.0.3 release [2024-03-03]
 
 ### Features
 
 - You can now create questions in any supported language file.
 - Renamed the file from 'index' to 'question'.
 
-## 1.0.2 release [2024-02-29 19:02]
+## 1.0.2 release [2024-02-29]
 
 ### Features
 
 - Added i18n docs.
 
-## 1.0.1 release [2024-02-08 13:49]
+## 1.0.1 release [2024-02-08]
 
 ### Features
 
 - Added `author` info and `repository` in package.json.
 
-## 1.0.0 release [2024-02-08 13:49]
+## 1.0.0 release [2024-02-08]
 
 ### Features
 
