@@ -7,6 +7,7 @@ import { getQuestionRandom } from '#common/utils/question-getter/getQuestionRand
 import { createQuestion } from '#common/utils/question-handler/createQuestion.js'
 import { createQuestionCopy } from '#common/utils/question-handler/createQuestionCopy.js'
 import { setQuestion } from '#common/utils/store/controller/question.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 export async function easyCreateView() {
   const modeQuestion = [
@@ -30,7 +31,7 @@ export async function easyCreateView() {
   switch (mode) {
     case 'identity': {
       const { identity } = await inquirer.prompt(identityQuestion, null)
-      console.log(identity)
+      logger.info(identity)
       question = await getQuestionById(identity)
       break
     }
@@ -67,7 +68,7 @@ export async function easyCreateView() {
     ]
     const { newDir } = await inquirer.prompt(newDirQuestion, null)
     if (!newDir) {
-      console.log('[LC-LOG]用户终止操作~')
+      logger.info('[LC-LOG]用户终止操作~')
       process.exit(0)
     }
     questionDir = path.join(
@@ -78,6 +79,6 @@ export async function easyCreateView() {
   let filePath = await createQuestion(question, questionDir)
   if (!filePath) filePath = await createQuestionCopy(question, questionDir)
 
-  console.log(`题目[${questionFileName}]创建完成！\n文件地址为: ${filePath}`)
+  logger.info(`题目[${questionFileName}]创建完成！\n文件地址为: ${filePath}`)
   process.exit(0)
 }

@@ -1,5 +1,6 @@
 import os from 'node:os'
 import { exec } from 'node:child_process'
+import { logger } from '#common/utils/logger/logger.js'
 
 const platform = os.platform()
 
@@ -19,7 +20,7 @@ export function open(url) {
       exec(`xdg-open "${url}"`)
       break
     default:
-      console.log(`Unsupported platform: ${platform}`)
+      logger.info(`Unsupported platform: ${platform}`)
       break
   }
 }

@@ -25,6 +25,6 @@ import { graphql } from '#common/utils/http/graphql.js'
 export async function getQuestionTypes() {
   const res = await graphql(getQuestionTypesJson())
   const tags = res.data?.questionTagTypeWithTags
-  // console.log(JSON.stringify(tags))
+  // logger.info(JSON.stringify(tags))
   return tags
 }

@@ -6,6 +6,7 @@ import { getQuestionByMode } from '#common/utils/store/controller/question.js'
 import { checkQuestion } from '#common/utils/question-handler/checkQuestion.js'
 import { getCountBySameName } from '#common/utils/file/getCountBySameName.js'
 import { getFileListBySameName } from '#common/utils/file/getFileListBySameName.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 export async function easyCheckView() {
   const modeQuestion = [
@@ -65,7 +66,7 @@ export async function easyCheckView() {
     ]
     const { newDir } = await inquirer.prompt(newDirQuestion, null)
     if (!newDir) {
-      console.log('[LK-LOG]用户终止操作~')
+      logger.info('[LK-LOG]用户终止操作~')
       process.exit(0)
     }
     questionDir = path.join(
@@ -90,12 +91,12 @@ export async function easyCheckView() {
       null
     )
     questionDir = path.join(questionParentDir, selectQuestion)
-    console.log(
+    logger.info(
       `用户选择题目[ ${questionFileName}]的副本[ ${selectQuestion}]进行检测`
     )
   }
   const filePath = path.join(questionDir, `question${question.lang}`)
   await checkQuestion(filePath)
-  console.log(`题目[${questionFileName}]检查完成！\n文件地址为: ${filePath}`)
+  logger.info(`题目[${questionFileName}]检查完成！\n文件地址为: ${filePath}`)
   process.exit(0)
 }

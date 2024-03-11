@@ -37,7 +37,7 @@ export function updateCli() {
  * @returns {Promise<void>}
  */
 export async function updateProject() {
-  console.log('脚本升级中,请等待后续版本更新...')
+  logger.info('脚本升级中,请等待后续版本更新...')
   return
   // todo 更新项目
   // 0. 询问是否存在自己修改过的内容
@@ -76,7 +76,7 @@ export async function updateProject() {
 
     // 0.1 如果有过更改,终止更新脚本,并给出提示建议
     if (hasChanges) {
-      console.log('您有未提交的更改，请先处理后再更新。')
+      logger.info('您有未提交的更改，请先处理后再更新。')
       return
     }
 
@@ -85,7 +85,7 @@ export async function updateProject() {
 
     // 1.1 如果有内容,提示提交,终止更新
     if (gitStatus) {
-      console.log('您有未提交的更改，请先提交后再更新。')
+      logger.info('您有未提交的更改，请先提交后再更新。')
       return
     }
 
@@ -113,7 +113,7 @@ export async function updateProject() {
     await execCommand(`git commit -m "update:${ltsVersion}"`) // 这里替换为实际的最新版本号
 
     // 4. 完成更新
-    console.log('项目更新完成。')
+    logger.info('项目更新完成。')
   } catch (error) {
     console.error('更新过程中出现错误:', error)
   }

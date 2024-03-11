@@ -7,16 +7,17 @@ import { getQuestionChineseName } from '#common/utils/question-handler/getQuesti
 import { getQuestionById } from '#common/utils/question-getter/getQuestionById.js'
 import { getQuestionIdBySlug } from '#common/utils/question-handler/getQuestionIdBySlug.js'
 import { getLineNumberByContent } from '#common/utils/file/getLineNumberByContent.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 export function create(mode, question, baseDir) {
-  console.log(`MODE: ${mode}`)
+  logger.info(`MODE: ${mode}`)
   return new Promise((resolve) => {
     setQuestion(mode, question)
     const questionDir = path.join(baseDir, getQuestionFileName(question))
     createQuestion(question, questionDir).then(async (path) => {
       if (!path) path = await createQuestionCopy(question, questionDir)
       const line = (await getLineNumberByContent(path, '@QUESTION_START')) + 1
-      console.log(
+      logger.info(
         `题目[${getQuestionChineseName(question)}]获取成功!\n题目文件地址为:file://${path}:${line}`
       )
       resolve(true)
@@ -34,6 +35,6 @@ export async function createQuestionByTitleSlug(
 }
 export async function createQuestionById(id, baseDir = process.cwd()) {
   const question = await getQuestionById(id)
-  if (!question?.id) console.log(`指定编号: [ ${id} ] 题目不存在.`)
+  if (!question?.id) logger.warn(`指定编号: [ ${id} ] 题目不存在.`)
   await create('identity', question, baseDir)
 }

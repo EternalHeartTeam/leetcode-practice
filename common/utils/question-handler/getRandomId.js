@@ -2,6 +2,7 @@ import { readdirSync } from 'node:fs'
 import { getQuestionListJson } from '#resources/headers/questionListJson.js'
 import { graphql } from '#common/utils/http/graphql.js'
 import { DefaultLimit } from '#common/constants/question.const.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 /**
  * 获取指定页数的ids
@@ -49,7 +50,7 @@ export async function getRandomId() {
     length: Math.ceil(maxLength / DefaultLimit)
   }).map((_, i) => i)
   const one = await getOne(waitIndexList, allLocalIds)
-  if (one === null) console.log('恭喜！你已经刷完了所有的题目！')
+  if (one === null) logger.info('恭喜！你已经刷完了所有的题目！')
   else return one
 }
 /**
