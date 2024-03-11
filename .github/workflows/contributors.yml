@@ -8,6 +8,7 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    if: github.repository == 'EternalHeartTeam/leetcode-practice'
     steps:
       - uses: thinkasany/organize-contributors@master
         with:
