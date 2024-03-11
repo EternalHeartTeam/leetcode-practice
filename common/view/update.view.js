@@ -35,7 +35,7 @@ export async function easyUpdateView() {
       break
     case 'cli':
       isUpdate = isCliUpdate
-      version = remoteVersion
+      version = npmVersion
       break
     default:
       console.log('未知环境:', choseEnv)
