@@ -5,14 +5,12 @@
     "autoGenerate": true
   },
   "git": {
-    "commitMessage": "release: v${version}"
+    "commitMessage": "release: v${version}",
+    "tagName": "cli-v${version}",
+    "tag": true
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
-  },
-  "npm": {
-    "publish": true,
-    "skipChecks": true
   },
   "hooks": {
     "after:bump": "echo 更新版本成功"
