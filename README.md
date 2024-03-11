@@ -1,6 +1,6 @@
 # Leetcode practice
 
-**中文文档**|[English Document](./README.md)|[日本語の文書](./README_JP.md)
+[中文文档](./README_CN.md)|**English Document**||[日本語の文書](./README_JP.md)
 
 ## I. Project Information
 
@@ -18,14 +18,14 @@ Then, `leetcode-practice` is all you need!
 
 ### 2. Preview
 
-![CLI-lc](../resources/images/lc-cli-h.png)
+![CLI-lc](./resources/images/lc-cli-h.png)
 
 ## II. Instructions for Use
 
 ### 0. Prerequisites
 
 | Tool     |                     Remarks                     |
-| -------- | :---------------------------------------------: |
+|----------|:-----------------------------------------------:|
 | nodejs   |                       lts                       |
 | git      |                       lts                       |
 | computer |     Ability to run Chrome and a code editor     |
@@ -80,7 +80,7 @@ yarn add --dev leetcode-practice
 
 ##### 2. Usage
 
-Here's a simple introduction to creating and checking daily questions, as well as using keyword search. For more detailed instructions and parameters, please refer to the [KFC and its Key Parameter Explanation](<#3.-KFC-and-its-Key-Parameter-Explanation-(Universal-Reference-Manual)>) section.
+Here's a simple introduction to creating and checking daily questions, as well as using keyword search. For more detailed instructions and parameters, please refer to the [KFC and its Key Parameter Explanation](#3-kfc-and-its-key-parameter-explanation-universal-reference-manual) section.
 
 ###### 2.1 Creating a Question
 
@@ -177,7 +177,7 @@ our template project [leetcodePracticeTemplate](https://github.com/EternalHeartT
 
 ##### 2. Using the Template Project
 
-1. Clone the project and initialize the dependencies.
+###### 1. Clone the project and initialize the dependencies.
 
 e.g. Using my personal project as an example
 
@@ -190,9 +190,9 @@ cd my-leetcode-practice
 npm i
 ```
 
-2. Usage in the project
+###### 2. Usage in the project
 
-There are two ways to use the `leetcode-practice` in the template project: `project internal commands` and `npm scripts`. The process of creation is demonstrated below, and other command usages and parameters are consistent with the scaffold. Please refer to the [KFC and its Key Parameter Explanation](<#3.-KFC-and-its-Key-Parameter-Explanation-(Universal-Reference-Manual)>) section.
+There are two ways to use the `leetcode-practice` in the template project: `project internal commands` and `npm scripts`. The process of creation is demonstrated below, and other command usages and parameters are consistent with the scaffold. Please refer to the [KFC and its Key Parameter Explanation](#3-kfc-and-its-key-parameter-explanation-universal-reference-manual) section.
 
 ```shell
 # Under the root directory of the project, execute npm run lc to create today's question. Because -d src is configured by default, the creation will be done under the src directory
@@ -210,7 +210,7 @@ lc
 
 > Note: Here's an emphasis. The term "project internal command" means that the scope of the command is limited to the current project directory, meaning that if you try to use the lc command in another directory, you'll find that it doesn't work. Similarly, you'll find that when you first install it, the lc command doesn't work in the project until you close and reopen the terminal (terminal) to manually refresh the cache. npm script refers to a script command encapsulated under the scripts field in package.json.
 
-3. Updating Dependencies
+###### 3. Updating Dependencies
 
 When you want to update, you can execute the encapsulated npm command `update`, which can help you install the `latest version (latest)` of `leetcode-practice`.
 
@@ -230,7 +230,7 @@ npm i --save-dev leetcode-practice
 `KFC` is a simple mnemonic that can quickly remember our three core commands: `lk`, `lf`, and `lc`.
 
 | Command | Explanation                                                                                                                       |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------- |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------|
 | lc      | Core creation command, supports three creation modes (daily question, specified question, random question) for creating questions |
 | lk      | Core checking command, supports three modes corresponding to the question for checking questions                                  |
 | lf      | Core search command, which can quickly search for the question you want based on prompts                                          |
@@ -238,7 +238,7 @@ npm i --save-dev leetcode-practice
 #### [1]. lc
 
 | Short Parameter        | Full Parameter | Explanation                                                             |
-| ---------------------- | -------------- | ----------------------------------------------------------------------- |
+|------------------------|----------------|-------------------------------------------------------------------------|
 | No parameter / `-t`    | `--today`      | Create today's daily question                                           |
 | Question number / `-i` | `--identity`   | Create the question corresponding to the specified number               |
 | `-r`                   | `--random`     | Create a random question that has not appeared in the current directory |
@@ -247,7 +247,7 @@ npm i --save-dev leetcode-practice
 #### [2]. lk
 
 | Short Parameter        | Full Parameter | Explanation                                                                                                                                       |
-| ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | No parameter / `-t`    | `--today`      | Check today's daily question                                                                                                                      |
 | Question number / `-i` | `--identity`   | Check the question corresponding to the specified number, and check if the question with the specified ID exists in the current working directory |
 | `-r`                   | `--random`     | Check the question created using the random mode last time                                                                                        |
@@ -259,13 +259,13 @@ npm i --save-dev leetcode-practice
 #### [3]. lf
 
 | Short Parameter | Full Parameter | Explanation                                                               |
-| --------------- | -------------- | ------------------------------------------------------------------------- |
+|-----------------|----------------|---------------------------------------------------------------------------|
 | No parameter    | None           | Enter interactive search, and search or filter questions based on prompts |
 
 #### [4]. General Parameters
 
 | Short Parameter  | Full Parameter            | Explanation                                                                                                                                                                                                                                 |
-| ---------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `-d <directory>` | `--directory <directory>` | Specify the working directory (a relative address of the current execution directory), which will affect the creation and checking                                                                                                          |
 | `-V`             | `--version`               | Check the version number                                                                                                                                                                                                                    |
 | `-h`             | `--help`                  | Get help information                                                                                                                                                                                                                        |
@@ -273,3 +273,23 @@ npm i --save-dev leetcode-practice
 | `-u`             | `--update`                | Update the current script or dependency                                                                                                                                                                                                     |
 
 > Note: General parameters refer to parameters supported by all three scripts `lk`, `lf`, and `lc`. The semantics of usage are generally the same, but there may be differences in the meanings of behaviors in some commands (for example, specifying the `-d` parameter in the `lc` command means `creating questions in the specified directory`, while in the `lk` command, specifying the `-d` parameter means `creating questions in the specified directory`).
+
+## III. Additional Information
+
+### 1. Contributors
+
+The development and improvement of the project would not be possible without the hard work of these contributors. Sincere thanks to all of them!
+
+<a href="https://github.com/EternalHeartTeam/leetcode-practice/graphs/contributors" target="_blank"><img src="https://raw.githubusercontent.com/EternalHeartTeam/leetcode-practice/svg/images/contributors.png" /></a>
+
+### 2. Feedback
+
+If you have any questions about usage or would like to offer some suggestions, feel free to join our feedback group!
+
+Engage in face-to-face discussions with developers in the group, hoping to resonate with each other and spark new ideas!
+
+![Feedback Group](./resources/images/service-qrcode.png)
+
+### 3. Star Trend Chart
+
+[![Star History Chart](https://api.star-history.com/svg?repos=EternalHeartTeam/leetcode-practice&type=Date)](https://star-history.com/#EternalHeartTeam/leetcode-practice&Date)
