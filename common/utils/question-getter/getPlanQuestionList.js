@@ -4,7 +4,7 @@ import { getPlanQuestionListJson } from '#resources/headers/planQuestionListJson
 export async function getPlanQuestionList(slug) {
   const res = await graphql(getPlanQuestionListJson(slug))
   const {
-    data: { studyPlanV2Detail },
+    data: { studyPlanV2Detail }
   } = res
   return studyPlanV2Detail
 }

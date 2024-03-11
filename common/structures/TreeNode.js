@@ -7,8 +7,7 @@ export class TreeNode {
   }
 
   static parse(arr) {
-    if (arr.length === 0)
-      return null
+    if (arr.length === 0) return null
     const root = new TreeNode(arr[0])
     const queue = [root]
     for (let i = 1; i < arr.length; i += 2) {
@@ -27,8 +26,7 @@ export class TreeNode {
 
   static toArray(treeNode) {
     const result = []
-    if (!treeNode)
-      return result
+    if (!treeNode) return result
 
     const queue = [treeNode]
 
@@ -38,8 +36,7 @@ export class TreeNode {
         result.push(node.val)
         queue.push(node.left)
         queue.push(node.right)
-      }
-      else {
+      } else {
         result.push(null)
       }
     }
