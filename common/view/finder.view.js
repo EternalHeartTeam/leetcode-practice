@@ -4,7 +4,7 @@ import input from '@inquirer/input'
 // import { getHot100QuestionListCode } from '#common/utils/question-handler/getHot100QuestionListCode.js'
 import {
   createQuestionById,
-  createQuestionByTitleSlug
+  createQuestionByTitleSlug,
 } from '#common/utils/create-check/createUtil.js'
 import { getQuestionByKeyword } from '#common/utils/question-getter/getQuestionByKeyword.js'
 import { getStudyPlanList } from '#common/utils/question-getter/getStudyPlanList.js'
@@ -14,18 +14,18 @@ async function studyMode(baseDir = process.cwd()) {
   const questionList = await getStudyPlanList()
   const planListMode = {
     message: '请选择学习计划',
-    choices: questionList.map((item) => ({
+    choices: questionList.map(item => ({
       name: `${item.name}${item.premiumOnly ? '(VIP)' : ''}`,
-      value: item.slug
-    }))
+      value: item.slug,
+    })),
   }
   const planSlug = await select(planListMode)
   const createMode = await select({
     message: '拉题模式',
     choices: [
       { name: '单个选择', value: 'single' },
-      { name: '全部拉取（暂不支持）', value: 'all' }
-    ]
+      { name: '全部拉取（暂不支持）', value: 'all' },
+    ],
   })
   if (createMode === 'single') {
     const { planSubGroups } = await getPlanQuestionList(planSlug)
@@ -34,24 +34,25 @@ async function studyMode(baseDir = process.cwd()) {
         ...cur.questions.map((res) => {
           return {
             cnTitle: res.translatedTitle,
-            enTitle: res.titleSlug
+            enTitle: res.titleSlug,
           }
-        })
+        }),
       )
       return acc
     }, [])
     const singleMode = {
       message: '请选择题目?',
-      choices: planList.map((res) => ({
+      choices: planList.map(res => ({
         name: res.cnTitle,
-        value: res.enTitle
-      }))
+        value: res.enTitle,
+      })),
     }
     const singleChoice = await select(singleMode)
 
     await createQuestionByTitleSlug(singleChoice, baseDir)
   }
-  if (createMode === 'all') console.log('暂不支持')
+  if (createMode === 'all')
+    console.log('暂不支持')
   // await getHot100QuestionListCode()
 }
 
@@ -61,14 +62,14 @@ async function keywordMode(baseDir = process.cwd()) {
   const list = data?.map((q) => {
     return {
       name: `${q.frontendQuestionId}.${q.titleCn}`,
-      value: q.frontendQuestionId
+      value: q.frontendQuestionId,
     }
   })
   const listQuestion = {
     type: 'list',
     name: 'chooseQuestion',
     message: '请选择题目',
-    choices: list
+    choices: list,
   }
   const chooseQuestion = await select(listQuestion)
   console.log(chooseQuestion)
@@ -83,19 +84,19 @@ export async function easyFinderView(baseDir = process.cwd()) {
   const choices = [
     { name: '关键词搜索', value: 'keyword', description: '关键词描述' },
     { name: '学习计划', value: 'study', description: '企业和经典面试题目列表' },
-    { name: '筛选模式', value: 'select', description: '筛选题目' }
+    { name: '筛选模式', value: 'select', description: '筛选题目' },
   ]
 
   const modeQuestion = {
     message: '请选择查找的模式?',
-    choices
+    choices,
   }
   const mode = await select(modeQuestion)
 
   const modeMap = {
     study: studyMode,
     keyword: keywordMode,
-    select: selectMode
+    select: selectMode,
   }
   await modeMap[mode](baseDir)
 }

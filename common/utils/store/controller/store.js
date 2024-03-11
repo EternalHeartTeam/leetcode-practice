@@ -19,7 +19,8 @@ function convData(data) {
  */
 function parseData(dataStr) {
   const prefixReg = /^\$<.+>\$/im
-  if (!prefixReg.test(dataStr)) return null
+  if (!prefixReg.test(dataStr))
+    return null
 
   const type = dataStr.match(prefixReg)[0].replace(/[$<>]+/g, '')
   const remainStr = dataStr.replace(prefixReg, '')

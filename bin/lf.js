@@ -21,7 +21,7 @@ program
   .option('-d, --directory <directory>', 'Set the question directory.')
   .option(
     '-u, --update',
-    'Check the version to determine whether to update to the latest one.'
+    'Check the version to determine whether to update to the latest one.',
   )
   .parse(process.argv)
 
@@ -36,7 +36,8 @@ const cmdOpts = program.opts()
 if (cmdOpts.language) {
   if (cmdOpts.language !== true) {
     await easyLanguageView(cmdOpts.language)
-  } else {
+  }
+  else {
     const lang = await getQuestionLanguage()
     console.log(`当前CLI语言环境为:${lang}`)
   }

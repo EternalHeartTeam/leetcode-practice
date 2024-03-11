@@ -9,7 +9,7 @@ import { DefaultLimit } from '#common/constants/question.const.js'
 export async function getIds(index, limit = DefaultLimit) {
   const res = await graphql(getQuestionListJson(index, limit))
   return res?.data?.problemsetQuestionList?.questions?.map(
-    (q) => q.frontendQuestionId
+    q => q.frontendQuestionId,
   )
 }
 /**
@@ -18,7 +18,7 @@ export async function getIds(index, limit = DefaultLimit) {
  */
 export function getCount() {
   return graphql(getQuestionListJson(0)).then(
-    (res) => res?.data?.problemsetQuestionList?.total
+    res => res?.data?.problemsetQuestionList?.total,
   )
 }
 /**
@@ -26,18 +26,20 @@ export function getCount() {
  */
 export async function getRandomId() {
   // 去除所有的标题 剩下的就是id
-  const parse = (name) => name.replace(/\.[a-zA-Z0-9-]+$/i, '')
+  const parse = name => name.replace(/\.[a-zA-Z0-9-]+$/i, '')
   // 获取一个 递归的获取 总会有一个 直到数量到达最大值
   const getOne = async (waitIndexList, localIds) => {
     const randomIndex = waitIndexList[random(waitIndexList.length)]
     const ids = await getIds(randomIndex)
     // 过滤后的结果
-    const filtered = ids.filter((o) => !localIds.includes(o))
-    if (randomIndex === undefined) return null
+    const filtered = ids.filter(o => !localIds.includes(o))
+    if (randomIndex === undefined)
+      return null
     if (filtered.length) {
       return filtered[random(filtered.length)]
-    } else {
-      waitIndexList.splice(waitIndexList.findIndex((i) => i === randomIndex))
+    }
+    else {
+      waitIndexList.splice(waitIndexList.findIndex(i => i === randomIndex))
       return await getOne(waitIndexList, localIds)
     }
   }
@@ -46,10 +48,11 @@ export async function getRandomId() {
   // 最大的数量
   const maxLength = await getCount()
   const waitIndexList = Array.from({
-    length: Math.ceil(maxLength / DefaultLimit)
+    length: Math.ceil(maxLength / DefaultLimit),
   }).map((_, i) => i)
   const one = await getOne(waitIndexList, allLocalIds)
-  if (one === null) console.log('恭喜！你已经刷完了所有的题目！')
+  if (one === null)
+    console.log('恭喜！你已经刷完了所有的题目！')
   else return one
 }
 /**
