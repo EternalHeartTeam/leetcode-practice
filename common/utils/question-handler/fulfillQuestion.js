@@ -52,8 +52,7 @@ export function fulfillQuestion(questionPath, question) {
     const newData = generateTemplateContent(question)
     // 创建文件
     fs.writeFile(questionPath, newData, (err) => {
-      if (err)
-        throw err
+      if (err) throw err
       resolve()
     })
   })

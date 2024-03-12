@@ -11,204 +11,204 @@ export const LANGUAGES = [
     name: 'cpp',
     extension: '.cpp',
     blockComment: '/*\n*\n*/', // 块级注释 使用换行符来分割
-    lineComment: '//', // 行级注释 不需要分割
+    lineComment: '//' // 行级注释 不需要分割
   },
   {
     id: 1,
     name: 'java',
     extension: '.java',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 2,
     name: 'python',
     extension: '.py',
-    blockComment: '\'\'\'\n\n\'\'\'',
-    lineComment: '#',
+    blockComment: "'''\n\n'''",
+    lineComment: '#'
   },
   {
     id: 11,
     name: 'python3',
     extension: '.py',
-    blockComment: '\'\'\'\n\n\'\'\'',
-    lineComment: '#',
+    blockComment: "'''\n\n'''",
+    lineComment: '#'
   },
   {
     id: 3,
     name: 'mysql',
     extension: '.sql',
     blockComment: '/*\n*\n*/',
-    lineComment: '--',
+    lineComment: '--'
   },
   {
     id: 14,
     name: 'mssql',
     extension: '.sql',
     blockComment: '/*\n*\n*/',
-    lineComment: '--',
+    lineComment: '--'
   },
   {
     id: 15,
     name: 'oraclesql',
     extension: '.sql',
     blockComment: '/*\n*\n*/',
-    lineComment: '--',
+    lineComment: '--'
   },
   {
     id: 4,
     name: 'c',
     extension: '.c',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 5,
     name: 'csharp',
     extension: '.cs',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 6,
     name: 'javascript',
     extension: '.js',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 20,
     name: 'typescript',
     extension: '.ts',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 8,
     name: 'bash',
     extension: '.sh',
-    blockComment: '\'\'\'\n\n\'\'\'',
-    lineComment: '#',
+    blockComment: "'''\n\n'''",
+    lineComment: '#'
   },
   {
     id: 19,
     name: 'php',
     extension: '.php',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 9,
     name: 'swift',
     extension: '.swift',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 13,
     name: 'kotlin',
     extension: '.kt',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 24,
     name: 'dart',
     extension: '.dart',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 10,
     name: 'golang',
     extension: '.go',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 7,
     name: 'ruby',
     extension: '.rb',
     blockComment: '=begin\n\n=end',
-    lineComment: '#',
+    lineComment: '#'
   },
   {
     id: 12,
     name: 'scala',
     extension: '.scala',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 16,
     name: 'html',
     extension: '.html',
     blockComment: '<!--\n\n-->',
-    lineComment: '',
+    lineComment: ''
   },
   {
     id: 17,
     name: 'pythonml',
     extension: '.py',
-    blockComment: '\'\'\'\n\n\'\'\'',
-    lineComment: '#',
+    blockComment: "'''\n\n'''",
+    lineComment: '#'
   },
   {
     id: 18,
     name: 'rust',
     extension: '.rs',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 21,
     name: 'racket',
     extension: '.rkt',
     blockComment: ';;\n\n;;',
-    lineComment: '',
+    lineComment: ''
   },
   {
     id: 22,
     name: 'erlang',
     extension: '.erl',
     blockComment: '%%\n\n%%',
-    lineComment: '',
+    lineComment: ''
   },
   {
     id: 23,
     name: 'elixir',
     extension: '.ex',
     blockComment: '#\n#\n#',
-    lineComment: '',
+    lineComment: ''
   },
   {
     id: 25,
     name: 'pythondata',
     extension: '.py',
-    blockComment: '\'\'\'\n\n\'\'\'',
-    lineComment: '#',
+    blockComment: "'''\n\n'''",
+    lineComment: '#'
   },
   {
     id: 26,
     name: 'react',
     extension: '.jsx',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 27,
     name: 'vanillajs',
     extension: '.js',
     blockComment: '/*\n*\n*/',
-    lineComment: '//',
+    lineComment: '//'
   },
   {
     id: 28,
     name: 'postgresql',
     extension: '.sql',
     blockComment: '/*\n*\n*/',
-    lineComment: '--',
-  },
+    lineComment: '--'
+  }
 ]
 
 /**
@@ -231,7 +231,7 @@ export async function getQuestionLanguage() {
  * @returns {*}
  */
 export function getLang(lang) {
-  return LANGUAGES.find(o => o.name.toLowerCase() === lang.toLowerCase())
+  return LANGUAGES.find((o) => o.name.toLowerCase() === lang.toLowerCase())
 }
 /**
  * 获取文件后缀
@@ -251,7 +251,7 @@ export function getLangByExtension(extensionLike) {
   const reg = /\.[0-9a-zA-Z_]+$/im
   const match = extensionLike.match(reg)
   const extension = match === null ? `.${extensionLike}` : match[0]
-  return LANGUAGES?.find(o => o.extension === extension)
+  return LANGUAGES?.find((o) => o.extension === extension)
 }
 /**
  * 获取行注释
@@ -262,8 +262,7 @@ export function getLineComment(lang = DefaultLang) {
   const langObj = getLang(lang)
   if (langObj.lineComment !== '') {
     return langObj.lineComment
-  }
-  else {
+  } else {
     // 因为保底是都有块级注释的
     return null
   }
@@ -290,8 +289,7 @@ export function setLineComment(lang = DefaultLang, comment = '') {
   if (lineComment !== null) {
     const lines = comment.split('\n')
     return lines.reduce((p, line) => (p += `${lineComment} ${line}\n`), '')
-  }
-  else {
+  } else {
     return setBlockComment(lang, comment)
   }
 }
@@ -313,7 +311,7 @@ export function setBlockComment(lang = DefaultLang, comment = '') {
       const startTag = splitter[1]
       const content = lines.reduce(
         (p, line) => (p += `${startTag} ${line}\n`),
-        '',
+        ''
       )
       return `${start}\n${content}${end}\n`
     }
