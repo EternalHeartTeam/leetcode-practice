@@ -6,5 +6,5 @@
  * @private
  */
 export async function fetch_(url, options) {
-  return await fetch(url, options).then((res) => res.json())
+  return await fetch(url, options).then(res => res.json())
 }

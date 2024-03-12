@@ -30,13 +30,15 @@ export class Node {
   }
 
   static toArray(node) {
-    if (!node) return []
+    if (!node)
+      return []
 
     const visited = new Set()
     const result = []
 
     const dfs = (currentNode) => {
-      if (visited.has(currentNode.val)) return
+      if (visited.has(currentNode.val))
+        return
 
       const { neighbors, val } = currentNode
       visited.add(val)
