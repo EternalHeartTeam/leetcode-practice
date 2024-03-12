@@ -1,7 +1,5 @@
 import select, { Separator } from '@inquirer/select'
 import input from '@inquirer/input'
-
-// import { getHot100QuestionListCode } from '#common/utils/question-handler/getHot100QuestionListCode.js'
 import {
   createQuestionById,
   createQuestionByTitleSlug
@@ -10,6 +8,8 @@ import { getQuestionByKeyword } from '#common/utils/question-getter/getQuestionB
 import { getStudyPlanList } from '#common/utils/question-getter/getStudyPlanList.js'
 import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuestionList.js'
 import { logger } from '#common/utils/logger/logger.js'
+import { getQuestionListCodeBySlug } from '#common/utils/question-handler/getQuestionListCodeBySlug.js'
+import path from 'node:path'
 
 function handleQuestionList(list) {
   return list.map((item) => ({
@@ -19,11 +19,15 @@ function handleQuestionList(list) {
 }
 
 async function studyMode(baseDir = process.cwd()) {
-  const sprintInterviewCompanylist = await getStudyPlanList('sprint-interview-company')
-  const crackingCodingInterviewList = await getStudyPlanList('cracking-coding-interview')
+  const sprintInterviewCompanyList = await getStudyPlanList(
+    'sprint-interview-company'
+  )
+  const crackingCodingInterviewList = await getStudyPlanList(
+    'cracking-coding-interview'
+  )
   const deepDiveTopicsList = await getStudyPlanList('deep-dive-topics')
   const questionList = [
-    ...handleQuestionList(sprintInterviewCompanylist),
+    ...handleQuestionList(sprintInterviewCompanyList),
     new Separator(),
     ...handleQuestionList(crackingCodingInterviewList),
     new Separator(),
@@ -39,7 +43,7 @@ async function studyMode(baseDir = process.cwd()) {
     message: '拉题模式',
     choices: [
       { name: '单个选择', value: 'single' },
-      { name: '全部拉取（暂不支持）', value: 'all' }
+      { name: '全部拉取(不穩定)', value: 'all' }
     ]
   })
   if (createMode === 'single') {
@@ -67,8 +71,12 @@ async function studyMode(baseDir = process.cwd()) {
 
     await createQuestionByTitleSlug(singleChoice, baseDir)
   }
-  if (createMode === 'all') logger.warn('暂不支持')
-  // await getHot100QuestionListCode()
+  if (createMode === 'all') {
+    await getQuestionListCodeBySlug(
+      planSlug,
+      path.resolve(baseDir, planSlug.toString())
+    )
+  }
 }
 
 async function keywordMode(baseDir = process.cwd()) {

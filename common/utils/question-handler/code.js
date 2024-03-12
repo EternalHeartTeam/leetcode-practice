@@ -14,7 +14,7 @@ import { DefaultLang } from '#common/constants/question.const.js'
  */
 export async function getCodeBySlug(slug, lang) {
   const list = await getQuestionCodeList(slug)
-  return list.find((o) => o.langSlug === lang)?.code
+  return list?.find((o) => o.langSlug === lang)?.code
 }
 /**
  * 获取支持的代码语言

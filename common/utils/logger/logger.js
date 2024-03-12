@@ -3,21 +3,36 @@ import { getStore } from '#common/utils/store/controller/store.js'
 
 class Logger {
   constructor(env) {
-    console.log(
-      chalk.bgGray(`[logger init] The current env is ${env ?? 'not plugin'}.`)
-    )
+    // console.log(
+    //     chalk.bgGray(`[logger init] The current env is ${env ?? 'not plugin'}.`)
+    // )
   }
 
-  info(message) {
-    console.log(chalk.blue(message))
+  /**
+   * 普通消息
+   * @param message
+   * @param args
+   */
+  info(message, ...args) {
+    console.log(chalk.blue(message, ...args))
   }
 
-  warn(message) {
-    console.log(chalk.yellow(message))
+  /**
+   * 警告
+   * @param message
+   * @param args
+   */
+  warn(message, ...args) {
+    console.log(chalk.yellow(message, ...args))
   }
 
-  error(message) {
-    console.log(chalk.red(message))
+  /**
+   * 错误信息
+   * @param message
+   * @param args
+   */
+  error(message, ...args) {
+    console.log(chalk.red(message, ...args))
   }
 }
 const { env = null } = (await getStore('config')) ?? {}
