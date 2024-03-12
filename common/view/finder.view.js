@@ -31,7 +31,8 @@ async function studyMode(baseDir = process.cwd()) {
   ]
   const planListMode = {
     message: '请选择学习计划',
-    choices: questionList
+    choices: questionList,
+    pageSize: 30
   }
   const planSlug = await select(planListMode)
   const createMode = await select({
