@@ -1,6 +1,6 @@
 # Leetcode practice
 
-[中文文档](./README_CN.md)|**English Document**||[日本語の文書](./README_JP.md)
+[中文](./README_CN.md) · **English** ·[日本語](./README_JP.md)
 
 ## I. Project Information
 
