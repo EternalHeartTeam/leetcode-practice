@@ -97,6 +97,7 @@ async function main() {
       // 构建完成后执行的操作
       afterBuild()
       logger.info('[LP]脚本打包完成,请查看目录[ pl-cli ].')
+      process.exit(0)
     })
     .catch((e) => {
       logger.error('[LP]脚本打包失败', e)
