@@ -278,7 +278,11 @@ npm i --save-dev leetcode-practice
 
 <a href="https://github.com/EternalHeartTeam/leetcode-practice/graphs/contributors" target="_blank"><img src="https://raw.githubusercontent.com/EternalHeartTeam/leetcode-practice/svg/images/contributors.png" /></a>
 
-### 2. 使用フィードバック
+### 2. 貢献方法
+
+もしオープンソースに対する情熱を持ち、私たちのオープンソースイニシアチブに貢献したいとお考えでしたら、[貢献ガイドライン](./CONTRIBUTORS.md) を参照してください。
+
+### 3. 使用フィードバック
 
 使用上の問題がある場合や、提案がある場合は、使用フィードバックグループにご参加ください！
 
@@ -286,6 +290,6 @@ npm i --save-dev leetcode-practice
 
 ![フィードバックグループ](./resources/images/service-qrcode.png)
 
-### 3. Starのトレンドチャート
+### 4. Starのトレンドチャート
 
 [![Star History Chart](https://api.star-history.com/svg?repos=EternalHeartTeam/leetcode-practice&type=Date)](https://star-history.com/#EternalHeartTeam/leetcode-practice&Date)

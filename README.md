@@ -282,7 +282,11 @@ The development and improvement of the project would not be possible without the
 
 <a href="https://github.com/EternalHeartTeam/leetcode-practice/graphs/contributors" target="_blank"><img src="https://raw.githubusercontent.com/EternalHeartTeam/leetcode-practice/svg/images/contributors.png" /></a>
 
-### 2. Feedback
+### 2. How to Contribute
+
+If you share a passion for open source and would like to contribute to our open source initiative, please refer to our [contribution guidelines](./CONTRIBUTORS.md).
+
+### 3. Feedback
 
 If you have any questions about usage or would like to offer some suggestions, feel free to join our feedback group!
 
@@ -290,6 +294,6 @@ Engage in face-to-face discussions with developers in the group, hoping to reson
 
 ![Feedback Group](./resources/images/service-qrcode.png)
 
-### 3. Star Trend Chart
+### 4. Star Trend Chart
 
 [![Star History Chart](https://api.star-history.com/svg?repos=EternalHeartTeam/leetcode-practice&type=Date)](https://star-history.com/#EternalHeartTeam/leetcode-practice&Date)
