@@ -1,4 +1,4 @@
-import select from '@inquirer/select'
+import select, { Separator } from '@inquirer/select'
 import input from '@inquirer/input'
 
 // import { getHot100QuestionListCode } from '#common/utils/question-handler/getHot100QuestionListCode.js'
@@ -11,14 +11,27 @@ import { getStudyPlanList } from '#common/utils/question-getter/getStudyPlanList
 import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuestionList.js'
 import { logger } from '#common/utils/logger/logger.js'
 
+function handleQuestionList(list) {
+  return list.map((item) => ({
+    name: `${item.name}${item.premiumOnly ? '(VIP)' : ''}`,
+    value: item.slug
+  }))
+}
+
 async function studyMode(baseDir = process.cwd()) {
-  const questionList = await getStudyPlanList()
+  const sprintInterviewCompanylist = await getStudyPlanList('sprint-interview-company')
+  const crackingCodingInterviewList = await getStudyPlanList('cracking-coding-interview')
+  const deepDiveTopicsList = await getStudyPlanList('deep-dive-topics')
+  const questionList = [
+    ...handleQuestionList(sprintInterviewCompanylist),
+    new Separator(),
+    ...handleQuestionList(crackingCodingInterviewList),
+    new Separator(),
+    ...handleQuestionList(deepDiveTopicsList)
+  ]
   const planListMode = {
     message: '请选择学习计划',
-    choices: questionList.map((item) => ({
-      name: `${item.name}${item.premiumOnly ? '(VIP)' : ''}`,
-      value: item.slug
-    }))
+    choices: questionList
   }
   const planSlug = await select(planListMode)
   const createMode = await select({
