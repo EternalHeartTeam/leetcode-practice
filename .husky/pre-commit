@@ -1,4 +1,13 @@
 #!/usr/bin/env sh
+# 导入 Husky 脚本
 . "$(dirname -- "$0")/_/husky.sh"
-echo "lint and format before commit"
-#npm run lint && npm run format
+
+# 检查是否处于 rebase 状态
+if [ -z "$GIT_DIR" ]; then
+  # 处于 rebase 状态，退出脚本
+  exit 0
+fi
+
+# 不处于 rebase 状态，执行 pre-commit 脚本
+echo "Running pre-commit script..."
+npm run lint && npm run format
