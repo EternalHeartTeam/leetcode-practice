@@ -6,7 +6,7 @@
  * @param code
  * @returns {{headers: {"content-type": string}, method: string, body: string}}
  */
-export function codeSubmitJson(lang, id, code) {
+export function codeSubmitJson(lang, id, code, csrftoken) {
   return {
     headers: { 'content-type': 'application/json' },
     body: `{
@@ -14,6 +14,7 @@ export function codeSubmitJson(lang, id, code) {
                     "question_id": "${id}",
                     "typed_code": "${code}"
                 }`,
-    method: 'POST'
+    method: 'POST',
+    credentials: 'include',
   }
 }
