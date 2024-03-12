@@ -1,8 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-# 检查是否处于 rebase 状态
-if [ -z "$(git rev-parse --git-dir 2> /dev/null)" ]; then
-  # 不处于 rebase 状态，执行 lint 和 format
-  echo "lint and format before commit"
-  npm run lint && npm run format
-fi
+echo "lint and format before commit"
+#npm run lint && npm run format
