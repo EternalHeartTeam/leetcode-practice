@@ -22,12 +22,12 @@ it('测试树 parse 特殊值', () => {
 })
 it('测试树 parse mockTree', () => {
   expect(TreeNode.parse(mockTree)).toEqual(
-    new TreeNode(1, new TreeNode(2), new TreeNode(3))
+    new TreeNode(1, new TreeNode(2), new TreeNode(3)),
   )
 })
 it('测试树 pase mockTree2', () => {
   expect(TreeNode.parse(mockTree2)).toEqual(
-    new TreeNode(1, null, new TreeNode(2))
+    new TreeNode(1, null, new TreeNode(2)),
   )
 })
 it('测试树 pase mockTree3', () => {
@@ -35,8 +35,8 @@ it('测试树 pase mockTree3', () => {
     new TreeNode(
       3,
       new TreeNode(9, null),
-      new TreeNode(20, new TreeNode(15, null), new TreeNode(7))
-    )
+      new TreeNode(20, new TreeNode(15, null), new TreeNode(7)),
+    ),
   )
 })
 it('测试树 pase mockTree4', () => {

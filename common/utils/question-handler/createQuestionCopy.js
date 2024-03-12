@@ -19,7 +19,7 @@ export function createQuestionCopy(question, questionDir) {
   const copyFileDir = path.join(dir, `${name}${affix}`)
   const copyFilePath = path.join(
     copyFileDir,
-    `question${getQuestionFileExtension(question.lang)}`
+    `question${getQuestionFileExtension(question.lang)}`,
   )
   return createQuestionFile(copyFileDir, copyFilePath, question)
 }

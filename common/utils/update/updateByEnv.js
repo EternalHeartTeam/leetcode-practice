@@ -3,6 +3,7 @@ import https from 'node:https'
 import fs from 'node:fs'
 import inquirer from 'inquirer'
 import { getGithubVersion } from '#common/utils/update/update.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 /**
  * 根据环境进行更新
