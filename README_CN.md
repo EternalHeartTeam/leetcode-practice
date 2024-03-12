@@ -287,7 +287,11 @@ npm i --save-dev leetcode-practice
 
 <a href="https://github.com/EternalHeartTeam/leetcode-practice/graphs/contributors" target="_blank"><img src="https://raw.githubusercontent.com/EternalHeartTeam/leetcode-practice/svg/images/contributors.png" /></a>
 
-### 2.使用反馈
+### 2.如何贡献
+
+如果你也有一颗热爱开源的心，想要为我们的开源事业贡献一份力量，那么请参考我们的[贡献手册](./CONTRIBUTORS.md)。
+
+### 3.使用反馈
 
 如果你有使用上的问题需要解惑,或者一些好的建议想要提出,可以加我们的使用反馈群进行反馈!
 
@@ -295,6 +299,6 @@ npm i --save-dev leetcode-practice
 
 ![反馈群](./resources/images/service-qrcode.png)
 
-### 3.Star趋势图
+### 4.Star趋势图
 
 [![Star History Chart](https://api.star-history.com/svg?repos=EternalHeartTeam/leetcode-practice&type=Date)](https://star-history.com/#EternalHeartTeam/leetcode-practice&Date)
