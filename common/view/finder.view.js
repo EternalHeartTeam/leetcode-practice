@@ -60,7 +60,8 @@ async function studyMode(baseDir = process.cwd()) {
       choices: planList.map((res) => ({
         name: res.cnTitle,
         value: res.enTitle
-      }))
+      })),
+      pageSize: 30
     }
     const singleChoice = await select(singleMode)
 
