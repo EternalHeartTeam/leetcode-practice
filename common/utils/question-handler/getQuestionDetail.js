@@ -22,6 +22,6 @@ export async function getQuestionDetail(slug, extra = {}) {
     detail: detail?.translatedContent,
     lang: curLang,
     code,
-    ...extra,
+    ...extra
   }
 }
