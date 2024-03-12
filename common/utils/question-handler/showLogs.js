@@ -21,7 +21,7 @@ export function parseLog(fnName, param, compare, compareStruct) {
   const [parsedCompareArr] = setDataStructure(
     [callVal],
     compareStruct,
-    'return'
+    'return',
   )
   // 获取函数执行后的内存使用情况
   const endHeapStatsArray = v8.getHeapSpaceStatistics()
@@ -29,11 +29,11 @@ export function parseLog(fnName, param, compare, compareStruct) {
   const endTime = performance.now()
   const startHeapStats = startHeapStatsArray.reduce(
     (prev, curr) => (prev += curr.space_used_size),
-    0
+    0,
   )
   const endHeapStats = endHeapStatsArray.reduce(
     (prev, curr) => (prev += curr.space_used_size),
-    0
+    0,
   )
 
   return {
@@ -41,7 +41,7 @@ export function parseLog(fnName, param, compare, compareStruct) {
     预期结果: JSON.stringify(compare),
     执行结果: JSON.stringify(parsedCompareArr),
     执行用时: `${Number(endTime - startTime).toFixed(4)}ms`,
-    内存占用: getFileSize(endHeapStats - startHeapStats)
+    内存占用: getFileSize(endHeapStats - startHeapStats),
   }
 }
 
@@ -56,7 +56,7 @@ export function showLogs(fnName, paramMap, compareMap) {
       fnName,
       parsedParma,
       compareArr[index],
-      compareStruct
+      compareStruct,
     )
     logsItems.push(logItem)
   })
@@ -67,18 +67,18 @@ export function showLogs(fnName, paramMap, compareMap) {
       { name: '预期结果', title: '预期结果', alignment: 'center', maxLen: 40 },
       { name: '执行结果', title: '执行结果', alignment: 'center', maxLen: 40 },
       { name: '执行用时', title: '执行用时', alignment: 'center', maxLen: 10 },
-      { name: '内存占用', title: '内存占用', alignment: 'center', maxLen: 10 }
-    ]
+      { name: '内存占用', title: '内存占用', alignment: 'center', maxLen: 10 },
+    ],
   })
   logsItems.forEach((item) => {
     for (const key in item) {
       if (key === '预期结果' || key === '执行结果') {
-        item[key] =
-          item[key]?.length >= 40 ? `${item[key].slice(0, 37)}...` : item[key]
+        item[key]
+          = item[key]?.length >= 40 ? `${item[key].slice(0, 37)}...` : item[key]
       }
     }
     logTable.addRow(item, {
-      color: item['测试结果'] === '通过' ? 'green' : 'red'
+      color: item['测试结果'] === '通过' ? 'green' : 'red',
     })
   })
   logTable.printTable()
