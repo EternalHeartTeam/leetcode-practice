@@ -2,7 +2,7 @@ import chalk from 'chalk'
 import { getStore } from '#common/utils/store/controller/store.js'
 
 class Logger {
-  constructor(env) {
+  constructor(_env) {
     // console.log(
     //     chalk.bgGray(`[logger init] The current env is ${env ?? 'not plugin'}.`)
     // )

@@ -43,7 +43,8 @@
     "prepare": "husky install",
     "create-color-font": "node scripts/create-color-font.js",
     "release": "release-it",
-    "try-release": "release-it --dry-run"
+    "try-release": "release-it --dry-run",
+    "rebase": "HUSKY_SKIP_HOOKS=1 git rebase "
   },
   "dependencies": {
     "@inquirer/input": "^2.0.1",
