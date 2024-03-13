@@ -18,9 +18,9 @@ export async function easyUpdateView() {
   const { choseEnv } = await inquirer.prompt(envQuestion, null)
   // 2. 检测版本更新
   const {
-    localVersion,
-    npmVersion,
-    githubVersion,
+    localVersion = '未检出',
+    npmVersion = '未检出',
+    githubVersion = '未检出',
     isCliUpdate,
     isGithubUpdate
   } = await checkUpdate()

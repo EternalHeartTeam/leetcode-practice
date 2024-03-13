@@ -1,4 +1,4 @@
-import { createQuestionByTitleSlug } from '../create-check/createUtil.js'
+import { createQuestionByTitleSlug } from '#common/utils/cli-utils/createQuestion.js'
 import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuestionList.js'
 
 // 获取创建promise列表

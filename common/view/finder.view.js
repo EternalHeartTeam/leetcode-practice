@@ -4,7 +4,7 @@ import input from '@inquirer/input'
 import {
   createQuestionById,
   createQuestionByTitleSlug
-} from '#common/utils/create-check/createUtil.js'
+} from '#common/utils/cli-utils/createQuestion.js'
 import { getQuestionByKeyword } from '#common/utils/question-getter/getQuestionByKeyword.js'
 import { getStudyPlanList } from '#common/utils/question-getter/getStudyPlanList.js'
 import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuestionList.js'

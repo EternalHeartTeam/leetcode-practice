@@ -18,7 +18,7 @@ export function executeScript(filePath, context) {
  * 执行问题检测进程
  * @param path
  */
-export async function checkQuestion(path) {
+export async function checkQuestionByPath(path) {
   return await executeScript(
     path,
     vm.createContext({

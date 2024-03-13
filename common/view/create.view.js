@@ -9,7 +9,7 @@ import { createQuestionCopy } from '#common/utils/question-handler/createQuestio
 import { setQuestion } from '#common/utils/store/controller/question.js'
 import { logger } from '#common/utils/logger/logger.js'
 
-export async function easyCreateView() {
+export async function easyCreateView(baseDir = process.cwd()) {
   const modeQuestion = [
     {
       type: 'list',
@@ -47,14 +47,13 @@ export async function easyCreateView() {
   if (!store) console.warn(`[create][${mode}]问题[${question.title}]未成功缓存`)
   // 创建题目
   const questionFileName = getQuestionFileName(question)
-  const currentDir = process.cwd()
-  let questionDir = path.join(currentDir, questionFileName)
+  let questionDir = path.join(baseDir, questionFileName)
   // 创建路径确认
   const pathRightQuestion = [
     {
       type: 'confirm',
       name: 'dirRight',
-      message: `是否在目录[ ${currentDir} ]下创建题目[ ${questionFileName} ]?`
+      message: `是否在目录[ ${baseDir} ]下创建题目[ ${questionFileName} ]?`
     }
   ]
   const { dirRight } = await inquirer.prompt(pathRightQuestion, null)
@@ -63,18 +62,15 @@ export async function easyCreateView() {
       {
         type: 'input',
         name: 'newDir',
-        message: `请选择新目录(基础地址为${process.cwd()})[按回车[Enter]终止操作]:`
+        message: `请选择新目录(基础地址为${baseDir})[按回车[Enter]终止操作]:`
       }
     ]
     const { newDir } = await inquirer.prompt(newDirQuestion, null)
     if (!newDir) {
-      logger.info('[LC-LOG]用户终止操作~')
+      logger.info('[LC-logger]用户终止操作~')
       process.exit(0)
     }
-    questionDir = path.join(
-      path.join(process.cwd(), newDir),
-      `${questionFileName}`
-    )
+    questionDir = path.join(path.join(baseDir, newDir), `${questionFileName}`)
   }
   let filePath = await createQuestion(question, questionDir)
   if (!filePath) filePath = await createQuestionCopy(question, questionDir)
