@@ -1,6 +1,5 @@
 import { createQuestionByTitleSlug } from '../create-check/createUtil.js'
 import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuestionList.js'
-import { logger } from '#common/utils/logger/logger.js'
 
 // 获取创建promise列表
 async function createCreatePromiseList(slugList, baseDir = process.cwd()) {

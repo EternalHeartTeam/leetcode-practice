@@ -1,3 +1,4 @@
+import path from 'node:path'
 import select, { Separator } from '@inquirer/select'
 import input from '@inquirer/input'
 import {
@@ -9,7 +10,6 @@ import { getStudyPlanList } from '#common/utils/question-getter/getStudyPlanList
 import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuestionList.js'
 import { logger } from '#common/utils/logger/logger.js'
 import { getQuestionListCodeBySlug } from '#common/utils/question-handler/getQuestionListCodeBySlug.js'
-import path from 'node:path'
 
 function handleQuestionList(list) {
   return list.map((item) => ({

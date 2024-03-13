@@ -1,19 +1,16 @@
-
-
 ## [1.0.7](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.6...cli-v1.0.7) (2024-03-12)
-
 
 ### Bug Fixes
 
-* change plan list question title to cn ([57f15d5](https://github.com/wh131462/leetcode-practice/commit/57f15d5befc23d11ce6211c30e3ee7a7e8bbe52d))
-* change plan list question title to cn ([cb6fbfd](https://github.com/wh131462/leetcode-practice/commit/cb6fbfd4cd783f57d031abe3add9d85f3e271a4c))
-* change the config ([2b9bb11](https://github.com/wh131462/leetcode-practice/commit/2b9bb1149c6db0dbede22f10830ccd8661b0a83f))
-* delete hot100 add study plan list ([e94aaa1](https://github.com/wh131462/leetcode-practice/commit/e94aaa166e80e7e54f3ce5b570352cb798799b77))
-* delete hot100 add study plan list ([9d7a22f](https://github.com/wh131462/leetcode-practice/commit/9d7a22fde8cc72264766f707ea3f51e81956c111))
-* get all is not success ([9108219](https://github.com/wh131462/leetcode-practice/commit/91082196dc005b0b23314966a09304ba948416b8))
-* get all is not success ([3f5bfef](https://github.com/wh131462/leetcode-practice/commit/3f5bfef7857e6c9869c40e3d12a60d50b14be2cd))
-* update realm version to fix windows env ([00d2bc4](https://github.com/wh131462/leetcode-practice/commit/00d2bc4942b2b02f97ad41d23da64f8bedc23741))
-* use logger instead console ([fddc458](https://github.com/wh131462/leetcode-practice/commit/fddc4581efbd5186a17aa1415aa2738283f820b7))
+- change plan list question title to cn ([57f15d5](https://github.com/wh131462/leetcode-practice/commit/57f15d5befc23d11ce6211c30e3ee7a7e8bbe52d))
+- change plan list question title to cn ([cb6fbfd](https://github.com/wh131462/leetcode-practice/commit/cb6fbfd4cd783f57d031abe3add9d85f3e271a4c))
+- change the config ([2b9bb11](https://github.com/wh131462/leetcode-practice/commit/2b9bb1149c6db0dbede22f10830ccd8661b0a83f))
+- delete hot100 add study plan list ([e94aaa1](https://github.com/wh131462/leetcode-practice/commit/e94aaa166e80e7e54f3ce5b570352cb798799b77))
+- delete hot100 add study plan list ([9d7a22f](https://github.com/wh131462/leetcode-practice/commit/9d7a22fde8cc72264766f707ea3f51e81956c111))
+- get all is not success ([9108219](https://github.com/wh131462/leetcode-practice/commit/91082196dc005b0b23314966a09304ba948416b8))
+- get all is not success ([3f5bfef](https://github.com/wh131462/leetcode-practice/commit/3f5bfef7857e6c9869c40e3d12a60d50b14be2cd))
+- update realm version to fix windows env ([00d2bc4](https://github.com/wh131462/leetcode-practice/commit/00d2bc4942b2b02f97ad41d23da64f8bedc23741))
+- use logger instead console ([fddc458](https://github.com/wh131462/leetcode-practice/commit/fddc4581efbd5186a17aa1415aa2738283f820b7))
 
 ## [1.0.6](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.5...cli-v1.0.6) (2024-03-11)
 
