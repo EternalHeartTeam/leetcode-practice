@@ -2,6 +2,6 @@
 # 导入 Husky 脚本
 . "$(dirname -- "$0")/_/husky.sh"
 # 如果要执行 rebase 需要跳过当前所有hooks
-# todo-highlight HUSKY_SKIP_HOOKS=1 git rebase ...
+# todo-highlight HUSKY=0 git rebase ...
 echo "Running pre-commit script..."
 npm run lint && npm run format
