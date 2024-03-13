@@ -3,7 +3,7 @@ import inquirer from 'inquirer'
 import { getQuestionFileName } from '#common/utils/question-handler/getQuestionFileName.js'
 import { getQuestionById } from '#common/utils/question-getter/getQuestionById.js'
 import { getQuestionByMode } from '#common/utils/store/controller/question.js'
-import { checkQuestion } from '#common/utils/question-handler/checkQuestion.js'
+import { checkQuestionByPath } from '#common/utils/question-handler/checkQuestionByPath.js'
 import { getCountBySameName } from '#common/utils/file/getCountBySameName.js'
 import { getFileListBySameName } from '#common/utils/file/getFileListBySameName.js'
 import { logger } from '#common/utils/logger/logger.js'
@@ -66,7 +66,7 @@ export async function easyCheckView() {
     ]
     const { newDir } = await inquirer.prompt(newDirQuestion, null)
     if (!newDir) {
-      logger.info('[LK-LOG]用户终止操作~')
+      logger.info('[LK-logger]用户终止操作~')
       process.exit(0)
     }
     questionDir = path.join(
@@ -96,7 +96,7 @@ export async function easyCheckView() {
     )
   }
   const filePath = path.join(questionDir, `question${question.lang}`)
-  await checkQuestion(filePath)
+  await checkQuestionByPath(filePath)
   logger.info(`题目[${questionFileName}]检查完成！\n文件地址为: ${filePath}`)
   process.exit(0)
 }
