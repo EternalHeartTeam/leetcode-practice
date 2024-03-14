@@ -9,3 +9,10 @@ export function currentEnv() {
   const projectReg = /etc\/checkEnv.js$/im
   return projectReg.test(url) ? 'project' : 'cli'
 }
+
+/**
+ * 检查npm安装时的位置
+ */
+export function npmEnv() {
+  return true ? 'global' : 'module'
+}

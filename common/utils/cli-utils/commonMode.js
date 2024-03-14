@@ -1,8 +1,10 @@
 import path from 'node:path'
+import { fork } from 'node:child_process'
 import { easyUpdateView } from '#common/view/update.view.js'
 import { getQuestionLanguage } from '#common/utils/question-handler/questionLanguage.js'
 import { easyLanguageView } from '#common/view/language.view.js'
 import { logger } from '#common/utils/logger/logger.js'
+import { rootPath } from '#common/utils/file/getRootPath.js'
 
 /**
  * 执行逻辑:
@@ -17,6 +19,14 @@ import { logger } from '#common/utils/logger/logger.js'
  * @returns {Promise<string>}
  */
 export async function commonMode(cmdOpts, easyCallback) {
+  // 启动一个额外的线程，并执行 worker.js 文件
+  // const workerProcess =
+  fork(path.resolve(rootPath, 'common/utils/cli-utils/checkUpdate.js'))
+  // todo 监听额外线程的消息
+  // workerProcess.on('message', (message) => {})
+  // todo 监听额外线程的退出事件
+  // workerProcess.on('exit', (code, signal) => {})
+
   // 根据dir 参数来设置基本目录
   const baseDir = cmdOpts.directory
     ? path.join(process.cwd(), cmdOpts.directory)
