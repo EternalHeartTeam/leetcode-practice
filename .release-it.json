@@ -7,7 +7,6 @@
   "git": {
     "commitMessage": "chore: release v${version}",
     "tagName": "cli-v${version}",
-    "branch": "stable-v${version}",
     "tag": true,
     "push": true,
     "pushArgs": ["--follow-tags"]
@@ -16,7 +15,8 @@
     "publish": false
   },
   "hooks": {
-    "after:bump": "git add CHANGELOG.md && echo 更新版本成功!添加changelog的commit成功!"
+    "after:bump": "git add CHANGELOG.md && echo 更新版本${version}成功!添加changelog的commit成功!",
+    "after:release": "git checkout master && git checkout -b stable-v${version} && git push origin stable-v${version}"
   },
   "plugins": {
     "@release-it/bumper": {
