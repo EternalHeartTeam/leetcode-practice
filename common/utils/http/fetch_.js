@@ -1,4 +1,3 @@
-import { Loading } from '#common/utils/loading/loading.js'
 import ora from 'ora'
 
 /**

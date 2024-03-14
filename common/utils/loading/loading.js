@@ -1,4 +1,5 @@
 import chalk from 'chalk'
+
 export class Loading {
   text = 'loading...'
   constructor(text) {
