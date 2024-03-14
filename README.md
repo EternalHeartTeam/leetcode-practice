@@ -28,12 +28,7 @@ Then, `leetcode-practice` is all you need!
 | -------- | :---------------------------------------------: |
 | nodejs   |                       lts                       |
 | git      |                       lts                       |
-| computer |     Ability to run Chrome and a code editor     |
 | patience | A heart that can persist in practicing problems |
-
-> Note: nodejs: [Node.js Installation Guide](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
->
-> git: [Git Download Page](https://git-scm.com/downloads)
 
 ### 1. How Can I Use It? (Three Options for You to Choose From)
 
@@ -231,20 +226,11 @@ npm i --save-dev leetcode-practice
 
 | Command | Explanation                                                                                                                       |
 | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| lc      | Core creation command, supports three creation modes (daily question, specified question, random question) for creating questions |
 | lk      | Core checking command, supports three modes corresponding to the question for checking questions                                  |
 | lf      | Core search command, which can quickly search for the question you want based on prompts                                          |
+| lc      | Core creation command, supports three creation modes (daily question, specified question, random question) for creating questions |
 
-#### [1]. lc
-
-| Short Parameter        | Full Parameter | Explanation                                                             |
-| ---------------------- | -------------- | ----------------------------------------------------------------------- |
-| No parameter / `-t`    | `--today`      | Create today's daily question                                           |
-| Question number / `-i` | `--identity`   | Create the question corresponding to the specified number               |
-| `-r`                   | `--random`     | Create a random question that has not appeared in the current directory |
-| `-e`                   | `--easy`       | Interactive creation of questions                                       |
-
-#### [2]. lk
+#### [1]. lk
 
 | Short Parameter        | Full Parameter | Explanation                                                                                                                                       |
 | ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -256,11 +242,20 @@ npm i --save-dev leetcode-practice
 > Note: When checking, please pay attention to what mode to use for checking, and make sure that you have performed the corresponding mode creation operation.
 > The specified ID mode is an exception because it will check whether the specified ID exists in the current working directory.
 
-#### [3]. lf
+#### [2]. lf
 
 | Short Parameter | Full Parameter | Explanation                                                               |
 | --------------- | -------------- | ------------------------------------------------------------------------- |
 | No parameter    | None           | Enter interactive search, and search or filter questions based on prompts |
+
+#### [3]. lc
+
+| Short Parameter        | Full Parameter | Explanation                                                             |
+| ---------------------- | -------------- | ----------------------------------------------------------------------- |
+| No parameter / `-t`    | `--today`      | Create today's daily question                                           |
+| Question number / `-i` | `--identity`   | Create the question corresponding to the specified number               |
+| `-r`                   | `--random`     | Create a random question that has not appeared in the current directory |
+| `-e`                   | `--easy`       | Interactive creation of questions                                       |
 
 #### [4]. General Parameters
 
