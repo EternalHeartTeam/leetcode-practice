@@ -1,3 +1,16 @@
+## [1.0.8](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.7...cli-v1.0.8) (2024-03-14)
+
+### Bug Fixes
+
+- page size ([f3fd27c](https://github.com/wh131462/leetcode-practice/commit/f3fd27cc31a4d82dc9e8641a865a750b173f43f5))
+- page size ([1905454](https://github.com/wh131462/leetcode-practice/commit/1905454d71ece043da1badc3a604c72f23995ae5))
+
+### Features
+
+- add fetch qurtion list ([4485182](https://github.com/wh131462/leetcode-practice/commit/44851825eb92b2f1da98f1bb78c71c3f0fe27856))
+- lk check question by file ([bec7081](https://github.com/wh131462/leetcode-practice/commit/bec708107f67a2ce6c1d361911f1f9ce2ed3ed26))
+- 获取全部学习计划题目 ([c8ec9dc](https://github.com/wh131462/leetcode-practice/commit/c8ec9dc82f7310759fa949dce771aa665906e2f8))
+
 ## [1.0.7](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.6...cli-v1.0.7) (2024-03-12)
 
 ### Bug Fixes
