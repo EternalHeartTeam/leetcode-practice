@@ -15,16 +15,11 @@ export const PB = 1024 * GB
  * @return {size: number, label: string}
  */
 export function getFileSizeUnit(size) {
-  if (size < KB)
-    return { size: 1, label: 'B' }
-  if (size < MB)
-    return { size: KB, label: 'KB' }
-  if (size < GB)
-    return { size: MB, label: 'MB' }
-  if (size < TB)
-    return { size: GB, label: 'GB' }
-  if (size < PB)
-    return { size: TB, label: 'TB' }
+  if (size < KB) return { size: 1, label: 'B' }
+  if (size < MB) return { size: KB, label: 'KB' }
+  if (size < GB) return { size: MB, label: 'MB' }
+  if (size < TB) return { size: GB, label: 'GB' }
+  if (size < PB) return { size: TB, label: 'TB' }
 
   return { size: PB, label: 'PB' }
 }

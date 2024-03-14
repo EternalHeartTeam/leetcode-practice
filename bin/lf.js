@@ -19,7 +19,7 @@ program
   .option('-d, --directory <directory>', 'Set the question directory.')
   .option(
     '-u, --update',
-    'Check the version to determine whether to update to the latest one.',
+    'Check the version to determine whether to update to the latest one.'
   )
   .parse(process.argv)
 

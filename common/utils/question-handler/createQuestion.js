@@ -15,15 +15,14 @@ export function createQuestion(question, questionDir) {
     const filePath = path.normalize(
       path.join(
         questionDir,
-        `question${getQuestionFileExtension(question.lang)}`,
-      ),
+        `question${getQuestionFileExtension(question.lang)}`
+      )
     )
     if (fs.existsSync(filePath)) {
       resolve(false)
-    }
-    else {
+    } else {
       createQuestionFile(questionDir, filePath, question)
-        .then(path => resolve(path))
+        .then((path) => resolve(path))
         .catch(() => resolve(false))
     }
   })
@@ -38,13 +37,12 @@ export function createQuestionFile(questionDir, questionFilePath, question) {
         if (!question.code) {
           const supports = await getSupportCode(question.slug)
           console.warn(
-            `此题目不支持当前语言[${question.lang}]!受支持的语言有[${supports.join(',')}]!`,
+            `此题目不支持当前语言[${question.lang}]!受支持的语言有[${supports.join(',')}]!`
           )
         }
         resolve(questionFilePath)
       })
-    }
-    catch (e) {
+    } catch (e) {
       reject(e)
     }
   })

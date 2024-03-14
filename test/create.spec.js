@@ -5,12 +5,12 @@ import { generateTemplateContent } from '#common/utils/question-handler/fulfillQ
 
 vi.mock('fs/promises', () => {
   return {
-    writeFile: vi.fn(),
+    writeFile: vi.fn()
   }
 })
 const funRegex = /var\s+(\w+)\s*=\s*function\s*\(([^)]*)\)\s*{\s*([^}]*)\s*}/
-const isContainJsCode = input => funRegex.test(input)
-const isContainTestCase = input => input.includes('showLogs(')
+const isContainJsCode = (input) => funRegex.test(input)
+const isContainTestCase = (input) => input.includes('showLogs(')
 
 const mockKeys = ['id', 'slug', 'title', 'detail', 'lang', 'code', 'date']
 

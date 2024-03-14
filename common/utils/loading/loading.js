@@ -10,16 +10,14 @@ export class Loading {
   }
 
   start() {
-    if (this.interval)
-      clearInterval(this.interval)
+    if (this.interval) clearInterval(this.interval)
     this.interval = setInterval(() => {
       process.stdout.write(
-        chalk.blueBright(`\r${this.frames[this.currentFrame]} ${this.text}`),
+        chalk.blueBright(`\r${this.frames[this.currentFrame]} ${this.text}`)
       )
 
       this.currentFrame++
-      if (this.currentFrame === this.frames.length)
-        this.currentFrame = 0
+      if (this.currentFrame === this.frames.length) this.currentFrame = 0
     }, 80)
     return this
   }

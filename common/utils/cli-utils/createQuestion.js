@@ -11,7 +11,7 @@ import { create } from '#common/utils/cli-utils/create.js'
  */
 export async function createQuestionByTitleSlug(
   titleSlug,
-  baseDir = process.cwd(),
+  baseDir = process.cwd()
 ) {
   const { question } = await getQuestionIdBySlug(titleSlug)
   await createQuestionById(question.questionId, baseDir)
@@ -25,7 +25,6 @@ export async function createQuestionByTitleSlug(
  */
 export async function createQuestionById(id, baseDir = process.cwd()) {
   const question = await getQuestionById(id)
-  if (!question?.id)
-    logger.warn(`指定编号: [ ${id} ] 题目不存在.`)
+  if (!question?.id) logger.warn(`指定编号: [ ${id} ] 题目不存在.`)
   await create('identity', question, baseDir)
 }

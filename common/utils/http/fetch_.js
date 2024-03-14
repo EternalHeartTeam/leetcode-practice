@@ -10,7 +10,7 @@ import { Loading } from '#common/utils/loading/loading.js'
 export async function fetch_(url, options) {
   const loader = new Loading(options.loadText ?? 'loading...')
   loader.start()
-  const resp = await fetch(url, options).then(res => res.json())
+  const resp = await fetch(url, options).then((res) => res.json())
   loader.stop()
   return resp
 }
