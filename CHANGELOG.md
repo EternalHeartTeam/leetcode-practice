@@ -1,3 +1,12 @@
+
+
+## [1.0.9-4](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.9-3...cli-v1.0.9-4) (2024-03-14)
+
+
+### Features
+
+* ora loading ([#54](https://github.com/wh131462/leetcode-practice/issues/54)) ([b604316](https://github.com/wh131462/leetcode-practice/commit/b6043167752a74582e8d095721cf5b3849951e06))
+
 ## [1.0.9-3](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.9-2...cli-v1.0.9-3) (2024-03-14)
 
 ### Bug Fixes
