@@ -79,11 +79,31 @@ function rewritePackageFile() {
 }
 
 /**
+ * 创建原始目录下的文件 需要将js转化成压缩后的形式
+ */
+function createOrigin() {
+  const originFiles = fs
+    .readdirSync(path.resolve(rootPath, 'common/origin'))
+    ?.filter((path) => path.endsWith('.js'))
+    .map((file) => path.resolve(rootPath, `common/origin/${file}`))
+  esbuild.buildSync({
+    entryPoints: originFiles,
+    minify: true,
+    bundle: true,
+    outdir: 'pl-cli/origin',
+    platform: 'node',
+    target: ['node20'],
+    packages: 'external',
+    format: 'esm'
+  })
+}
+/**
  * 构建完成之后的流程
  */
 function afterBuild() {
   copyDocs()
   rewritePackageFile()
+  createOrigin()
 }
 
 /**
@@ -104,4 +124,5 @@ async function main() {
       process.exit(1)
     })
 }
+
 await main()
