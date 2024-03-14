@@ -2,10 +2,29 @@ import chalk from 'chalk'
 import { getStore } from '#common/utils/store/controller/store.js'
 
 class LOGGER {
+  isOn = true
   constructor(_env) {
     // console.log(
     //     chalk.bgGray(`[logger init] The current env is ${env ?? 'not plugin'}.`)
     // )
+  }
+
+  /**
+   * 开启
+   */
+  on() {
+    this.isOn = true
+  }
+
+  /**
+   * 关闭
+   */
+  off() {
+    this.isOn = false
+  }
+
+  get forbidden() {
+    return !this.isOn
   }
 
   /**
@@ -14,6 +33,7 @@ class LOGGER {
    * @param args{*[]}
    */
   info(message, ...args) {
+    if (this.forbidden) return
     console.log(chalk.blue(message, ...args))
   }
 
@@ -23,6 +43,7 @@ class LOGGER {
    * @param args{*[]}
    */
   warn(message, ...args) {
+    if (this.forbidden) return
     console.log(chalk.yellow(message, ...args))
   }
 
@@ -32,6 +53,7 @@ class LOGGER {
    * @param args{*[]}
    */
   error(message, ...args) {
+    if (this.forbidden) return
     console.log(chalk.red(message, ...args))
   }
 }

@@ -72,10 +72,11 @@ async function studyMode(baseDir = process.cwd()) {
     await createQuestionByTitleSlug(singleChoice, baseDir)
   }
   if (createMode === 'all') {
-    await getQuestionListCodeBySlug(
-      planSlug,
-      path.resolve(baseDir, planSlug.toString())
-    )
+    const dir = path.resolve(baseDir, planSlug.toString())
+    logger.off()
+    await getQuestionListCodeBySlug(planSlug, dir)
+    logger.on()
+    logger.info(`题目全部拉取完成: file://${dir}`)
   }
 }
 
