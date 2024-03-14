@@ -29,7 +29,6 @@ export async function commonMode(cmdOpts, easyCallback) {
       : 'common/origin/checkUpdate.js'
   )
   fork(jsPath)
-  logger.info(jsPath)
   // todo 监听额外线程的消息
   // workerProcess.on('message', (message) => {})
   // todo 监听额外线程的退出事件
