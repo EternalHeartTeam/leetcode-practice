@@ -2,6 +2,8 @@ name: Create Cli Release
 
 on:
   push:
+    branches:
+      - master
     tags:
       - 'cli-v*'
 
