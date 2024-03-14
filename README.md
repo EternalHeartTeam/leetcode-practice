@@ -213,7 +213,7 @@ When you want to update, you can execute the encapsulated npm command `update`, 
 # Execute using any package management tool
 npm run update
 # Of course, you can also execute the command yourself
-npm i --save-dev leetcode-practice
+npm i -D leetcode-practice
 ```
 
 #### Option C. Plugin (Under Development)

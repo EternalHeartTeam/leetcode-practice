@@ -209,7 +209,7 @@ lc
 # どちらかのパッケージ管理ツールを使用して実行できます
 npm run update
 # もちろん、コマンドを手動で実行することもできます
-npm i --save-dev leetcode-practice
+npm i -D leetcode-practice
 ```
 
 #### オプションC.プラグイン（開発中）
