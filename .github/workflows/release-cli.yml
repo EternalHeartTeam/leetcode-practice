@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.repository == 'EternalHeartTeam/leetcode-practice' && github.ref == 'refs/heads/master'
+    if: github.repository == 'EternalHeartTeam/leetcode-practice'
     steps:
       - uses: actions/checkout@v3
       # Setup .npmrc file to publish to npm
