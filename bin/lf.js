@@ -27,5 +27,6 @@ const cmdArgs = program.args
 const cmdOpts = program.opts()
 // 通用参数执行
 const baseDir = await commonMode(cmdOpts, easyFinderView)
+await easyFinderView(baseDir)
 willUse(cmdArgs, baseDir)
 process.exit(0)

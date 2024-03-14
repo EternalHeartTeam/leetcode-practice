@@ -52,7 +52,7 @@ export async function commonMode(cmdOpts, easyCallback) {
     }
     process.exit(0)
   }
-  if (cmdOpts?.easy) {
+  if (cmdOpts.easy) {
     await easyCallback(baseDir)
     process.exit(0)
   }
