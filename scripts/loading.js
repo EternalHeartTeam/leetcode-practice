@@ -1,4 +1,3 @@
-import { Loading } from '#common/utils/loading/loading.js'
+import ora from 'ora'
 
-const loader = new Loading('旋转跳跃~我闭着眼~')
-loader.start()
+const loading = ora('LP!给我加载！！！！').start()

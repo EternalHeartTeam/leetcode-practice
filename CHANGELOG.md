@@ -1,11 +1,8 @@
-
-
 ## [1.0.9-3](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.9-2...cli-v1.0.9-3) (2024-03-14)
-
 
 ### Bug Fixes
 
-* fix check info log ([#52](https://github.com/wh131462/leetcode-practice/issues/52)) ([6b710a1](https://github.com/wh131462/leetcode-practice/commit/6b710a1a2ff088d9806d33153bf811e5a5e19306))
+- fix check info log ([#52](https://github.com/wh131462/leetcode-practice/issues/52)) ([6b710a1](https://github.com/wh131462/leetcode-practice/commit/6b710a1a2ff088d9806d33153bf811e5a5e19306))
 
 ## [1.0.9-2](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.9-1...cli-v1.0.9-2) (2024-03-14)
 
