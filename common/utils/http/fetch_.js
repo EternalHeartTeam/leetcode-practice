@@ -1,4 +1,5 @@
 import { Loading } from '#common/utils/loading/loading.js'
+import ora from 'ora'
 
 /**
  * 基础请求-直接返回JSON格式的值
@@ -8,8 +9,7 @@ import { Loading } from '#common/utils/loading/loading.js'
  * @private
  */
 export async function fetch_(url, options) {
-  const loader = new Loading(options.loadText ?? 'loading...')
-  loader.start()
+  const loader = ora(options.loadText ?? 'loading...').start()
   const resp = await fetch(url, options).then((res) => res.json())
   loader.stop()
   return resp
