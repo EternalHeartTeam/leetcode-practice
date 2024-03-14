@@ -2,15 +2,13 @@ name: Create Cli Release
 
 on:
   push:
-    branches:
-      - master
     tags:
       - 'cli-v*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.repository == 'EternalHeartTeam/leetcode-practice'
+    if: github.repository == 'EternalHeartTeam/leetcode-practice' && github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v3
       # Setup .npmrc file to publish to npm
