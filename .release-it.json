@@ -7,6 +7,7 @@
   "git": {
     "commitMessage": "chore: release v${version}",
     "tagName": "cli-v${version}",
+    "branch": "stable-v${version}",
     "tag": true,
     "push": true,
     "pushArgs": ["--follow-tags"]
