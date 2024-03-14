@@ -1,3 +1,12 @@
+
+
+## [1.0.9-2](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.9-1...cli-v1.0.9-2) (2024-03-14)
+
+
+### Features
+
+* add loading and logger on/off ([#51](https://github.com/wh131462/leetcode-practice/issues/51)) ([bbff9b1](https://github.com/wh131462/leetcode-practice/commit/bbff9b1b80aea18255b089c5ad9c836bcbd18dae))
+
 ## [1.0.9-1](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.9-0...cli-v1.0.9-1) (2024-03-14)
 
 ### Bug Fixes
