@@ -5,6 +5,7 @@ import { getQuestionLanguage } from '#common/utils/question-handler/questionLang
 import { easyLanguageView } from '#common/view/language.view.js'
 import { logger } from '#common/utils/logger/logger.js'
 import { rootPath } from '#common/utils/file/getRootPath.js'
+import { currentEnv } from '#common/utils/etc/checkEnv.js'
 
 /**
  * 执行逻辑:
@@ -21,7 +22,14 @@ import { rootPath } from '#common/utils/file/getRootPath.js'
 export async function commonMode(cmdOpts, easyCallback) {
   // 启动一个额外的线程，并执行 worker.js 文件
   // const workerProcess =
-  fork(path.resolve(rootPath, 'common/utils/cli-utils/checkUpdate.js'))
+  const jsPath = path.resolve(
+    rootPath,
+    currentEnv() === 'cli'
+      ? 'origin/checkUpdate.js'
+      : 'common/origin/checkUpdate.js'
+  )
+  fork(jsPath)
+  logger.info(jsPath)
   // todo 监听额外线程的消息
   // workerProcess.on('message', (message) => {})
   // todo 监听额外线程的退出事件
