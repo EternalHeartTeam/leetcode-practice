@@ -1,4 +1,4 @@
-# Leetcode practice
+# Leetcode practice [![npm](https://img.shields.io/npm/v/leetcode-practice.svg)](https://www.npmjs.com/package/leetcode-practice) [![build status](https://github.com/EternalHeartTeam/leetcode-practice/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/EternalHeartTeam/leetcode-practice/actions/workflows/ci.yml)
 
 [中文](./README_CN.md) · **English** ·[日本語](./README_JP.md)
 
