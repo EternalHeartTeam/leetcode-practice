@@ -3,7 +3,7 @@
  * @param packageName
  * @param isUpdate
  * @param isGlobal
- * @returns {`npm ${string} ${string} ${string}`}
+ * @returns {string}
  * @constructor
  */
 export function NpmInstall(packageName, isUpdate, isGlobal) {
@@ -15,7 +15,7 @@ export function NpmInstall(packageName, isUpdate, isGlobal) {
  * @param packageName
  * @param isUpdate
  * @param isGlobal
- * @returns {`yarn ${string} ${string} ${string}`}
+ * @returns {string}
  * @constructor
  */
 export function YarnInstall(packageName, isUpdate, isGlobal) {
@@ -27,7 +27,7 @@ export function YarnInstall(packageName, isUpdate, isGlobal) {
  * @param packageName
  * @param isUpdate
  * @param isGlobal
- * @returns {`pnpm ${string} ${string} ${string}`}
+ * @returns {string}
  * @constructor
  */
 export function PnpmInstall(packageName, isUpdate, isGlobal) {

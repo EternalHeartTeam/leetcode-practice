@@ -13,7 +13,7 @@ export class Loading {
     if (this.interval) clearInterval(this.interval)
     this.interval = setInterval(() => {
       process.stdout.write(
-        chalk.yellow(`\r${this.frames[this.currentFrame]} ${this.text}`)
+        chalk.blueBright(`\r${this.frames[this.currentFrame]} ${this.text}`)
       )
 
       this.currentFrame++

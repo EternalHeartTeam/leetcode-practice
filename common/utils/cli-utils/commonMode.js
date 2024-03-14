@@ -15,8 +15,8 @@ import { currentEnv } from '#common/utils/etc/checkEnv.js'
  */
 /**
  * 通用参数的执行逻辑
- * @param cmdOpts{{directory:string,language:string|boolean,easy:boolean,update:boolean,[key:string]:*}}
- * @param easyCallback{(baseDir:string)=>Promise<any>}
+ * @param cmdOpts {{directory:string,language:string|boolean,easy:boolean,update:boolean,[key:string]:*}}
+ * @param easyCallback {(baseDir:string)=>Promise<any>}
  * @returns {Promise<string>}
  */
 export async function commonMode(cmdOpts, easyCallback) {

@@ -65,7 +65,7 @@ async function check(mode, question) {
     logger.info(`文件[${filePath}]不存在,请确保已经创建!`)
   } else {
     logger.info(
-      `MODE: ${mode}\n题目[${getQuestionChineseName(question)}]检测结果:`
+      `MODE: ${mode}\n题目[${getQuestionChineseName(question)}]检查结果:`
     )
     await checkQuestionByPath(filePath)
   }
@@ -94,7 +94,7 @@ const callModeAction = {
       const needToSelect = {
         type: 'list',
         name: 'need',
-        message: '在当前目录下存在多个题目，请选择你要检测的题目:',
+        message: `在当前目录下存在id为[${id}]的题目副本，请选择你要检查的副本:`,
         choices: []
       }
       /**
@@ -106,7 +106,7 @@ const callModeAction = {
         const needToCheck = {
           type: 'list',
           name: 'check',
-          message: '存在多个题目文件，请选择:',
+          message: '当前题目目录中存在多个题目文件副本，请选择一个进行检查:',
           choices: [],
           default: null
         }
@@ -135,6 +135,7 @@ const callModeAction = {
       }
 
       let files
+      let which
       switch (typeof question) {
         case 'undefined':
           logger.warn(`当前目录下未找到题目id为[${id}]的题目！`)
@@ -147,9 +148,8 @@ const callModeAction = {
           needToSelect.choices = question.map((o) => {
             return { name: o, value: o }
           })
-          files = getQuestionFileInDir(
-            path.resolve(baseDir, await select(needToSelect))
-          )
+          which = await select(needToSelect)
+          files = getQuestionFileInDir(path.resolve(baseDir, which))
           break
       }
       await checkOne(files)
