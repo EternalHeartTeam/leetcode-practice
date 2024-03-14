@@ -218,7 +218,7 @@ lc
 # 使用任意一种包管理工具执行即可
 npm run update
 # 当然你也可以自己执行指令
-npm i --save-dev leetcode-practice
+npm i -D leetcode-practice
 ```
 
 #### 方案C.插件 Plugin （待开发）
