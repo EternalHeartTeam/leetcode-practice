@@ -15,8 +15,9 @@ program
   .version(version)
   .description(`${description}\n${artFontLogo}\n${aim}`)
   .addHelpText('after', lfExamples + love)
-  .option('-l, --language [language]', 'Set/Get the code language of question.')
+  .option('-e, --easy', 'Use easy mode.')
   .option('-d, --directory <directory>', 'Set the question directory.')
+  .option('-l, --language [language]', 'Set/Get the code language of question.')
   .option(
     '-u, --update',
     'Check the version to determine whether to update to the latest one.'
