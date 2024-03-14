@@ -15,8 +15,8 @@
     "publish": false
   },
   "hooks": {
-    "after:bump": "git add CHANGELOG.md && echo 更新版本${version}成功!添加changelog的commit成功!",
-    "after:release": "git checkout master && git push origin master:stable-v${version} || true"
+    "after:bump": "prettier --write CHANGELOG.md && git add CHANGELOG.md ",
+    "after:release": "git checkout master && git push origin master:stable-v${version} || true && echo 更新版本 ${version} 成功!"
   },
   "plugins": {
     "@release-it/bumper": {

@@ -15,14 +15,16 @@ export async function open() {
   try {
     realm = await Realm.open({
       schema: [Question, Store],
-      path: localPath
+      path: localPath,
     })
-  } catch (e) {
-    if (e?.message?.includes('Migration')) await cleanStore()
+  }
+  catch (e) {
+    if (e?.message?.includes('Migration'))
+      await cleanStore()
 
     realm = await Realm.open({
       schema: [Question, Store],
-      path: localPath
+      path: localPath,
     })
   }
   return realm

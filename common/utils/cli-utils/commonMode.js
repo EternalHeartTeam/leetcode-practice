@@ -15,8 +15,8 @@ import { currentEnv } from '#common/utils/etc/checkEnv.js'
  */
 /**
  * 通用参数的执行逻辑
- * @param cmdOpts{{directory:string,language:string|boolean,easy:boolean,update:boolean,[key:string]:*}}
- * @param easyCallback{(baseDir:string)=>Promise<any>}
+ * @param cmdOpts {{directory:string,language:string|boolean,easy:boolean,update:boolean,[key:string]:*}}
+ * @param easyCallback {(baseDir:string)=>Promise<any>}
  * @returns {Promise<string>}
  */
 export async function commonMode(cmdOpts, easyCallback) {
@@ -26,7 +26,7 @@ export async function commonMode(cmdOpts, easyCallback) {
     rootPath,
     currentEnv() === 'cli'
       ? 'origin/checkUpdate.js'
-      : 'common/origin/checkUpdate.js'
+      : 'common/origin/checkUpdate.js',
   )
   fork(jsPath)
   // todo 监听额外线程的消息
@@ -46,7 +46,8 @@ export async function commonMode(cmdOpts, easyCallback) {
   if (cmdOpts.language) {
     if (cmdOpts.language !== true) {
       await easyLanguageView(cmdOpts.language)
-    } else {
+    }
+    else {
       const lang = await getQuestionLanguage()
       logger.info(`当前CLI语言环境为:${lang}`)
     }

@@ -15,8 +15,8 @@ export async function easyCreateView(baseDir = process.cwd()) {
       type: 'list',
       name: 'mode',
       message: '请选择创建问题的模式:',
-      choices: ['today', 'identity', 'random']
-    }
+      choices: ['today', 'identity', 'random'],
+    },
   ]
   // 第一个问题 选择的模式
   const { mode } = await inquirer.prompt(modeQuestion, null)
@@ -24,8 +24,8 @@ export async function easyCreateView(baseDir = process.cwd()) {
     {
       type: 'input',
       name: 'identity',
-      message: '请输入题目编号:'
-    }
+      message: '请输入题目编号:',
+    },
   ]
   let question
   switch (mode) {
@@ -44,7 +44,8 @@ export async function easyCreateView(baseDir = process.cwd()) {
       break
   }
   const store = await setQuestion(mode, question)
-  if (!store) console.warn(`[create][${mode}]问题[${question.title}]未成功缓存`)
+  if (!store)
+    console.warn(`[create][${mode}]问题[${question.title}]未成功缓存`)
   // 创建题目
   const questionFileName = getQuestionFileName(question)
   let questionDir = path.join(baseDir, questionFileName)
@@ -53,8 +54,8 @@ export async function easyCreateView(baseDir = process.cwd()) {
     {
       type: 'confirm',
       name: 'dirRight',
-      message: `是否在目录[ ${baseDir} ]下创建题目[ ${questionFileName} ]?`
-    }
+      message: `是否在目录[ ${baseDir} ]下创建题目[ ${questionFileName} ]?`,
+    },
   ]
   const { dirRight } = await inquirer.prompt(pathRightQuestion, null)
   if (!dirRight) {
@@ -62,8 +63,8 @@ export async function easyCreateView(baseDir = process.cwd()) {
       {
         type: 'input',
         name: 'newDir',
-        message: `请选择新目录(基础地址为${baseDir})[按回车[Enter]终止操作]:`
-      }
+        message: `请选择新目录(基础地址为${baseDir})[按回车[Enter]终止操作]:`,
+      },
     ]
     const { newDir } = await inquirer.prompt(newDirQuestion, null)
     if (!newDir) {
@@ -73,7 +74,8 @@ export async function easyCreateView(baseDir = process.cwd()) {
     questionDir = path.join(path.join(baseDir, newDir), `${questionFileName}`)
   }
   let filePath = await createQuestion(question, questionDir)
-  if (!filePath) filePath = await createQuestionCopy(question, questionDir)
+  if (!filePath)
+    filePath = await createQuestionCopy(question, questionDir)
 
   logger.info(`题目[${questionFileName}]创建完成！\n文件地址为: ${filePath}`)
   process.exit(0)

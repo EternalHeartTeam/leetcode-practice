@@ -5,8 +5,8 @@ export async function getStudyPlanList(type) {
   const res = await graphql(getStudyPlanListJson(type))
   const {
     data: {
-      studyPlansV2ByCatalog: { studyPlans }
-    }
+      studyPlansV2ByCatalog: { studyPlans },
+    },
   } = res
   return studyPlans
 }

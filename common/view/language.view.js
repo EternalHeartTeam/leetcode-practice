@@ -1,13 +1,13 @@
 import inquirer from 'inquirer'
 import {
   LANGUAGES,
-  setQuestionLanguage
+  setQuestionLanguage,
 } from '#common/utils/question-handler/questionLanguage.js'
 import { DefaultLang } from '#common/constants/question.const.js'
 import { logger } from '#common/utils/logger/logger.js'
 
 export async function easyLanguageView(defaultLang = DefaultLang) {
-  const list = LANGUAGES.map((o) => o.name)
+  const list = LANGUAGES.map(o => o.name)
   const setQuestion = [
     {
       type: 'list',
@@ -15,8 +15,8 @@ export async function easyLanguageView(defaultLang = DefaultLang) {
       message:
         '请确认你要设置CLI的语言环境(如果选项匹配成功，那么按下回车确认即可)',
       choices: list,
-      default: defaultLang
-    }
+      default: defaultLang,
+    },
   ]
   const { newSet } = await inquirer.prompt(setQuestion, null)
   logger.info('设置语言环境为:', newSet)
