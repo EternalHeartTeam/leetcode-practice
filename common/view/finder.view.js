@@ -10,7 +10,7 @@ import { getStudyPlanList } from '#common/utils/question-getter/getStudyPlanList
 import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuestionList.js'
 import { logger } from '#common/utils/logger/logger.js'
 import { getQuestionListCodeBySlug } from '#common/utils/question-handler/getQuestionListCodeBySlug.js'
-import { getQuestionTagType } from '#common/utils/question-getter/getQuestionTagType'
+import { getQuestionTagType } from '#common/utils/question-getter/getQuestionTagType.js'
 
 function handleQuestionList(list) {
   return list.map((item) => ({

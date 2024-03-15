@@ -1,4 +1,4 @@
-import { getQuestionTagTypeJson } from '#resources/headers/questionTagTypeJson'
+import { getQuestionTagTypeJson } from '#resources/headers/questionTagTypeJson.js'
 import { graphql } from '#common/utils/http/graphql.js'
 
 export async function getQuestionTagType() {
