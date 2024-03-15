@@ -11,6 +11,7 @@ import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuesti
 import { logger } from '#common/utils/logger/logger.js'
 import { getQuestionListCodeBySlug } from '#common/utils/question-handler/getQuestionListCodeBySlug.js'
 import { getQuestionTagType } from '#common/utils/question-getter/getQuestionTagType.js'
+import { getAllQuestionList } from '#common/utils/question-getter/getAllQuestionList.js'
 
 function handleQuestionList(list) {
   return list.map((item) => ({
@@ -94,16 +95,37 @@ async function keywordMode(baseDir = process.cwd()) {
     type: 'list',
     name: 'chooseQuestion',
     message: '请选择题目',
-    choices: list
+    choices: list,
+    pageSize: 30
   }
   const chooseQuestion = await select(listQuestion)
   await createQuestionById(chooseQuestion, baseDir)
 }
 
 async function selectMode(baseDir = process.cwd()) {
-  const res = await getQuestionTagType()
+  const questionTagList = await getQuestionTagType()
+  const tagList = questionTagList.reduce((acc, cur) => {
+    acc.push(
+      ...cur.tagRelation.map((res) => {
+        return {
+          name: `${res.tag.nameTranslated ? res.tag.nameTranslated : res.tag.name}(${res.questionNum})`,
+          value: res.tag.slug
+        }
+      })
+    )
+    return acc
+  }, [])
+
+  const tagQuestion = {
+    type: 'list',
+    name: 'chooseTag',
+    message: '请选择标签',
+    choices: tagList,
+    pageSize: 30
+  }
+  const chooseTag = await select(tagQuestion)
   logger.info(baseDir)
-  logger.info(res)
+  console.log(chooseTag)
 }
 
 export async function easyFinderView(baseDir = process.cwd()) {
