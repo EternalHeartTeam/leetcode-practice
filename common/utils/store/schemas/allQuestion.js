@@ -61,6 +61,19 @@ export class TopicTagsItem extends Realm.Object {
   }
 }
 
+export class RelatedTagsItem extends Realm.Object {
+  static schema = {
+    name: 'RelatedTagsItem',
+    properties: {
+      id: 'string',
+      name: 'string',
+      slug: 'string',
+      imgUrl: 'string?',
+      translatedName: 'string?'
+    }
+  }
+}
+
 export class AllQuestion extends Realm.Object {
   static schema = {
     name: 'AllQuestion',
@@ -72,15 +85,15 @@ export class AllQuestion extends Realm.Object {
       title: 'string',
       titleSlug: 'string',
       difficulty: 'string',
-      isPaidOnly: 'string',
+      isPaidOnly: 'bool',
       codeSnippets: 'CodeSnippetsItem[]',
-      topicTags: 'string',
-      relatedTags: 'TopicTagsItem[]',
+      topicTags: 'TopicTagsItem[]',
+      relatedTags: 'RelatedTagsItem[]',
       translatedTitle: 'string',
       stats: 'string',
       extra: 'ExtraObject',
       isNewQuestion: 'bool',
-      frequency: 'string'
+      frequency: 'string?'
     },
     primaryKey: 'questionId'
   }

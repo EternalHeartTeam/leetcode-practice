@@ -8,7 +8,8 @@ import {
   ExtraObject,
   TagTypeObject,
   TopCompanyTagsItem,
-  TopicTagsItem
+  TopicTagsItem,
+  RelatedTagsItem
 } from '#common/utils/store/schemas/allQuestion.js'
 import { rootPath } from '#common/utils/file/getRootPath.js'
 import { Store } from '#common/utils/store/schemas/store.js'
@@ -29,6 +30,7 @@ export async function open() {
         CodeSnippetsItem,
         TagTypeObject,
         TopicTagsItem,
+        RelatedTagsItem,
         AllQuestion,
         Store
       ],
@@ -45,6 +47,7 @@ export async function open() {
         CodeSnippetsItem,
         TagTypeObject,
         TopicTagsItem,
+        RelatedTagsItem,
         AllQuestion,
         Store
       ],
