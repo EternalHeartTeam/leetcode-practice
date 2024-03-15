@@ -31,7 +31,7 @@ program
   .option('-t, --today', 'Check the question today.')
   .option(
     '-i, --identity <identity>',
-    'Check the specified question by identity.',
+    'Check the specified question by identity.'
   )
   .option('-r, --random', 'Check the last random question.')
   .option('-e, --easy', 'Use easy mode.')
@@ -39,7 +39,7 @@ program
   .option('-l, --language [language]', 'Set/Get the code language of question.')
   .option(
     '-u, --update',
-    'Check the version to determine whether to update to the latest one.',
+    'Check the version to determine whether to update to the latest one.'
   )
   .parse(process.argv)
 
@@ -59,14 +59,13 @@ async function check(mode, question) {
   const filePath = path.join(
     baseDir,
     getQuestionFileName(question),
-    `question${getQuestionFileExtension(question?.lang)}`,
+    `question${getQuestionFileExtension(question?.lang)}`
   )
   if (!fs.existsSync(filePath)) {
     logger.info(`文件[${filePath}]不存在,请确保已经创建!`)
-  }
-  else {
+  } else {
     logger.info(
-      `MODE: ${mode}\n题目[${getQuestionChineseName(question)}]检查结果:`,
+      `MODE: ${mode}\n题目[${getQuestionChineseName(question)}]检查结果:`
     )
     await checkQuestionByPath(filePath)
   }
@@ -90,14 +89,13 @@ const callModeAction = {
       // 如果未指定id说明是要检测模式创建的题目
       question = await getQuestionByMode(mode)
       await check('identity', question)
-    }
-    else {
+    } else {
       question = await getFilePathById(id)
       const needToSelect = {
         type: 'list',
         name: 'need',
         message: `在当前目录下存在id为[${id}]的题目副本，请选择你要检查的副本:`,
-        choices: [],
+        choices: []
       }
       /**
        * 只检查一个题目
@@ -110,13 +108,13 @@ const callModeAction = {
           name: 'check',
           message: '当前题目目录中存在多个题目文件副本，请选择一个进行检查:',
           choices: [],
-          default: null,
+          default: null
         }
         let filePath
         switch (typeof fileOrFiles) {
           case 'undefined':
             logger.warn(
-              `虽然在题目目录中，但当前目录下不存在[${id}]的题目文件！`,
+              `虽然在题目目录中，但当前目录下不存在[${id}]的题目文件！`
             )
             process.exit(0)
             break
@@ -127,8 +125,8 @@ const callModeAction = {
             needToCheck.choices = fileOrFiles.map((o) => {
               return { name: o, value: o }
             })
-            needToCheck.default = fileOrFiles?.find(o =>
-              o.endsWith(getQuestionFileExtension(DefaultLang)),
+            needToCheck.default = fileOrFiles?.find((o) =>
+              o.endsWith(getQuestionFileExtension(DefaultLang))
             )
             filePath = await select(needToCheck)
             break
@@ -157,7 +155,7 @@ const callModeAction = {
       await checkOne(files)
     }
     process.exit(0)
-  },
+  }
 }
 // 执行指令分发
 callModeAction[mode](args)

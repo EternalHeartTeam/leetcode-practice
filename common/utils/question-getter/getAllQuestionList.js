@@ -15,7 +15,7 @@ export async function getAllQuestionList() {
   const allQuestionData = await fetch(url, {
     headers: { 'content-type': 'application/json' },
     body: null,
-    method: 'GET',
+    method: 'GET'
   })
   loader.stop()
   return allQuestionData.json()

@@ -12,8 +12,7 @@ export class ListNode {
   }
 
   static parse(arr) {
-    if (arr.length === 0)
-      return null // Return null for an empty array
+    if (arr.length === 0) return null // Return null for an empty array
 
     const head = new ListNode(arr.shift(), null)
     let current = head
@@ -25,8 +24,7 @@ export class ListNode {
   }
 
   static toArray(listNodes, arr = []) {
-    if (listNodes === undefined || listNodes === null)
-      return arr
+    if (listNodes === undefined || listNodes === null) return arr
 
     arr.push(listNodes.val)
     return ListNode.toArray(listNodes.next, arr)

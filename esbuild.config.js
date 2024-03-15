@@ -6,7 +6,7 @@ import { logger } from '#common/utils/logger/logger.js'
 
 // 读取 package.json 文件内容
 const packageJson = JSON.parse(
-  fs.readFileSync(path.resolve(rootPath, 'package.json'), 'utf-8'),
+  fs.readFileSync(path.resolve(rootPath, 'package.json'), 'utf-8')
 )
 const esbuildConfig = {
   entryPoints: ['bin/lk.js', 'bin/lf.js', 'bin/lc.js'],
@@ -18,13 +18,13 @@ const esbuildConfig = {
   minify: true,
   packages: 'external',
   define: {
-    'process.env.VERSION': JSON.stringify(packageJson.version),
-  },
+    'process.env.VERSION': JSON.stringify(packageJson.version)
+  }
 }
 const buildBinConfig = {
   lk: 'bin/lk.js',
   lf: 'bin/lf.js',
-  lc: 'bin/lc.js',
+  lc: 'bin/lc.js'
 }
 const publishExcludeFields = [
   'scripts',
@@ -32,14 +32,13 @@ const publishExcludeFields = [
   'imports',
   'main',
   'config',
-  'packageManager',
+  'packageManager'
 ]
 // 清理文件
 function clean() {
   return new Promise((resolve) => {
     fs.rm(path.resolve(rootPath, 'pl-cli'), { recursive: true }, (err) => {
-      if (err)
-        resolve()
+      if (err) resolve()
       else resolve()
     })
   })
@@ -54,12 +53,12 @@ function copyDocs() {
   docs.forEach((doc) => {
     fs.copyFileSync(
       path.resolve(rootPath, doc),
-      path.resolve(rootPath, `pl-cli/${doc}`),
+      path.resolve(rootPath, `pl-cli/${doc}`)
     )
   })
   fs.copyFileSync(
     path.resolve(rootPath, 'LICENSE'),
-    path.resolve(rootPath, 'pl-cli/LICENSE'),
+    path.resolve(rootPath, 'pl-cli/LICENSE')
   )
 }
 
@@ -68,14 +67,14 @@ function copyDocs() {
  */
 function rewritePackageFile() {
   const newPackageJson = Object.assign(packageJson, {
-    bin: buildBinConfig,
+    bin: buildBinConfig
   })
   publishExcludeFields?.forEach((key) => {
     delete newPackageJson[key]
   })
   fs.writeFileSync(
     path.resolve(rootPath, 'pl-cli/package.json'),
-    JSON.stringify(newPackageJson),
+    JSON.stringify(newPackageJson)
   )
 }
 
@@ -85,8 +84,8 @@ function rewritePackageFile() {
 function createOrigin() {
   const originFiles = fs
     .readdirSync(path.resolve(rootPath, 'common/origin'))
-    ?.filter(path => path.endsWith('.js'))
-    .map(file => path.resolve(rootPath, `common/origin/${file}`))
+    ?.filter((path) => path.endsWith('.js'))
+    .map((file) => path.resolve(rootPath, `common/origin/${file}`))
   esbuild.buildSync({
     entryPoints: originFiles,
     minify: true,
@@ -95,7 +94,7 @@ function createOrigin() {
     platform: 'node',
     target: ['node20'],
     packages: 'external',
-    format: 'esm',
+    format: 'esm'
   })
 }
 /**
