@@ -6,10 +6,10 @@ import {
   AllQuestion,
   CodeSnippetsItem,
   ExtraObject,
+  RelatedTagsItem,
   TagTypeObject,
   TopCompanyTagsItem,
-  TopicTagsItem,
-  RelatedTagsItem
+  TopicTagsItem
 } from '#common/utils/store/schemas/allQuestion.js'
 import { rootPath } from '#common/utils/file/getRootPath.js'
 import { Store } from '#common/utils/store/schemas/store.js'

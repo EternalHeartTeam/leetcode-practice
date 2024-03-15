@@ -62,9 +62,8 @@ export const callModeAction = {
   },
   all: async () => {
     const allQuestionData = await getAllQuestionList()
-    for(const question of allQuestionData) {
-      await setAllQuestion(question)
-    }
+    for (const question of allQuestionData) await setAllQuestion(question)
+
     process.exit(0)
   }
 }
