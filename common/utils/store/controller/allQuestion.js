@@ -18,9 +18,11 @@ export function getAllQuestion() {
  */
 export function setAllQuestion(allQuestionData) {
   return exeOnce((realm) => {
+    let newQuestion
     realm.write(() => {
-      realm.create('AllQuestion', allQuestionData)
+      newQuestion = realm.create('AllQuestion', allQuestionData)
     })
+    return newQuestion
   })
 }
 
