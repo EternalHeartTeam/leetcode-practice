@@ -13,9 +13,13 @@ import { getQuestionListCodeBySlug } from '#common/utils/question-handler/getQue
 import { getQuestionTagType } from '#common/utils/question-getter/getQuestionTagType.js'
 
 function handleQuestionList(list) {
-  let questionList = []
+  const questionList = []
   list.forEach((item) => {
-    if (!item.premiumOnly && item.name.indexOf('SQL') <= -1 && item.name.indexOf('Pandas') <= -1) {
+    if (
+      !item.premiumOnly &&
+      item.name.indexOf('SQL') <= -1 &&
+      item.name.indexOf('Pandas') <= -1
+    ) {
       questionList.push({
         name: `${item.name}(${item.questionNum}题)`,
         value: item.slug
