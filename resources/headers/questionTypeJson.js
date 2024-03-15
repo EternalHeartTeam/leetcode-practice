@@ -6,6 +6,6 @@ export function getQuestionTypesJson() {
             "variables": {},
             "operationName": "questionTagTypeWithTags"
         }`,
-    method: 'POST',
+    method: 'POST'
   }
 }

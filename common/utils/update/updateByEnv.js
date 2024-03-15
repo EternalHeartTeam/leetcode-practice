@@ -7,8 +7,7 @@ import { exec } from 'node:child_process'
 export function updateCli() {
   return new Promise((resolve, reject) => {
     exec(`npm install -g leetcode-practice`, (err) => {
-      if (err)
-        reject(err)
+      if (err) reject(err)
       else resolve()
     })
   })

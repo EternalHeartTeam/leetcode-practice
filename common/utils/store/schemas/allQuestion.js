@@ -8,8 +8,8 @@ export class TopCompanyTagsItem extends Realm.Object {
       name: 'string',
       slug: 'string',
       imgUrl: 'string?',
-      nameTranslated: 'string?',
-    },
+      nameTranslated: 'string?'
+    }
   }
 }
 
@@ -19,8 +19,8 @@ export class ExtraObject extends Realm.Object {
     properties: {
       companyTagNum: 'int',
       topCompanyTags: 'TopCompanyTagsItem[]',
-      twoYearsCompanyTagNum: 'int',
-    },
+      twoYearsCompanyTagNum: 'int'
+    }
   }
 }
 
@@ -29,8 +29,8 @@ export class CodeSnippetsItem extends Realm.Object {
     name: 'CodeSnippetsItem',
     properties: {
       langSlug: 'string',
-      lang: 'string',
-    },
+      lang: 'string'
+    }
   }
 }
 
@@ -39,8 +39,8 @@ export class TagTypeObject extends Realm.Object {
     name: 'TagTypeObject',
     properties: {
       name: 'string',
-      slug: 'string',
-    },
+      slug: 'string'
+    }
   }
 }
 
@@ -56,8 +56,8 @@ export class TopicTagsItem extends Realm.Object {
       isEnabled: 'bool',
       keywords: 'string',
       imgUrl: 'string?',
-      translatedName: 'string',
-    },
+      translatedName: 'string'
+    }
   }
 }
 
@@ -80,8 +80,8 @@ export class AllQuestion extends Realm.Object {
       stats: 'string',
       extra: 'ExtraObject',
       isNewQuestion: 'bool',
-      frequency: 'string',
+      frequency: 'string'
     },
-    primaryKey: 'questionId',
+    primaryKey: 'questionId'
   }
 }

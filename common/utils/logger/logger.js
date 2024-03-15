@@ -33,8 +33,7 @@ class LOGGER {
    * @param args{*[]}
    */
   info(message, ...args) {
-    if (this.forbidden)
-      return
+    if (this.forbidden) return
     console.log(chalk.blue(message, ...args))
   }
 
@@ -44,8 +43,7 @@ class LOGGER {
    * @param args{*[]}
    */
   warn(message, ...args) {
-    if (this.forbidden)
-      return
+    if (this.forbidden) return
     console.log(chalk.yellow(message, ...args))
   }
 
@@ -55,8 +53,7 @@ class LOGGER {
    * @param args{*[]}
    */
   error(message, ...args) {
-    if (this.forbidden)
-      return
+    if (this.forbidden) return
     console.log(chalk.red(message, ...args))
   }
 }

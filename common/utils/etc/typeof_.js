@@ -5,7 +5,6 @@
  * @private
  */
 export function typeof_(data) {
-  if (data === null)
-    return 'null'
+  if (data === null) return 'null'
   else return typeof data
 }
