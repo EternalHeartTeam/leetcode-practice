@@ -15,7 +15,7 @@
     "publish": false
   },
   "hooks": {
-    "after:bump": "prettier --write CHANGELOG.md && git add CHANGELOG.md ",
+    "before:release": "prettier --write CHANGELOG.md && git add CHANGELOG.md ",
     "after:release": "git checkout master && git push origin master:stable-v${version} || true && echo 更新版本 ${version} 成功!"
   },
   "plugins": {
