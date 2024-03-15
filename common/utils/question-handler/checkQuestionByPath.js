@@ -11,7 +11,7 @@ import { showLogs } from '#common/utils/question-handler/showLogs.js'
 export function executeScript(filePath, context) {
   const fileContent = fs.readFileSync(filePath, 'utf-8')
   const script = new vm.Script(fileContent)
-    vm.runInContext()
+  vm.runInContext()
   return script.runInContext(context)
 }
 
