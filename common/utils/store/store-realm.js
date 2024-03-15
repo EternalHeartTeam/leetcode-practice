@@ -2,6 +2,7 @@ import path from 'node:path'
 import { readdirSync, rmSync } from 'node:fs'
 import Realm from 'realm'
 import { Question } from '#common/utils/store/schemas/question.js'
+import { TopCompanyTagsItem, ExtraObject, CodeSnippetsItem, TagTypeObject, TopicTagsItem, AllQuestion } from '#common/utils/store/schemas/allQuestion.js'
 import { rootPath } from '#common/utils/file/getRootPath.js'
 import { Store } from '#common/utils/store/schemas/store.js'
 
@@ -14,15 +15,35 @@ export async function open() {
   let realm
   try {
     realm = await Realm.open({
-      schema: [Question, Store],
-      path: localPath
+      schema: [
+        Question, 
+        TopCompanyTagsItem,
+        ExtraObject,
+        CodeSnippetsItem,
+        TagTypeObject,
+        TopicTagsItem,
+        AllQuestion, 
+        Store
+      ],
+      path: localPath,
     })
-  } catch (e) {
-    if (e?.message?.includes('Migration')) await cleanStore()
+  }
+  catch (e) {
+    if (e?.message?.includes('Migration'))
+      await cleanStore()
 
     realm = await Realm.open({
-      schema: [Question, Store],
-      path: localPath
+      schema: [
+        Question, 
+        TopCompanyTagsItem,
+        ExtraObject,
+        CodeSnippetsItem,
+        TagTypeObject,
+        TopicTagsItem,
+        AllQuestion, 
+        Store
+      ],
+      path: localPath,
     })
   }
   return realm

@@ -20,10 +20,11 @@ export function create(mode, question, baseDir) {
     setQuestion(mode, question)
     const questionDir = path.join(baseDir, getQuestionFileName(question))
     createQuestion(question, questionDir).then(async (path) => {
-      if (!path) path = await createQuestionCopy(question, questionDir)
+      if (!path)
+        path = await createQuestionCopy(question, questionDir)
       const line = (await getLineNumberByContent(path, '@QUESTION_START')) + 1
       logger.info(
-        `题目[${getQuestionChineseName(question)}]获取成功!\n题目文件地址为:file://${path}:${line}`
+        `题目[${getQuestionChineseName(question)}]获取成功!\n题目文件地址为:file://${path}:${line}`,
       )
       resolve(true)
     })

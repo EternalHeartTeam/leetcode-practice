@@ -31,7 +31,7 @@ program
   .option('-l, --language [language]', 'Set/Get the code language of question.')
   .option(
     '-u, --update',
-    'Check the version to determine whether to update to the latest one.'
+    'Check the version to determine whether to update to the latest one.',
   )
   .parse(process.argv)
 
@@ -58,7 +58,7 @@ export const callModeAction = {
   identity: async (id) => {
     await createQuestionById(id, baseDir)
     process.exit(0)
-  }
+  },
 }
 // 获取模式和参数
 const mode = referMode(cmdArgs, cmdOpts)

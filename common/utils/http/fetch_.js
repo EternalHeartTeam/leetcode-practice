@@ -9,7 +9,7 @@ import ora from 'ora'
  */
 export async function fetch_(url, options) {
   const loader = ora(options.loadText ?? 'loading...').start()
-  const resp = await fetch(url, options).then((res) => res.json())
+  const resp = await fetch(url, options).then(res => res.json())
   loader.stop()
   return resp
 }

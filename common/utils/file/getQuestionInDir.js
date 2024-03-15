@@ -9,7 +9,7 @@ import path from 'node:path'
 export function getQuestionFileInDir(dir) {
   const list = fs.readdirSync(dir)
   const questionLikes = list
-    .filter((name) => name.startsWith('question'))
-    .map((file) => path.resolve(dir, file))
+    .filter(name => name.startsWith('question'))
+    .map(file => path.resolve(dir, file))
   return questionLikes?.length === 1 ? questionLikes[0] : questionLikes
 }

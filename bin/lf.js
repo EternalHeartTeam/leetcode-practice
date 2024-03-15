@@ -20,7 +20,7 @@ program
   .option('-l, --language [language]', 'Set/Get the code language of question.')
   .option(
     '-u, --update',
-    'Check the version to determine whether to update to the latest one.'
+    'Check the version to determine whether to update to the latest one.',
   )
   .parse(process.argv)
 

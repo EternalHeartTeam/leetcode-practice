@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import { getQuestionCodeList } from '#common/utils/question-getter/getQuestionCodeList.js'
 import {
   getLangByExtension,
-  setLineComment
+  setLineComment,
 } from '#common/utils/question-handler/questionLanguage.js'
 import { DefaultLang } from '#common/constants/question.const.js'
 
@@ -14,7 +14,7 @@ import { DefaultLang } from '#common/constants/question.const.js'
  */
 export async function getCodeBySlug(slug, lang) {
   const list = await getQuestionCodeList(slug)
-  return list?.find((o) => o.langSlug === lang)?.code
+  return list?.find(o => o.langSlug === lang)?.code
 }
 /**
  * 获取支持的代码语言
@@ -23,7 +23,7 @@ export async function getCodeBySlug(slug, lang) {
  */
 export async function getSupportCode(slug) {
   const list = await getQuestionCodeList(slug)
-  return list.map((code) => code?.langSlug)
+  return list.map(code => code?.langSlug)
 }
 
 /**
@@ -36,12 +36,12 @@ export function getCodeRange(lang, code) {
   if (!code) {
     return setLineComment(
       lang,
-      `!important: 此题目没有当前语言[${lang}]的代码模板!`
+      `!important: 此题目没有当前语言[${lang}]的代码模板!`,
     )
   }
   return `${setLineComment(lang, '@QUESTION_START') + code}\n${setLineComment(
     lang,
-    '@QUESTION_END'
+    '@QUESTION_END',
   )}`
 }
 /**
@@ -55,6 +55,7 @@ export function getCodeInFile(filePath) {
   const rangeReg = new RegExp(`${startTag}.*${endTag}`, 'ms')
   const rangeTagReg = new RegExp(`(${startTag}|${endTag})+`, 'mg')
   const match = data.match(rangeReg)
-  if (!match) return null
+  if (!match)
+    return null
   return match[0]?.replace(rangeTagReg, '')
 }

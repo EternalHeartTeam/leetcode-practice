@@ -6,8 +6,8 @@ export class Store extends Realm.Object {
     properties: {
       key: 'string',
       value: 'string',
-      timestamp: { type: 'date', default: () => new Date() }
+      timestamp: { type: 'date', default: () => new Date() },
     },
-    primaryKey: 'key'
+    primaryKey: 'key',
   }
 }

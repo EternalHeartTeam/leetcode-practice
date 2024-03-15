@@ -14,6 +14,6 @@ export function codeSubmitJson(lang, id, code) {
                     "question_id": "${id}",
                     "typed_code": "${code}"
                 }`,
-    method: 'POST'
+    method: 'POST',
   }
 }

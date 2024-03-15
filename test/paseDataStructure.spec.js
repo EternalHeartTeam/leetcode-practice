@@ -94,7 +94,7 @@ it('获取入参的数据结构 单参 匹配值', () => {
 
 it('获取入参的数据结构 单参 ListNode[]', () => {
   expect(getDataStructure(mockJSDOC_ListNodeArray, 'param')).toEqual([
-    'ListNode[]'
+    'ListNode[]',
   ])
 })
 it('获取返回值的数据结构 单参 匹配值', () => {
