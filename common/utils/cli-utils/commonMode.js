@@ -26,7 +26,7 @@ export async function commonMode(cmdOpts, easyCallback) {
     rootPath,
     currentEnv() === 'cli'
       ? 'origin/checkUpdate.js'
-      : 'common/origin/checkUpdate.js'
+      : 'common/origin/checkUpdate.js',
   )
   fork(jsPath)
   // todo 监听额外线程的消息
@@ -46,7 +46,8 @@ export async function commonMode(cmdOpts, easyCallback) {
   if (cmdOpts.language) {
     if (cmdOpts.language !== true) {
       await easyLanguageView(cmdOpts.language)
-    } else {
+    }
+    else {
       const lang = await getQuestionLanguage()
       logger.info(`当前CLI语言环境为:${lang}`)
     }

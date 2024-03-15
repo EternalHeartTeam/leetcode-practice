@@ -7,15 +7,15 @@ import { aim } from '#resources/text/aim.js'
 import { referMode } from '#common/utils/cli-utils/referMode.js'
 import { getArgs } from '#common/utils/cli-utils/getArgs.js'
 import { getQuestionToday } from '#common/utils/question-getter/getQuestionToday.js'
-
 import { getQuestionRandom } from '#common/utils/question-getter/getQuestionRandom.js'
-
+import { getAllQuestionList } from '#common/utils/question-getter/getAllQuestionList.js'
 import { easyCreateView } from '#common/view/create.view.js'
 import { description } from '#resources/text/description.js'
 import { DefaultVer } from '#common/constants/question.const.js'
 import { createQuestionById } from '#common/utils/cli-utils/createQuestion.js'
 import { create } from '#common/utils/cli-utils/create.js'
 import { commonMode } from '#common/utils/cli-utils/commonMode.js'
+import { setAllQuestion } from '#common/utils/store/controller/allQuestion.js'
 
 const version = process.env.VERSION ?? DefaultVer
 program
@@ -29,9 +29,10 @@ program
   .option('-e, --easy', 'Use easy mode.')
   .option('-d, --directory <directory>', 'Set the question directory.')
   .option('-l, --language [language]', 'Set/Get the code language of question.')
+  .option('-a, --all', 'Get all questions.')
   .option(
     '-u, --update',
-    'Check the version to determine whether to update to the latest one.'
+    'Check the version to determine whether to update to the latest one.',
   )
   .parse(process.argv)
 
@@ -57,6 +58,13 @@ export const callModeAction = {
   },
   identity: async (id) => {
     await createQuestionById(id, baseDir)
+    process.exit(0)
+  },
+  all: async () => {
+    const allQuestionData = await getAllQuestionList()
+    for(const question of allQuestionData) {
+      setAllQuestion(question)
+    }
     process.exit(0)
   }
 }

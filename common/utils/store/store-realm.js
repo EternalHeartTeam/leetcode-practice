@@ -8,7 +8,7 @@ import {
   ExtraObject,
   TagTypeObject,
   TopCompanyTagsItem,
-  TopicTagsItem
+  TopicTagsItem,
 } from '#common/utils/store/schemas/allQuestion.js'
 import { rootPath } from '#common/utils/file/getRootPath.js'
 import { Store } from '#common/utils/store/schemas/store.js'
@@ -30,12 +30,14 @@ export async function open() {
         TagTypeObject,
         TopicTagsItem,
         AllQuestion,
-        Store
+        Store,
       ],
-      path: localPath
+      path: localPath,
     })
-  } catch (e) {
-    if (e?.message?.includes('Migration')) await cleanStore()
+  }
+  catch (e) {
+    if (e?.message?.includes('Migration'))
+      await cleanStore()
 
     realm = await Realm.open({
       schema: [
@@ -46,9 +48,9 @@ export async function open() {
         TagTypeObject,
         TopicTagsItem,
         AllQuestion,
-        Store
+        Store,
       ],
-      path: localPath
+      path: localPath,
     })
   }
   return realm
