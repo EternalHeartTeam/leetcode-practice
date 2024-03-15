@@ -13,23 +13,33 @@ import { getQuestionListCodeBySlug } from '#common/utils/question-handler/getQue
 import { getQuestionTagType } from '#common/utils/question-getter/getQuestionTagType.js'
 
 function handleQuestionList(list) {
-  return list.map((item) => ({
-    name: `${item.name}${item.premiumOnly ? '(VIP)' : ''}`,
-    value: item.slug
-  }))
+  const questionList = []
+  list.forEach((item) => {
+    if (
+      !item.premiumOnly &&
+      item.name.indexOf('SQL') <= -1 &&
+      item.name.indexOf('Pandas') <= -1
+    ) {
+      questionList.push({
+        name: `${item.name}(${item.questionNum}题)`,
+        value: item.slug
+      })
+    }
+  })
+  return questionList
 }
 
 async function studyMode(baseDir = process.cwd()) {
-  const sprintInterviewCompanyList = await getStudyPlanList(
-    'sprint-interview-company'
-  )
+  // const sprintInterviewCompanyList = await getStudyPlanList(
+  //   'sprint-interview-company'
+  // )
   const crackingCodingInterviewList = await getStudyPlanList(
     'cracking-coding-interview'
   )
   const deepDiveTopicsList = await getStudyPlanList('deep-dive-topics')
   const questionList = [
-    ...handleQuestionList(sprintInterviewCompanyList),
-    new Separator(),
+    // ...handleQuestionList(sprintInterviewCompanyList),
+    // new Separator(),
     ...handleQuestionList(crackingCodingInterviewList),
     new Separator(),
     ...handleQuestionList(deepDiveTopicsList)
