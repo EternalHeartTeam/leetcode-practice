@@ -35,7 +35,7 @@ export async function getNpmVersion() {
     const res = await fetch_(npmUrl, { method: 'GET' })
     return res['dist-tags']?.latest
   } catch (e) {
-    throw new Error(e)
+    return false
   }
 }
 /**
@@ -52,7 +52,7 @@ export async function getGithubVersion() {
     const ver = github?.version ?? gitee?.version
     return ver
   } catch (e) {
-    throw new Error(e)
+    return false
   }
 }
 export function getLocalVersion() {
@@ -77,7 +77,7 @@ export async function checkUpdate() {
     localVersion: local,
     npmVersion: remote,
     githubVersion: github,
-    isCliUpdate: remote !== local,
-    isGithubUpdate: github !== local
+    isCliUpdate: remote && remote !== local,
+    isGithubUpdate: github && github !== local
   }
 }
