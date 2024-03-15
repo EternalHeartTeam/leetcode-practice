@@ -16,6 +16,7 @@ import { createQuestionById } from '#common/utils/cli-utils/createQuestion.js'
 import { create } from '#common/utils/cli-utils/create.js'
 import { commonMode } from '#common/utils/cli-utils/commonMode.js'
 import { setAllQuestion } from '#common/utils/store/controller/allQuestion.js'
+import { logger } from '#common/utils/logger/logger.js'
 
 const version = process.env.VERSION ?? DefaultVer
 program
@@ -62,8 +63,8 @@ export const callModeAction = {
   },
   all: async () => {
     const allQuestionData = await getAllQuestionList()
-    for (const question of allQuestionData) await setAllQuestion(question)
-
+    await setAllQuestion(allQuestionData)
+    logger.info('拉取全部题目成功!')
     process.exit(0)
   }
 }
