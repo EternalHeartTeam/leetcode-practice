@@ -10,6 +10,7 @@ import { getStudyPlanList } from '#common/utils/question-getter/getStudyPlanList
 import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuestionList.js'
 import { logger } from '#common/utils/logger/logger.js'
 import { getQuestionListCodeBySlug } from '#common/utils/question-handler/getQuestionListCodeBySlug.js'
+import { getQuestionTagType } from '#common/utils/question-getter/getQuestionTagType'
 
 function handleQuestionList(list) {
   return list.map((item) => ({
@@ -98,8 +99,10 @@ async function keywordMode(baseDir = process.cwd()) {
   await createQuestionById(chooseQuestion, baseDir)
 }
 
-async function selectMode(baseDir) {
+async function selectMode(baseDir = process.cwd()) {
+  const res = await getQuestionTagType()
   logger.info(baseDir)
+  logger.info(res)
 }
 
 export async function easyFinderView(baseDir = process.cwd()) {

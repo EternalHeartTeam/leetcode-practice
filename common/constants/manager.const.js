@@ -1,5 +1,5 @@
 /**
- * npm 的安装指令
+ * @description npm 的安装指令
  * @param packageName
  * @param isUpdate
  * @param isGlobal
@@ -11,7 +11,7 @@ export function NpmInstall(packageName, isUpdate, isGlobal) {
 }
 
 /**
- * yarn 的安装指令
+ * @description yarn 的安装指令
  * @param packageName
  * @param isUpdate
  * @param isGlobal
@@ -23,7 +23,7 @@ export function YarnInstall(packageName, isUpdate, isGlobal) {
 }
 
 /**
- * pnpm 的安装指令
+ * @description pnpm 的安装指令
  * @param packageName
  * @param isUpdate
  * @param isGlobal
