@@ -16,11 +16,11 @@ export function getAllQuestion() {
  * @param question
  * @returns {*}
  */
-export function setAllQuestion(allQuestionData) {
+export function setAllQuestion(question) {
   return exeOnce((realm) => {
     let newQuestion
     realm.write(() => {
-      newQuestion = realm.create('AllQuestion', allQuestionData)
+      newQuestion = realm.create('AllQuestion', question)
     })
     return newQuestion
   })
