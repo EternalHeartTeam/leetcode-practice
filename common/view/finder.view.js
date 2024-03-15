@@ -11,7 +11,6 @@ import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuesti
 import { logger } from '#common/utils/logger/logger.js'
 import { getQuestionListCodeBySlug } from '#common/utils/question-handler/getQuestionListCodeBySlug.js'
 import { getQuestionTagType } from '#common/utils/question-getter/getQuestionTagType.js'
-import { getAllQuestionList } from '#common/utils/question-getter/getAllQuestionList.js'
 
 function handleQuestionList(list) {
   return list.map((item) => ({
