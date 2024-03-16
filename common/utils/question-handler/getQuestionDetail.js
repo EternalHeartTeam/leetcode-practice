@@ -7,7 +7,7 @@ import { getCodeBySlug } from '#common/utils/question-handler/code.js'
  * 获取代码详情
  * @param slug
  * @param extra
- * @returns {Promise<*&{code: *, detail: *, title: *, slug}>}
+ * @returns {Promise<*&{id:*,slug:*, title: *,detail: *,  lang:*,code: *,jsonExampleTestcases:*,exampleTestcases:*}>}
  */
 export async function getQuestionDetail(slug, extra = {}) {
   // 标题的英文字符串
@@ -22,6 +22,8 @@ export async function getQuestionDetail(slug, extra = {}) {
     detail: detail?.translatedContent,
     lang: curLang,
     code,
-    ...extra
+    jsonExampleTestcases: detail?.jsonExampleTestcases,
+    exampleTestcases: detail?.exampleTestcases,
+    ...extra,
   }
 }
