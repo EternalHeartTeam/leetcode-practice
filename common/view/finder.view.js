@@ -8,7 +8,7 @@ import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuesti
 import { logger } from '#common/utils/logger/logger.js';
 import { getQuestionListCodeBySlug, getQuestionListCodeByTag } from '#common/utils/question-handler/getQuestionListCodeBy.js';
 import { getQuestionTagType } from '#common/utils/question-getter/getQuestionTagType.js';
-import { getAllQuestion } from '#common/utils/store/controller/allQuestion.js';;
+import { getAllQuestion } from '#common/utils/store/controller/allQuestion.js';
 
 function handleQuestionList(list) {
     const questionList = [];
@@ -126,7 +126,7 @@ async function selectMode(baseDir = process.cwd()) {
     };
     const chooseTag = await select(tagQuestion);
     const allQuestion = await getAllQuestion();
-    const tagQuestionList = await allQuestion.filter(question => question.topicTags.some(topic => topic.slug === chooseTag));
+    const tagQuestionList = await allQuestion.filter((question) => question.topicTags.some((topic) => topic.slug === chooseTag));
 
     const createMode = await select({
         message: '拉题模式',
@@ -146,7 +146,7 @@ async function selectMode(baseDir = process.cwd()) {
                 value: res.questionId
             })),
             pageSize: 30
-        }
+        };
 
         const singleChoice = await select(singleMode);
         await createQuestionById(singleChoice, baseDir);
@@ -158,8 +158,6 @@ async function selectMode(baseDir = process.cwd()) {
         logger.on();
         logger.info(`题目全部拉取完成: file://${dir}`);
     }
-
-
 }
 
 export async function easyFinderView(baseDir = process.cwd()) {
