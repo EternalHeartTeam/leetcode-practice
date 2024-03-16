@@ -52,8 +52,8 @@ export function getTestCase(question) {
     // 结尾
     const endReg = /(<\/[a-zA-Z]+>)?/gm;
 
-    const detail = question.detail.replaceAll('`', '');
-    const cases = detail.match(inputReg)?.map(
+    const detail = question.detail?.replaceAll('`', '');
+    const cases = detail?.match(inputReg)?.map(
         (str) =>
             `[${removeDomTags(
                 str
@@ -63,7 +63,7 @@ export function getTestCase(question) {
                     .replace(/[a-zA-Z]+ =/g, '')
             )}]`
     );
-    const expires = detail.match(outputReg)?.map((str) =>
+    const expires = detail?.match(outputReg)?.map((str) =>
         removeDomTags(
             str
                 ?.replace(outputStartReg, '')

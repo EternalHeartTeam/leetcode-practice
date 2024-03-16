@@ -19,8 +19,8 @@ export async function getCodeBySlug(slug, lang) {
  * @returns {Promise<string[]>}
  */
 export async function getSupportCode(slug) {
-    const list = await getQuestionCodeList(slug);
-    return list.map((code) => code?.langSlug);
+    const list = (await getQuestionCodeList(slug)) ?? [];
+    return list?.map((code) => code?.langSlug);
 }
 
 /**

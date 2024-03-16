@@ -5,7 +5,7 @@
  */
 export function removeDomTags(input) {
     return input
-        .replace(/<[^>]*>/g, '')
+        ?.replace(/<[^>]*>/g, '')
         .replaceAll(' ', ' ')
         .replaceAll('&nbsp;', ' ')
         .replaceAll('&lt;', '<')

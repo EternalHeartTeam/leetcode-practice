@@ -7,6 +7,7 @@ import path from 'node:path';
  * @param {*} questionPath
  */
 export function createMarkdown(description, questionPath) {
+    if (!description) return;
     const dir = path.dirname(questionPath);
     const descriptionPath = path.join(dir, 'description.md');
     fs.writeFileSync(descriptionPath, description);

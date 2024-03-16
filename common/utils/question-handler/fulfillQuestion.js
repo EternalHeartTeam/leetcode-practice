@@ -29,7 +29,7 @@ import { getCodeRange } from '#common/utils/question-handler/code.js';
  */
 export function generateTemplateContent(question) {
     const title = `${getQuestionChineseName(question)} ${question.date ? `[${question.date}]` : ''}\n`;
-    const describe = removeDomTags(question.detail).replace(/\n+/g, '\n');
+    const describe = removeDomTags(question.detail)?.replace(/\n+/g, '\n') ?? '';
     const lang = question.lang;
     const code = question.code;
     return template

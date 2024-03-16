@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { logger } from '#common/utils/logger/logger.js';
 
 /**
  * 通过给入的文件地址和内容 给出对应的行号
@@ -24,12 +25,12 @@ export function getLineNumberByContent(filePath, searchString) {
         });
 
         readStream.on('end', () => {
-            console.warn(`"${searchString}" not found in file: ${filePath}`);
+            logger.warn(`[WARN] "${searchString}" not found in file: ${filePath}`);
             resolve(0);
         });
 
         readStream.on('error', () => {
-            console.warn(`"${searchString}" not found in file: ${filePath}`);
+            logger.warn(`[WARN] "${searchString}" not found in file: ${filePath}`);
             resolve(0);
         });
     });
