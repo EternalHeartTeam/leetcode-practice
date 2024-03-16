@@ -1,5 +1,5 @@
 /**
- * @description npm 的安装指令
+ * npm 的安装指令
  * @param packageName
  * @param isUpdate
  * @param isGlobal
