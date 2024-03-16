@@ -90,7 +90,7 @@ const callModeAction = {
       question = await getQuestionByMode(mode)
       await check('identity', question)
     } else {
-      question = await getFilePathById(id)
+      question = await getFilePathById(id, baseDir)
       const needToSelect = {
         type: 'list',
         name: 'need',
