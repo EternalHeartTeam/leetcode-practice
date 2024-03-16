@@ -1,31 +1,31 @@
 {
-  "github": {
-    "release": true,
-    "web": true,
-    "autoGenerate": true
-  },
-  "git": {
-    "commitMessage": "chore: release v${version}",
-    "tagName": "cli-v${version}",
-    "tag": true,
-    "push": true,
-    "pushArgs": ["--follow-tags"]
-  },
-  "npm": {
-    "publish": false
-  },
-  "hooks": {
-    "before:release": "prettier --write CHANGELOG.md && git add CHANGELOG.md ",
-    "after:release": "git checkout master && git push origin master:stable-v${version} || true && echo 更新版本 ${version} 成功!"
-  },
-  "plugins": {
-    "@release-it/bumper": {
-      "preset": "angular"
+    "github": {
+        "release": true,
+        "web": true,
+        "autoGenerate": true
     },
-    "@release-it/conventional-changelog": {
-      "preset": "angular",
-      "infile": "CHANGELOG.md",
-      "ignoreRecommendedBump": true
+    "git": {
+        "commitMessage": "chore: release v${version}",
+        "tagName": "cli-v${version}",
+        "tag": true,
+        "push": true,
+        "pushArgs": ["--follow-tags"]
+    },
+    "npm": {
+        "publish": false
+    },
+    "hooks": {
+        "before:release": "prettier --write CHANGELOG.md && git add CHANGELOG.md ",
+        "after:release": "git checkout master && git push origin master:stable-v${version} || true && echo 更新版本 ${version} 成功!"
+    },
+    "plugins": {
+        "@release-it/bumper": {
+            "preset": "angular"
+        },
+        "@release-it/conventional-changelog": {
+            "preset": "angular",
+            "infile": "CHANGELOG.md",
+            "ignoreRecommendedBump": true
+        }
     }
-  }
 }

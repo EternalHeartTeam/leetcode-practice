@@ -1,5 +1,5 @@
-import fs from 'node:fs'
-import path from 'node:path'
+import fs from 'node:fs';
+import path from 'node:path';
 
 /**
  * 创建markdown
@@ -7,7 +7,7 @@ import path from 'node:path'
  * @param {*} questionPath
  */
 export function createMarkdown(description, questionPath) {
-  const dir = path.dirname(questionPath)
-  const descriptionPath = path.join(dir, 'description.md')
-  fs.writeFileSync(descriptionPath, description)
+    const dir = path.dirname(questionPath);
+    const descriptionPath = path.join(dir, 'description.md');
+    fs.writeFileSync(descriptionPath, description);
 }

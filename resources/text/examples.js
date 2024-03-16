@@ -16,7 +16,7 @@ Examples:
   $ lc -v       // Check the CLI version.
   $ lc -h       // Check the help information.
   
-`
+`;
 
 export const lkExamples = `
 Examples:
@@ -36,7 +36,7 @@ Examples:
   $ lk -v       // Check the CLI version.
   $ lk -h       // Display the help information.
   
-`
+`;
 
 export const lfExamples = `
 Examples:
@@ -53,4 +53,4 @@ Examples:
   $ lf -v       // Check the CLI version.
   $ lf -h       // Display the help information.
   
-`
+`;

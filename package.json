@@ -1,94 +1,94 @@
 {
-  "name": "leetcode-practice",
-  "type": "module",
-  "version": "1.0.9-4",
-  "description": "A powerful practice platform for leetcode.Using any way you want to create questions.",
-  "author": {
-    "name": "EternalHeart",
-    "email": "hao131462@qq.com"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wh131462/leetcode-practice.git"
-  },
-  "imports": {
-    "#common/*": "./common/*",
-    "#resources/*": "./resources/*"
-  },
-  "bin": {
-    "lk": "bin/lk.js",
-    "lf": "bin/lf.js",
-    "lc": "bin/lc.js"
-  },
-  "scripts": {
-    "lc": "node bin/lc.js -d src",
-    "lk": "node bin/lk.js -d src",
-    "lf": "node bin/lf.js -d src",
-    "build-cli": "node esbuild.config.js",
-    "publish-cli": "cd pl-cli && npm publish --registry https://registry.npmjs.org/",
-    "unpublish-cli": "cd pl-cli && npm unpublish --force --registry https://registry.npmjs.org/",
-    "commit": "cz",
-    "test": "vitest run --reporter=verbose --teardown-timeout=5000 --pool=forks",
-    "coverage": "vitest run --coverage --pool=forks",
-    "format": "prettier --write .",
-    "lint": "eslint . --fix",
-    "lint:all": "eslint .",
-    "prepare": "husky install",
-    "create-color-font": "node scripts/create-color-font.js",
-    "release": "release-it",
-    "try-release": "release-it --dry-run",
-    "rebase": "HUSKY=0 git rebase "
-  },
-  "dependencies": {
-    "@inquirer/input": "^2.0.1",
-    "@inquirer/select": "^2.0.0",
-    "chalk": "^5.3.0",
-    "commander": "^12.0.0",
-    "console-table-printer": "^2.12.0",
-    "glob": "^10.3.10",
-    "inquirer": "^9.2.14",
-    "ora": "^8.0.1",
-    "realm": "^12.6.2"
-  },
-  "devDependencies": {
-    "@antfu/eslint-config": "^2.8.0",
-    "@commitlint/cli": "^19.1.0",
-    "@commitlint/config-conventional": "^19.1.0",
-    "@release-it/bumper": "^6.0.1",
-    "@release-it/conventional-changelog": "^8.0.1",
-    "@types/node": "^20.11.5",
-    "@vitest/coverage-v8": "^1.2.2",
-    "commitizen": "^4.2.5",
-    "cz-conventional-changelog": "^3.3.0",
-    "esbuild": "^0.20.0",
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-prettier": "^5.1.3",
-    "gradient-string": "^2.0.2",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
-    "prettier": "^3.2.5",
-    "release-it": "^17.1.1",
-    "rimraf": "^5.0.5",
-    "typescript": "^5.4.2",
-    "vite": "^5.0.11",
-    "vitest": "^1.2.2"
-  },
-  "lint-staged": {
-    "*": [
-      "eslint",
-      "prettier --write"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+    "name": "leetcode-practice",
+    "type": "module",
+    "version": "1.0.9-4",
+    "description": "A powerful practice platform for leetcode.Using any way you want to create questions.",
+    "author": {
+        "name": "EternalHeart",
+        "email": "hao131462@qq.com"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wh131462/leetcode-practice.git"
+    },
+    "imports": {
+        "#common/*": "./common/*",
+        "#resources/*": "./resources/*"
+    },
+    "bin": {
+        "lk": "bin/lk.js",
+        "lf": "bin/lf.js",
+        "lc": "bin/lc.js"
+    },
+    "scripts": {
+        "lc": "node bin/lc.js -d src",
+        "lk": "node bin/lk.js -d src",
+        "lf": "node bin/lf.js -d src",
+        "build-cli": "node esbuild.config.js",
+        "publish-cli": "cd pl-cli && npm publish --registry https://registry.npmjs.org/",
+        "unpublish-cli": "cd pl-cli && npm unpublish --force --registry https://registry.npmjs.org/",
+        "commit": "cz",
+        "test": "vitest run --reporter=verbose --teardown-timeout=5000 --pool=forks",
+        "coverage": "vitest run --coverage --pool=forks",
+        "format": "prettier --write .",
+        "lint": "eslint . --fix",
+        "lint:all": "eslint .",
+        "prepare": "husky install",
+        "create-color-font": "node scripts/create-color-font.js",
+        "release": "release-it",
+        "try-release": "release-it --dry-run",
+        "rebase": "HUSKY=0 git rebase "
+    },
+    "dependencies": {
+        "@inquirer/input": "^2.0.1",
+        "@inquirer/select": "^2.0.0",
+        "chalk": "^5.3.0",
+        "commander": "^12.0.0",
+        "console-table-printer": "^2.12.0",
+        "glob": "^10.3.10",
+        "inquirer": "^9.2.14",
+        "ora": "^8.0.1",
+        "realm": "^12.6.2"
+    },
+    "devDependencies": {
+        "@antfu/eslint-config": "^2.8.0",
+        "@commitlint/cli": "^19.1.0",
+        "@commitlint/config-conventional": "^19.1.0",
+        "@release-it/bumper": "^6.0.1",
+        "@release-it/conventional-changelog": "^8.0.1",
+        "@types/node": "^20.11.5",
+        "@vitest/coverage-v8": "^1.2.2",
+        "commitizen": "^4.2.5",
+        "cz-conventional-changelog": "^3.3.0",
+        "esbuild": "^0.20.0",
+        "eslint": "^8.57.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-prettier": "^5.1.3",
+        "gradient-string": "^2.0.2",
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.2",
+        "prettier": "^3.2.5",
+        "release-it": "^17.1.1",
+        "rimraf": "^5.0.5",
+        "typescript": "^5.4.2",
+        "vite": "^5.0.11",
+        "vitest": "^1.2.2"
+    },
+    "lint-staged": {
+        "*": [
+            "eslint",
+            "prettier --write"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
-  }
 }
