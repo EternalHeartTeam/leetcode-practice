@@ -2,7 +2,7 @@ import { exeOnce } from '#common/utils/store/store-realm.js';
 
 const oSign = '$object$';
 /**
- * 转化对象
+ * 读取的时候:从对象的字符串转化到对象的对象
  * @param obj
  */
 function parseQuestion(obj) {
@@ -13,7 +13,7 @@ function parseQuestion(obj) {
     }, {});
 }
 /**
- * 转化字符串
+ * 存入的时候:从对象的对象属性转化到字符串
  */
 function stringifyQuestion(obj) {
     if (!obj) return null;
@@ -32,9 +32,8 @@ function stringifyQuestion(obj) {
  */
 export function getOneQuestion(id) {
     return exeOnce((realm) => {
-        const all = realm.objects('AllQuestion');
-        const question = all.filtered('questionId=$0', id)?.[0];
-        return question?.toJSON();
+        const question = realm.objectForPrimaryKey('AllQuestion', id);
+        return parseQuestion(question?.toJSON());
     });
 }
 
@@ -47,10 +46,9 @@ export function setOneQuestion(question) {
     return exeOnce((realm) => {
         let newQuestion;
         realm.write(() => {
-            realm.delete(realm.objects('AllQuestion').filtered('questionId=$0', question.questionId));
-            newQuestion = realm.create('AllQuestion', question);
+            newQuestion = realm.create('AllQuestion', stringifyQuestion(question), true);
         });
-        return newQuestion.toJSON();
+        return newQuestion?.toJSON();
     });
 }
 
@@ -77,7 +75,7 @@ export function setAllQuestion(questions) {
             for (const question of questions) {
                 const data = stringifyQuestion(question);
                 if (!data?.questionId) continue;
-                newQuestions.push(realm.create('AllQuestion', data));
+                newQuestions.push(realm.create('AllQuestion', data, true));
             }
         });
         return newQuestions;
