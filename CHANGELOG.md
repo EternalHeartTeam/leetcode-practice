@@ -1,3 +1,9 @@
+## [1.0.9-5](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.9-4...cli-v1.0.9-5) (2024-03-17)
+
+### Features
+
+-   lc -a and lf and store all question ([#67](https://github.com/wh131462/leetcode-practice/issues/67)) ([f72a281](https://github.com/wh131462/leetcode-practice/commit/f72a281faa613024ba94e356a2a8d17ed9089f2b)), closes [#45](https://github.com/wh131462/leetcode-practice/issues/45) [#39](https://github.com/wh131462/leetcode-practice/issues/39)
+
 ## [1.0.9-4](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.9-3...cli-v1.0.9-4) (2024-03-14)
 
 ### Features
