@@ -6,8 +6,9 @@ import { getQuestionByKeyword } from '#common/utils/question-getter/getQuestionB
 import { getStudyPlanList } from '#common/utils/question-getter/getStudyPlanList.js';
 import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuestionList.js';
 import { logger } from '#common/utils/logger/logger.js';
-import { getQuestionListCodeBySlug } from '#common/utils/question-handler/getQuestionListCodeBySlug.js';
+import { getQuestionListCodeBySlug, getQuestionListCodeByTag } from '#common/utils/question-handler/getQuestionListCodeBy.js';
 import { getQuestionTagType } from '#common/utils/question-getter/getQuestionTagType.js';
+import { getAllQuestion } from '#common/utils/store/controller/allQuestion.js';
 
 function handleQuestionList(list) {
     const questionList = [];
@@ -124,8 +125,39 @@ async function selectMode(baseDir = process.cwd()) {
         pageSize: 30
     };
     const chooseTag = await select(tagQuestion);
-    logger.info(baseDir);
-    console.log(chooseTag);
+    const allQuestion = await getAllQuestion();
+    const tagQuestionList = await allQuestion.filter((question) => question.topicTags.some((topic) => topic.slug === chooseTag));
+
+    const createMode = await select({
+        message: '拉题模式',
+        choices: [
+            { name: '单个选择(不穩定)', value: 'single' },
+            { name: '全部拉取(不穩定)', value: 'all' }
+        ]
+    });
+
+    if (createMode === 'single') {
+        const singleMode = {
+            type: 'list',
+            name: 'chooseTagQuestion',
+            message: '请选择题目',
+            choices: tagQuestionList.map((res) => ({
+                name: res.translatedTitle,
+                value: res.questionId
+            })),
+            pageSize: 30
+        };
+
+        const singleChoice = await select(singleMode);
+        await createQuestionById(singleChoice, baseDir);
+    }
+    if (createMode === 'all') {
+        const dir = path.resolve(baseDir, chooseTag.toString());
+        logger.off();
+        await getQuestionListCodeByTag(tagQuestionList, dir);
+        logger.on();
+        logger.info(`题目全部拉取完成: file://${dir}`);
+    }
 }
 
 export async function easyFinderView(baseDir = process.cwd()) {

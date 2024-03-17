@@ -7,7 +7,7 @@ const oSign = '$object$';
  */
 function parseQuestion(obj) {
     if (!obj) return null;
-    Object.entries(obj).reduce((pre, [k, v]) => {
+    return Object.entries(obj).reduce((pre, [k, v]) => {
         pre[k] = typeof v == 'string' && v.startsWith(oSign) ? JSON.parse(v.replace(oSign, '')) : v;
         return pre;
     }, {});
