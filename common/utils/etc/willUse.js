@@ -4,5 +4,5 @@
  * @param args
  */
 export function willUse(...args) {
-  return args
+    return args;
 }

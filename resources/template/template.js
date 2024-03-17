@@ -6,4 +6,4 @@ export const template = `@Title
 @TestCase
 
 @Console
-`
+`;

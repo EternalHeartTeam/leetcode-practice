@@ -7,13 +7,13 @@
  * @returns {{headers: {"content-type": string}, method: string, body: string}}
  */
 export function codeSubmitJson(lang, id, code) {
-  return {
-    headers: { 'content-type': 'application/json' },
-    body: `{
+    return {
+        headers: { 'content-type': 'application/json' },
+        body: `{
                     "lang": "${lang}",
                     "question_id": "${id}",
                     "typed_code": "${code}"
                 }`,
-    method: 'POST'
-  }
+        method: 'POST'
+    };
 }

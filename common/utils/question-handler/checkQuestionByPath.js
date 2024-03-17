@@ -1,6 +1,6 @@
-import fs from 'node:fs'
-import vm from 'node:vm'
-import { showLogs } from '#common/utils/question-handler/showLogs.js'
+import fs from 'node:fs';
+import vm from 'node:vm';
+import { showLogs } from '#common/utils/question-handler/showLogs.js';
 
 /**
  * 执行脚本 - 可传入上下文
@@ -9,9 +9,9 @@ import { showLogs } from '#common/utils/question-handler/showLogs.js'
  * @returns {any}
  */
 export function executeScript(filePath, context) {
-  const fileContent = fs.readFileSync(filePath, 'utf-8')
-  const script = new vm.Script(fileContent)
-  return script.runInContext(context)
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const script = new vm.Script(fileContent);
+    return script.runInContext(context);
 }
 
 /**
@@ -19,11 +19,11 @@ export function executeScript(filePath, context) {
  * @param path
  */
 export async function checkQuestionByPath(path) {
-  return await executeScript(
-    path,
-    vm.createContext({
-      showLogs,
-      console
-    })
-  )
+    return await executeScript(
+        path,
+        vm.createContext({
+            showLogs,
+            console
+        })
+    );
 }

@@ -4,11 +4,11 @@
  * @returns {string|string}
  */
 export function removeDomTags(input) {
-  return input
-    .replace(/<[^>]*>/g, '')
-    .replaceAll(' ', ' ')
-    .replaceAll('&nbsp;', ' ')
-    .replaceAll('&lt;', '<')
-    .replaceAll('&gt;', '>')
-    .replaceAll('`', '')
+    return input
+        ?.replace(/<[^>]*>/g, '')
+        .replaceAll(' ', ' ')
+        .replaceAll('&nbsp;', ' ')
+        .replaceAll('&lt;', '<')
+        .replaceAll('&gt;', '>')
+        .replaceAll('`', '');
 }

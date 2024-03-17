@@ -1,5 +1,5 @@
-import { exeOnce } from '#common/utils/store/store-realm.js'
-import { typeof_ } from '#common/utils/etc/typeof_.js'
+import { exeOnce } from '#common/utils/store/store-realm.js';
+import { typeof_ } from '#common/utils/etc/typeof_.js';
 
 /**
  * 转化数据到特殊格式字符串
@@ -7,10 +7,10 @@ import { typeof_ } from '#common/utils/etc/typeof_.js'
  * @returns {string}
  */
 function convData(data) {
-  const type = typeof_(data)
-  const dataStr = type === 'object' ? JSON.stringify(data) : data.toString()
-  const prefix = `$<${type}>$`
-  return prefix + dataStr
+    const type = typeof_(data);
+    const dataStr = type === 'object' ? JSON.stringify(data) : data.toString();
+    const prefix = `$<${type}>$`;
+    return prefix + dataStr;
 }
 /**
  * 转化字符串到数据
@@ -18,26 +18,26 @@ function convData(data) {
  * @returns {any}
  */
 function parseData(dataStr) {
-  const prefixReg = /^\$<.+>\$/im
-  if (!prefixReg.test(dataStr)) return null
+    const prefixReg = /^\$<.+>\$/im;
+    if (!prefixReg.test(dataStr)) return null;
 
-  const type = dataStr.match(prefixReg)[0].replace(/[$<>]+/g, '')
-  const remainStr = dataStr.replace(prefixReg, '')
-  switch (type) {
-    case 'object':
-      return JSON.parse(remainStr)
-    case 'bigint':
-      return BigInt(remainStr)
-    case 'boolean':
-      return remainStr === 'true'
-    case 'number':
-      return Number(remainStr)
-    case 'function':
-      return () => remainStr
-    case 'string':
-    default:
-      return remainStr
-  }
+    const type = dataStr.match(prefixReg)[0].replace(/[$<>]+/g, '');
+    const remainStr = dataStr.replace(prefixReg, '');
+    switch (type) {
+        case 'object':
+            return JSON.parse(remainStr);
+        case 'bigint':
+            return BigInt(remainStr);
+        case 'boolean':
+            return remainStr === 'true';
+        case 'number':
+            return Number(remainStr);
+        case 'function':
+            return () => remainStr;
+        case 'string':
+        default:
+            return remainStr;
+    }
 }
 
 /**
@@ -47,15 +47,15 @@ function parseData(dataStr) {
  * @returns {Promise<void>}
  */
 export function setStore(key, value) {
-  return exeOnce((realm) => {
-    let newStore
-    realm.write(() => {
-      const oldStore = realm.objects('Store').filtered(`key = "${key}"`)?.[0]
-      oldStore && realm.delete(oldStore)
-      newStore = realm.create('Store', { key, value: convData(value) })
-    })
-    return newStore.toJSON()
-  })
+    return exeOnce((realm) => {
+        let newStore;
+        realm.write(() => {
+            const oldStore = realm.objects('Store').filtered(`key = "${key}"`)?.[0];
+            oldStore && realm.delete(oldStore);
+            newStore = realm.create('Store', { key, value: convData(value) });
+        });
+        return newStore.toJSON();
+    });
 }
 
 /**
@@ -64,11 +64,11 @@ export function setStore(key, value) {
  * @returns {Promise<void>}
  */
 export function getStore(key) {
-  return exeOnce((realm) => {
-    const all = realm.objects('Store')
-    const storeObj = all.filtered('key=$0', key)?.[0]?.toJSON()
-    return parseData(storeObj?.value)
-  })
+    return exeOnce((realm) => {
+        const all = realm.objects('Store');
+        const storeObj = all.filtered('key=$0', key)?.[0]?.toJSON();
+        return parseData(storeObj?.value);
+    });
 }
 
 /**
@@ -77,11 +77,11 @@ export function getStore(key) {
  * @returns {Promise<void>}
  */
 export function deleteStore(key) {
-  return exeOnce((realm) => {
-    realm.write(() => {
-      realm.delete(realm.objects('Store').filtered('key=$0', key))
-    })
-  })
+    return exeOnce((realm) => {
+        realm.write(() => {
+            realm.delete(realm.objects('Store').filtered('key=$0', key));
+        });
+    });
 }
 
 /**
@@ -90,9 +90,9 @@ export function deleteStore(key) {
  * @returns {Promise<void>}
  */
 export function clearStore() {
-  return exeOnce((realm) => {
-    realm.write(() => {
-      realm.delete(realm.objects('Store'))
-    })
-  })
+    return exeOnce((realm) => {
+        realm.write(() => {
+            realm.delete(realm.objects('Store'));
+        });
+    });
 }

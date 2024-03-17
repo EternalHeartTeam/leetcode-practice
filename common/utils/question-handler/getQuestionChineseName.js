@@ -4,5 +4,5 @@
  * @returns {`${string}.${string}`}
  */
 export function getQuestionChineseName(question) {
-  return `${question.id}.${question.title}`
+    return `${question.id}.${question.title}`;
 }

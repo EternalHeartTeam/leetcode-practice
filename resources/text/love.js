@@ -1,1 +1,1 @@
-export const love = `Made with ❤️ by EternalHeart team.`
+export const love = `Made with ❤️ by EternalHeart team.`;

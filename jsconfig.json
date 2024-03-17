@@ -1,9 +1,9 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "#common/*": ["./common/*"],
-      "#resources/*": ["./resources/*"]
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "#common/*": ["./common/*"],
+            "#resources/*": ["./resources/*"]
+        }
     }
-  }
 }

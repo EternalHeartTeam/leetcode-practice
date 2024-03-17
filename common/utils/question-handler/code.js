@@ -1,10 +1,7 @@
-import fs from 'node:fs'
-import { getQuestionCodeList } from '#common/utils/question-getter/getQuestionCodeList.js'
-import {
-  getLangByExtension,
-  setLineComment
-} from '#common/utils/question-handler/questionLanguage.js'
-import { DefaultLang } from '#common/constants/question.const.js'
+import fs from 'node:fs';
+import { getQuestionCodeList } from '#common/utils/question-getter/getQuestionCodeList.js';
+import { getLangByExtension, setLineComment } from '#common/utils/question-handler/questionLanguage.js';
+import { DefaultLang } from '#common/constants/question.const.js';
 
 /**
  * 获取代码
@@ -13,8 +10,8 @@ import { DefaultLang } from '#common/constants/question.const.js'
  * @returns {Promise<*>}
  */
 export async function getCodeBySlug(slug, lang) {
-  const list = await getQuestionCodeList(slug)
-  return list?.find((o) => o.langSlug === lang)?.code
+    const list = await getQuestionCodeList(slug);
+    return list?.find((o) => o.langSlug === lang)?.code;
 }
 /**
  * 获取支持的代码语言
@@ -22,8 +19,8 @@ export async function getCodeBySlug(slug, lang) {
  * @returns {Promise<string[]>}
  */
 export async function getSupportCode(slug) {
-  const list = await getQuestionCodeList(slug)
-  return list.map((code) => code?.langSlug)
+    const list = (await getQuestionCodeList(slug)) ?? [];
+    return list?.map((code) => code?.langSlug);
 }
 
 /**
@@ -33,28 +30,20 @@ export async function getSupportCode(slug) {
  * @returns {*|string}
  */
 export function getCodeRange(lang, code) {
-  if (!code) {
-    return setLineComment(
-      lang,
-      `!important: 此题目没有当前语言[${lang}]的代码模板!`
-    )
-  }
-  return `${setLineComment(lang, '@QUESTION_START') + code}\n${setLineComment(
-    lang,
-    '@QUESTION_END'
-  )}`
+    if (!code) return setLineComment(lang, `!important: 此题目没有当前语言[${lang}]的代码模板!`);
+    return `${setLineComment(lang, '@QUESTION_START') + code}\n${setLineComment(lang, '@QUESTION_END')}`;
 }
 /**
  * 获取文件中的代码部分
  */
 export function getCodeInFile(filePath) {
-  const lang = getLangByExtension(filePath)?.lang ?? DefaultLang
-  const data = fs.readFileSync(filePath, 'utf-8')
-  const startTag = setLineComment(lang, '@QUESTION_START')
-  const endTag = setLineComment(lang, '@QUESTION_END')
-  const rangeReg = new RegExp(`${startTag}.*${endTag}`, 'ms')
-  const rangeTagReg = new RegExp(`(${startTag}|${endTag})+`, 'mg')
-  const match = data.match(rangeReg)
-  if (!match) return null
-  return match[0]?.replace(rangeTagReg, '')
+    const lang = getLangByExtension(filePath)?.lang ?? DefaultLang;
+    const data = fs.readFileSync(filePath, 'utf-8');
+    const startTag = setLineComment(lang, '@QUESTION_START');
+    const endTag = setLineComment(lang, '@QUESTION_END');
+    const rangeReg = new RegExp(`${startTag}.*${endTag}`, 'ms');
+    const rangeTagReg = new RegExp(`(${startTag}|${endTag})+`, 'mg');
+    const match = data.match(rangeReg);
+    if (!match) return null;
+    return match[0]?.replace(rangeTagReg, '');
 }
