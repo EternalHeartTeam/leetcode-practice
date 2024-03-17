@@ -8,7 +8,8 @@ import { getPlanQuestionList } from '#common/utils/question-getter/getPlanQuesti
 import { logger } from '#common/utils/logger/logger.js';
 import { getQuestionListCodeBySlug, getQuestionListCodeByTag } from '#common/utils/question-handler/getQuestionListCodeBy.js';
 import { getQuestionTagType } from '#common/utils/question-getter/getQuestionTagType.js';
-import { getAllQuestion } from '#common/utils/store/controller/allQuestion.js';
+import { getAllQuestion, setAllQuestion } from '#common/utils/store/controller/allQuestion.js';
+import { getAllQuestionList } from '#common/utils/question-getter/getAllQuestionList.js';
 
 function handleQuestionList(list) {
     const questionList = [];
@@ -126,8 +127,26 @@ async function selectMode(baseDir = process.cwd()) {
     };
     const chooseTag = await select(tagQuestion);
     const allQuestion = await getAllQuestion();
-    const tagQuestionList = await allQuestion.filter((question) => question.topicTags.some((topic) => topic.slug === chooseTag));
-
+    // 未发现题目 所以先自动拉取题目
+    if (!allQuestion?.length) {
+        logger.info('本地数据库未初始化,自动执行初始化流程,请稍等~');
+        try {
+            const allQuestionData = await getAllQuestionList();
+            await setAllQuestion(allQuestionData);
+            const newData = await getAllQuestion();
+            allQuestion.push(...newData);
+        } catch (e) {
+            logger.error('初始化失败!终止.');
+            process.exit(0);
+        } finally {
+            logger.info('本地数据库初始化完成.');
+        }
+    }
+    const tagQuestionList = allQuestion.filter((question) => question.topicTags?.some((topic) => topic.slug === chooseTag));
+    if (!tagQuestionList?.length) {
+        logger.info('您选择的类型暂无可拉取题目~');
+        process.exit(0);
+    }
     const createMode = await select({
         message: '拉题模式',
         choices: [
@@ -135,7 +154,6 @@ async function selectMode(baseDir = process.cwd()) {
             { name: '全部拉取(不穩定)', value: 'all' }
         ]
     });
-
     if (createMode === 'single') {
         const singleMode = {
             type: 'list',
