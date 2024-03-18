@@ -1,4 +1,4 @@
-**中文** · [English](./CONTRIBUTORS.md)
+**中文** · [English](./CONTRIBUTING.md)
 
 # 贡献者
 

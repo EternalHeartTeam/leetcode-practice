@@ -15,7 +15,6 @@ assignees: ''
 <!-- A clear and concise description of what the bug is. -->
 <!-- 清晰的描述下遇到的问题。-->
 
-
 <!-- 为节约大家的时间，无复现步骤的 ISSUE 会被关闭，提供之后再 REOPEN -->
 
 ## How To Reproduce
@@ -28,6 +27,6 @@ assignees: ''
 
 ## Context
 
-- **leetcode-practice Version**:
-- **Node Version**:
-- **Platform**:
+-   **leetcode-practice Version**:
+-   **Node Version**:
+-   **Platform**:
