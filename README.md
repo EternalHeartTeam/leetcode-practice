@@ -279,7 +279,7 @@ The development and improvement of the project would not be possible without the
 
 ### 2. How to Contribute
 
-If you share a passion for open source and would like to contribute to our open source initiative, please refer to our [contribution guidelines](./CONTRIBUTORS.md).
+If you share a passion for open source and would like to contribute to our open source initiative, please refer to our [contribution guidelines](./.github/CONTRIBUTING.md).
 
 ### 3. Feedback
 

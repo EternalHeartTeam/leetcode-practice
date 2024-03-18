@@ -1,4 +1,4 @@
-[中文](./CONTRIBUTORS_CN.md) · **English**
+[中文](./CONTRIBUTING_CN.md) · **English**
 
 # Contributor
 
