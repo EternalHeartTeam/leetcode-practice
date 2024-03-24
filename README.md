@@ -232,12 +232,12 @@ npm i -D leetcode-practice
 
 #### [1]. lk
 
-| Short Parameter        | Full Parameter | Explanation                                                                                                                                       |
-| ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No parameter / `-t`    | `--today`      | Check today's daily question                                                                                                                      |
-| Question number / `-i` | `--identity`   | Check the question corresponding to the specified number, and check if the question with the specified ID exists in the current working directory |
-| `-r`                   | `--random`     | Check the question created using the random mode last time                                                                                        |
-| `-e`                   | `--easy`       | Interactive check of the corresponding question based on prompts                                                                                  |
+| Short Parameter                   | Full Parameter          | Explanation                                                                                                                                       |
+| --------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| No parameter / `-t`               | `--today`               | Check today's daily question                                                                                                                      |
+| Question number / `-i <identity>` | `--identity <identity>` | Check the question corresponding to the specified number, and check if the question with the specified ID exists in the current working directory |
+| `-r`                              | `--random`              | Check the question created using the random mode last time                                                                                        |
+| `-e`                              | `--easy`                | Interactive check of the corresponding question based on prompts                                                                                  |
 
 > Note: When checking, please pay attention to what mode to use for checking, and make sure that you have performed the corresponding mode creation operation.
 > The specified ID mode is an exception because it will check whether the specified ID exists in the current working directory.
@@ -250,12 +250,13 @@ npm i -D leetcode-practice
 
 #### [3]. lc
 
-| Short Parameter        | Full Parameter | Explanation                                                             |
-| ---------------------- | -------------- | ----------------------------------------------------------------------- |
-| No parameter / `-t`    | `--today`      | Create today's daily question                                           |
-| Question number / `-i` | `--identity`   | Create the question corresponding to the specified number               |
-| `-r`                   | `--random`     | Create a random question that has not appeared in the current directory |
-| `-e`                   | `--easy`       | Interactive creation of questions                                       |
+| Short Parameter                   | Full Parameter          | Explanation                                                                             |
+| --------------------------------- | ----------------------- | --------------------------------------------------------------------------------------- |
+| No parameter / `-t`               | `--today`               | Create today's daily question                                                           |
+| Question number / `-i <identity>` | `--identity <identity>` | Create the question corresponding to the specified number                               |
+| `-r`                              | `--random`              | Create a random question that has not appeared in the current directory                 |
+| `-e`                              | `--easy`                | Interactive creation of questions                                                       |
+| `-a`                              | `--all`                 | Fetch all questions from server and store them locally, prepare database for lf command |
 
 #### [4]. General Parameters
 
@@ -263,6 +264,7 @@ npm i -D leetcode-practice
 | ---------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `-d <directory>` | `--directory <directory>` | Specify the working directory (a relative address of the current execution directory), which will affect the creation and checking                                                                                                          |
 | `-V`             | `--version`               | Check the version number                                                                                                                                                                                                                    |
+| `-v`             | `--ver`                   | Check the version info and some extra info about leetcode-practice                                                                                                                                                                          |
 | `-h`             | `--help`                  | Get help information                                                                                                                                                                                                                        |
 | `-l [language]`  | `--language [language]`   | Without specifying a parameter, get the current language environment (default is JavaScript). Specifying a parameter can set the language environment to the corresponding language (e.g., `-l java` sets the language environment to Java) |
 | `-u`             | `--update`                | Update the current script or dependency                                                                                                                                                                                                     |
