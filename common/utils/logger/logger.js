@@ -34,7 +34,7 @@ class LOGGER {
      */
     info(message, ...args) {
         if (this.forbidden) return;
-        console.log(chalk.blue(message, ...args));
+        console.log(chalk.whiteBright(message, ...args));
     }
 
     /**
@@ -44,7 +44,7 @@ class LOGGER {
      */
     warn(message, ...args) {
         if (this.forbidden) return;
-        console.log(chalk.yellow(message, ...args));
+        console.log(chalk.yellowBright(message, ...args));
     }
 
     /**
@@ -54,7 +54,7 @@ class LOGGER {
      */
     error(message, ...args) {
         if (this.forbidden) return;
-        console.log(chalk.red(message, ...args));
+        console.log(chalk.redBright(message, ...args));
     }
 }
 const { env = null } = (await getStore('config')) ?? {};

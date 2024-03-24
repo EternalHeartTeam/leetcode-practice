@@ -1,12 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { rootPath } from '#common/utils/file/getRootPath.js';
-import { GITEE_URL, GITHUB_HOST, GITHUB_RAW, NPM_URL, PackageName } from '#common/constants/question.const.js';
+import { GITEE_URL, GITHUB_HOST, GITHUB_RAW, NPM_REGISTRY_URL, PackageName } from '#common/constants/question.const.js';
 import { url_join } from '#common/utils/http/urlJoin.js';
 import { fetch_ } from '#common/utils/http/fetch_.js';
 
 // npm 中的 包地址
-const npmUrl = url_join(NPM_URL, PackageName);
+const npmUrl = url_join(NPM_REGISTRY_URL, PackageName);
 const githubUrl = url_join(GITHUB_RAW, GITHUB_HOST, PackageName, 'master/package.json');
 const giteeUrl = url_join(GITEE_URL, GITHUB_HOST, PackageName, 'raw', 'master/package.json');
 
