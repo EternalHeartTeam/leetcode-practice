@@ -1,3 +1,11 @@
+## [1.0.9](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.9-5...cli-v1.0.9) (2024-03-24)
+
+### Features
+
+-   add -v command to check info ([#74](https://github.com/wh131462/leetcode-practice/issues/74)) ([529a501](https://github.com/wh131462/leetcode-practice/commit/529a5015b4797d226fa4a1009326ba2ab67458fe))
+-   add pr and issue template ([#69](https://github.com/wh131462/leetcode-practice/issues/69)) ([ae28bd0](https://github.com/wh131462/leetcode-practice/commit/ae28bd0f3abf3ca0422e32fffaea05ba62dd504f))
+-   **security policy:** Create SECURITY.md ([#71](https://github.com/wh131462/leetcode-practice/issues/71)) ([2322cd0](https://github.com/wh131462/leetcode-practice/commit/2322cd0f4b5693173591e4b14b29c7f22b4a7103))
+
 ## [1.0.9-5](https://github.com/wh131462/leetcode-practice/compare/cli-v1.0.9-4...cli-v1.0.9-5) (2024-03-17)
 
 ### Features
