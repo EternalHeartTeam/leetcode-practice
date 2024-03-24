@@ -13,7 +13,8 @@ Examples:
   $ lc -u       // Check the version to determine whether to update to the latest one.
   $ lc -l       // Get the code language of question.
   $ lc -l java  // Set the code language of question.
-  $ lc -v       // Check the CLI version.
+  $ lc -a       // Fetch all questions from server and store them locally, prepare database for lf command.
+  $ lc -v       // Check the version info and some extra info about leetcode-practice.
   $ lc -h       // Check the help information.
   
 `;
@@ -33,7 +34,7 @@ Examples:
   $ lk -l       // Get the code language of question.
   $ lk -l java  // Set the code language of question.
   $ lk -u       // Check the version to determine whether to update to the latest one.
-  $ lk -v       // Check the CLI version.
+  $ lk -v       // Check the version info and some extra info about leetcode-practice.
   $ lk -h       // Display the help information.
   
 `;
@@ -41,16 +42,16 @@ Examples:
 export const lfExamples = `
 Examples:
   # Command with no parameters
-
+  nothing...
   # Exclusive commands
-
+  nothing...
   # Other instructions
   $ lf -e       // Easy mode to check a question.
   $ lf -d src   // Use the relative path to the source folder.
   $ lf -l       // Get the code language of question.
   $ lf -l java  // Set the code language of question.
   $ lf -u       // Check the version to determine whether to update to the latest one.
-  $ lf -v       // Check the CLI version.
+  $ lf -v       // Check the version info and some extra info about leetcode-practice.
   $ lf -h       // Display the help information.
   
 `;

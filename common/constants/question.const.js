@@ -10,7 +10,10 @@ export const GITHUB_HOST = 'EternalHeartTeam';
 // endregion
 // region 域名列表
 // npm 主域名
-export const NPM_URL = 'https://registry.npmjs.org/';
+export const NPM_URL = 'https://npmjs.org/';
+// npm 仓库域名
+export const NPM_REGISTRY_URL = 'https://registry.npmjs.org/';
+
 // github raw 主域名
 export const GITHUB_RAW = 'https://raw.githubusercontent.com/';
 // github

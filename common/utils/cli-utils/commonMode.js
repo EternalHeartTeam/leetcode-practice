@@ -6,6 +6,7 @@ import { easyLanguageView } from '#common/view/language.view.js';
 import { logger } from '#common/utils/logger/logger.js';
 import { rootPath } from '#common/utils/file/getRootPath.js';
 import { currentEnv } from '#common/utils/etc/checkEnv.js';
+import { checkVisionInfo } from '#common/utils/etc/checkVisionInfo.js';
 
 /**
  * 执行逻辑:
@@ -45,8 +46,13 @@ export async function commonMode(cmdOpts, easyCallback) {
         }
         process.exit(0);
     }
+    // 简单模式
     if (cmdOpts.easy) {
         await easyCallback(baseDir);
+        process.exit(0);
+    }
+    if (cmdOpts.ver) {
+        await checkVisionInfo();
         process.exit(0);
     }
     // 检测更新

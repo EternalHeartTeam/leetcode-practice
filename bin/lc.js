@@ -31,6 +31,7 @@ program
     .option('-d, --directory <directory>', 'Set the question directory.')
     .option('-l, --language [language]', 'Set/Get the code language of question.')
     .option('-a, --all', 'Get all questions.')
+    .option('-v, --ver', 'Check the version info and some extra info about leetcode-practice.')
     .option('-u, --update', 'Check the version to determine whether to update to the latest one.')
     .parse(process.argv);
 
