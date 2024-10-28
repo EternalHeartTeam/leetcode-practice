@@ -64,7 +64,7 @@
         "@vitest/coverage-v8": "^1.2.2",
         "commitizen": "^4.2.5",
         "cz-conventional-changelog": "^3.3.0",
-        "esbuild": "^0.20.0",
+        "esbuild": "^0.24.0",
         "eslint": "^9.0.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-prettier": "^9.1.0",
