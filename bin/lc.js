@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import { DefaultVer } from '#common/constants/question.const.js';
 import { commonMode } from '#common/utils/cli-utils/commonMode.js';
 import { create } from '#common/utils/cli-utils/create.js';
@@ -15,7 +16,6 @@ import { artFontLogo } from '#resources/text/art-font-logo.js';
 import { description } from '#resources/text/description.js';
 import { lcExamples } from '#resources/text/examples.js';
 import { love } from '#resources/text/love.js';
-#! /usr/bin/env node
 import { program } from 'commander';
 
 const version = process.env.VERSION ?? DefaultVer
