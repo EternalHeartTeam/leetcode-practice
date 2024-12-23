@@ -4,6 +4,7 @@
  * @returns {string}
  */
 export function getQuestionFileName(question) {
-    if (!question || !question?.id) return '';
-    return `${question.id}.${question.slug}`;
+  if (!question || !question?.id)
+    return ''
+  return `${question.id}.${question.slug}`
 }

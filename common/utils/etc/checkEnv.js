@@ -5,14 +5,14 @@
  * project: file:///Users/mac-106/wh131462/workspace/leetcode-practice/common/utils/etc/checkEnv.js
  */
 export function currentEnv() {
-    const url = import.meta.url;
-    const projectReg = /etc\/checkEnv.js$/im;
-    return projectReg.test(url) ? 'project' : 'cli';
+  const url = import.meta.url
+  const projectReg = /etc\/checkEnv.js$/im
+  return projectReg.test(url) ? 'project' : 'cli'
 }
 
 /**
  * 检查npm安装时的位置
  */
 export function npmEnv() {
-    return true ? 'global' : 'module';
+  return true ? 'global' : 'module'
 }

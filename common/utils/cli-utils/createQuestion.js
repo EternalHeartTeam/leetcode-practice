@@ -1,7 +1,7 @@
-import { getQuestionById } from '#common/utils/question-getter/getQuestionById.js';
-import { getQuestionIdBySlug } from '#common/utils/question-handler/getQuestionIdBySlug.js';
-import { logger } from '#common/utils/logger/logger.js';
-import { create } from '#common/utils/cli-utils/create.js';
+import { create } from '#common/utils/cli-utils/create.js'
+import { logger } from '#common/utils/logger/logger.js'
+import { getQuestionById } from '#common/utils/question-getter/getQuestionById.js'
+import { getQuestionIdBySlug } from '#common/utils/question-handler/getQuestionIdBySlug.js'
 
 /**
  * 通过指定的titleSlug创建题目
@@ -10,8 +10,8 @@ import { create } from '#common/utils/cli-utils/create.js';
  * @returns {Promise<void>}
  */
 export async function createQuestionByTitleSlug(titleSlug, baseDir = process.cwd()) {
-    const { question } = await getQuestionIdBySlug(titleSlug);
-    await createQuestionById(question.questionId, baseDir);
+  const { question } = await getQuestionIdBySlug(titleSlug)
+  await createQuestionById(question.questionId, baseDir)
 }
 
 /**
@@ -21,7 +21,8 @@ export async function createQuestionByTitleSlug(titleSlug, baseDir = process.cwd
  * @returns {Promise<void>}
  */
 export async function createQuestionById(id, baseDir = process.cwd()) {
-    const question = await getQuestionById(id);
-    if (!question?.id) logger.warn(`指定编号: [ ${id} ] 题目不存在.`);
-    await create('identity', question, baseDir);
+  const question = await getQuestionById(id)
+  if (!question?.id)
+    logger.warn(`指定编号: [ ${id} ] 题目不存在.`)
+  await create('identity', question, baseDir)
 }

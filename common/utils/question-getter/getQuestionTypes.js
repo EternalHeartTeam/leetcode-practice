@@ -1,5 +1,5 @@
-import { getQuestionTypesJson } from '#resources/headers/questionTypeJson.js';
-import { graphql } from '#common/utils/http/graphql.js';
+import { graphql } from '#common/utils/http/graphql.js'
+import { getQuestionTypesJson } from '#resources/headers/questionTypeJson.js'
 
 /**
  * 获取问题的类型
@@ -23,8 +23,8 @@ import { graphql } from '#common/utils/http/graphql.js';
  * @returns {Promise<*>}
  */
 export async function getQuestionTypes() {
-    const res = await graphql(getQuestionTypesJson());
-    const tags = res.data?.questionTagTypeWithTags;
-    // logger.info(JSON.stringify(tags))
-    return tags;
+  const res = await graphql(getQuestionTypesJson())
+  const tags = res.data?.questionTagTypeWithTags
+  // logger.info(JSON.stringify(tags))
+  return tags
 }

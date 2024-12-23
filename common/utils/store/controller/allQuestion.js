@@ -1,28 +1,30 @@
-import { exeOnce } from '#common/utils/store/store-realm.js';
+import { exeOnce } from '#common/utils/store/store-realm.js'
 
-const oSign = '$object$';
+const oSign = '$object$'
 /**
  * 读取的时候:从对象的字符串转化到对象的对象
  * @param obj
  */
 function parseQuestion(obj) {
-    if (!obj) return null;
-    return Object.entries(obj).reduce((pre, [k, v]) => {
-        pre[k] = typeof v == 'string' && v.startsWith(oSign) ? JSON.parse(v.replace(oSign, '')) : v;
-        return pre;
-    }, {});
+  if (!obj)
+    return null
+  return Object.entries(obj).reduce((pre, [k, v]) => {
+    pre[k] = typeof v == 'string' && v.startsWith(oSign) ? JSON.parse(v.replace(oSign, '')) : v
+    return pre
+  }, {})
 }
 /**
  * 存入的时候:从对象的对象属性转化到字符串
  */
 function stringifyQuestion(obj) {
-    if (!obj) return null;
-    return (
-        Object.entries(obj)?.reduce((pre, [key, value]) => {
-            pre[key] = value != null && typeof value === 'object' ? oSign + JSON.stringify(value) : value;
-            return pre;
-        }, {}) ?? {}
-    );
+  if (!obj)
+    return null
+  return (
+    Object.entries(obj)?.reduce((pre, [key, value]) => {
+      pre[key] = value != null && typeof value === 'object' ? oSign + JSON.stringify(value) : value
+      return pre
+    }, {}) ?? {}
+  )
 }
 
 /**
@@ -31,10 +33,10 @@ function stringifyQuestion(obj) {
  * @returns {Promise<void>}
  */
 export function getOneQuestion(id) {
-    return exeOnce((realm) => {
-        const question = realm.objectForPrimaryKey('AllQuestion', id);
-        return parseQuestion(question?.toJSON());
-    });
+  return exeOnce((realm) => {
+    const question = realm.objectForPrimaryKey('AllQuestion', id)
+    return parseQuestion(question?.toJSON())
+  })
 }
 
 /**
@@ -43,13 +45,13 @@ export function getOneQuestion(id) {
  * @returns {*}
  */
 export function setOneQuestion(question) {
-    return exeOnce((realm) => {
-        let newQuestion;
-        realm.write(() => {
-            newQuestion = realm.create('AllQuestion', stringifyQuestion(question), true);
-        });
-        return newQuestion?.toJSON();
-    });
+  return exeOnce((realm) => {
+    let newQuestion
+    realm.write(() => {
+      newQuestion = realm.create('AllQuestion', stringifyQuestion(question), true)
+    })
+    return newQuestion?.toJSON()
+  })
 }
 
 /**
@@ -57,10 +59,10 @@ export function setOneQuestion(question) {
  * @returns {unknown}
  */
 export function getAllQuestion() {
-    return exeOnce((realm) => {
-        const all = realm.objects('AllQuestion');
-        return all?.toJSON()?.map(parseQuestion);
-    });
+  return exeOnce((realm) => {
+    const all = realm.objects('AllQuestion')
+    return all?.toJSON()?.map(parseQuestion)
+  })
 }
 
 /**
@@ -69,26 +71,27 @@ export function getAllQuestion() {
  * @returns {*}
  */
 export function setAllQuestion(questions) {
-    return exeOnce((realm) => {
-        const newQuestions = [];
-        realm.write(() => {
-            for (const question of questions) {
-                const data = stringifyQuestion(question);
-                if (!data?.questionId) continue;
-                newQuestions.push(realm.create('AllQuestion', data, true));
-            }
-        });
-        return newQuestions;
-    });
+  return exeOnce((realm) => {
+    const newQuestions = []
+    realm.write(() => {
+      for (const question of questions) {
+        const data = stringifyQuestion(question)
+        if (!data?.questionId)
+          continue
+        newQuestions.push(realm.create('AllQuestion', data, true))
+      }
+    })
+    return newQuestions
+  })
 }
 
 /**
  * 删除全部
  */
 export function deleteAllQuestion() {
-    return exeOnce((realm) => {
-        realm.write(() => {
-            realm.delete(realm.objects('AllQuestion'));
-        });
-    });
+  return exeOnce((realm) => {
+    realm.write(() => {
+      realm.delete(realm.objects('AllQuestion'))
+    })
+  })
 }

@@ -1,5 +1,5 @@
-import path from 'node:path';
+import path from 'node:path'
 
 export function parseFilePath(oldPath) {
-    return `\"${path.normalize(oldPath)}\"`;
+  return `\"${path.normalize(oldPath)}\"`
 }

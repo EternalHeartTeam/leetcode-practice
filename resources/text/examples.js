@@ -17,7 +17,7 @@ Examples:
   $ lc -v       // Check the version info and some extra info about leetcode-practice.
   $ lc -h       // Check the help information.
   
-`;
+`
 
 export const lkExamples = `
 Examples:
@@ -37,7 +37,7 @@ Examples:
   $ lk -v       // Check the version info and some extra info about leetcode-practice.
   $ lk -h       // Display the help information.
   
-`;
+`
 
 export const lfExamples = `
 Examples:
@@ -54,4 +54,4 @@ Examples:
   $ lf -v       // Check the version info and some extra info about leetcode-practice.
   $ lf -h       // Display the help information.
   
-`;
+`

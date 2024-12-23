@@ -1,5 +1,5 @@
-import { expect, it } from 'vitest';
-import { getDataStructure } from '#common/utils/question-handler/parseStructure.js';
+import { getDataStructure } from '#common/utils/question-handler/parseStructure.js'
+import { expect, it } from 'vitest'
 
 const jsDoc = `/**
 * Definition for singly-linked list.
@@ -50,11 +50,11 @@ const mergeLists = (lists, start, end) => {
  return merge(head1, head2);
 };
 return mergeLists(lists, 0, lists.length);
-};`;
+};`
 
 it('测试', () => {
-    const param = getDataStructure(jsDoc);
-    const returnArray = getDataStructure(jsDoc, 'return');
-    expect(param).toEqual(['ListNode[]']);
-    expect(returnArray).toEqual(['ListNode']);
-});
+  const param = getDataStructure(jsDoc)
+  const returnArray = getDataStructure(jsDoc, 'return')
+  expect(param).toEqual(['ListNode[]'])
+  expect(returnArray).toEqual(['ListNode'])
+})
