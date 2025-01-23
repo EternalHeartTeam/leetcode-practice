@@ -284,7 +284,7 @@ npm i -D leetcode-practice
 
 グループで開発者と対面してコミュニケーションを取り、新たなアイデアを生み出すことを願っています！
 
-![フィードバックグループ](./resources/images/service-qrcode.png)
+![フィードバックグループ](./resources/images/service-qrcode.jpg)
 
 ### 4. Starのトレンドチャート
 

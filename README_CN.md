@@ -294,7 +294,7 @@ npm i -D leetcode-practice
 
 在群里和开发者面对面的交流，希望我们能产生共鸣，迸发出新的火花!
 
-![反馈群](./resources/images/service-qrcode.png)
+![反馈群](./resources/images/service-qrcode.jpg)
 
 ### 4.Star趋势图
 

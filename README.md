@@ -289,7 +289,7 @@ If you have any questions about usage or would like to offer some suggestions, f
 
 Engage in face-to-face discussions with developers in the group, hoping to resonate with each other and spark new ideas!
 
-![Feedback Group](./resources/images/service-qrcode.png)
+![Feedback Group](./resources/images/service-qrcode.jpg)
 
 ### 4. Star Trend Chart
 
